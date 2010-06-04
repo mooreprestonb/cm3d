@@ -1,0 +1,28 @@
+
+BASE = $(HOME)/md/md/cm3d
+NAME = cm3d.ibm
+
+# common definitions...
+RM = rm -f
+CC = xlc
+F77 = xlf
+CPP = /usr/lib/cpp
+CP = /bin/cp
+AR = /bin/ar
+MV = /bin/mv
+
+# Compiler flages, paths for include files and libraries
+
+DEFINES = -DIBM
+CFLAGS = $(DEFINES)
+FFLAGS =   
+
+OPT = -O3 -qstrict
+LIBS = -lessl -lm
+
+LD   = $(F77)  
+ARFLAGS = ruv
+RANLIB = ranlib
+
+include Makefile.cm3d
+

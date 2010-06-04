@@ -1,0 +1,799 @@
+\section{energy/proto\_\-energy.h File Reference}
+\label{energy_2proto__energy_8h}\index{energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf force} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int)
+\item 
+void {\bf getvireal} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf ENERGIES} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int)
+\item 
+void {\bf geteng} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf ENERGIES} $\ast$)
+\item 
+void {\bf force\_\-extern} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, int)
+\item 
+void {\bf getvextern} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, int)
+\item 
+void {\bf freeze\_\-atom} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf get\_\-p2mt} (int natoms, double[$\,$], double[$\,$], double[$\,$], double[$\,$], double[9])
+\item 
+void {\bf set\_\-exclude} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter)
+\item 
+void {\bf force\_\-ter} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$inter, {\bf NGBR} $\ast$ngbr, int iflg)
+\item 
+void {\bf getvirter} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, double $\ast$, double $\ast$, double $\ast$, double[9])
+\item 
+void {\bf fcinter} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, double $\ast$$\ast$)
+\item 
+void {\bf fcintern} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, double $\ast$$\ast$)
+\item 
+void {\bf get\_\-ngbr} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)
+\item 
+void {\bf check\_\-distance} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$)
+\item 
+void {\bf getnpair} ({\bf NGBR} $\ast$)
+\item 
+void {\bf nrefsh} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)
+\item 
+double {\bf pot\_\-inter} (double $\ast$px, double $\ast$py, double $\ast$pz)
+\item 
+void {\bf allocate\_\-lists} (int natoms, int nlen, {\bf NGBR} $\ast$ngbr, {\bf COORDS} $\ast$coords, int $\ast$mem)
+\item 
+void {\bf free\_\-lists} ({\bf NGBR} $\ast$ngbr, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf force\_\-npol} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, int, int $\ast$, int $\ast$, int, int $\ast$, {\bf INTER} $\ast$, int)
+\item 
+void {\bf vinter\_\-npol} (int, int $\ast$, int $\ast$, int $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, int, int $\ast$$\ast$, double $\ast$, double $\ast$, double $\ast$, int, double $\ast$$\ast$, double $\ast$$\ast$, double $\ast$, double $\ast$, double $\ast$, double[9], int)
+\item 
+void {\bf getsvirter} (double $\ast$, double $\ast$, double $\ast$, double[9])
+\item 
+void {\bf zero\_\-potl} (void)
+\item 
+void {\bf check\_\-distance\_\-e} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter)
+\item 
+void {\bf force\_\-ter\_\-e} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int iflg)
+\item 
+void {\bf getvirter\_\-e} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, double $\ast$, double $\ast$, double[$\,$], int)
+\item 
+void {\bf ewald\_\-setup} ({\bf SIMPARMS} $\ast$, {\bf COUL} $\ast${\bf coul}, double $\ast$qch, int kmax, double alpha)
+\item 
+void {\bf k\_\-ewald} ({\bf COORDS} $\ast$coords, double $\ast$vkspace)
+\item 
+void {\bf fk\_\-ewald} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf getvewald} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double[9])
+\item 
+void {\bf ecorr} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf r\_\-ewald} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$vrspace)
+\item 
+void {\bf fr\_\-ewald} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf allocate\_\-lists\_\-e} (int ncharge, {\bf NGBR} $\ast$ngbr, int $\ast$mem)
+\item 
+void {\bf zero\_\-pote} (void)
+\item 
+void {\bf force\_\-e} (int, int, int $\ast$, int $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, int, int, int, int)
+\item 
+void {\bf vinter\_\-e} (int, int $\ast$, int $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, int iperd, double $\ast$spelec, double $\ast$spelech, double $\ast$swelec, double swelectensor[9], int, int, int)
+\item 
+void {\bf getsvirter\_\-e} (double $\ast$velec, double $\ast$welec, double welectensor[9])
+\item 
+void {\bf force\_\-dipole} (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$)
+\item 
+double {\bf pot\_\-dipole} (int nlen, double $\ast$dx, double $\ast$dy, double $\ast$dz, double $\ast$qch, double $\ast$alpha)
+\item 
+void {\bf count\_\-charge} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int $\ast$, int $\ast$)
+\item 
+void {\bf set\_\-charges} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, {\bf STARTUP} $\ast$)
+\item 
+void {\bf set\_\-ecorr} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, int $\ast$, int $\ast$$\ast$)
+\item 
+void {\bf get\_\-ngbr\_\-e} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NGBR} $\ast$ngbr)
+\item 
+void {\bf ngbr\_\-liste} (int, int $\ast$, int $\ast$, int, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int)
+\item 
+void {\bf cnt\_\-ngbr\_\-liste} (int, int $\ast$, int $\ast$, int, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, int $\ast$, int $\ast$, int)
+\item 
+void {\bf get\_\-lnklist} (int natoms, int ncell, int $\ast$head, int $\ast$llist, int iperd, double $\ast$hmat, double $\ast$x, double $\ast$y, double $\ast$z)
+\item 
+void {\bf set\_\-link} ({\bf SIMPARMS} $\ast$, {\bf NGBR} $\ast$, double $\ast$, double, double)
+\item 
+void {\bf get\_\-lnklist\_\-e} (int natoms, int ncell, int $\ast$head, int $\ast$llist, int iperd, double $\ast$hmat, double $\ast$x, double $\ast$y, double $\ast$z, double $\ast$q)
+\item 
+void {\bf count\_\-link\_\-pair} (int ncell, int iperd, double hmat[$\,$], int ibegin, int iend, int $\ast$nvdw, int $\ast$nelec, double rmax, double rmaxe)
+\item 
+void {\bf exclude\_\-bonds} (int $\ast$, int $\ast$$\ast$, {\bf BONDS} $\ast$)
+\item 
+void {\bf fbond} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf getvbond} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double[9])
+\item 
+void {\bf fcbond} ({\bf COORDS} $\ast$, double $\ast$$\ast$)
+\item 
+void {\bf fcbondn} ({\bf COORDS} $\ast$, double $\ast$$\ast$)
+\item 
+double {\bf potbond} (double $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf exclude\_\-bends} (int $\ast$, int $\ast$$\ast$, {\bf BENDS} $\ast$)
+\item 
+void {\bf fbend} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf getvbend} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double[9])
+\item 
+void {\bf fcbend} ({\bf COORDS} $\ast$, double $\ast$$\ast$)
+\item 
+void {\bf fcbendn} ({\bf COORDS} $\ast$, double $\ast$$\ast$)
+\item 
+double {\bf potbend} (double $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf exclude\_\-bendquarts} (int $\ast$, int $\ast$$\ast$, {\bf BENDQUART} $\ast$)
+\item 
+void {\bf fbendquart} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf getvbendquart} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double[9])
+\item 
+double {\bf potbendquart} (double $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf exclude\_\-tors} (int $\ast$, int $\ast$$\ast$, {\bf TORS} $\ast$)
+\item 
+void {\bf ftors} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf getvtors} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double[9])
+\item 
+void {\bf fctors} ({\bf COORDS} $\ast$, double $\ast$$\ast$)
+\item 
+void {\bf fctorsn} ({\bf COORDS} $\ast$, double $\ast$$\ast$)
+\item 
+double {\bf pottors} (double $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf exclude\_\-onfo} (int $\ast$, int $\ast$$\ast$, {\bf ONFO} $\ast$)
+\item 
+void {\bf fonfo} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf getvonfo} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double[9], double[9])
+\item 
+void {\bf fconefour} ({\bf COORDS} $\ast$, double $\ast$$\ast$)
+\item 
+void {\bf fconefourn} ({\bf COORDS} $\ast$, double $\ast$$\ast$)
+\item 
+double {\bf pot\_\-onefour} (double $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf fbondx} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf getvbondx} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double[9])
+\item 
+void {\bf fcbondx} ({\bf COORDS} $\ast$, double $\ast$$\ast$)
+\item 
+void {\bf fcbondxn} ({\bf COORDS} $\ast$, double $\ast$$\ast$)
+\item 
+double {\bf potbondx} (double $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf func\_\-lj} (double, double $\ast$, double $\ast$, double $\ast$, double, double)
+\item 
+void {\bf func\_\-will} (double, double $\ast$, double $\ast$, double $\ast$, double, double, double, double, double)
+\item 
+void {\bf func\_\-aziz} (double, double $\ast$, double $\ast$, double $\ast$, double, double, double, double, double, double, double, double, double)
+\item 
+void {\bf func\_\-hydbnd} (double, double $\ast$, double $\ast$, double $\ast$, double, double)
+\item 
+void {\bf func\_\-kerf} (double, double $\ast$, double $\ast$, double $\ast$, double)
+\item 
+void {\bf func\_\-coul} (double, double $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf func\_\-hautman} (double x, double $\ast$f, double $\ast$df, double $\ast$d2f, double zmin, double c12, double c3)
+\item 
+void {\bf func\_\-lj64} (double, double $\ast$, double $\ast$, double $\ast$, double, double)
+\item 
+void {\bf func\_\-lj96} (double, double $\ast$, double $\ast$, double $\ast$, double, double)
+\item 
+void {\bf func\_\-tab\_\-pot} (FILE $\ast$, double, double $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf func\_\-dzug} (double, double $\ast$, double $\ast$, double $\ast$, double, double)
+\item 
+void {\bf diagonalize} (double $\ast$$\ast$, int, double $\ast$, double, double, int $\ast$, int $\ast$, int)
+\item 
+void {\bf find\_\-zeros} (int, double $\ast$, int $\ast$, int $\ast$, int $\ast$)
+\item 
+void {\bf pack} ({\bf SUBSPACE} $\ast$, int, int, double $\ast$, double $\ast$$\ast$)
+\item 
+void {\bf pack\_\-d2v} (int, {\bf SUBSPACE} $\ast$, int, double $\ast$$\ast$, double $\ast$, double $\ast$$\ast$, double $\ast$, int $\ast$, int)
+\item 
+void {\bf get\_\-subspace} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$, double $\ast$x2, double $\ast$y2, double $\ast$z2, {\bf SUBSPACE} $\ast${\bf subspace})
+\item 
+void {\bf get\_\-subvec} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf SUBSPACE} $\ast$)
+\item 
+void {\bf get\_\-grp\_\-fcmat} (int, int $\ast$, int, int $\ast$, double $\ast$$\ast$, {\bf SUBSPACE} $\ast$, int $\ast$, double $\ast$$\ast$$\ast$)
+\item 
+void {\bf fmat} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NMODES} $\ast${\bf nmodes})
+\item 
+void {\bf copy} (int, int, double $\ast$$\ast$, int, int, double $\ast$$\ast$, int, int)
+\item 
+void {\bf get\_\-axis} (int, int, int $\ast$, int $\ast$, {\bf COORDS} $\ast$, double $\ast$$\ast$)
+\item 
+void {\bf overper} (int, int, int $\ast$, int $\ast$, double $\ast$$\ast$, double $\ast$$\ast$, double $\ast$$\ast$)
+\item 
+void {\bf friction} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NMODES} $\ast${\bf nmodes})
+\item 
+void {\bf avg\_\-spec} (int natoms, {\bf NMODES} $\ast${\bf nmodes})
+\item 
+void {\bf get\_\-spectrum} (int, double $\ast$, double $\ast$, double $\ast$$\ast$, double $\ast$, double $\ast$$\ast$)
+\item 
+void {\bf get\_\-specq} (int, double $\ast$, double $\ast$, double $\ast$$\ast$, double $\ast$)
+\item 
+void {\bf get\_\-spect\_\-full} (int, double $\ast$, double $\ast$, double $\ast$$\ast$, double $\ast$, double $\ast$$\ast$)
+\item 
+void {\bf fcolvar\_\-cntr} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, int force\_\-flag)
+\item 
+void {\bf hills} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf add\_\-hills} ({\bf COLVAR} $\ast${\bf colvar})
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!add_hills@{add\_\-hills}}
+\index{add_hills@{add\_\-hills}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void add\_\-hills ({\bf COLVAR} $\ast$ {\em colvar})}\label{energy_2proto__energy_8h_eeed85c37ce6adb67a3aa6b0525febb3}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!allocate_lists@{allocate\_\-lists}}
+\index{allocate_lists@{allocate\_\-lists}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void allocate\_\-lists (int {\em natoms}, int {\em nlen}, {\bf NGBR} $\ast$ {\em ngbr}, {\bf COORDS} $\ast$ {\em coords}, int $\ast$ {\em mem})}\label{energy_2proto__energy_8h_8540220cab7e209c3a9f81f034bc582f}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!allocate_lists_e@{allocate\_\-lists\_\-e}}
+\index{allocate_lists_e@{allocate\_\-lists\_\-e}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void allocate\_\-lists\_\-e (int {\em ncharge}, {\bf NGBR} $\ast$ {\em ngbr}, int $\ast$ {\em mem})}\label{energy_2proto__energy_8h_2a68d9153c530324157efe4f8d300489}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!avg_spec@{avg\_\-spec}}
+\index{avg_spec@{avg\_\-spec}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void avg\_\-spec (int {\em natoms}, {\bf NMODES} $\ast$ {\em nmodes})}\label{energy_2proto__energy_8h_81fd172288cf19beb8a7b2c35b790ff4}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!check_distance@{check\_\-distance}}
+\index{check_distance@{check\_\-distance}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void check\_\-distance ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$)}\label{energy_2proto__energy_8h_c1af01b1a312581bcb02cd7166cba126}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!check_distance_e@{check\_\-distance\_\-e}}
+\index{check_distance_e@{check\_\-distance\_\-e}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void check\_\-distance\_\-e ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter})}\label{energy_2proto__energy_8h_ccf631c55850db334f9fbefb3d7d9828}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!cnt_ngbr_liste@{cnt\_\-ngbr\_\-liste}}
+\index{cnt_ngbr_liste@{cnt\_\-ngbr\_\-liste}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void cnt\_\-ngbr\_\-liste (int, int $\ast$, int $\ast$, int, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, int $\ast$, int $\ast$, int)}\label{energy_2proto__energy_8h_852fe4748bdab531454b97cf2f7221e0}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!copy@{copy}}
+\index{copy@{copy}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void copy (int, int, double $\ast$$\ast$, int, int, double $\ast$$\ast$, int, int)}\label{energy_2proto__energy_8h_6d3cd8451269d32232158f5919aa3d34}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!count_charge@{count\_\-charge}}
+\index{count_charge@{count\_\-charge}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void count\_\-charge ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int $\ast$, int $\ast$)}\label{energy_2proto__energy_8h_90dcc16da5a98ed33244ab46ec5223fd}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!count_link_pair@{count\_\-link\_\-pair}}
+\index{count_link_pair@{count\_\-link\_\-pair}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void count\_\-link\_\-pair (int {\em ncell}, int {\em iperd}, double {\em hmat}[$\,$], int {\em ibegin}, int {\em iend}, int $\ast$ {\em nvdw}, int $\ast$ {\em nelec}, double {\em rmax}, double {\em rmaxe})}\label{energy_2proto__energy_8h_5a375fad47b0b7a6e641889ca324a722}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!diagonalize@{diagonalize}}
+\index{diagonalize@{diagonalize}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void diagonalize (double $\ast$$\ast$, int, double $\ast$, double, double, int $\ast$, int $\ast$, int)}\label{energy_2proto__energy_8h_0478ab570819225ec82f1792d6c71df0}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!ecorr@{ecorr}}
+\index{ecorr@{ecorr}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ecorr ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)}\label{energy_2proto__energy_8h_91f5f90dc36b2b438aea2763eaec01be}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!ewald_setup@{ewald\_\-setup}}
+\index{ewald_setup@{ewald\_\-setup}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ewald\_\-setup ({\bf SIMPARMS} $\ast$, {\bf COUL} $\ast$ {\em coul}, double $\ast$ {\em qch}, int {\em kmax}, double {\em alpha})}\label{energy_2proto__energy_8h_51c46281dc7a18de63739246ebe2b0ff}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!exclude_bendquarts@{exclude\_\-bendquarts}}
+\index{exclude_bendquarts@{exclude\_\-bendquarts}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void exclude\_\-bendquarts (int $\ast$, int $\ast$$\ast$, {\bf BENDQUART} $\ast$)}\label{energy_2proto__energy_8h_49a371970141b789f71af8d887405d77}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!exclude_bends@{exclude\_\-bends}}
+\index{exclude_bends@{exclude\_\-bends}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void exclude\_\-bends (int $\ast$, int $\ast$$\ast$, {\bf BENDS} $\ast$)}\label{energy_2proto__energy_8h_6ecc1fb0295373ca418773d097b444a5}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!exclude_bonds@{exclude\_\-bonds}}
+\index{exclude_bonds@{exclude\_\-bonds}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void exclude\_\-bonds (int $\ast$, int $\ast$$\ast$, {\bf BONDS} $\ast$)}\label{energy_2proto__energy_8h_c8c57982d09fef799f067b5f6dd76120}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!exclude_onfo@{exclude\_\-onfo}}
+\index{exclude_onfo@{exclude\_\-onfo}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void exclude\_\-onfo (int $\ast$, int $\ast$$\ast$, {\bf ONFO} $\ast$)}\label{energy_2proto__energy_8h_4af3e803514c7b6b81e8bc24f8fc9921}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!exclude_tors@{exclude\_\-tors}}
+\index{exclude_tors@{exclude\_\-tors}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void exclude\_\-tors (int $\ast$, int $\ast$$\ast$, {\bf TORS} $\ast$)}\label{energy_2proto__energy_8h_c9f58943648172671f361d11da2c89c8}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fbend@{fbend}}
+\index{fbend@{fbend}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fbend ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)}\label{energy_2proto__energy_8h_dc6adeecb13d06972901f06901dcbbb9}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fbendquart@{fbendquart}}
+\index{fbendquart@{fbendquart}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fbendquart ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)}\label{energy_2proto__energy_8h_7650bea39db5a223013c55aad8741a1c}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fbond@{fbond}}
+\index{fbond@{fbond}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fbond ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)}\label{energy_2proto__energy_8h_a3da637e6d39bfd09ab8e575276518c3}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fbondx@{fbondx}}
+\index{fbondx@{fbondx}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fbondx ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)}\label{energy_2proto__energy_8h_4ba96e5600ba44e5cbd76162777e3fb5}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fcbend@{fcbend}}
+\index{fcbend@{fcbend}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbend ({\bf COORDS} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_478847457b4367cf18f4783722850ac4}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fcbendn@{fcbendn}}
+\index{fcbendn@{fcbendn}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbendn ({\bf COORDS} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_5a076450a19c37baa02041b390e5e363}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fcbond@{fcbond}}
+\index{fcbond@{fcbond}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbond ({\bf COORDS} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_ee171c7fa08066362695d25f07dd7bd8}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fcbondn@{fcbondn}}
+\index{fcbondn@{fcbondn}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbondn ({\bf COORDS} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_9feba3582f848d8efd8cb1c9471982d0}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fcbondx@{fcbondx}}
+\index{fcbondx@{fcbondx}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbondx ({\bf COORDS} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_7c06a8b3dac3dda70467f26cbda06acb}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fcbondxn@{fcbondxn}}
+\index{fcbondxn@{fcbondxn}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbondxn ({\bf COORDS} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_2771564862fe9ed9730a70749e369201}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fcinter@{fcinter}}
+\index{fcinter@{fcinter}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcinter ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_ef9cd1ea5066bdc642ab7f9e0ffcd8ba}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fcintern@{fcintern}}
+\index{fcintern@{fcintern}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcintern ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_33af359cb368159f9d3b6df35cc7829f}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fcolvar_cntr@{fcolvar\_\-cntr}}
+\index{fcolvar_cntr@{fcolvar\_\-cntr}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcolvar\_\-cntr ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, int {\em force\_\-flag})}\label{energy_2proto__energy_8h_8ee05df8e26985840278b6cea3a6bd51}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fconefour@{fconefour}}
+\index{fconefour@{fconefour}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fconefour ({\bf COORDS} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_640b34cbae6537421ccfb8120a51282a}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fconefourn@{fconefourn}}
+\index{fconefourn@{fconefourn}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fconefourn ({\bf COORDS} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_c723227cabad68de8da8519f2147dcea}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fctors@{fctors}}
+\index{fctors@{fctors}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fctors ({\bf COORDS} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_dd9bdd46cedcb56efa4363208774d488}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fctorsn@{fctorsn}}
+\index{fctorsn@{fctorsn}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fctorsn ({\bf COORDS} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_2fb25f47a41a2becc0775514ff3af6b3}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!find_zeros@{find\_\-zeros}}
+\index{find_zeros@{find\_\-zeros}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void find\_\-zeros (int, double $\ast$, int $\ast$, int $\ast$, int $\ast$)}\label{energy_2proto__energy_8h_fa207dbcde1a66b2e06164ccf069e727}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fk_ewald@{fk\_\-ewald}}
+\index{fk_ewald@{fk\_\-ewald}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fk\_\-ewald ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)}\label{energy_2proto__energy_8h_92b8a07d496033956cc996690540cab8}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fmat@{fmat}}
+\index{fmat@{fmat}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fmat ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NMODES} $\ast$ {\em nmodes})}\label{energy_2proto__energy_8h_b5351198b4ab123233cf8a7c64a7e2b7}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fonfo@{fonfo}}
+\index{fonfo@{fonfo}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fonfo ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)}\label{energy_2proto__energy_8h_b034fb6c8c396e4a2c35c5465ca241a2}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!force@{force}}
+\index{force@{force}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void force ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int)}\label{energy_2proto__energy_8h_af344ab7e1c65e85b74601dadca1b9ff}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!force_dipole@{force\_\-dipole}}
+\index{force_dipole@{force\_\-dipole}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void force\_\-dipole (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$)}\label{energy_2proto__energy_8h_b424eb2a60c3c5a8371f0be68af4cf57}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!force_e@{force\_\-e}}
+\index{force_e@{force\_\-e}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void force\_\-e (int, int, int $\ast$, int $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, int, int, int, int)}\label{energy_2proto__energy_8h_ff44fd930caada354f2ff8c8e02bde4d}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!force_extern@{force\_\-extern}}
+\index{force_extern@{force\_\-extern}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void force\_\-extern ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, int)}\label{energy_2proto__energy_8h_2541cb5275b9b024b8f4a1ce3dc50a05}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!force_npol@{force\_\-npol}}
+\index{force_npol@{force\_\-npol}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void force\_\-npol ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, int, int $\ast$, int $\ast$, int, int $\ast$, {\bf INTER} $\ast$, int)}\label{energy_2proto__energy_8h_da4689c9d9a6c54a2d1c9f4e9f729b82}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!force_ter@{force\_\-ter}}
+\index{force_ter@{force\_\-ter}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void force\_\-ter ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$ {\em inter}, {\bf NGBR} $\ast$ {\em ngbr}, int {\em iflg})}\label{energy_2proto__energy_8h_b63abba7da2215446e412d78659f3cc4}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!force_ter_e@{force\_\-ter\_\-e}}
+\index{force_ter_e@{force\_\-ter\_\-e}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void force\_\-ter\_\-e ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int {\em iflg})}\label{energy_2proto__energy_8h_22571aee28e288a9fb5ff3fde42acdc4}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!fr_ewald@{fr\_\-ewald}}
+\index{fr_ewald@{fr\_\-ewald}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fr\_\-ewald ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{energy_2proto__energy_8h_3d9d66102236af5f5828f6926ee3cfc2}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!free_lists@{free\_\-lists}}
+\index{free_lists@{free\_\-lists}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-lists ({\bf NGBR} $\ast$ {\em ngbr}, {\bf COORDS} $\ast$ {\em coords})}\label{energy_2proto__energy_8h_8c8f4a96f8bcfad5ebdb95533ba417fe}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!freeze_atom@{freeze\_\-atom}}
+\index{freeze_atom@{freeze\_\-atom}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void freeze\_\-atom ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{energy_2proto__energy_8h_f13bb37b9531da8c75e42f33543ffb2a}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!friction@{friction}}
+\index{friction@{friction}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void friction ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NMODES} $\ast$ {\em nmodes})}\label{energy_2proto__energy_8h_59e9d2f3f6a82844918ddfd0ad436747}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!ftors@{ftors}}
+\index{ftors@{ftors}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ftors ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)}\label{energy_2proto__energy_8h_e908b56c8e3041b5f2476ca61ada8a6d}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!func_aziz@{func\_\-aziz}}
+\index{func_aziz@{func\_\-aziz}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-aziz (double, double $\ast$, double $\ast$, double $\ast$, double, double, double, double, double, double, double, double, double)}\label{energy_2proto__energy_8h_ac165c2a34e69cf96587b6bcdf60ad6a}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!func_coul@{func\_\-coul}}
+\index{func_coul@{func\_\-coul}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-coul (double, double $\ast$, double $\ast$, double $\ast$)}\label{energy_2proto__energy_8h_cc11f05a7872bf9ebae8ecb23e97daca}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!func_dzug@{func\_\-dzug}}
+\index{func_dzug@{func\_\-dzug}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-dzug (double, double $\ast$, double $\ast$, double $\ast$, double, double)}\label{energy_2proto__energy_8h_5b69f35098d5ed219cb07195329d516a}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!func_hautman@{func\_\-hautman}}
+\index{func_hautman@{func\_\-hautman}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-hautman (double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f}, double {\em zmin}, double {\em c12}, double {\em c3})}\label{energy_2proto__energy_8h_7515ed5ca7037be0315b230ffd446203}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!func_hydbnd@{func\_\-hydbnd}}
+\index{func_hydbnd@{func\_\-hydbnd}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-hydbnd (double, double $\ast$, double $\ast$, double $\ast$, double, double)}\label{energy_2proto__energy_8h_1c42f61e47388d3541a99732df2513a3}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!func_kerf@{func\_\-kerf}}
+\index{func_kerf@{func\_\-kerf}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-kerf (double, double $\ast$, double $\ast$, double $\ast$, double)}\label{energy_2proto__energy_8h_62e5ae841642da3780e621575cabd4a6}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!func_lj@{func\_\-lj}}
+\index{func_lj@{func\_\-lj}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-lj (double, double $\ast$, double $\ast$, double $\ast$, double, double)}\label{energy_2proto__energy_8h_4f710c5afbd04f8495af2551ae8ead88}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!func_lj64@{func\_\-lj64}}
+\index{func_lj64@{func\_\-lj64}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-lj64 (double, double $\ast$, double $\ast$, double $\ast$, double, double)}\label{energy_2proto__energy_8h_85ca9ac5b4974f04bc05c470bd554ea7}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!func_lj96@{func\_\-lj96}}
+\index{func_lj96@{func\_\-lj96}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-lj96 (double, double $\ast$, double $\ast$, double $\ast$, double, double)}\label{energy_2proto__energy_8h_9c0de6eb620bd7ff75ab095e42110602}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!func_tab_pot@{func\_\-tab\_\-pot}}
+\index{func_tab_pot@{func\_\-tab\_\-pot}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-tab\_\-pot (FILE $\ast$, double, double $\ast$, double $\ast$, double $\ast$)}\label{energy_2proto__energy_8h_29d28fc2933bc9d591e973896b2d06d3}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!func_will@{func\_\-will}}
+\index{func_will@{func\_\-will}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-will (double, double $\ast$, double $\ast$, double $\ast$, double, double, double, double, double)}\label{energy_2proto__energy_8h_321c9734615b779051d4efff975f830a}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!get_axis@{get\_\-axis}}
+\index{get_axis@{get\_\-axis}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-axis (int, int, int $\ast$, int $\ast$, {\bf COORDS} $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_87c38d7c3c7bf8edccf2633cbc807b3b}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!get_grp_fcmat@{get\_\-grp\_\-fcmat}}
+\index{get_grp_fcmat@{get\_\-grp\_\-fcmat}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-grp\_\-fcmat (int, int $\ast$, int, int $\ast$, double $\ast$$\ast$, {\bf SUBSPACE} $\ast$, int $\ast$, double $\ast$$\ast$$\ast$)}\label{energy_2proto__energy_8h_d62ad7113342c85354837bc756617228}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!get_lnklist@{get\_\-lnklist}}
+\index{get_lnklist@{get\_\-lnklist}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-lnklist (int {\em natoms}, int {\em ncell}, int $\ast$ {\em head}, int $\ast$ {\em llist}, int {\em iperd}, double $\ast$ {\em hmat}, double $\ast$ {\em x}, double $\ast$ {\em y}, double $\ast$ {\em z})}\label{energy_2proto__energy_8h_f283e9626b9a61a07c3da74bd5ff2399}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!get_lnklist_e@{get\_\-lnklist\_\-e}}
+\index{get_lnklist_e@{get\_\-lnklist\_\-e}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-lnklist\_\-e (int {\em natoms}, int {\em ncell}, int $\ast$ {\em head}, int $\ast$ {\em llist}, int {\em iperd}, double $\ast$ {\em hmat}, double $\ast$ {\em x}, double $\ast$ {\em y}, double $\ast$ {\em z}, double $\ast$ {\em q})}\label{energy_2proto__energy_8h_9f6f52ca3256c3852f909b9e516e6db7}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!get_ngbr@{get\_\-ngbr}}
+\index{get_ngbr@{get\_\-ngbr}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-ngbr ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)}\label{energy_2proto__energy_8h_2cf55917210d416ab3eb6fd8ca670603}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!get_ngbr_e@{get\_\-ngbr\_\-e}}
+\index{get_ngbr_e@{get\_\-ngbr\_\-e}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-ngbr\_\-e ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NGBR} $\ast$ {\em ngbr})}\label{energy_2proto__energy_8h_e19a02adb55a4a08cee0ce46ae4d5b1b}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!get_p2mt@{get\_\-p2mt}}
+\index{get_p2mt@{get\_\-p2mt}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-p2mt (int {\em natoms}, double[$\,$], double[$\,$], double[$\,$], double[$\,$], double[9])}\label{energy_2proto__energy_8h_deacb459bc22df48ea06c1d2aa3322bd}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!get_specq@{get\_\-specq}}
+\index{get_specq@{get\_\-specq}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-specq (int, double $\ast$, double $\ast$, double $\ast$$\ast$, double $\ast$)}\label{energy_2proto__energy_8h_406732c4e18fa3c362d721d1f9188817}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!get_spect_full@{get\_\-spect\_\-full}}
+\index{get_spect_full@{get\_\-spect\_\-full}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-spect\_\-full (int, double $\ast$, double $\ast$, double $\ast$$\ast$, double $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_1335fcbff2aa0e60906706a61ffec77f}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!get_spectrum@{get\_\-spectrum}}
+\index{get_spectrum@{get\_\-spectrum}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-spectrum (int, double $\ast$, double $\ast$, double $\ast$$\ast$, double $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_37b2926bb3f2225c07adadb6842b3c5f}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!get_subspace@{get\_\-subspace}}
+\index{get_subspace@{get\_\-subspace}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-subspace ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$, double $\ast$ {\em x2}, double $\ast$ {\em y2}, double $\ast$ {\em z2}, {\bf SUBSPACE} $\ast$ {\em subspace})}\label{energy_2proto__energy_8h_2bc4cc71cde35fcf1310a26c9d2c2d95}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!get_subvec@{get\_\-subvec}}
+\index{get_subvec@{get\_\-subvec}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-subvec ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf SUBSPACE} $\ast$)}\label{energy_2proto__energy_8h_102902dbd3225b01dd5f050d055b8efc}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!geteng@{geteng}}
+\index{geteng@{geteng}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void geteng ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf ENERGIES} $\ast$)}\label{energy_2proto__energy_8h_45ba6f4680115ad4b6c54498105e33f3}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getnpair@{getnpair}}
+\index{getnpair@{getnpair}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getnpair ({\bf NGBR} $\ast$)}\label{energy_2proto__energy_8h_ae227044c7794cb0eb04574cfe445e6f}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getsvirter@{getsvirter}}
+\index{getsvirter@{getsvirter}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getsvirter (double $\ast$, double $\ast$, double $\ast$, double[9])}\label{energy_2proto__energy_8h_c364e06c99e2ca3feceaa7f62267d599}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getsvirter_e@{getsvirter\_\-e}}
+\index{getsvirter_e@{getsvirter\_\-e}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getsvirter\_\-e (double $\ast$ {\em velec}, double $\ast$ {\em welec}, double {\em welectensor}[9])}\label{energy_2proto__energy_8h_9208d6046cf9dc1722cf0d801b9da208}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getvbend@{getvbend}}
+\index{getvbend@{getvbend}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvbend ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double[9])}\label{energy_2proto__energy_8h_c015e55a8d93d211b430ec0d8562e4b9}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getvbendquart@{getvbendquart}}
+\index{getvbendquart@{getvbendquart}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvbendquart ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double[9])}\label{energy_2proto__energy_8h_7b8da0ddc825c19a16abbb2c139e9849}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getvbond@{getvbond}}
+\index{getvbond@{getvbond}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvbond ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double[9])}\label{energy_2proto__energy_8h_9c0f4bfb21a96de408ed08bc6a265cfb}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getvbondx@{getvbondx}}
+\index{getvbondx@{getvbondx}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvbondx ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double[9])}\label{energy_2proto__energy_8h_02cc900210f5a5b0810d058ee955e1ee}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getvewald@{getvewald}}
+\index{getvewald@{getvewald}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvewald ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double[9])}\label{energy_2proto__energy_8h_afa19237ecf483478851ab4c9fb970a9}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getvextern@{getvextern}}
+\index{getvextern@{getvextern}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvextern ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, int)}\label{energy_2proto__energy_8h_acecdc887d5bcb1dbb256ef433e825df}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getvireal@{getvireal}}
+\index{getvireal@{getvireal}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvireal ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf ENERGIES} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int)}\label{energy_2proto__energy_8h_7712ab77bf27db60f48cf747b4b2a9a2}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getvirter@{getvirter}}
+\index{getvirter@{getvirter}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvirter ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, double $\ast$, double $\ast$, double $\ast$, double[9])}\label{energy_2proto__energy_8h_44102eb0048383959901566cbf801f0b}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getvirter_e@{getvirter\_\-e}}
+\index{getvirter_e@{getvirter\_\-e}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvirter\_\-e ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, double $\ast$, double $\ast$, double[$\,$], int)}\label{energy_2proto__energy_8h_c6dfdb12ae11d664073949b04e180d0e}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getvonfo@{getvonfo}}
+\index{getvonfo@{getvonfo}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvonfo ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double[9], double[9])}\label{energy_2proto__energy_8h_f62510e52bfa61ba8c007eb024e4cb38}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!getvtors@{getvtors}}
+\index{getvtors@{getvtors}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvtors ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$, double[9])}\label{energy_2proto__energy_8h_88eeb742d73772d936ed57e2fa6fe753}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!hills@{hills}}
+\index{hills@{hills}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void hills ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{energy_2proto__energy_8h_31ba0db42c93656d34b74475d6fc2797}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!k_ewald@{k\_\-ewald}}
+\index{k_ewald@{k\_\-ewald}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void k\_\-ewald ({\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em vkspace})}\label{energy_2proto__energy_8h_c35c2fd59a5f16e85be95d6ee393e3b1}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!ngbr_liste@{ngbr\_\-liste}}
+\index{ngbr_liste@{ngbr\_\-liste}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ngbr\_\-liste (int, int $\ast$, int $\ast$, int, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int)}\label{energy_2proto__energy_8h_6f7265abf67049e8e8f8dd28ccfcf4ba}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!nrefsh@{nrefsh}}
+\index{nrefsh@{nrefsh}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void nrefsh ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)}\label{energy_2proto__energy_8h_0c8408dca8268cb390f590b245a34817}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!overper@{overper}}
+\index{overper@{overper}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void overper (int, int, int $\ast$, int $\ast$, double $\ast$$\ast$, double $\ast$$\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_fdd47fbf380a21909bd7ddf36151cdbb}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!pack@{pack}}
+\index{pack@{pack}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void pack ({\bf SUBSPACE} $\ast$, int, int, double $\ast$, double $\ast$$\ast$)}\label{energy_2proto__energy_8h_fd0b7979666f3f30604d07fb7ebab5b9}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!pack_d2v@{pack\_\-d2v}}
+\index{pack_d2v@{pack\_\-d2v}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void pack\_\-d2v (int, {\bf SUBSPACE} $\ast$, int, double $\ast$$\ast$, double $\ast$, double $\ast$$\ast$, double $\ast$, int $\ast$, int)}\label{energy_2proto__energy_8h_3115a50f697d7e8c430600f26d597e10}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!pot_dipole@{pot\_\-dipole}}
+\index{pot_dipole@{pot\_\-dipole}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double pot\_\-dipole (int {\em nlen}, double $\ast$ {\em dx}, double $\ast$ {\em dy}, double $\ast$ {\em dz}, double $\ast$ {\em qch}, double $\ast$ {\em alpha})}\label{energy_2proto__energy_8h_b1e448585d34a7bd674b12487e0fb3db}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!pot_inter@{pot\_\-inter}}
+\index{pot_inter@{pot\_\-inter}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double pot\_\-inter (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz})}\label{energy_2proto__energy_8h_0a3de8557bac0930b067108ab9f2f7f0}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!pot_onefour@{pot\_\-onefour}}
+\index{pot_onefour@{pot\_\-onefour}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double pot\_\-onefour (double $\ast$, double $\ast$, double $\ast$)}\label{energy_2proto__energy_8h_1c9d942ecfce91f7b56bcc7f1c3eec7e}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!potbend@{potbend}}
+\index{potbend@{potbend}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double potbend (double $\ast$, double $\ast$, double $\ast$)}\label{energy_2proto__energy_8h_729966406e3d16329aae29c7970f733d}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!potbendquart@{potbendquart}}
+\index{potbendquart@{potbendquart}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double potbendquart (double $\ast$, double $\ast$, double $\ast$)}\label{energy_2proto__energy_8h_89f0dfaae811dbd08613c913ec9efc19}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!potbond@{potbond}}
+\index{potbond@{potbond}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double potbond (double $\ast$, double $\ast$, double $\ast$)}\label{energy_2proto__energy_8h_aad56b591c754b10697d52572468bc42}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!potbondx@{potbondx}}
+\index{potbondx@{potbondx}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double potbondx (double $\ast$, double $\ast$, double $\ast$)}\label{energy_2proto__energy_8h_6a5cef9fc79552763ce53879bdcb66a2}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!pottors@{pottors}}
+\index{pottors@{pottors}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double pottors (double $\ast$, double $\ast$, double $\ast$)}\label{energy_2proto__energy_8h_3687d09257861643c923f781893e8f30}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!r_ewald@{r\_\-ewald}}
+\index{r_ewald@{r\_\-ewald}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void r\_\-ewald ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em vrspace})}\label{energy_2proto__energy_8h_8d4848117c2a668a8f548acd8e2fd30b}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!set_charges@{set\_\-charges}}
+\index{set_charges@{set\_\-charges}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void set\_\-charges ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, {\bf STARTUP} $\ast$)}\label{energy_2proto__energy_8h_f7de324dcf116a27dec7711aa9028043}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!set_ecorr@{set\_\-ecorr}}
+\index{set_ecorr@{set\_\-ecorr}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void set\_\-ecorr ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, int $\ast$, int $\ast$$\ast$)}\label{energy_2proto__energy_8h_df7e63a5c08e2e8433cd4a810a6dc469}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!set_exclude@{set\_\-exclude}}
+\index{set_exclude@{set\_\-exclude}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void set\_\-exclude ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter})}\label{energy_2proto__energy_8h_ad3fe15dca2e1091cf3fc5a2c9640e36}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!set_link@{set\_\-link}}
+\index{set_link@{set\_\-link}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void set\_\-link ({\bf SIMPARMS} $\ast$, {\bf NGBR} $\ast$, double $\ast$, double, double)}\label{energy_2proto__energy_8h_01457d55ac2bed0a0422b0a3de917fe9}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!vinter_e@{vinter\_\-e}}
+\index{vinter_e@{vinter\_\-e}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void vinter\_\-e (int, int $\ast$, int $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, int {\em iperd}, double $\ast$ {\em spelec}, double $\ast$ {\em spelech}, double $\ast$ {\em swelec}, double {\em swelectensor}[9], int, int, int)}\label{energy_2proto__energy_8h_f77c5471556a317879194322b0a63c9a}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!vinter_npol@{vinter\_\-npol}}
+\index{vinter_npol@{vinter\_\-npol}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void vinter\_\-npol (int, int $\ast$, int $\ast$, int $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, int, int $\ast$$\ast$, double $\ast$, double $\ast$, double $\ast$, int, double $\ast$$\ast$, double $\ast$$\ast$, double $\ast$, double $\ast$, double $\ast$, double[9], int)}\label{energy_2proto__energy_8h_0c074dbaa7da0323d093dd1982758a6d}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!zero_pote@{zero\_\-pote}}
+\index{zero_pote@{zero\_\-pote}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void zero\_\-pote (void)}\label{energy_2proto__energy_8h_d8204917082dd0a8cf30e570067a6318}
+
+
+\index{energy/proto_energy.h@{energy/proto\_\-energy.h}!zero_potl@{zero\_\-potl}}
+\index{zero_potl@{zero\_\-potl}!energy/proto_energy.h@{energy/proto\_\-energy.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void zero\_\-potl (void)}\label{energy_2proto__energy_8h_8933e7a0229d4d9168448420a0e20dfc}
+
+

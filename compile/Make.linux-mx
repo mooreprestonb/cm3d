@@ -1,0 +1,39 @@
+
+VERSION = VarRadTabMorse
+NAME    = cm3d_${VERSION}_mpi-mx
+
+BASE = ..
+
+# common definitions...
+RM = rm -f
+CC = mpicc
+#CC = /usr/local/mpich/1.2.4..8a/gm-1.5.2.1_Linux-2.4.9-34smp/smp/gnu/ssh/bin/mpicc -DPARA
+# CC = /usr/local/mpich/1.2.4..8a/ip/smp/gnu/ssh/bin/mpicc -DPARA
+# F77 = f77
+F77 = pgf77
+CPP = cc -E
+CP = cp
+AR = ar
+MV = mv
+
+# Compiler flages, paths for include files and libraries
+
+#DEFINES = -DLINUX -DBLAS -DFORTRANUNDERSCORE
+DEFINES = -DLINUX -DPARA
+#DEFINES = -DPRESSURE 
+#CFLAGS = -g -Wall $(DEFINES) 
+CFLAGS = -Wall $(DEFINES) 
+FFLAGS =   
+
+OPT = -O2
+#LIBS = -lm -lg2c -L/usr/lib/libblas -L/usr/lib/liblapack
+#LIBS = -lm -L/usr/lib/libblas -L/usr/lib/liblapack -lefence
+LIB_PATH  = -L/opt/mx/lib/ -L/opt/mpich-mx/lib/
+#LIB_PATH  = -L/usr/local/mpi/lib/
+LIBS = -lm -lmpich
+
+LD   = $(CC) $(OPT) 
+ARFLAGS = ruv
+RANLIB = ranlib
+
+include Makefile.cm3d

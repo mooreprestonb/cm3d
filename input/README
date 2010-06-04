@@ -1,0 +1,7 @@
+to put a new key word in edit the following files....
+
+
+include/md_typedef.h  /* to put the new variable in the appropriate struct */
+input/md_setsimdef.c  /* set the default value */
+input/md_setsimkey.c  /* set the keyword for the variable */
+input/md_readsim.c    /* read in the variable if keyword is specified */

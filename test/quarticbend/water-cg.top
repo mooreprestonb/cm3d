@@ -1,0 +1,7 @@
+ 
+ -------------------------Header-----------------------------
+~mol_name_def[\mol_name{WaterCG}\natom{1}\nbond{0}
+	\nbend{0}\ntors{0}\n14{0}]
+
+ -------------------------Atoms-------------------------------
+~atom_def[\atom_typ{W}\atom_ind{1}\mass{54.0474000}\charge{0.0}]

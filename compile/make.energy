@@ -1,0 +1,168 @@
+ENERGY = $(BASE)/energy
+DENERGY = $(TEST)/energy
+
+ENERGY_FILES = md_fcntr.o md_finter.o md_fbond.o md_fbend.o md_ftors.o \
+	md_fonefour.o md_fbocross.o md_ewald.o md_funcvdw.o md_subspace.o \
+	md_diag.o md_ngradv2.o md_nmafcntr.o nma_axis.o friction.o \
+	md_spectrum.o md_getfcmat.o md_fintermat.o md_setexclude.o set_link.o\
+	md_finter_e.o elec_ngbr.o finter_e.o md_fnopol.o ngbr_list.o \
+	f_extern.o ptensorchk.o ngradv.o getdid.o getpolder.o getsfg.o \
+	md_fpolar.o hills.o meta_dyn.o \
+#  	md_ewaldpolar.o
+
+energy.a : energy.a(md_fcntr.o) energy.a(md_finter.o) energy.a(md_fintermat.o)\
+	energy.a(md_setexclude.o) energy.a(md_fnopol.o) \
+	energy.a(md_fbond.o) energy.a(md_fbend.o) energy.a(md_ftors.o) \
+	energy.a(md_fonefour.o) energy.a(md_fbocross.o) \
+	energy.a(md_ewald.o) energy.a(md_funcvdw.o) energy.a(md_subspace.o) \
+	energy.a(md_diag.o) energy.a(md_ngradv2.o) energy.a(md_nmafcntr.o) \
+	energy.a(nma_axis.o) energy.a(friction.o) \
+	energy.a(md_spectrum.o) energy.a(md_getfcmat.o) energy.a(set_link.o) \
+	energy.a(md_finter_e.o) energy.a(elec_ngbr.o) energy.a(finter_e.o) \
+	energy.a(ngbr_list.o) energy.a(f_extern.o) energy.a(ptensorchk.o) \
+	energy.a(ngradv.o) energy.a(getdid.o) energy.a(getpolder.o) \
+	energy.a(getsfg.o) energy.a(md_fpolar.o) energy.a(hills.o) energy.a(meta_dyn.o) 
+#	energy.a(md_ewaldpolar.o) 
+	$(AR) $(ARFLAGS) energy.a $(ENERGY_FILES)
+	$(RANLIB) energy.a
+
+energy.a(md_fcntr.o) : md_fcntr.o
+md_fcntr.o : $(ENERGY)/control/md_fcntr.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/control/md_fcntr.c
+
+energy.a(md_finter.o) : md_finter.o
+md_finter.o : $(ENERGY)/control/md_finter.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/control/md_finter.c
+
+energy.a(ngbr_list.o) : ngbr_list.o
+ngbr_list.o : $(ENERGY)/control/ngbr_list.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/control/ngbr_list.c
+
+energy.a(f_extern.o) : f_extern.o
+f_extern.o : $(ENERGY)/extern/f_extern.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/extern/f_extern.c
+
+energy.a(md_fintermat.o) : md_fintermat.o
+md_fintermat.o : $(ENERGY)/control/md_fintermat.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/control/md_fintermat.c
+
+energy.a(md_setexclude.o) : md_setexclude.o
+md_setexclude.o : $(ENERGY)/control/md_setexclude.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/control/md_setexclude.c
+
+energy.a(md_fnopol.o) : md_fnopol.o
+md_fnopol.o : $(ENERGY)/inter/md_fnopol.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/inter/md_fnopol.c
+
+energy.a(set_link.o) : set_link.o
+set_link.o : $(ENERGY)/control/set_link.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/control/set_link.c
+
+energy.a(md_fbond.o) : md_fbond.o
+md_fbond.o : $(ENERGY)/intra/md_fbond.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/intra/md_fbond.c
+
+energy.a(md_fbend.o) : md_fbend.o
+md_fbend.o : $(ENERGY)/intra/md_fbend.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/intra/md_fbend.c
+
+energy.a(md_ftors.o) : md_ftors.o
+md_ftors.o : $(ENERGY)/intra/md_ftors.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/intra/md_ftors.c
+
+energy.a(md_fonefour.o) : md_fonefour.o
+md_fonefour.o : $(ENERGY)/intra/md_fonefour.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/intra/md_fonefour.c
+
+energy.a(md_fbocross.o) : md_fbocross.o
+md_fbocross.o : $(ENERGY)/intra/md_fbocross.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/intra/md_fbocross.c
+
+energy.a(md_ewald.o) : md_ewald.o
+md_ewald.o : $(ENERGY)/inter/md_ewald.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/inter/md_ewald.c
+
+energy.a(md_finter_e.o) : md_finter_e.o
+md_finter_e.o : $(ENERGY)/control/md_finter_e.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/control/md_finter_e.c
+
+energy.a(finter_e.o) : finter_e.o
+finter_e.o : $(ENERGY)/inter/finter_e.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/inter/finter_e.c
+
+energy.a(elec_ngbr.o) : elec_ngbr.o
+elec_ngbr.o : $(ENERGY)/control/elec_ngbr.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/control/elec_ngbr.c
+
+energy.a(md_funcvdw.o) : md_funcvdw.o
+md_funcvdw.o : $(ENERGY)/inter/md_funcvdw.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/inter/md_funcvdw.c
+
+energy.a(md_subspace.o) : md_subspace.o
+md_subspace.o : $(ENERGY)/subspace/md_subspace.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/subspace/md_subspace.c
+
+energy.a(md_diag.o) : md_diag.o
+md_diag.o : $(ENERGY)/subspace/md_diag.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/subspace/md_diag.c
+
+energy.a(nma_axis.o) : nma_axis.o
+nma_axis.o : $(ENERGY)/nma/nma_axis.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/nma/nma_axis.c
+
+energy.a(md_nmafcntr.o) : md_nmafcntr.o
+md_nmafcntr.o : $(ENERGY)/nma/md_nmafcntr.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/nma/md_nmafcntr.c
+
+energy.a(friction.o) : friction.o
+friction.o : $(ENERGY)/nma/friction.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/nma/friction.c
+
+energy.a(md_spectrum.o) : md_spectrum.o
+md_spectrum.o : $(ENERGY)/nma/md_spectrum.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/nma/md_spectrum.c
+
+energy.a(md_getfcmat.o) : md_getfcmat.o
+md_getfcmat.o : $(ENERGY)/nma/md_getfcmat.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/nma/md_getfcmat.c
+
+energy.a(md_ngradv2.o) : md_ngradv2.o
+md_ngradv2.o : $(ENERGY)/nma/md_ngradv2.c
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/nma/md_ngradv2.c
+
+energy.a(ptensorchk.o) : ptensorchk.o 
+ptensorchk.o : $(ENERGY)/control/ptensorchk.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/control/ptensorchk.c
+
+energy.a(ngradv.o) : ngradv.o
+ngradv.o : $(ENERGY)/control/ngradv.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/control/ngradv.c
+
+energy.a(getdid.o) : getdid.o
+getdid.o : $(ENERGY)/polar/getdid.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/polar/getdid.c
+
+energy.a(getpolder.o) : getpolder.o
+getpolder.o : $(ENERGY)/polar/getpolder.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/polar/getpolder.c
+
+energy.a(getsfg.o) : getsfg.o
+getsfg.o : $(ENERGY)/polar/getsfg.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/polar/getsfg.c
+
+energy.a(md_ewaldpolar.o) : md_ewaldpolar.o
+md_ewaldpolar.o : $(ENERGY)/inter/md_ewaldpolar.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/inter/md_ewaldpolar.c
+
+energy.a(md_fpolar.o) : md_fpolar.o
+md_fpolar.o : $(ENERGY)/polar/md_fpolar.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/polar/md_fpolar.c
+
+energy.a(hills.o) : hills.o
+hills.o : $(ENERGY)/hills/hills.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/hills/hills.c
+
+energy.a(meta_dyn.o) : meta_dyn.o
+meta_dyn.o : $(ENERGY)/hills/meta_dyn.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(ENERGY)/hills/meta_dyn.c
+

@@ -1,0 +1,3 @@
+
+~mol_def[\mol_parm_file{oct.top} \mol_therm_opt{global}
+         \nmol{450} \mol_index{1}]

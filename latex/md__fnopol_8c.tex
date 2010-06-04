@@ -1,0 +1,85 @@
+\section{energy/inter/md\_\-fnopol.c File Reference}
+\label{md__fnopol_8c}\index{energy/inter/md_fnopol.c@{energy/inter/md\_\-fnopol.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+{\tt \#include \char`\"{}vectorize.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf NOERROR}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf zero\_\-potl} (void)
+\item 
+void {\bf force\_\-npol} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, int nlen, int $\ast$indx, int $\ast$jndx, int nbreak, int $\ast$ibreak, {\bf INTER} $\ast$inter, int iflg)
+\item 
+void {\bf vinter\_\-npol} (int nlen, int $\ast$indx, int $\ast$jndx, int $\ast$itype, double $\ast$x, double $\ast$y, double $\ast$z, double $\ast$hmat, int iperd, int $\ast$$\ast$imap, double $\ast$rmin\_\-cut2, double $\ast$rmax\_\-cut2, double $\ast$dx2tab, int ntable, double $\ast$$\ast$vtab, double $\ast$$\ast$dvtab, double $\ast$spot, double $\ast$spoth, double $\ast$sprs, double sprst[9], int ivol)
+\item 
+void {\bf getsvirter} (double $\ast$vhinter, double $\ast$vinter, double $\ast$winter, double wintert[9])
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static double {\bf spotl}
+\item 
+static double {\bf spothl}
+\item 
+static double {\bf sprsl}
+\item 
+static double {\bf sprslt} [9]
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{md_fnopol.c@{md\_\-fnopol.c}!NOERROR@{NOERROR}}
+\index{NOERROR@{NOERROR}!md_fnopol.c@{md\_\-fnopol.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NOERROR}\label{md__fnopol_8c_7c8e007a5b28cfb6d606095153d7e764}
+
+
+
+
+\subsection{Function Documentation}
+\index{md_fnopol.c@{md\_\-fnopol.c}!force_npol@{force\_\-npol}}
+\index{force_npol@{force\_\-npol}!md_fnopol.c@{md\_\-fnopol.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void force\_\-npol ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, int {\em nlen}, int $\ast$ {\em indx}, int $\ast$ {\em jndx}, int {\em nbreak}, int $\ast$ {\em ibreak}, {\bf INTER} $\ast$ {\em inter}, int {\em iflg})}\label{md__fnopol_8c_8ab253591d2a6885cd0e06b06aa42385}
+
+
+\index{md_fnopol.c@{md\_\-fnopol.c}!getsvirter@{getsvirter}}
+\index{getsvirter@{getsvirter}!md_fnopol.c@{md\_\-fnopol.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getsvirter (double $\ast$ {\em vhinter}, double $\ast$ {\em vinter}, double $\ast$ {\em winter}, double {\em wintert}[9])}\label{md__fnopol_8c_be20f8ebec02caad8fe6a6394d9d1812}
+
+
+\index{md_fnopol.c@{md\_\-fnopol.c}!vinter_npol@{vinter\_\-npol}}
+\index{vinter_npol@{vinter\_\-npol}!md_fnopol.c@{md\_\-fnopol.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void vinter\_\-npol (int {\em nlen}, int $\ast$ {\em indx}, int $\ast$ {\em jndx}, int $\ast$ {\em itype}, double $\ast$ {\em x}, double $\ast$ {\em y}, double $\ast$ {\em z}, double $\ast$ {\em hmat}, int {\em iperd}, int $\ast$$\ast$ {\em imap}, double $\ast$ {\em rmin\_\-cut2}, double $\ast$ {\em rmax\_\-cut2}, double $\ast$ {\em dx2tab}, int {\em ntable}, double $\ast$$\ast$ {\em vtab}, double $\ast$$\ast$ {\em dvtab}, double $\ast$ {\em spot}, double $\ast$ {\em spoth}, double $\ast$ {\em sprs}, double {\em sprst}[9], int {\em ivol})}\label{md__fnopol_8c_9393e71b3c0dedc342a957272896eb88}
+
+
+\index{md_fnopol.c@{md\_\-fnopol.c}!zero_potl@{zero\_\-potl}}
+\index{zero_potl@{zero\_\-potl}!md_fnopol.c@{md\_\-fnopol.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void zero\_\-potl (void)}\label{md__fnopol_8c_8933e7a0229d4d9168448420a0e20dfc}
+
+
+
+
+\subsection{Variable Documentation}
+\index{md_fnopol.c@{md\_\-fnopol.c}!spothl@{spothl}}
+\index{spothl@{spothl}!md_fnopol.c@{md\_\-fnopol.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf spothl}\hspace{0.3cm}{\tt  [static]}}\label{md__fnopol_8c_001d1f59fe2a37beebc16b9ff8bde094}
+
+
+\index{md_fnopol.c@{md\_\-fnopol.c}!spotl@{spotl}}
+\index{spotl@{spotl}!md_fnopol.c@{md\_\-fnopol.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf spotl}\hspace{0.3cm}{\tt  [static]}}\label{md__fnopol_8c_bbc95836965847a2447871146af466b2}
+
+
+\index{md_fnopol.c@{md\_\-fnopol.c}!sprsl@{sprsl}}
+\index{sprsl@{sprsl}!md_fnopol.c@{md\_\-fnopol.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf sprsl}\hspace{0.3cm}{\tt  [static]}}\label{md__fnopol_8c_dee534194d01bb4eb7612e410b3f40a0}
+
+
+\index{md_fnopol.c@{md\_\-fnopol.c}!sprslt@{sprslt}}
+\index{sprslt@{sprslt}!md_fnopol.c@{md\_\-fnopol.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf sprslt}[9]\hspace{0.3cm}{\tt  [static]}}\label{md__fnopol_8c_bf329a06f7441988ba0003376dfd7b37}
+
+

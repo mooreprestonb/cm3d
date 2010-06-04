@@ -1,0 +1,72 @@
+\section{utils/fft/testfft.c File Reference}
+\label{testfft_8c}\index{utils/fft/testfft.c@{utils/fft/testfft.c}}
+{\tt \#include $<$math.h$>$}\par
+{\tt \#include $<$mpi.h$>$}\par
+{\tt \#include $<$assert.h$>$}\par
+{\tt \#include \char`\"{}parautil.h\char`\"{}}\par
+{\tt \#include \char`\"{}mpi3dfft.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct {\bf dcomplex}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf PI}~3.14159265359
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+static void {\bf init} ({\bf dcomplex} $\ast$u, int nx, int ny, int nz, int rx, int ry, int rz)
+\item 
+static void {\bf check} ({\bf dcomplex} $\ast$ut, int nx, int ny, int nz, int rx, int ry, int rz, int isign)
+\item 
+int {\bf main} (int argc, char $\ast$argv[$\,$])
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+int {\bf n\-Proc}
+\item 
+int {\bf my\-Rank}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{testfft.c@{testfft.c}!PI@{PI}}
+\index{PI@{PI}!testfft.c@{testfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define PI~3.14159265359}\label{testfft_8c_598a3330b3c21701223ee0ca14316eca}
+
+
+
+
+\subsection{Function Documentation}
+\index{testfft.c@{testfft.c}!check@{check}}
+\index{check@{check}!testfft.c@{testfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void check ({\bf dcomplex} $\ast$ {\em ut}, int {\em nx}, int {\em ny}, int {\em nz}, int {\em rx}, int {\em ry}, int {\em rz}, int {\em isign})\hspace{0.3cm}{\tt  [static]}}\label{testfft_8c_60cc44fb7c9a2b046168a423ba645394}
+
+
+\index{testfft.c@{testfft.c}!init@{init}}
+\index{init@{init}!testfft.c@{testfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void init ({\bf dcomplex} $\ast$ {\em u}, int {\em nx}, int {\em ny}, int {\em nz}, int {\em rx}, int {\em ry}, int {\em rz})\hspace{0.3cm}{\tt  [static]}}\label{testfft_8c_ff3f79f9cd748c0e6b7878394b2661b1}
+
+
+\index{testfft.c@{testfft.c}!main@{main}}
+\index{main@{main}!testfft.c@{testfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, char $\ast$ {\em argv}[$\,$])}\label{testfft_8c_0ddf1224851353fc92bfbff6f499fa97}
+
+
+
+
+\subsection{Variable Documentation}
+\index{testfft.c@{testfft.c}!myRank@{myRank}}
+\index{myRank@{myRank}!testfft.c@{testfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf my\-Rank}}\label{testfft_8c_59583c2c54e34ab626dfbd1f075c4d1f}
+
+
+\index{testfft.c@{testfft.c}!nProc@{nProc}}
+\index{nProc@{nProc}!testfft.c@{testfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf n\-Proc}}\label{testfft_8c_19e98b29873d39c5b4a1ce74eac4bba6}
+
+

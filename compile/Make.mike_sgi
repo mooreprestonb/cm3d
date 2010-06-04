@@ -1,0 +1,27 @@
+
+BASE = $(HOME)/md/md/mike
+NAME = mike_sgi
+
+# common definitions...
+
+RM = /bin/rm -f
+CC = cc 
+CPP = /usr/lib/cpp
+F77 = f77
+CP = /bin/cp
+AR = /bin/ar
+ARFLAGS = ruv
+MV = /bin/mv
+
+# Compiler flages, paths for include files and libraries
+
+DEFINES = -DBLAS -DFORTRANUNDERSCORE -DSGI  
+CFLAGS = $(DEFINES) 
+FFLAGS = 
+
+OPT = -O2
+LIBS = -lscs lcomplib.sgimath -lfastm
+
+LD   = $(F77)
+
+

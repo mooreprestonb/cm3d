@@ -1,0 +1,64 @@
+\section{output/md\_\-saveout.c File Reference}
+\label{md__saveout_8c}\index{output/md_saveout.c@{output/md\_\-saveout.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf BUFSIZ}~1024
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf save\_\-conf} (FILE $\ast$fconf, int natoms, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf save\_\-vel} (FILE $\ast$fvel, int natoms, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf save\_\-force} (FILE $\ast$fforce, int natoms, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf save\_\-freezeforce} (int nfreeze, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf save\_\-eigvec} (char $\ast$filename, int m, int n, double $\ast$dn, double $\ast$$\ast$d2v)
+\item 
+void {\bf keep} (char $\ast${\bf name})
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{md_saveout.c@{md\_\-saveout.c}!BUFSIZ@{BUFSIZ}}
+\index{BUFSIZ@{BUFSIZ}!md_saveout.c@{md\_\-saveout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BUFSIZ~1024}\label{md__saveout_8c_72a591cf0a96cf23c63df5c78712dabe}
+
+
+
+
+\subsection{Function Documentation}
+\index{md_saveout.c@{md\_\-saveout.c}!keep@{keep}}
+\index{keep@{keep}!md_saveout.c@{md\_\-saveout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void keep (char $\ast$ {\em name})}\label{md__saveout_8c_6ece60b4480b943ce5405df2b24cc209}
+
+
+\index{md_saveout.c@{md\_\-saveout.c}!save_conf@{save\_\-conf}}
+\index{save_conf@{save\_\-conf}!md_saveout.c@{md\_\-saveout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-conf (FILE $\ast$ {\em fconf}, int {\em natoms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__saveout_8c_b3f2a9aafdc9a3869217d76b4a618836}
+
+
+\index{md_saveout.c@{md\_\-saveout.c}!save_eigvec@{save\_\-eigvec}}
+\index{save_eigvec@{save\_\-eigvec}!md_saveout.c@{md\_\-saveout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-eigvec (char $\ast$ {\em filename}, int {\em m}, int {\em n}, double $\ast$ {\em dn}, double $\ast$$\ast$ {\em d2v})}\label{md__saveout_8c_be468be4405a40ab394023e376edffff}
+
+
+\index{md_saveout.c@{md\_\-saveout.c}!save_force@{save\_\-force}}
+\index{save_force@{save\_\-force}!md_saveout.c@{md\_\-saveout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-force (FILE $\ast$ {\em fforce}, int {\em natoms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__saveout_8c_25bc9475fb6e336ef88f3066cb52fbdd}
+
+
+\index{md_saveout.c@{md\_\-saveout.c}!save_freezeforce@{save\_\-freezeforce}}
+\index{save_freezeforce@{save\_\-freezeforce}!md_saveout.c@{md\_\-saveout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-freezeforce (int {\em nfreeze}, {\bf COORDS} $\ast$ {\em coords})}\label{md__saveout_8c_dbbdf83279174d564c6cff04d43016c8}
+
+
+\index{md_saveout.c@{md\_\-saveout.c}!save_vel@{save\_\-vel}}
+\index{save_vel@{save\_\-vel}!md_saveout.c@{md\_\-saveout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-vel (FILE $\ast$ {\em fvel}, int {\em natoms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__saveout_8c_c8dc064980acf6553ee892c0bc3b7d3a}
+
+

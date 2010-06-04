@@ -1,0 +1,38 @@
+
+NAME = cm3d.sgi
+BASE = ..
+#BASE = $(HOME)/md/cm3d
+
+# common definitions...
+
+RM = /bin/rm -f
+CC = cc 
+CPP = /usr/lib/cpp
+F77 = f77
+CP = /bin/cp
+AR = /bin/ar
+ARFLAGS = ruv
+RANLIB = $(AR) $(ARFLAGS)
+MV = /bin/mv
+
+# Compiler flages, paths for include files and libraries
+
+# DEFINES = -DBLAS -DFORTRANUNDERSCORE -DSGI -DITER -DVERBOSE2 -DTESTFORCE
+# -DNOPOLAREWALD -DN_Lm 
+# -DN_Lm  test against nymand & linse paper 
+DEFINES = -DBLAS -DFORTRANUNDERSCORE -DSGI  
+
+CFLAGS = $(DEFINES) 
+FFLAGS = 
+
+OPT = -O2
+# -L/usr/lib32/mips4
+# LIBS = -lscs -lfastm
+LIBS2 = -L$(HOME)/downloads/ElectricFence-2.1/libefence.a
+LIBS = -lscs -lm # $(LIBS2)
+
+LD   = $(F77)
+
+include Makefile.cm3d
+
+

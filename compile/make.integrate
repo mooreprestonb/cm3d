@@ -1,0 +1,87 @@
+
+INTEGRATE = $(BASE)/integrate
+DINTEGRATE = $(TEST)/integrate
+
+INTEGRATE_FILES = md_therm.o md_baro.o md_zeroam.o md_averages.o\
+	md_substep.o md_step.o md_freqbin.o md_period.o\
+	md_therm.new.o md_baro.new.o md_zeroam.new.o md_averages.new.o\
+	md_substep.new.o md_step.new.o md_freqbin.new.o md_period.new.o
+
+integrate.a : integrate.a(md_therm.o) integrate.a(md_baro.o) \
+	integrate.a(md_zeroam.o) integrate.a(md_averages.o) \
+	integrate.a(md_substep.o) integrate.a(md_step.o) \
+	integrate.a(md_freqbin.o) integrate.a(md_period.o)\
+	integrate.a(md_therm.new.o) integrate.a(md_baro.new.o) \
+	integrate.a(md_zeroam.new.o) integrate.a(md_averages.new.o) \
+	integrate.a(md_substep.new.o) integrate.a(md_step.new.o) \
+	integrate.a(md_freqbin.new.o) integrate.a(md_period.new.o)
+	$(AR) $(ARFLAGS) $@ $(INTEGRATE_FILES)
+	$(RANLIB) $@
+	
+
+integrate.a(md_step.o) : md_step.o
+md_step.o : $(INTEGRATE)/md_step.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_step.c
+
+integrate.a(md_therm.o) : md_therm.o
+md_therm.o : $(INTEGRATE)/md_therm.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_therm.c
+
+integrate.a(md_baro.o) : md_baro.o
+md_baro.o : $(INTEGRATE)/md_baro.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_baro.c
+
+integrate.a(md_zeroam.o) : md_zeroam.o
+md_zeroam.o : $(INTEGRATE)/md_zeroam.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_zeroam.c
+
+integrate.a(md_averages.o) : md_averages.o
+md_averages.o : $(INTEGRATE)/md_averages.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_averages.c
+
+integrate.a(md_substep.o) : md_substep.o
+md_substep.o : $(INTEGRATE)/md_substep.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_substep.c
+
+integrate.a(md_freqbin.o) : md_freqbin.o
+md_freqbin.o : $(INTEGRATE)/md_freqbin.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_freqbin.c
+
+integrate.a(md_period.o) : md_period.o
+md_period.o : $(INTEGRATE)/md_period.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_period.c 
+
+
+
+
+integrate.a(md_step.new.o) : md_step.new.o
+md_step.new.o : $(INTEGRATE)/md_step.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_step.new.c
+
+integrate.a(md_therm.new.o) : md_therm.new.o
+md_therm.new.o : $(INTEGRATE)/md_therm.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_therm.new.c
+
+integrate.a(md_baro.new.o) : md_baro.new.o
+md_baro.new.o : $(INTEGRATE)/md_baro.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_baro.new.c
+
+integrate.a(md_zeroam.new.o) : md_zeroam.new.o
+md_zeroam.new.o : $(INTEGRATE)/md_zeroam.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_zeroam.new.c
+
+integrate.a(md_averages.new.o) : md_averages.new.o
+md_averages.new.o : $(INTEGRATE)/md_averages.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_averages.new.c
+
+integrate.a(md_substep.new.o) : md_substep.new.o
+md_substep.new.o : $(INTEGRATE)/md_substep.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_substep.new.c
+
+integrate.a(md_freqbin.new.o) : md_freqbin.new.o
+md_freqbin.new.o : $(INTEGRATE)/md_freqbin.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_freqbin.new.c
+
+integrate.a(md_period.new.o) : md_period.new.o
+md_period.new.o : $(INTEGRATE)/md_period.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(INTEGRATE)/md_period.new.c 

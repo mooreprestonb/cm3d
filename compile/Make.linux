@@ -1,0 +1,35 @@
+
+NAME    = cm3d.linux
+
+BASE = ..
+
+# common definitions...
+RM = rm -f
+CC = cc -g
+F77 = f77
+CPP = cc -E
+CP = cp
+AR = ar
+MV = mv
+
+# Compiler flages, paths for include files and libraries
+
+#DEFILE = -DPRESSURE
+#DEFINES = -DLINUX -DBLAS -DFORTRANUNDERSCORE
+
+DEFINES = -DLINUX  
+CFLAGS = -Wall $(DEFINES) 
+FFLAGS =   
+
+#OPT = -O2
+#LIBS = -lm -lg2c -L/usr/lib/libblas -L/usr/lib/liblapack
+LIBS = -lm -L/usr/lib/libblas -L/usr/lib/liblapack -lefence
+#LIBS = -lm 
+
+LD   = $(CC) $(OPT) 
+ARFLAGS = ruv
+RANLIB = ranlib
+
+
+include Makefile.cm3d
+

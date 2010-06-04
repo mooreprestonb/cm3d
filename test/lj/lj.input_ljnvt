@@ -1,0 +1,27 @@
+
+Set up file for argon
+
+\calculation{md} \istart{1} \ntime{1000} \ensemble{nvt}
+
+\nres_lrf{1} \nres_intra{1} \len_nhc{3} \nbar{0}
+
+\t_ext{1.0} \p_ext{0.0} \dt{1.0} \iperd{3}
+
+\iwr_screen{100} 
+\iwr_dump{500} 
+\iwr_confp{10} 
+\iwr_confv{10} 
+\iwr_inst{100}
+
+\dpi_file{lj.init} \dpo_file{lj.save} 
+\pos_file{lj.conf} \vel_file{lj.vel}
+\ham_file{lj.inst} \eng_file{lj.eng} \eval_file{lj.eval}
+\hill_file{lj.hill}
+
+mol_set_file{lj.set}
+\mol_set_file{lj.set_global}
+mol_set_file{lj.set_atm_mol}
+
+\skin{.1} \rheal_res{.1}
+\iseed{12345678}
+

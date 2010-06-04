@@ -1,0 +1,42 @@
+
+#HOME = /home/moore
+BASE    = ../
+NAME    = cm3d.mpi
+
+# common definitions...
+RM = /bin/rm -f
+#CC = insure -n32 -g -DPARA -I/usr/local/mpi/include
+#CC = cc -n32 -DPARA 
+CC = /usr/bin/mpicc -DPARA 
+#F77 = mpif77 -n32
+#F77 = mpxlf 
+CPP = /lib/cpp
+CP = /bin/cp
+MV = /bin/mv
+AR = /usr/bin/ar
+RANLIB = /usr/bin/ranlib
+
+# Compiler flages, paths for include files and libraries
+
+#DEFINES = -r8000 -64 -DSGI 
+#DEFINES = -DSGI -DBLAS -DFORTRANUNDERSCORE 
+DEFINES = -DLINUX -DBLAS
+CFLAGS = $(DEFINES)
+FFLAGS = 
+
+#OPT = -O2 -OPT:round=2:IEEE_arith=1:cray_ivdep=TRUE
+OPT = -O2 
+MALLOC =
+#MALLOC = $(HOME)/libs/libn32/libdbmalloc.a
+#LIB_PATH  = -L/usr/local/mpich/lib/IRIXN32/ch_shmem 
+LIB_PATH  = -L/usr/local/mpi/lib/
+#LIBS = $(LIB_PATH) $(MALLOC) -lcomplib.sgimath -lfastm -lm -lmpi
+LIBS = $(LIB_PATH) $(MALLOC) -lm -lmpich
+
+LD   = $(CC)
+LDFLAGS = $(OPT) 
+#LDFLAGS = $(OPT) -Zvm -n32
+ARFLAGS = ruv
+
+
+include Makefile.cm3d

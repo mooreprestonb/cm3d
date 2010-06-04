@@ -1,0 +1,9 @@
+data base file
+
+-----------------------------------------------------------------------
+intermolecular interactions from atom types
+-----------------------------------------------------------------------
+~inter_parm[\atom1{lj}\atom2{lj}\pot_type{lennard-jones}\eps{1}\sig{1}
+\min_dist{.8}\max_dist{2.5}\res_dist{1.7}]
+
+

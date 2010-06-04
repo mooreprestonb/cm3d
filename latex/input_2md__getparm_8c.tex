@@ -1,0 +1,78 @@
+\section{input/md\_\-getparm.c File Reference}
+\label{input_2md__getparm_8c}\index{input/md_getparm.c@{input/md\_\-getparm.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf RMAX\_\-DIST}~(10.)
+\item 
+\#define {\bf RMIN\_\-DIST}~(1.)
+\item 
+\#define {\bf RRES\_\-DIST}~(7.)
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf get\_\-ter\_\-parm} (int nmeta\_\-key, {\bf META\_\-KEY} $\ast$meta\_\-key, char $\ast$filename, {\bf WORD} atm1, {\bf WORD} atm2, double $\ast$rminl, double $\ast$rmaxl, double $\ast$rmins, double $\ast$rmaxs, double $\ast$vlrc, double $\ast$wlrc, {\bf INTER} $\ast$inter, int indx, int $\ast$inull, double scaleeps)
+\item 
+void {\bf get\_\-bondparm} (int nmeta\_\-key, {\bf META\_\-KEY} $\ast$meta\_\-key, char $\ast$filename, {\bf WORD} atm1, {\bf WORD} atm2, {\bf WORD} bond\_\-label, int $\ast$it\_\-now, double $\ast$eq\_\-now, double $\ast$fk\_\-now, double $\ast$bm\_\-now, int $\ast$ifix)
+\item 
+void {\bf get\_\-bondxparm} (FILE $\ast$fp, char $\ast$filename, {\bf WORD} atm1, {\bf WORD} atm2, {\bf WORD} atm3, {\bf WORD} box\_\-type, double $\ast$eq1\_\-now, double $\ast$eq2\_\-now, double $\ast$fk\_\-now, int $\ast$ifix)
+\item 
+void {\bf get\_\-bendparm} (FILE $\ast$fp, char $\ast$filename, {\bf WORD} atm1, {\bf WORD} atm2, {\bf WORD} atm3, {\bf WORD} bend\_\-label, double $\ast$eq\_\-now, double $\ast$fk\_\-now, int $\ast$ifix, int ibend, int jbend, int kbend)
+\item 
+void {\bf get\_\-torsparm} (FILE $\ast$fp, char $\ast$filename, {\bf WORD} atm1, {\bf WORD} atm2, {\bf WORD} atm3, {\bf WORD} atm4, {\bf WORD} ttors, int $\ast$int\_\-pot, double $\ast$eq\_\-now, double $\ast$fk\_\-now, {\bf VPHI} vphi\_\-now, int $\ast$ifix)
+\item 
+void {\bf get\_\-onfo\_\-parm} (FILE $\ast$fp, char $\ast$filename, {\bf WORD} atm1, {\bf WORD} atm2, double $\ast$rmin, double $\ast$rmax, double $\ast$dx2tab, double $\ast$vtab, double $\ast$dvtab, double $\ast$d2vtab, int ntable)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{input/md_getparm.c@{input/md\_\-getparm.c}!RMAX_DIST@{RMAX\_\-DIST}}
+\index{RMAX_DIST@{RMAX\_\-DIST}!input/md_getparm.c@{input/md\_\-getparm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define RMAX\_\-DIST~(10.)}\label{input_2md__getparm_8c_92af926f69ce0652fac46a5962e01864}
+
+
+\index{input/md_getparm.c@{input/md\_\-getparm.c}!RMIN_DIST@{RMIN\_\-DIST}}
+\index{RMIN_DIST@{RMIN\_\-DIST}!input/md_getparm.c@{input/md\_\-getparm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define RMIN\_\-DIST~(1.)}\label{input_2md__getparm_8c_436b337c8cacd54917c037b170caa80f}
+
+
+\index{input/md_getparm.c@{input/md\_\-getparm.c}!RRES_DIST@{RRES\_\-DIST}}
+\index{RRES_DIST@{RRES\_\-DIST}!input/md_getparm.c@{input/md\_\-getparm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define RRES\_\-DIST~(7.)}\label{input_2md__getparm_8c_5f1346f5bfa0b0f1702ce74135da787c}
+
+
+
+
+\subsection{Function Documentation}
+\index{input/md_getparm.c@{input/md\_\-getparm.c}!get_bendparm@{get\_\-bendparm}}
+\index{get_bendparm@{get\_\-bendparm}!input/md_getparm.c@{input/md\_\-getparm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-bendparm (FILE $\ast$ {\em fp}, char $\ast$ {\em filename}, {\bf WORD} {\em atm1}, {\bf WORD} {\em atm2}, {\bf WORD} {\em atm3}, {\bf WORD} {\em bend\_\-label}, double $\ast$ {\em eq\_\-now}, double $\ast$ {\em fk\_\-now}, int $\ast$ {\em ifix}, int {\em ibend}, int {\em jbend}, int {\em kbend})}\label{input_2md__getparm_8c_1f2b3481aa65554c1f4dcc6bebfe5501}
+
+
+\index{input/md_getparm.c@{input/md\_\-getparm.c}!get_bondparm@{get\_\-bondparm}}
+\index{get_bondparm@{get\_\-bondparm}!input/md_getparm.c@{input/md\_\-getparm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-bondparm (int {\em nmeta\_\-key}, {\bf META\_\-KEY} $\ast$ {\em meta\_\-key}, char $\ast$ {\em filename}, {\bf WORD} {\em atm1}, {\bf WORD} {\em atm2}, {\bf WORD} {\em bond\_\-label}, int $\ast$ {\em it\_\-now}, double $\ast$ {\em eq\_\-now}, double $\ast$ {\em fk\_\-now}, double $\ast$ {\em bm\_\-now}, int $\ast$ {\em ifix})}\label{input_2md__getparm_8c_3aaea509eabbc9ec7f60b6fd6e7a1c0c}
+
+
+\index{input/md_getparm.c@{input/md\_\-getparm.c}!get_bondxparm@{get\_\-bondxparm}}
+\index{get_bondxparm@{get\_\-bondxparm}!input/md_getparm.c@{input/md\_\-getparm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-bondxparm (FILE $\ast$ {\em fp}, char $\ast$ {\em filename}, {\bf WORD} {\em atm1}, {\bf WORD} {\em atm2}, {\bf WORD} {\em atm3}, {\bf WORD} {\em box\_\-type}, double $\ast$ {\em eq1\_\-now}, double $\ast$ {\em eq2\_\-now}, double $\ast$ {\em fk\_\-now}, int $\ast$ {\em ifix})}\label{input_2md__getparm_8c_3b6220a5e830a4771e1424f94441f66e}
+
+
+\index{input/md_getparm.c@{input/md\_\-getparm.c}!get_onfo_parm@{get\_\-onfo\_\-parm}}
+\index{get_onfo_parm@{get\_\-onfo\_\-parm}!input/md_getparm.c@{input/md\_\-getparm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-onfo\_\-parm (FILE $\ast$ {\em fp}, char $\ast$ {\em filename}, {\bf WORD} {\em atm1}, {\bf WORD} {\em atm2}, double $\ast$ {\em rmin}, double $\ast$ {\em rmax}, double $\ast$ {\em dx2tab}, double $\ast$ {\em vtab}, double $\ast$ {\em dvtab}, double $\ast$ {\em d2vtab}, int {\em ntable})}\label{input_2md__getparm_8c_5a05c8e90ce64ecb7134feba37375279}
+
+
+\index{input/md_getparm.c@{input/md\_\-getparm.c}!get_ter_parm@{get\_\-ter\_\-parm}}
+\index{get_ter_parm@{get\_\-ter\_\-parm}!input/md_getparm.c@{input/md\_\-getparm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-ter\_\-parm (int {\em nmeta\_\-key}, {\bf META\_\-KEY} $\ast$ {\em meta\_\-key}, char $\ast$ {\em filename}, {\bf WORD} {\em atm1}, {\bf WORD} {\em atm2}, double $\ast$ {\em rminl}, double $\ast$ {\em rmaxl}, double $\ast$ {\em rmins}, double $\ast$ {\em rmaxs}, double $\ast$ {\em vlrc}, double $\ast$ {\em wlrc}, {\bf INTER} $\ast$ {\em inter}, int {\em indx}, int $\ast$ {\em inull}, double {\em scaleeps})}\label{input_2md__getparm_8c_5a3c1f0454ea5320a9677b3261bb2bfa}
+
+
+\index{input/md_getparm.c@{input/md\_\-getparm.c}!get_torsparm@{get\_\-torsparm}}
+\index{get_torsparm@{get\_\-torsparm}!input/md_getparm.c@{input/md\_\-getparm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-torsparm (FILE $\ast$ {\em fp}, char $\ast$ {\em filename}, {\bf WORD} {\em atm1}, {\bf WORD} {\em atm2}, {\bf WORD} {\em atm3}, {\bf WORD} {\em atm4}, {\bf WORD} {\em ttors}, int $\ast$ {\em int\_\-pot}, double $\ast$ {\em eq\_\-now}, double $\ast$ {\em fk\_\-now}, {\bf VPHI} {\em vphi\_\-now}, int $\ast$ {\em ifix})}\label{input_2md__getparm_8c_7251b806659f7208ad9e2e6547927ef0}
+
+

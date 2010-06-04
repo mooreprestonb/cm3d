@@ -1,0 +1,239 @@
+/* 
+   Copyright (C) 1997 1998 1999 2000 Dr. Preston B. Moore
+
+Dr. Preston B. Moore
+Associate Director, Center for Molecular Modeling (CMM)
+University of Pennsylvania, Department of Chemistry, Box 188 
+231 S. 34th St. Philadelphia, PA 19104-6323 USA
+EMAIL: moore@cmm.chem.upenn.edu  
+WWW: http://www.cmm.upenn.edu/~moore
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+*/
+#include "md.h"
+
+#define DELTA 1.e-5
+
+void matmulv(int,double *,double *,double *);
+
+/*  function to determine pressure tensor numerically */
+void ptensorchk(SIMPARMS *simparms,COORDS *coords,INTER *inter,NGBR *ngbr,int iflg)
+{ 
+  int i,n,r,c,np,iloop;
+  double *sx,*sy,*sz;  /* stored positions */
+  double *x,*y,*z;
+  double dx,dy,dz,delta;
+  double v,v_e,w,w_e,vup,vlow;
+  double *hmat,hinv[9],hstore;
+  double pchk[9],tensor[9],dtens[9],etensor[9]; 
+       
+  md_stdout("checking pressure tensor");
+  v = v_e = w = w_e = vup = vlow = 0.;
+  for(i=0;i<9;i++) pchk[i] = tensor[i] = dtens[i] = etensor[i] = 0.;
+  np = simparms->natoms;
+  sx = (double *)calloc(3*np,sizeof(double));
+  sy = sx +   np;
+  sz = sx + 2*np;
+  
+  x = coords->px;
+  y = coords->py;
+  z = coords->pz;
+
+  /* store particle posistions */
+  for(n=0;n<np;n++) { 
+    sx[n]= x[n];
+    sy[n]= y[n];
+    sz[n]= z[n];
+  }
+    
+  for (iloop=0;iloop<9;iloop++) {
+    hmat = coords->hmat;
+    delta= DELTA;
+    for(i=0;i<9;i++) tensor[i] = 0.;
+    
+    gethinv9(hmat,hinv);
+    for(r=0;r<9;r++) {
+      hstore = hmat[r];
+      hmat[r] = hstore + delta;
+      
+      /* calculate new pos */
+      for(c=0;c<np;c++){
+	dx = sx[c]*hinv[0]+sy[c]*hinv[1]+sz[c]*hinv[2];
+	dy = sx[c]*hinv[3]+sy[c]*hinv[4]+sz[c]*hinv[5];
+	dz = sx[c]*hinv[6]+sy[c]*hinv[7]+sz[c]*hinv[8];
+	
+	x[c] = dx*hmat[0]+dy*hmat[1]+dz*hmat[2];
+	y[c] = dx*hmat[3]+dy*hmat[4]+dz*hmat[5];
+	z[c] = dx*hmat[6]+dy*hmat[7]+dz*hmat[8];
+      }
+      
+      /* get pot high */
+      v = w = 0.;
+      switch (iloop) {
+      case 0:
+	getvbond(simparms,coords,&v,&w,tensor);
+	break;
+      case 1:
+	getvbondx(simparms,coords,&v,&w,tensor);
+	break;
+      case 2:
+	getvbend(simparms,coords,&v,&w,tensor);
+           break;
+      case 3:
+	getvtors(simparms,coords,&v,&w,tensor);
+	break;
+      case 4:
+	getvonfo(simparms,coords,&v,&v_e,&w,&w_e,tensor,etensor);
+	break;
+      case 5:
+	getvonfo(simparms,coords,&v_e,&v,&w_e,&w,etensor,tensor);
+	break;
+      case 6:
+	getvirter(simparms,coords,inter,ngbr,&v_e,&v,&w,tensor);
+	break;
+      case 7:
+	getvirter_e(simparms,coords,inter,ngbr,&v,&w,tensor,iflg);
+	break;
+      case 8:
+	fk_ewald(simparms,coords);
+	ecorr(simparms,coords);
+	getvewald(simparms,coords,&v,&w,tensor);
+	break;
+      } 
+
+      vup = v;
+      
+      hmat[r] = hstore - delta;
+      /* calculate new pos again */
+      for(c=0;c<np;c++){
+	dx = sx[c]*hinv[0]+sy[c]*hinv[1]+sz[c]*hinv[2];
+	dy = sx[c]*hinv[3]+sy[c]*hinv[4]+sz[c]*hinv[5];
+	dz = sx[c]*hinv[6]+sy[c]*hinv[7]+sz[c]*hinv[8];
+	
+	x[c] = dx*hmat[0]+dy*hmat[1]+dz*hmat[2];
+	y[c] = dx*hmat[3]+dy*hmat[4]+dz*hmat[5];
+	z[c] = dx*hmat[6]+dy*hmat[7]+dz*hmat[8];
+      }
+      
+      /* get pot low */
+      v = w = 0.;
+      switch (iloop) {
+      case 0:
+	getvbond(simparms,coords,&v,&w,tensor);
+	break;
+      case 1:
+	getvbondx(simparms,coords,&v,&w,tensor);
+	break;
+      case 2:
+	getvbend(simparms,coords,&v,&w,tensor);
+	break;
+      case 3:
+	getvtors(simparms,coords,&v,&w,tensor);
+	break;
+      case 4:
+	getvonfo(simparms,coords,&v,&v_e,&w,&w_e,tensor,etensor);
+	break;
+      case 5:
+	getvonfo(simparms,coords,&v_e,&v,&w_e,&w,etensor,tensor);
+	break;
+      case 6:
+	getvirter(simparms,coords,inter,ngbr,&v_e,&v,&w,tensor);
+	break;
+      case 7:
+	getvirter_e(simparms,coords,inter,ngbr,&v,&w,tensor,iflg);
+	break;
+      case 8:
+	fk_ewald(simparms,coords);
+	ecorr(simparms,coords);
+	getvewald(simparms,coords,&v,&w,tensor);
+	break;
+      } 
+      
+      vlow = v;
+      
+      /* calculate -derivative */
+      pchk[r] = -(vup-vlow)/(2.*delta);
+      
+      /* reset pos and hmat */
+      for(n=0;n<np;n++) { x[n]= sx[n];y[n]= sy[n];z[n]= sz[n];}
+      hmat[r] = hstore;
+    }
+  
+    /* calculate final form of pressure tensor */
+    /* transform pchk */
+    
+    for(i=0;i<9;i++) printf("hmat[%d]=%g pressure = %g\n",i,hmat[i],pchk[i]);
+    transmatv(3,hmat,etensor);
+    matmulv(3,pchk,etensor,tensor);
+    
+    for(i=0;i<9;i++) pchk[i] = dtens[i] = tensor[i];
+    sym33(pchk);
+    
+    /* get analytic tensor */
+    w = v = 0;
+    for(i=0;i<9;i++) tensor[i] = 0.;
+    switch (iloop) {
+    case 0:
+      getvbond(simparms,coords,&v,&w,tensor);
+      printf("getvbond \n\n");
+      break;
+    case 1:
+      getvbondx(simparms,coords,&v,&w,tensor); 
+      printf("getvbondx \n\n"); 
+      break;
+    case 2:
+      getvbend(simparms,coords,&v,&w,tensor);
+      printf("getvbend \n\n"); 
+      break;
+    case 3:
+      getvtors(simparms,coords,&v,&w,tensor);
+      printf("getvtors \n\n"); 
+      break;
+    case 4:
+      getvonfo(simparms,coords,&v,&v_e,&w,&w_e,tensor,etensor);
+      printf("getvonfo \n\n"); 
+      break;
+    case 5:
+      getvonfo(simparms,coords,&v_e,&v,&w_e,&w,etensor,tensor);
+      printf("getvonfo_e \n\n"); 
+      break;
+    case 6:
+      getvirter(simparms,coords,inter,ngbr,&v_e,&v,&w,tensor);
+      printf("getvirter \n\n"); 
+      break;
+    case 7:
+      getvirter_e(simparms,coords,inter,ngbr,&v,&w,tensor,iflg);
+      printf("getvirter_e \n\n"); 
+      break;
+    case 8:
+      fk_ewald(simparms,coords);ecorr(simparms,coords);
+      getvewald(simparms,coords,&v,&w,tensor);
+      printf("fk_ewald \n\n"); 
+      break;
+    } 
+    
+    printf("v = %.15g, w = %.15g = %.15g\n",v,w,tensor[0]+tensor[4]+tensor[8]);
+    for(i=0;i<9;i++) {
+      double rd = 1;
+      if(tensor[i] != 0.0) rd = 1./tensor[i];
+      if(pchk[i] != 0.0) rd = 1./pchk[i];
+      printf("%d % 11.5g % 11.5g % 11.5g% 11.5g\n",i,tensor[i],dtens[i],
+	     pchk[i],fabs((tensor[i]-pchk[i])*rd));
+    }
+  }
+  free(sx);
+  return;
+}

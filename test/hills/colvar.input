@@ -1,0 +1,44 @@
+
+~coll_coor[\number{1} \type{distance} \mass{5} \fk{100} 
+	\hills{on} \hillwidth{20} 
+	const_vel{5} \temp{300} \thermstat_mass{50} \min_val{0}
+	\max_val{10} \wall_stiff{50}
+	\atoms{2,1,atom,0,1,atom,1}
+	atoms{2,1,atom,50,2,molecule,abutane,51,atom_type,O}
+]
+
+coll_coor[\number{2} \type{diff_distance} \mass{5} \fk{300} \hillwidth{20} 
+	\frozen{on} \const_vel{20} \temp{300} \thermstat_mass{50} \min_val{0}
+	\max_val{10} \wall_stiff{50}
+	\atom1{50} \atom2{51} \atom3{52}
+]
+
+coll_coor[\number{3} \type{cornum} \mass{5} \fk{300} \hillwidth{20} 
+	\frozen{on} \const_vel{20} \temp{300} \thermstat_mass{50} \min_val{0}
+	\max_val{10} \wall_stiff{50}
+	\atoms{1,50,
+	       3,54,OH1,OH2}
+]
+
+
+
+  int     coords->colvar.ncolvar 
+  double  coords->colvar.hilldepth 
+  double  coords->colvar.hillwidth 
+  int     coords->colvar.restart                  /* 1/0 on/off  */
+  int     coords->colvar.nhills                   /* #hills      */
+  int     coords->colvar.tconst_vel[ncolvar]      /* 1/0 on/off  */
+  int     coords->colvar.cv[ncolvar].thills          /* 1/0 on/off  */
+  int     coords->colvar.cv[ncolvar].type 
+  double  coords->colvar.cv[ncolvar].mass 
+  double  coords->colvar.cv[ncolvar].fk
+  double  coords->colvar.cv[ncolvar].scalewidth
+  double  coords->colvar.t_pcolvar[ncolvar,nhills]       /* trajectory */  
+  double  coords->colvar.t_scalewidth[ncolvar,nhills]    /* trajectory */  
+  double  coords->colvar.t_hillwidth[nhills]             /* trajectory */  
+  double  coords->colvar.t_hilldepth[nhills]             /* trajectory */  
+  double  coords->colvar.f_hills[ncolvar]         /* forces on colvars */
+  double  coords->colvar.cv[ncolvar].pcolvar         /* position   */
+  double  coords->colvar.cv[ncolvar].vcolvar         /* velocity   */
+  double  coords->colvar.cv[ncolvar].pistcolvar      /* istant. pos. */
+

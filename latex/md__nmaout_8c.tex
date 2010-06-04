@@ -1,0 +1,71 @@
+\section{output/md\_\-nmaout.c File Reference}
+\label{md__nmaout_8c}\index{output/md_nmaout.c@{output/md\_\-nmaout.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf ZERO}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+static void {\bf imag2real} (int, double, double, double[$\,$], double[$\,$])
+\item 
+void {\bf write\_\-nma\_\-start} (int natoms, int npt, double dt, double frmax, double frmin, int iunits, int {\bf nsave}, {\bf NMODES} $\ast${\bf nmodes})
+\item 
+void {\bf save\_\-nma} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf FILENAMES} $\ast$filenames, int npoints, double freq\_\-min, {\bf NMODES} $\ast${\bf nmodes})
+\item 
+void {\bf print\_\-mat} (int nr, int nc, double $\ast$$\ast$matrix)
+\item 
+void {\bf psysvec} ({\bf FILENAMES} $\ast$filenames, int nconf, int natoms, int iunits, int npoints, double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$amass, double $\ast$hmat, double $\ast$$\ast$fcmat, double $\ast$dn, double $\ast$$\ast$molmat, int nspec, int $\ast$nmol, int $\ast$napm)
+\item 
+void {\bf store\_\-freq} ({\bf SIMPARMS} $\ast${\bf simparms}, int {\bf nmodes}, double $\ast$dn, double time)
+\item 
+void {\bf partratio} (double $\ast$$\ast$fcmat, double $\ast$dn, double $\ast$part, int natoms)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{md_nmaout.c@{md\_\-nmaout.c}!ZERO@{ZERO}}
+\index{ZERO@{ZERO}!md_nmaout.c@{md\_\-nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ZERO}\label{md__nmaout_8c_c328e551bde3d39b6d7b8cc9e048d941}
+
+
+
+
+\subsection{Function Documentation}
+\index{md_nmaout.c@{md\_\-nmaout.c}!imag2real@{imag2real}}
+\index{imag2real@{imag2real}!md_nmaout.c@{md\_\-nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void imag2real (int, double, double, double[$\,$], double[$\,$])\hspace{0.3cm}{\tt  [static]}}\label{md__nmaout_8c_4f341a7a3e35595344570323ca3d7d1b}
+
+
+\index{md_nmaout.c@{md\_\-nmaout.c}!partratio@{partratio}}
+\index{partratio@{partratio}!md_nmaout.c@{md\_\-nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void partratio (double $\ast$$\ast$ {\em fcmat}, double $\ast$ {\em dn}, double $\ast$ {\em part}, int {\em natoms})}\label{md__nmaout_8c_f16ff482025a0122cbc39dfa823e5fa5}
+
+
+\index{md_nmaout.c@{md\_\-nmaout.c}!print_mat@{print\_\-mat}}
+\index{print_mat@{print\_\-mat}!md_nmaout.c@{md\_\-nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void print\_\-mat (int {\em nr}, int {\em nc}, double $\ast$$\ast$ {\em matrix})}\label{md__nmaout_8c_e03c8642bacdbe20ef827ce0ff30a31e}
+
+
+\index{md_nmaout.c@{md\_\-nmaout.c}!psysvec@{psysvec}}
+\index{psysvec@{psysvec}!md_nmaout.c@{md\_\-nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void psysvec ({\bf FILENAMES} $\ast$ {\em filenames}, int {\em nconf}, int {\em natoms}, int {\em iunits}, int {\em npoints}, double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$ {\em amass}, double $\ast$ {\em hmat}, double $\ast$$\ast$ {\em fcmat}, double $\ast$ {\em dn}, double $\ast$$\ast$ {\em molmat}, int {\em nspec}, int $\ast$ {\em nmol}, int $\ast$ {\em napm})}\label{md__nmaout_8c_3d449745f510816c60dc888dd64c6d94}
+
+
+\index{md_nmaout.c@{md\_\-nmaout.c}!save_nma@{save\_\-nma}}
+\index{save_nma@{save\_\-nma}!md_nmaout.c@{md\_\-nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-nma ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf FILENAMES} $\ast$ {\em filenames}, int {\em npoints}, double {\em freq\_\-min}, {\bf NMODES} $\ast$ {\em nmodes})}\label{md__nmaout_8c_07b4b3619b8dde69bf89cabcab0c086d}
+
+
+\index{md_nmaout.c@{md\_\-nmaout.c}!store_freq@{store\_\-freq}}
+\index{store_freq@{store\_\-freq}!md_nmaout.c@{md\_\-nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void store\_\-freq ({\bf SIMPARMS} $\ast$ {\em simparms}, int {\em nmodes}, double $\ast$ {\em dn}, double {\em time})}\label{md__nmaout_8c_dbcdcbdadea35d2e60b0719fcffeaba6}
+
+
+\index{md_nmaout.c@{md\_\-nmaout.c}!write_nma_start@{write\_\-nma\_\-start}}
+\index{write_nma_start@{write\_\-nma\_\-start}!md_nmaout.c@{md\_\-nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void write\_\-nma\_\-start (int {\em natoms}, int {\em npt}, double {\em dt}, double {\em frmax}, double {\em frmin}, int {\em iunits}, int {\em nsave}, {\bf NMODES} $\ast$ {\em nmodes})}\label{md__nmaout_8c_b291d317c07e1471b4359902f59f35eb}
+
+

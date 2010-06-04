@@ -1,0 +1,32 @@
+
+# HOME = /home/moore
+BASE    = $(HOME)/md/mike3.0
+NAME    = mike_O200
+
+# common definitions...
+RM = /bin/rm -f
+CC = cc -n32
+F77 = f77 -n32
+
+#CC = gcc
+CPP = /usr/lib/cpp
+CP = /bin/cp
+AR = /bin/ar
+MV = /bin/mv
+
+# Compiler flages, paths for include files and libraries
+
+#DEFINES = -DFRIC -DBLAS -DFORTRANUNDERSCORE -DPRESSURE
+DEFINES = -DBLAS -DFORTRANUNDERSCORE -DSGI 
+
+CFLAGS = $(DEFINES) 
+FFLAGS =  
+
+#OPT =
+OPT = -O2 -OPT:round=2:IEEE_arith=1:cray_ivdep=TRUE
+
+LIBS = -lcomplib.sgimath -lblas -lfastm -lm
+LD   = $(F77) $(OPT)
+LDFLAGS = 
+ARFLAGS = ruv
+

@@ -1,0 +1,19 @@
+
+\calculation{md} \ensemble{nvt} 
+\ntime{600} \dt{2.0} 
+\iperd{3} \t_ext{300.} \nbar{0} \len_nhc{3}
+\istart{2} \p_ext{1.}
+
+\iwr_screen{200} \iwr_dump{200} \iwr_inst{200}
+\iwr_confp{200} \iwr_confv{200}
+
+\dpi_file{oct.rest} \dpo_file{oct.save}
+\eng_file{oct.iavg} \ham_file{oct.iham} \eval_file{oct.ival}
+\pos_file{oct.pos} \vel_file{oct.vel}
+
+\mol_set_file{oct.set}
+
+\inter_file{oct.parm} \bond_file{oct.parm} \bend_file{oct.parm}
+\torsion_file{oct.parm} \onefour_file{oct.parm}
+
+\tau_vol{1000} \scale_14{0.} \scale_14_e{0.}

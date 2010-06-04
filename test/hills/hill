@@ -1,0 +1,73 @@
+data base file
+
+-----------------------------------------------------------------------
+intermolecular interactions from atom types
+-----------------------------------------------------------------------
+
+Intermolecular potential parameter file for all atom n-butane (charmm 21?)
+~inter_parm[\atom1{c11}\atom2{c11}\pot_type{williams}
+\awill{42084530.}  \bwill{3.60}  \c6{285830.6}
+\c8{0.0} \c9{0}
+\c10{0.0} \min_dist{1.0} \max_dist{9.0} \res_dist{9.0}]
+
+~inter_parm[\atom1{c11}\atom2{h11}\pot_type{williams}
+\awill{4411251.9}  \bwill{3.67}  \c6{62902.86}  
+\c8{0.0} \c9{0} \c10{0.0} \min_dist{1.0} \max_dist{9.0} \res_dist{9.0}]
+
+~inter_parm[\atom1{h11}\atom2{h11}\pot_type{williams}
+\awill{1335553.6}  \bwill{3.74}  \c6{13737.99}  
+\c8{0.0} \c9{0} \c10{0.0} \min_dist{1.0} \max_dist{9.0} \res_dist{9.0}]
+
+zero inter-molecular force with a 0 eps
+~inter_parm[\atom1{c11}\atom2{c11}\pot_type{null}]
+~inter_parm[\atom1{c11}\atom2{h11}\pot_type{null}]
+~inter_parm[\atom1{h11}\atom2{h11}\pot_type{null}]
+
+-----------------------------------------------------------------------
+intra molecular interactions from atom types
+-----------------------------------------------------------------------
+
+All atom butane
+
+~bond_parm[\atom1{c11}\atom2{h11}\pot_type{harm} \fk{332127.1081} \eq{1.10}]
+~bond_parm[\atom1{c11}\atom2{c11}\pot_type{harm}\fk{237017.9817} \eq{1.53}]
+
+----------------------------------------------------------------------
+ **** Put in to test the cross term real potential does not have this term!***
+~bondx_parm[\atom1{h11}\atom2{c11}\atom3{h11} \pot_type{bond_cross}
+        \eq1{1.10}\eq2{1.10}\fk{16400}]
+----------------------------------------------------------------------
+
+~bend_parm[\atom1{h11}\atom2{c11}\atom3{h11}\pot_type{harm}
+\fk{38033.59} \eq{108.5}]
+~bend_parm[\atom1{h11}\atom2{c11}\atom3{c11}\pot_type{harm}
+\fk{45199.48} \eq{109.5}]
+~bend_parm[\atom1{c11}\atom2{c11}\atom3{c11}\pot_type{harm}
+\fk{60386.75} \eq{113.0}]
+
+~torsion_parm[\atom1{c11}\atom2{c11}\atom3{c11}\atom4{h11}
+\pot_type{power} \p0{89.070452} \p1{-267.21135} \p2{0} \p3{356.2818} 
+\p4{0} \p5{0} \p6{0}]
+
+~torsion_parm[\atom1{h11}\atom2{c11}\atom3{c11}\atom4{h11}\pot_type{power} 
+\p0{83.031777} \p1{-249.09531} \p2{0}\p3{332.127}\p4{0}\p5{0}\p6{0}]
+
+~torsion_parm[\atom1{c11}\atom2{c11}\atom3{c11}\atom4{c11}\pot_type{power} 
+\p0{324.07555} \p1{-146.94109} \p2{96.6188}\p3{471.017}\p4{0}\p5{0}\p6{0}]
+
+
+----------------------------------------------------------------------
+ **** Put in to test the 1-4 term real potential does not have this term!***
+~onefour_parm[\atom1{h11}\atom2{c11} \pot_type{williams}
+	\awill{4411251.9}  \bwill{3.67}  \c6{62902.86} \c8{0} \c9{0} \c10{0} 
+        \min_dist{1.0} \max_dist{9.0} \res_dist{9.0}]
+
+----------------------------------------------------------------------
+~onefour_parm[\atom1{h11}\atom2{h11}\pot_type{williams}
+         \awill{1335553.6}  \bwill{3.74}  \c6{13737.99}  
+        \c8{0.0} \c9{0} \c10{0.0} \min_dist{1.0} \max_dist{9.0} \res_dist{9.0}]
+----------------------------------------------------------------------
+~onefour_parm[\atom1{c11}\atom2{c11}\pot_type{williams}
+\awill{42084530.}  \bwill{3.60}  \c6{285830.6}
+\c8{0.0} \c9{0}
+\c10{0.0} \min_dist{1.0} \max_dist{9.0} \res_dist{9.0}]

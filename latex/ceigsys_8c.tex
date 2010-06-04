@@ -1,0 +1,115 @@
+\section{utils/ceigsys.c File Reference}
+\label{ceigsys_8c}\index{utils/ceigsys.c@{utils/ceigsys.c}}
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf VECTOR}
+\item 
+\#define {\bf SIGN}(a, b)~((b)$<$0 ? -fabs(a) : fabs(a))
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf ctred2} (double $\ast$$\ast$, int, double[$\,$], double[$\,$])
+\item 
+void {\bf ctred2v} (double $\ast$$\ast$, int, double[$\,$], double[$\,$])
+\item 
+void {\bf ctqli} (double[$\,$], double[$\,$], int, double $\ast$$\ast$)
+\item 
+int {\bf ctqliv} (double[$\,$], double[$\,$], int, double $\ast$$\ast$)
+\item 
+void {\bf ceigsrt} (double[$\,$], double $\ast$$\ast$, int)
+\item 
+void {\bf ceigsrtv} (double[$\,$], double $\ast$$\ast$, int)
+\item 
+void {\bf md\_\-error} (char $\ast$)
+\item 
+double $\ast$$\ast$ {\bf dmatrix} (int, int, int, int)
+\item 
+void {\bf free\_\-dmatrix} (double $\ast$$\ast$, int, int, int, int)
+\item 
+void {\bf lwdsyev\_\-} (int $\ast$, int $\ast$, int $\ast$, double $\ast$, int $\ast$, double $\ast$, double $\ast$, int $\ast$, int $\ast$)
+\item 
+void {\bf rs\_\-me} (int n, double $\ast$eigval, double $\ast$$\ast$amat, int iflag)
+\item 
+void {\bf vsrtasnd} (double d[$\,$], double $\ast$$\ast${\bf v}, int m, int n)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{ceigsys.c@{ceigsys.c}!SIGN@{SIGN}}
+\index{SIGN@{SIGN}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SIGN(a, b)~((b)$<$0 ? -fabs(a) : fabs(a))}\label{ceigsys_8c_c89d5f8a358eb8a1abdcd0fcef134f1a}
+
+
+\index{ceigsys.c@{ceigsys.c}!VECTOR@{VECTOR}}
+\index{VECTOR@{VECTOR}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define VECTOR}\label{ceigsys_8c_c6e89954deaa373db52a91ac6db50884}
+
+
+
+
+\subsection{Function Documentation}
+\index{ceigsys.c@{ceigsys.c}!ceigsrt@{ceigsrt}}
+\index{ceigsrt@{ceigsrt}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ceigsrt (double[$\,$], double $\ast$$\ast$, int)}\label{ceigsys_8c_2eae5fea1789b08b0e071d30762b4a7f}
+
+
+\index{ceigsys.c@{ceigsys.c}!ceigsrtv@{ceigsrtv}}
+\index{ceigsrtv@{ceigsrtv}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ceigsrtv (double[$\,$], double $\ast$$\ast$, int)}\label{ceigsys_8c_08ba395911e38cdb1e4bf03f333fee8c}
+
+
+\index{ceigsys.c@{ceigsys.c}!ctqli@{ctqli}}
+\index{ctqli@{ctqli}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ctqli (double[$\,$], double[$\,$], int, double $\ast$$\ast$)}\label{ceigsys_8c_7b301a63a01c1c2c3fb94a29ffcc3aaf}
+
+
+\index{ceigsys.c@{ceigsys.c}!ctqliv@{ctqliv}}
+\index{ctqliv@{ctqliv}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int ctqliv (double[$\,$], double[$\,$], int, double $\ast$$\ast$)}\label{ceigsys_8c_2e8004270e30c0fed0efa7905be17664}
+
+
+\index{ceigsys.c@{ceigsys.c}!ctred2@{ctred2}}
+\index{ctred2@{ctred2}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ctred2 (double $\ast$$\ast$, int, double[$\,$], double[$\,$])}\label{ceigsys_8c_305081d51e6be3754d262d1093054771}
+
+
+\index{ceigsys.c@{ceigsys.c}!ctred2v@{ctred2v}}
+\index{ctred2v@{ctred2v}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ctred2v (double $\ast$$\ast$, int, double[$\,$], double[$\,$])}\label{ceigsys_8c_9ce03419a361490ba5299072a2a0af26}
+
+
+\index{ceigsys.c@{ceigsys.c}!dmatrix@{dmatrix}}
+\index{dmatrix@{dmatrix}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ dmatrix (int, int, int, int)}\label{ceigsys_8c_1ccaf1ced1551855c51abb0c1f29a2bb}
+
+
+\index{ceigsys.c@{ceigsys.c}!free_dmatrix@{free\_\-dmatrix}}
+\index{free_dmatrix@{free\_\-dmatrix}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-dmatrix (double $\ast$$\ast$, int, int, int, int)}\label{ceigsys_8c_1d859f3330b0ef10f3425c3748dc03aa}
+
+
+\index{ceigsys.c@{ceigsys.c}!lwdsyev_@{lwdsyev\_\-}}
+\index{lwdsyev_@{lwdsyev\_\-}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lwdsyev\_\- (int $\ast$, int $\ast$, int $\ast$, double $\ast$, int $\ast$, double $\ast$, double $\ast$, int $\ast$, int $\ast$)}\label{ceigsys_8c_08b0905bd36b1345637b44c9e39d4aba}
+
+
+\index{ceigsys.c@{ceigsys.c}!md_error@{md\_\-error}}
+\index{md_error@{md\_\-error}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void md\_\-error (char $\ast$)}\label{ceigsys_8c_8976c9bff4b0598995fa8cc61584d873}
+
+
+\index{ceigsys.c@{ceigsys.c}!rs_me@{rs\_\-me}}
+\index{rs_me@{rs\_\-me}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void rs\_\-me (int {\em n}, double $\ast$ {\em eigval}, double $\ast$$\ast$ {\em amat}, int {\em iflag})}\label{ceigsys_8c_5f48c8b1d76b20ca6dbd16301e93b1e4}
+
+
+\index{ceigsys.c@{ceigsys.c}!vsrtasnd@{vsrtasnd}}
+\index{vsrtasnd@{vsrtasnd}!ceigsys.c@{ceigsys.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void vsrtasnd (double {\em d}[$\,$], double $\ast$$\ast$ {\em v}, int {\em m}, int {\em n})}\label{ceigsys_8c_3228238f335dfbac503d709bd2a224e1}
+
+

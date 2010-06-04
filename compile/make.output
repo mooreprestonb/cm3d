@@ -1,0 +1,78 @@
+
+OUTPUT = $(BASE)/output
+DOUTPUT = $(TEST)/output
+
+OUTPUT_FILES = md_output.o md_simparm.o md_subparm.o md_nmaout.o \
+	md_initval.o md_saveinst.o md_saveout.o md_writescreen.o \
+	md_writestart.o md_writesubvec.o md_headers.o md_savecolv.o \
+	md_nmaout.new.o
+
+output.a : output.a(md_output.o) output.a(md_simparm.o) \
+	output.a(md_subparm.o) output.a(md_nmaout.o) output.a(md_initval.o) \
+	output.a(md_saveinst.o) output.a(md_saveout.o) \
+	output.a(md_writescreen.o) output.a(md_writestart.o) \
+	output.a(md_writesubvec.o) output.a(md_headers.o) output.a(md_savecolv.o) \
+	output.a(md_nmaout.new.o)
+	$(AR) $(ARFLAGS) $@ $(OUTPUT_FILES)
+	$(RANLIB) $@
+
+output.a(md_output.o) : md_output.o
+md_output.o : $(OUTPUT)/md_output.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(OUTPUT)/md_output.c
+
+output.a(md_simparm.o) : md_simparm.o
+md_simparm.o : $(OUTPUT)/md_simparm.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(OUTPUT)/md_simparm.c
+
+output.a(md_subparm.o) : md_subparm.o
+md_subparm.o : $(OUTPUT)/md_subparm.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(OUTPUT)/md_subparm.c
+
+output.a(md_nmaout.o) : md_nmaout.o
+md_nmaout.o : $(OUTPUT)/md_nmaout.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(OUTPUT)/md_nmaout.c
+
+output.a(md_initval.o) : md_initval.o
+md_initval.o : $(OUTPUT)/md_initval.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(OUTPUT)/md_initval.c
+
+output.a(md_saveout.o) : md_saveout.o
+md_saveout.o : $(OUTPUT)/md_saveout.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(OUTPUT)/md_saveout.c
+
+output.a(md_savecolv.o) : md_savecolv.o
+md_savecolv.o : $(OUTPUT)/md_savecolv.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(OUTPUT)/md_savecolv.c
+
+output.a(md_saveinst.o) : md_saveinst.o
+md_saveinst.o : $(OUTPUT)/md_saveinst.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(OUTPUT)/md_saveinst.c
+
+output.a(md_writescreen.o) : md_writescreen.o
+md_writescreen.o : $(OUTPUT)/md_writescreen.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(OUTPUT)/md_writescreen.c
+
+output.a(md_writestart.o) : md_writestart.o
+md_writestart.o : $(OUTPUT)/md_writestart.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(OUTPUT)/md_writestart.c
+
+output.a(md_headers.o) : md_headers.o
+md_headers.o : $(OUTPUT)/md_headers.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(OUTPUT)/md_headers.c
+
+output.a(md_writesubvec.o) : md_writesubvec.o
+md_writesubvec.o : $(OUTPUT)/md_writesubvec.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(OUTPUT)/md_writesubvec.c
+
+
+
+
+
+
+
+
+
+output.a(md_nmaout.new.o) : md_nmaout.new.o
+md_nmaout.new.o : $(OUTPUT)/md_nmaout.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(OUTPUT)/md_nmaout.new.c
+

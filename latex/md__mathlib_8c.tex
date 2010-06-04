@@ -1,0 +1,98 @@
+\section{utils/md\_\-mathlib.c File Reference}
+\label{md__mathlib_8c}\index{utils/md_mathlib.c@{utils/md\_\-mathlib.c}}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf DIM}~3
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+double {\bf gethinv9} (double hmat[$\,$], double hmati[$\,$])
+\item 
+double {\bf get\_\-deth} (double $\ast$hmat)
+\item 
+void {\bf sym33} (double mat[9])
+\item 
+void {\bf v1fv3} (int n, double $\ast$all, double $\ast$x, double $\ast$y, double $\ast$z)
+\item 
+void {\bf v3fv1} (int n, double $\ast$all, double $\ast$x, double $\ast$y, double $\ast$z)
+\item 
+double {\bf ddot1a} (int n, double $\ast$a, int astep, double $\ast$b, int bstep)
+\item 
+double {\bf ddot1} (int n, double $\ast$a, double $\ast$b)
+\item 
+double {\bf dsum1a} (int n, double $\ast$a, int astep)
+\item 
+double {\bf dsum1} (int n, double $\ast$a)
+\item 
+void {\bf matmulv} (int n, double a[$\,$], double b[$\,$], double c[$\,$])
+\item 
+void {\bf transmatv} (int n, double a[$\,$], double b[$\,$])
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{md_mathlib.c@{md\_\-mathlib.c}!DIM@{DIM}}
+\index{DIM@{DIM}!md_mathlib.c@{md\_\-mathlib.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DIM~3}\label{md__mathlib_8c_c25189db92959bff3c6c2adf4c34b50a}
+
+
+
+
+\subsection{Function Documentation}
+\index{md_mathlib.c@{md\_\-mathlib.c}!ddot1@{ddot1}}
+\index{ddot1@{ddot1}!md_mathlib.c@{md\_\-mathlib.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double ddot1 (int {\em n}, double $\ast$ {\em a}, double $\ast$ {\em b})}\label{md__mathlib_8c_04f9ace366a5d3f8c2bc505269d220b5}
+
+
+\index{md_mathlib.c@{md\_\-mathlib.c}!ddot1a@{ddot1a}}
+\index{ddot1a@{ddot1a}!md_mathlib.c@{md\_\-mathlib.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double ddot1a (int {\em n}, double $\ast$ {\em a}, int {\em astep}, double $\ast$ {\em b}, int {\em bstep})}\label{md__mathlib_8c_2e4408dba3a60d5cfa61bf07c935c049}
+
+
+\index{md_mathlib.c@{md\_\-mathlib.c}!dsum1@{dsum1}}
+\index{dsum1@{dsum1}!md_mathlib.c@{md\_\-mathlib.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double dsum1 (int {\em n}, double $\ast$ {\em a})}\label{md__mathlib_8c_37015c4294d61ebff20245e3ff83638d}
+
+
+\index{md_mathlib.c@{md\_\-mathlib.c}!dsum1a@{dsum1a}}
+\index{dsum1a@{dsum1a}!md_mathlib.c@{md\_\-mathlib.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double dsum1a (int {\em n}, double $\ast$ {\em a}, int {\em astep})}\label{md__mathlib_8c_9103b8e1c1802d9301c6fae0be266d3f}
+
+
+\index{md_mathlib.c@{md\_\-mathlib.c}!get_deth@{get\_\-deth}}
+\index{get_deth@{get\_\-deth}!md_mathlib.c@{md\_\-mathlib.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double get\_\-deth (double $\ast$ {\em hmat})}\label{md__mathlib_8c_0a4a22a048524d5041266aa8dc1f04a8}
+
+
+\index{md_mathlib.c@{md\_\-mathlib.c}!gethinv9@{gethinv9}}
+\index{gethinv9@{gethinv9}!md_mathlib.c@{md\_\-mathlib.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double gethinv9 (double {\em hmat}[$\,$], double {\em hmati}[$\,$])}\label{md__mathlib_8c_3371cf5cbee70fc2645ecee13615a7bd}
+
+
+\index{md_mathlib.c@{md\_\-mathlib.c}!matmulv@{matmulv}}
+\index{matmulv@{matmulv}!md_mathlib.c@{md\_\-mathlib.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void matmulv (int {\em n}, double {\em a}[$\,$], double {\em b}[$\,$], double {\em c}[$\,$])}\label{md__mathlib_8c_ef8cb8452c04c696d2a489a26fc4de59}
+
+
+\index{md_mathlib.c@{md\_\-mathlib.c}!sym33@{sym33}}
+\index{sym33@{sym33}!md_mathlib.c@{md\_\-mathlib.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void sym33 (double {\em mat}[9])}\label{md__mathlib_8c_6088469b1fad01690a4e149702e2587e}
+
+
+\index{md_mathlib.c@{md\_\-mathlib.c}!transmatv@{transmatv}}
+\index{transmatv@{transmatv}!md_mathlib.c@{md\_\-mathlib.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void transmatv (int {\em n}, double {\em a}[$\,$], double {\em b}[$\,$])}\label{md__mathlib_8c_8d6bd180f89f104802e830b8973e5783}
+
+
+\index{md_mathlib.c@{md\_\-mathlib.c}!v1fv3@{v1fv3}}
+\index{v1fv3@{v1fv3}!md_mathlib.c@{md\_\-mathlib.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void v1fv3 (int {\em n}, double $\ast$ {\em all}, double $\ast$ {\em x}, double $\ast$ {\em y}, double $\ast$ {\em z})}\label{md__mathlib_8c_19b1fc64b2d6b50b14e949a0f9c7a709}
+
+
+\index{md_mathlib.c@{md\_\-mathlib.c}!v3fv1@{v3fv1}}
+\index{v3fv1@{v3fv1}!md_mathlib.c@{md\_\-mathlib.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void v3fv1 (int {\em n}, double $\ast$ {\em all}, double $\ast$ {\em x}, double $\ast$ {\em y}, double $\ast$ {\em z})}\label{md__mathlib_8c_2639a3e2250a8b5d89e13afc5928e566}
+
+

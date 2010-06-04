@@ -1,0 +1,24 @@
+Set up file 
+
+\istart{1} \ntime{100000} \ensemble{nve}
+
+\nres_lrf{2} \nres_intra{10} \len_nhc{0} \nbar{0}
+
+\t_ext{.001} \p_ext{0} \dt{1.}
+\iperd{0}
+
+\iwr_screen{1000} 
+\iwr_dump{1000} 
+\iwr_confp{500} \iwr_confv{500} \iwr_inst{100}
+
+\dpi_file{di.init} \dpo_file{di.save} 
+\pos_file{di.conf} \vel_file{di.vel}
+\ham_file{di.ham}  \eng_file{di.eng} 
+\eval_file{di.eval} \hill_file{di.hill}
+
+\mol_set_file{di.set}
+\ncell_div{1}
+
+\skin{1} \rheal_res{.1}
+\rcute_min{.1}
+\ntable{5000}

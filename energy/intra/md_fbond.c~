@@ -1,0 +1,390 @@
+/* 
+   Copyright (C) Dr. Preston B. Moore
+
+Dr. Preston B. Moore
+Associate Director, Center for Molecular Modeling (CMM)
+University of Pennsylvania, Department of Chemistry, Box 188 
+231 S. 34th St. Philadelphia, PA 19104-6323 USA
+EMAIL: moore@cmm.chem.upenn.edu  
+WWW: http://www.cmm.upenn.edu/~moore
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+*/
+
+/* subroutines dealing with bonded interactions
+   search_bond_base - searches the data base and sets up initial vectors
+   fbond - gets the force of the bond
+   getvbond - gets the potential energy of the bond
+   bonded   - check to see if to atoms are bonded
+*/
+
+#include "md.h"
+
+
+/* #define PRINT_BOND */
+/*-----------------------------------------------------------------------*/
+/* \brief check to see if iatom is bonded to jatom
+ *
+ */
+int bond_pair(int iatom,int jatom,BONDS *bonds)
+{
+  int i,j,itemp,nb;
+
+  if(iatom>jatom){ itemp = iatom;iatom = jatom; jatom = itemp;}
+  
+  for(nb=0;nb<bonds->nbonds;nb++){
+    i = bonds->ibond[nb]; j = bonds->jbond[nb];
+    if(i>j){itemp = i; i = j; j = itemp; }
+    if(iatom == i && jatom == j) return 1;
+  }
+  return 0;
+}
+    
+/*-----------------------------------------------------------------------*/
+/* \brief add bonds to exclusion list
+ *
+ */
+void exclude_bonds(int *nexclude,int **exclude,BONDS *bonds)
+{
+  int i,j,nb;
+
+  for(nb=0;nb<bonds->nbonds;nb++){
+    if(bonds->ibond[nb]<bonds->jbond[nb]){
+      i=bonds->ibond[nb];j=bonds->jbond[nb];
+    } else {
+      j=bonds->ibond[nb];i=bonds->jbond[nb];
+    }
+    insert(exclude[i],&nexclude[i],j);
+  }
+}
+
+/*-----------------------------------------------------------------------*/
+/* \brief calculate bonding force */
+void fbond(SIMPARMS *simparms,COORDS *coords)
+{
+  int i,j,idx,nb,nbonds,*ibond,*jbond,*idxbond,*itypbond;
+  long ibegin,iend;
+  double dx,dy,dz,r,fr,dr,mb;
+  double *px,*py,*pz;
+  double *fx,*fy,*fz;
+  double *eqbond,*fkbond,*bmorse, *aq,*ac;
+
+  px = coords->px;   py = coords->py;   pz = coords->pz;
+  fx = coords->fxa;  fy = coords->fya;  fz = coords->fza;
+  nbonds = coords->bonds.nbonds;
+  ibond = coords->bonds.ibond;
+  jbond = coords->bonds.jbond;
+  idxbond = coords->bonds.idxbond;
+  itypbond = coords->bonds.itypbond;
+  eqbond = coords->bonds.eqbond;
+  fkbond = coords->bonds.fkbond;
+  bmorse = coords->bonds.bmorse;
+  aq = coords->bonds.aq;
+
+  decomp1d((long)nbonds,simparms->size,simparms->rank,&ibegin,&iend);
+
+  fr = 0.;
+  for(nb=ibegin;nb<iend;nb++){
+    i = ibond[nb]; j = jbond[nb]; idx = idxbond[nb];
+    dx = px[i] - px[j];  
+    dy = py[i] - py[j];  
+    dz = pz[i] - pz[j];
+
+    r = sqrt(dx*dx+dy*dy+dz*dz);
+    dr = r-eqbond[idx];
+    
+    switch(itypbond[idx]){/* fr is 1/r (dv/dr) */
+    case 0:
+      fr = fkbond[idx]*dr/r;
+      break;
+    case 1:
+      mb = exp(-bmorse[idx]*dr);
+      fr = (2.*fkbond[idx]*bmorse[idx]*mb*(1.-mb))/r;
+      break;
+    case 2:
+      ac = &(aq[idx*5]);
+      fr = (ac[1] + dr*(2.*ac[2]+dr*(3.*ac[3]+dr*4.*ac[4])))/r;
+    }
+    
+    dx *= fr; dy *= fr; dz *= fr;
+    fx[i] -= dx;  fy[i] -= dy;  fz[i] -= dz;
+    fx[j] += dx;  fy[j] += dy;  fz[j] += dz;
+  }
+}
+/*-------------------------------------------------------------------*/
+/* \brief get the bonding potential energy
+ *
+ */
+void getvbond(SIMPARMS *simparms,COORDS *coords,
+	      double * UI,double *WI,double WItensor[9])
+{
+  int i,j,idx,nb,nbonds,*itypbond,*ibond,*jbond,*idxbond;
+  long ibegin,iend;
+  double dx,dy,dz,r,dr,mb,fk,spotl,sprsl,spot=0.,sprs=0.;
+  double *px,*py,*pz;
+  double *eqbond,*fkbond,*bmorse,*aq,*ac;
+  double sprstensor[9],sprstl[9];
+  
+  for(i=0;i<9;i++) sprstensor[i]=0.0;
+
+  px = coords->px;   py = coords->py;   pz = coords->pz;
+  nbonds = coords->bonds.nbonds;
+  ibond = coords->bonds.ibond;
+  jbond = coords->bonds.jbond;
+  idxbond = coords->bonds.idxbond;
+  itypbond = coords->bonds.itypbond;
+  eqbond = coords->bonds.eqbond;
+  fkbond = coords->bonds.fkbond;
+  bmorse = coords->bonds.bmorse;
+  aq = coords->bonds.aq;
+
+  decomp1d((long)nbonds,simparms->size,simparms->rank,&ibegin,&iend);
+
+#ifdef PRINT_BOND
+  printf("BONDING ENERGIES\n");
+#endif
+  
+  for(nb=ibegin;nb<iend;nb++){
+    i = ibond[nb];   j = jbond[nb];   idx = idxbond[nb];
+    dx = px[i] - px[j];   
+    dy = py[i] - py[j];   
+    dz = pz[i] - pz[j];
+
+    r = sqrt(dx*dx+dy*dy+dz*dz);
+    dr = r - eqbond[idx];
+    fk = fkbond[idx];
+    
+    switch(itypbond[idx]){
+    case 0: /* harmonic */
+      spot += .5*fk*dr*dr;
+      fk = fk*dr/r;
+      // printf("%lg %lg %lg\n",spot,fk,r); exit(1);
+      break;
+    case 1: /* morse */
+      mb= 1.-exp(-bmorse[idx]*dr);
+      spot += fk*mb*mb;
+      fk = (2.*fk*bmorse[idx]*mb*(1.-mb))/r;
+      break;
+    case 2: /* quartic */
+      ac = &(aq[idx*5]);
+      spot += ac[0]+dr*(ac[1]+dr*(ac[2]+dr*(ac[3]+dr*ac[4])));
+      fk = (ac[1] + dr*(2.*ac[2] + dr*(3.*ac[3]+ dr*4.*ac[4])))/r;
+      // printf("%lg %lg %lg\n",spot,fk,r);
+      break;
+    default : /* ERROR */
+      md_error("unknown bond type in md_fbond.c");
+      break;
+    }
+    
+#ifdef PRINT_BOND
+    printf("bond %d (type %d) between %d-%d = %g(Kcal) =(%g A)\n",nb,idx,
+       i,j,.5*fk*dr*dr/KCAL,r);
+#endif
+    sprs -= fk*r*r;
+    sprstensor[0] -= fk*dx*dx;
+    sprstensor[1] -= fk*dy*dx;
+    sprstensor[2] -= fk*dz*dx;
+ 
+    sprstensor[3] -= fk*dx*dy;
+    sprstensor[4] -= fk*dy*dy;
+    sprstensor[5] -= fk*dz*dy;
+
+    sprstensor[6] -= fk*dx*dz;
+    sprstensor[7] -= fk*dy*dz;
+    sprstensor[8] -= fk*dz*dz;
+  }
+#ifdef PARA
+  MPI_Allreduce(&spot,&spotl,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+  MPI_Allreduce(&sprs,&sprsl,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+  MPI_Allreduce(sprstensor,sprstl,9,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+#else
+  spotl = spot;
+  sprsl = sprs;
+  for(i=0;i<9;i++) sprstl[i] = sprstensor[i];
+#endif
+  *UI += spotl;
+  *WI += sprsl;
+
+  for(i=0;i<9;i++) WItensor[i] += sprstl[i];
+}
+/*---------------------------------------------------------------*/
+void fcbond(COORDS *coords,double **fcmat)
+{
+  int i,j,idx,nb,ii,jj,kk,nbonds;
+  int *ibond,*jbond,*idxbond,*itypbond;
+  double dx,dy,dz,r,r3,dr,drx,dry,drz,fk,bm,mb;
+  double dxx,dyy,dzz,dxy,dxz,dyz,dudr,du2dr2;
+  double *px,*py,*pz;
+  double *eqbond,*fkbond,*bmorse,*aq,*ac;
+
+  px = coords->px;   py = coords->py;   pz = coords->pz;
+  nbonds = coords->bonds.nbonds;
+  ibond = coords->bonds.ibond;
+  jbond = coords->bonds.jbond;
+  idxbond = coords->bonds.idxbond;
+  itypbond = coords->bonds.itypbond;
+  eqbond = coords->bonds.eqbond;
+  fkbond = coords->bonds.fkbond;
+  bmorse = coords->bonds.bmorse;
+  aq = coords->bonds.aq;
+
+  dudr = 0.;
+  du2dr2 = 0.;
+  for(nb=0;nb<nbonds;nb++){
+    i = ibond[nb];  j = jbond[nb];  idx = idxbond[nb];
+
+    dx = px[i] - px[j];
+    dy = py[i] - py[j];
+    dz = pz[i] - pz[j];
+
+    r = sqrt(dx*dx+dy*dy+dz*dz);
+    dr = r-eqbond[idx];
+    fk = fkbond[idx];
+    
+    switch(itypbond[idx]){
+    case 0: /* harmonic */
+      dudr = fk*dr;
+      du2dr2 = fk;
+      break;
+    case 1: /* morse */
+      bm = bmorse[idx];
+      mb = exp(-bm*dr);
+      dudr = 2.*fk*bm*mb*(1.-mb);
+      du2dr2 = (-2.*fk*bm*bm*mb)*(1.-2.*mb);
+      break;
+    case 2: /* quartic */
+      ac = &(aq[idx*5]);
+      dudr = ac[1]+dr*(2.*ac[2]+dr*(3.*ac[3]+dr*4.*ac[4]));
+      du2dr2 = 2.*ac[2] + dr*(6.*ac[3] + dr*12.*ac[4]);
+      break;
+    default:
+      md_error("Error in md_fbond, unknown bond type");
+      exit(1);
+    }
+
+    r = 1./r;     r3 = (r*r*r);
+    drx=dx*r;    dry=dy*r;    drz=dz*r;
+    dxx = dx*dx*r3-r;
+    dyy = dy*dy*r3-r;
+    dzz = dz*dz*r3-r;
+    dxy = dx*dy*r3;
+    dxz = dx*dz*r3;
+    dyz = dy*dz*r3;
+
+    dxx = du2dr2*drx*drx - dudr*dxx;
+    dxy = du2dr2*drx*dry - dudr*dxy;
+    dxz = du2dr2*drx*drz - dudr*dxz;
+    dyy = du2dr2*dry*dry - dudr*dyy;
+    dyz = du2dr2*dry*drz - dudr*dyz;
+    dzz = du2dr2*drz*drz - dudr*dzz;
+
+    ii=i*3-1;
+    jj=j*3-1;
+
+    /* fill in diagonal elements of matrix  */
+
+    fcmat[ii+1][ii+1] += dxx;
+    fcmat[ii+1][ii+2] += dxy;
+    fcmat[ii+1][ii+3] += dxz;
+    fcmat[ii+2][ii+1] += dxy;
+    fcmat[ii+2][ii+2] += dyy;
+    fcmat[ii+2][ii+3] += dyz;
+    fcmat[ii+3][ii+1] += dxz;
+    fcmat[ii+3][ii+2] += dyz;
+    fcmat[ii+3][ii+3] += dzz;
+    
+    fcmat[jj+1][jj+1] += dxx;
+    fcmat[jj+1][jj+2] += dxy;
+    fcmat[jj+1][jj+3] += dxz;
+    fcmat[jj+2][jj+1] += dxy;
+    fcmat[jj+2][jj+2] += dyy;
+    fcmat[jj+2][jj+3] += dyz;
+    fcmat[jj+3][jj+1] += dxz;
+    fcmat[jj+3][jj+2] += dyz;
+    fcmat[jj+3][jj+3] += dzz;
+
+      /*  Fill in off-diagonal elements  */
+
+    if(ii>jj) {kk=ii;ii=jj;jj=kk;}
+    fcmat[ii+1][jj+1] -= dxx;
+    fcmat[ii+1][jj+2] -= dxy;
+    fcmat[ii+1][jj+3] -= dxz;
+    fcmat[ii+2][jj+1] -= dxy;
+    fcmat[ii+2][jj+2] -= dyy;
+    fcmat[ii+2][jj+3] -= dyz;
+    fcmat[ii+3][jj+1] -= dxz;
+    fcmat[ii+3][jj+2] -= dyz;
+    fcmat[ii+3][jj+3] -= dzz;
+  }
+}
+
+/*-----------------------------------------------------------------------*/
+static int ibon,jbon,itbon;
+static double eqbon,fkbon,bmbon;
+static double *aq;
+/* \brief numerical calculation of bond forces 
+ *
+ */
+
+void fcbondn(COORDS *coords,double **fcmat)
+{
+  int nb,idx;
+
+  for(nb=0;nb<coords->bonds.nbonds;nb++){
+
+    ibon = coords->bonds.ibond[nb];
+    jbon = coords->bonds.jbond[nb];
+    idx = coords->bonds.idxbond[nb];
+
+    itbon = coords->bonds.itypbond[idx];
+    eqbon = coords->bonds.eqbond[idx];
+    fkbon = coords->bonds.fkbond[idx];
+    bmbon = coords->bonds.bmorse[idx];
+    aq    = &(coords->bonds.aq[idx*5]);
+
+    ngradv2(coords->px,coords->py,coords->pz,ibon,ibon,potbond,fcmat);
+    ngradv2(coords->px,coords->py,coords->pz,ibon,jbon,potbond,fcmat);
+    ngradv2(coords->px,coords->py,coords->pz,jbon,ibon,potbond,fcmat);
+    ngradv2(coords->px,coords->py,coords->pz,jbon,jbon,potbond,fcmat);
+  }
+}
+/*----------------------------------------------------------------*/
+double potbond(double *px,double *py,double *pz)
+{
+  double dx,dy,dz,r,dr,spot;
+
+  dx = px[ibon] - px[jbon];
+  dy = py[ibon] - py[jbon];
+  dz = pz[ibon] - pz[jbon];
+  r = sqrt(dx*dx+dy*dy+dz*dz);
+
+  dr = r-eqbon;
+  spot = 0.;
+  switch(itbon){
+  case 0:
+    spot = .5*fkbon*dr*dr;
+    break;
+  case 1:
+    r = 1.-exp(-bmbon*dr);
+    spot = fkbon*r*r;
+    break;
+  case 2:
+    spot = aq[0] + r*(aq[1] + r*(aq[2] + r*(aq[3] + r*aq[4])));
+  }
+  
+  return spot;
+}
+/*------------------------------------------------------------------*/

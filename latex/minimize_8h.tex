@@ -1,0 +1,64 @@
+\section{minimize/minimize.h File Reference}
+\label{minimize_8h}\index{minimize/minimize.h@{minimize/minimize.h}}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf linmin} (double p[$\,$], double xi[$\,$], int n, double $\ast$fret, double($\ast$func)(double[$\,$]))
+\item 
+double {\bf brent} (double ax, double bx, double cx, double($\ast$f)(double), double tol, double $\ast$xmin)
+\item 
+double {\bf f1dim} (double x)
+\item 
+void {\bf mnbrak} (double $\ast$ax, double $\ast$bx, double $\ast$cx, double $\ast$fa, double $\ast$fb, double $\ast$fc, double($\ast$func)(double))
+\item 
+void {\bf powell} (double p[$\,$], double $\ast$$\ast$xi, int n, double ftol, int $\ast$iter, double $\ast$fret, double($\ast$func)(double[$\,$]), int)
+\item 
+double {\bf amotry} (double $\ast$$\ast$p, double y[$\,$], double psum[$\,$], int {\bf ndim}, double($\ast$funk)(double[$\,$]), int ihi, double fac)
+\item 
+void {\bf amoeba} (double $\ast$$\ast$p, double y[$\,$], int {\bf ndim}, double ftol, double($\ast$funk)(double[$\,$]), int $\ast$nfunk, int)
+\item 
+void {\bf frprmn} (double p[$\,$], int n, double ftol, int $\ast$iter, double $\ast$fret, double($\ast$func)(double[$\,$]), void($\ast$dfunc)(double[$\,$], double[$\,$]), int)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{minimize.h@{minimize.h}!amoeba@{amoeba}}
+\index{amoeba@{amoeba}!minimize.h@{minimize.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void amoeba (double $\ast$$\ast$ {\em p}, double {\em y}[$\,$], int {\em ndim}, double {\em ftol}, double($\ast$)(double[$\,$]) {\em funk}, int $\ast$ {\em nfunk}, int)}\label{minimize_8h_f4201e64fb9198fc87b1e1047b54534c}
+
+
+\index{minimize.h@{minimize.h}!amotry@{amotry}}
+\index{amotry@{amotry}!minimize.h@{minimize.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double amotry (double $\ast$$\ast$ {\em p}, double {\em y}[$\,$], double {\em psum}[$\,$], int {\em ndim}, double($\ast$)(double[$\,$]) {\em funk}, int {\em ihi}, double {\em fac})}\label{minimize_8h_f5b85260cf99fa6442fdf0a9f4eb6d46}
+
+
+\index{minimize.h@{minimize.h}!brent@{brent}}
+\index{brent@{brent}!minimize.h@{minimize.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double brent (double {\em ax}, double {\em bx}, double {\em cx}, double($\ast$)(double) {\em f}, double {\em tol}, double $\ast$ {\em xmin})}\label{minimize_8h_4fd8796511d2de86aee49722d758b5b6}
+
+
+\index{minimize.h@{minimize.h}!f1dim@{f1dim}}
+\index{f1dim@{f1dim}!minimize.h@{minimize.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double f1dim (double {\em x})}\label{minimize_8h_1f33ec0c582389ac212cdd33637c4291}
+
+
+\index{minimize.h@{minimize.h}!frprmn@{frprmn}}
+\index{frprmn@{frprmn}!minimize.h@{minimize.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void frprmn (double {\em p}[$\,$], int {\em n}, double {\em ftol}, int $\ast$ {\em iter}, double $\ast$ {\em fret}, double($\ast$)(double[$\,$]) {\em func}, void($\ast$)(double[$\,$], double[$\,$]) {\em dfunc}, int)}\label{minimize_8h_2ad4d8b4ec06eda761c87b6c12c70302}
+
+
+\index{minimize.h@{minimize.h}!linmin@{linmin}}
+\index{linmin@{linmin}!minimize.h@{minimize.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void linmin (double {\em p}[$\,$], double {\em xi}[$\,$], int {\em n}, double $\ast$ {\em fret}, double($\ast$)(double[$\,$]) {\em func})}\label{minimize_8h_fa23520c3f1daeead3c49076a30bb3a9}
+
+
+\index{minimize.h@{minimize.h}!mnbrak@{mnbrak}}
+\index{mnbrak@{mnbrak}!minimize.h@{minimize.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void mnbrak (double $\ast$ {\em ax}, double $\ast$ {\em bx}, double $\ast$ {\em cx}, double $\ast$ {\em fa}, double $\ast$ {\em fb}, double $\ast$ {\em fc}, double($\ast$)(double) {\em func})}\label{minimize_8h_ae863d3c940914dec464bad3f8c74e30}
+
+
+\index{minimize.h@{minimize.h}!powell@{powell}}
+\index{powell@{powell}!minimize.h@{minimize.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void powell (double {\em p}[$\,$], double $\ast$$\ast$ {\em xi}, int {\em n}, double {\em ftol}, int $\ast$ {\em iter}, double $\ast$ {\em fret}, double($\ast$)(double[$\,$]) {\em func}, int)}\label{minimize_8h_8202218f98db1e6c89301dfac62c676f}
+
+

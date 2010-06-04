@@ -1,0 +1,28 @@
+Set up file for diatomic morse
+
+\istart{1} \ntime{100} \ensemble{nve}
+
+\nres_lrf{1} \nres_intra{1} \len_nhc{0} \nbar{0}
+
+\t_ext{30} \p_ext{0} \dt{.1}
+\iperd{0}
+
+\iwr_screen{10} \iwr_dump{100} 
+\iwr_confp{100} \iwr_confv{100} 
+\iwr_inst{1}  \iwr_conff{100}
+
+
+\dpi_file{di.init} \dpo_file{di.save} 
+\pos_file{di.conf} \vel_file{di.vel} \force_file{di.force}
+\ham_file{di.ham}  \eng_file{di.eng} 
+\eval_file{di.eval} \hill_file{di.hill}
+
+\mol_set_file{di.set}
+\ncell_div{1}
+
+\skin{.1} \rheal_res{.1}
+\rcute_min{.1}
+\ntable{5000}
+
+\bond_file{data_base.morse}
+\iseed{123456789}

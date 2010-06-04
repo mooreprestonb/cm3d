@@ -1,0 +1,127 @@
+\section{energy/intra/md\_\-fonefour.c File Reference}
+\label{md__fonefour_8c}\index{energy/intra/md_fonefour.c@{energy/intra/md\_\-fonefour.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf onfo\_\-pair} (int {\bf iatom}, int {\bf jatom}, {\bf ONFO} $\ast${\bf onfo})
+\item 
+void {\bf exclude\_\-onfo} (int $\ast$nexclude, int $\ast$$\ast$exclude, {\bf ONFO} $\ast${\bf onfo})
+\item 
+void {\bf fonfo} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf getvonfo} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$vonfo, double $\ast$vonfo\_\-e, double $\ast$wonfo, double $\ast$wonfo\_\-e, double wonfotensor[9], double wonfo\_\-etensor[9])
+\item 
+void {\bf fconefour} ({\bf COORDS} $\ast$coords, double $\ast$$\ast$fcmat)
+\item 
+void {\bf fconefourn} ({\bf COORDS} $\ast$coords, double $\ast$$\ast$fcmat)
+\item 
+double {\bf pot\_\-onefour} (double $\ast$px, double $\ast$py, double $\ast$pz)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static int {\bf iatom}
+\item 
+static int {\bf jatom}
+\item 
+static int {\bf i14type}
+\item 
+static double {\bf qiatom}
+\item 
+static double {\bf qjatom}
+\item 
+static double $\ast$$\ast$ {\bf v14tabs}
+\item 
+static double $\ast$ {\bf dx214tabs}
+\item 
+static double $\ast$ {\bf r14max2s}
+\item 
+static double $\ast$ {\bf r14min2s}
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{md_fonefour.c@{md\_\-fonefour.c}!exclude_onfo@{exclude\_\-onfo}}
+\index{exclude_onfo@{exclude\_\-onfo}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void exclude\_\-onfo (int $\ast$ {\em nexclude}, int $\ast$$\ast$ {\em exclude}, {\bf ONFO} $\ast$ {\em onfo})}\label{md__fonefour_8c_dd78094ca7ff46304015091307dea9cb}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!fconefour@{fconefour}}
+\index{fconefour@{fconefour}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fconefour ({\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em fcmat})}\label{md__fonefour_8c_e7037d31b0a0570e7018c57e20958007}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!fconefourn@{fconefourn}}
+\index{fconefourn@{fconefourn}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fconefourn ({\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em fcmat})}\label{md__fonefour_8c_a31b2757ebb2ff6960bb8c9803e6e624}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!fonfo@{fonfo}}
+\index{fonfo@{fonfo}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fonfo ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__fonefour_8c_de14f75bc960b1ad8d18f406e0e42e18}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!getvonfo@{getvonfo}}
+\index{getvonfo@{getvonfo}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvonfo ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em vonfo}, double $\ast$ {\em vonfo\_\-e}, double $\ast$ {\em wonfo}, double $\ast$ {\em wonfo\_\-e}, double {\em wonfotensor}[9], double {\em wonfo\_\-etensor}[9])}\label{md__fonefour_8c_9f6802a276d607f912f36fae953481de}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!onfo_pair@{onfo\_\-pair}}
+\index{onfo_pair@{onfo\_\-pair}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int onfo\_\-pair (int {\em iatom}, int {\em jatom}, {\bf ONFO} $\ast$ {\em onfo})}\label{md__fonefour_8c_2c37158091ae958725117888c0968f91}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!pot_onefour@{pot\_\-onefour}}
+\index{pot_onefour@{pot\_\-onefour}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double pot\_\-onefour (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz})}\label{md__fonefour_8c_a8bbe01e5e82dd9b857c62ef8e971bec}
+
+
+
+
+\subsection{Variable Documentation}
+\index{md_fonefour.c@{md\_\-fonefour.c}!dx214tabs@{dx214tabs}}
+\index{dx214tabs@{dx214tabs}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ {\bf dx214tabs}\hspace{0.3cm}{\tt  [static]}}\label{md__fonefour_8c_5e12143998246297a39674e04faec607}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!i14type@{i14type}}
+\index{i14type@{i14type}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf i14type}\hspace{0.3cm}{\tt  [static]}}\label{md__fonefour_8c_b414ea8bf89aecc7bf0a5b6ac29b65c7}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!iatom@{iatom}}
+\index{iatom@{iatom}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf iatom}\hspace{0.3cm}{\tt  [static]}}\label{md__fonefour_8c_7f565845a358eac77b4326c057431863}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!jatom@{jatom}}
+\index{jatom@{jatom}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf jatom}\hspace{0.3cm}{\tt  [static]}}\label{md__fonefour_8c_c4e5c9bdf18c8265453196a76690a511}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!qiatom@{qiatom}}
+\index{qiatom@{qiatom}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf qiatom}\hspace{0.3cm}{\tt  [static]}}\label{md__fonefour_8c_deb10b804b1f2a52c618bf7fce374438}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!qjatom@{qjatom}}
+\index{qjatom@{qjatom}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf qjatom}\hspace{0.3cm}{\tt  [static]}}\label{md__fonefour_8c_d9f41c987039ad78abdff2dad829841c}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!r14max2s@{r14max2s}}
+\index{r14max2s@{r14max2s}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ {\bf r14max2s}\hspace{0.3cm}{\tt  [static]}}\label{md__fonefour_8c_c1ff8a0dc975b0e283b77ec55f61d4f6}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!r14min2s@{r14min2s}}
+\index{r14min2s@{r14min2s}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ {\bf r14min2s}\hspace{0.3cm}{\tt  [static]}}\label{md__fonefour_8c_f640f7a2d008519baca4ff991b61b24a}
+
+
+\index{md_fonefour.c@{md\_\-fonefour.c}!v14tabs@{v14tabs}}
+\index{v14tabs@{v14tabs}!md_fonefour.c@{md\_\-fonefour.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ {\bf v14tabs}\hspace{0.3cm}{\tt  [static]}}\label{md__fonefour_8c_b0005b7a5a557086dc6d4b24bfc0ba69}
+
+

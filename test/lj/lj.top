@@ -1,0 +1,3 @@
+~mol_name_def[\mol_name{lennard-jones}\natom{1}\nbond{0}]
+-------------------------------------------------------------
+~atom_def[\atom_typ{lj}\atom_ind{1}\mass{.831441} \charge{0}]

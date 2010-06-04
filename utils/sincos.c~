@@ -1,0 +1,12 @@
+#include <math.h>
+
+#define NMAX 1000
+
+int main(){
+  int i;
+  double angle;
+
+  for (i=0;i<NMAX;++i){
+    angle = -M_PI + i/(NMAX-1.0);
+    printf("%g %g\n",angle,1./sin(angle));
+}

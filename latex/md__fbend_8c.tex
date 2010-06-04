@@ -1,0 +1,127 @@
+\section{energy/intra/md\_\-fbend.c File Reference}
+\label{md__fbend_8c}\index{energy/intra/md_fbend.c@{energy/intra/md\_\-fbend.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+{\tt \#include \char`\"{}vectorize.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf PRESSURE}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+static double {\bf fact\_\-quart} (double x)
+\item 
+static double {\bf poly\_\-quart} (double s\_\-theta, int order)
+\item 
+int {\bf bend\_\-pair} (int {\bf iatom}, int {\bf jatom}, {\bf BENDS} $\ast${\bf bends})
+\item 
+void {\bf exclude\_\-bends} (int $\ast$nexclude, int $\ast$$\ast$exclude, {\bf BENDS} $\ast${\bf bends})
+\item 
+void {\bf fbend} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf getvbend} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$UI, double $\ast$WI, double WItensor[9])
+\item 
+void {\bf fcbend} ({\bf COORDS} $\ast$coords, double $\ast$$\ast$fcmat)
+\item 
+void {\bf fcbendn} ({\bf COORDS} $\ast$coords, double $\ast$$\ast$fcmat)
+\item 
+double {\bf potbend} (double $\ast$px, double $\ast$py, double $\ast$pz)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static int {\bf iben}
+\item 
+static int {\bf jben}
+\item 
+static int {\bf kben}
+\item 
+static double {\bf eqben}
+\item 
+static double {\bf fkben}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{md_fbend.c@{md\_\-fbend.c}!PRESSURE@{PRESSURE}}
+\index{PRESSURE@{PRESSURE}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define PRESSURE}\label{md__fbend_8c_67bafb91da1f123097b90c52747bcf36}
+
+
+
+
+\subsection{Function Documentation}
+\index{md_fbend.c@{md\_\-fbend.c}!bend_pair@{bend\_\-pair}}
+\index{bend_pair@{bend\_\-pair}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int bend\_\-pair (int {\em iatom}, int {\em jatom}, {\bf BENDS} $\ast$ {\em bends})}\label{md__fbend_8c_e484dcc5cc504c79b133bc1fb44a6f8d}
+
+
+\index{md_fbend.c@{md\_\-fbend.c}!exclude_bends@{exclude\_\-bends}}
+\index{exclude_bends@{exclude\_\-bends}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void exclude\_\-bends (int $\ast$ {\em nexclude}, int $\ast$$\ast$ {\em exclude}, {\bf BENDS} $\ast$ {\em bends})}\label{md__fbend_8c_d898731dfdf6d06afcdd7d991700d495}
+
+
+\index{md_fbend.c@{md\_\-fbend.c}!fact_quart@{fact\_\-quart}}
+\index{fact_quart@{fact\_\-quart}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static double fact\_\-quart (double {\em x})\hspace{0.3cm}{\tt  [static]}}\label{md__fbend_8c_a77e588a6aa759c876692c0c99fa7987}
+
+
+\index{md_fbend.c@{md\_\-fbend.c}!fbend@{fbend}}
+\index{fbend@{fbend}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fbend ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__fbend_8c_c21bb9b6f8246265fc0f3269d9233183}
+
+
+\index{md_fbend.c@{md\_\-fbend.c}!fcbend@{fcbend}}
+\index{fcbend@{fcbend}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbend ({\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em fcmat})}\label{md__fbend_8c_0a3ba3189107950e0a57b59a991debfa}
+
+
+\index{md_fbend.c@{md\_\-fbend.c}!fcbendn@{fcbendn}}
+\index{fcbendn@{fcbendn}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbendn ({\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em fcmat})}\label{md__fbend_8c_426667b9d7d5bd43b961b5ce8ac10172}
+
+
+\index{md_fbend.c@{md\_\-fbend.c}!getvbend@{getvbend}}
+\index{getvbend@{getvbend}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvbend ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em UI}, double $\ast$ {\em WI}, double {\em WItensor}[9])}\label{md__fbend_8c_24324bed57f202b471a0b03cbe533403}
+
+
+\index{md_fbend.c@{md\_\-fbend.c}!poly_quart@{poly\_\-quart}}
+\index{poly_quart@{poly\_\-quart}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static double poly\_\-quart (double {\em s\_\-theta}, int {\em order})\hspace{0.3cm}{\tt  [static]}}\label{md__fbend_8c_fa2ae79c673434ed8d94c2ae26775cae}
+
+
+\index{md_fbend.c@{md\_\-fbend.c}!potbend@{potbend}}
+\index{potbend@{potbend}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double potbend (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz})}\label{md__fbend_8c_b710dbac6a907cfa5eb2cda66f8f8fc5}
+
+
+
+
+\subsection{Variable Documentation}
+\index{md_fbend.c@{md\_\-fbend.c}!eqben@{eqben}}
+\index{eqben@{eqben}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf eqben}\hspace{0.3cm}{\tt  [static]}}\label{md__fbend_8c_895cd1f769c41fe81e759c6079f256de}
+
+
+\index{md_fbend.c@{md\_\-fbend.c}!fkben@{fkben}}
+\index{fkben@{fkben}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf fkben}\hspace{0.3cm}{\tt  [static]}}\label{md__fbend_8c_015ca97af50869666d098b88d14fff36}
+
+
+\index{md_fbend.c@{md\_\-fbend.c}!iben@{iben}}
+\index{iben@{iben}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf iben}\hspace{0.3cm}{\tt  [static]}}\label{md__fbend_8c_7834bca730a44c8f26669106d4cd6315}
+
+
+\index{md_fbend.c@{md\_\-fbend.c}!jben@{jben}}
+\index{jben@{jben}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf jben}\hspace{0.3cm}{\tt  [static]}}\label{md__fbend_8c_d4111731df8626bc03cabc69ddb2c8b9}
+
+
+\index{md_fbend.c@{md\_\-fbend.c}!kben@{kben}}
+\index{kben@{kben}!md_fbend.c@{md\_\-fbend.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf kben}\hspace{0.3cm}{\tt  [static]}}\label{md__fbend_8c_3b9fa16bc48bc529f16a62d7b31e8488}
+
+

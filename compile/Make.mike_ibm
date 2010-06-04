@@ -1,0 +1,28 @@
+
+#HOME = /home/moore
+BASE = $(HOME)/md/mike3.0
+NAME = mike_ibm
+
+# common definitions...
+RM = /bin/rm -f
+CC = xlc
+F77 = xlf
+
+CPP = /usr/lib/cpp
+CP = /bin/cp
+AR = /bin/ar
+MV = /bin/mv
+
+# Compiler flages, paths for include files and libraries
+
+#DEFINES = -DUSER_FUNC -DPRESSURE
+DEFINES = -DIBM
+CFLAGS = $(DEFINES)
+FFLAGS = 
+
+OPT = -O3 -qstrict 
+
+LIBS = -lessl -lm
+ARFLAGS = ruv
+LD   = $(F77) 
+

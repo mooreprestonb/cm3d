@@ -1,0 +1,80 @@
+\section{utils/clucode.c File Reference}
+\label{clucode_8c}\index{utils/clucode.c@{utils/clucode.c}}
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf MIN}(A, B)~((A)$<$(B) ? (A) :(B))
+\item 
+\#define {\bf TINY}~1.0e-20;
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf invres} (int, double $\ast$$\ast$, double $\ast$$\ast$)
+\item 
+void {\bf luerr} (char $\ast$)
+\item 
+void {\bf lubksb} (double $\ast$$\ast$, int, int $\ast$, double[$\,$])
+\item 
+void {\bf ludcmp} (double $\ast$$\ast$, int, int $\ast$, double $\ast$)
+\item 
+void {\bf savgol} (double[$\,$], int, int, int, int, int)
+\item 
+double $\ast$$\ast$ {\bf dmatrix} (int, int, int, int)
+\item 
+void {\bf free\_\-dmatrix} (double $\ast$$\ast$, int, int, int, int)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{clucode.c@{clucode.c}!MIN@{MIN}}
+\index{MIN@{MIN}!clucode.c@{clucode.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MIN(A, B)~((A)$<$(B) ? (A) :(B))}\label{clucode_8c_dcd021ac91d43a62b2cdecf9a5b971a7}
+
+
+\index{clucode.c@{clucode.c}!TINY@{TINY}}
+\index{TINY@{TINY}!clucode.c@{clucode.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TINY~1.0e-20;}\label{clucode_8c_cf1c38f71f39386356edb151a131ad11}
+
+
+
+
+\subsection{Function Documentation}
+\index{clucode.c@{clucode.c}!dmatrix@{dmatrix}}
+\index{dmatrix@{dmatrix}!clucode.c@{clucode.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ dmatrix (int, int, int, int)}\label{clucode_8c_1ccaf1ced1551855c51abb0c1f29a2bb}
+
+
+\index{clucode.c@{clucode.c}!free_dmatrix@{free\_\-dmatrix}}
+\index{free_dmatrix@{free\_\-dmatrix}!clucode.c@{clucode.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-dmatrix (double $\ast$$\ast$, int, int, int, int)}\label{clucode_8c_1d859f3330b0ef10f3425c3748dc03aa}
+
+
+\index{clucode.c@{clucode.c}!invres@{invres}}
+\index{invres@{invres}!clucode.c@{clucode.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void invres (int, double $\ast$$\ast$, double $\ast$$\ast$)}\label{clucode_8c_5481a67d6f3bf7ab6407fe1053fb14e3}
+
+
+\index{clucode.c@{clucode.c}!lubksb@{lubksb}}
+\index{lubksb@{lubksb}!clucode.c@{clucode.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lubksb (double $\ast$$\ast$, int, int $\ast$, double[$\,$])}\label{clucode_8c_29919e5cd5a159d2a5f208aa73fba99d}
+
+
+\index{clucode.c@{clucode.c}!ludcmp@{ludcmp}}
+\index{ludcmp@{ludcmp}!clucode.c@{clucode.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ludcmp (double $\ast$$\ast$, int, int $\ast$, double $\ast$)}\label{clucode_8c_bfa5b802fb66183ef55ff29d5768d151}
+
+
+\index{clucode.c@{clucode.c}!luerr@{luerr}}
+\index{luerr@{luerr}!clucode.c@{clucode.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void luerr (char $\ast$)}\label{clucode_8c_e924dc2f3616b3832f33fd2b7732a8c6}
+
+
+\index{clucode.c@{clucode.c}!savgol@{savgol}}
+\index{savgol@{savgol}!clucode.c@{clucode.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void savgol (double[$\,$], int, int, int, int, int)}\label{clucode_8c_c46db294eb252c4ccc81922a6cd481e7}
+
+

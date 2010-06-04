@@ -1,0 +1,66 @@
+\section{energy/control/ngbr\_\-list.c File Reference}
+\label{ngbr__list_8c}\index{energy/control/ngbr_list.c@{energy/control/ngbr\_\-list.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+{\tt \#include \char`\"{}vectorize.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf ngbr\_\-list} (int, int $\ast$, int $\ast$, int, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int $\ast$, int $\ast$, int)
+\item 
+void {\bf cnt\_\-ngbr\_\-list} (int, int $\ast$, int $\ast$, int, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, int $\ast$, int $\ast$, int)
+\item 
+void {\bf count\_\-vdw} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int $\ast$, int $\ast$)
+\item 
+void {\bf get\_\-ngbr} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NGBR} $\ast$ngbr)
+\item 
+void {\bf ngbr\_\-liste} (int nlen, int $\ast$inp, int $\ast$jnp, int iperd, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NGBR} $\ast$ngbr, int ivol)
+\item 
+void {\bf cnt\_\-ngbr\_\-liste} (int nlen, int $\ast$inp, int $\ast$jnp, int iperd, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, int $\ast$ns, int $\ast$nt, int ivol)
+\item 
+void {\bf allocate\_\-lists} (int natoms, int nlen, {\bf NGBR} $\ast$ngbr, {\bf COORDS} $\ast$coords, int $\ast$mem)
+\item 
+void {\bf free\_\-lists} ({\bf NGBR} $\ast$ngbr, {\bf COORDS} $\ast$coords)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{ngbr_list.c@{ngbr\_\-list.c}!allocate_lists@{allocate\_\-lists}}
+\index{allocate_lists@{allocate\_\-lists}!ngbr_list.c@{ngbr\_\-list.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void allocate\_\-lists (int {\em natoms}, int {\em nlen}, {\bf NGBR} $\ast$ {\em ngbr}, {\bf COORDS} $\ast$ {\em coords}, int $\ast$ {\em mem})}\label{ngbr__list_8c_8540220cab7e209c3a9f81f034bc582f}
+
+
+\index{ngbr_list.c@{ngbr\_\-list.c}!cnt_ngbr_list@{cnt\_\-ngbr\_\-list}}
+\index{cnt_ngbr_list@{cnt\_\-ngbr\_\-list}!ngbr_list.c@{ngbr\_\-list.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void cnt\_\-ngbr\_\-list (int, int $\ast$, int $\ast$, int, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, int $\ast$, int $\ast$, int)}\label{ngbr__list_8c_a7ae71e6c2af629ac14c7beeb62545df}
+
+
+\index{ngbr_list.c@{ngbr\_\-list.c}!cnt_ngbr_liste@{cnt\_\-ngbr\_\-liste}}
+\index{cnt_ngbr_liste@{cnt\_\-ngbr\_\-liste}!ngbr_list.c@{ngbr\_\-list.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void cnt\_\-ngbr\_\-liste (int {\em nlen}, int $\ast$ {\em inp}, int $\ast$ {\em jnp}, int {\em iperd}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, int $\ast$ {\em ns}, int $\ast$ {\em nt}, int {\em ivol})}\label{ngbr__list_8c_52df9fcf5aa2c6c4f15c0d26d7c3f9f9}
+
+
+\index{ngbr_list.c@{ngbr\_\-list.c}!count_vdw@{count\_\-vdw}}
+\index{count_vdw@{count\_\-vdw}!ngbr_list.c@{ngbr\_\-list.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void count\_\-vdw ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int $\ast$, int $\ast$)}\label{ngbr__list_8c_e995108fed90ddc168088123e53052f4}
+
+
+\index{ngbr_list.c@{ngbr\_\-list.c}!free_lists@{free\_\-lists}}
+\index{free_lists@{free\_\-lists}!ngbr_list.c@{ngbr\_\-list.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-lists ({\bf NGBR} $\ast$ {\em ngbr}, {\bf COORDS} $\ast$ {\em coords})}\label{ngbr__list_8c_8c8f4a96f8bcfad5ebdb95533ba417fe}
+
+
+\index{ngbr_list.c@{ngbr\_\-list.c}!get_ngbr@{get\_\-ngbr}}
+\index{get_ngbr@{get\_\-ngbr}!ngbr_list.c@{ngbr\_\-list.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-ngbr ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NGBR} $\ast$ {\em ngbr})}\label{ngbr__list_8c_d5f2285f100502df59bc569bbd14ba21}
+
+
+\index{ngbr_list.c@{ngbr\_\-list.c}!ngbr_list@{ngbr\_\-list}}
+\index{ngbr_list@{ngbr\_\-list}!ngbr_list.c@{ngbr\_\-list.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ngbr\_\-list (int, int $\ast$, int $\ast$, int, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, int $\ast$, int $\ast$, int)}\label{ngbr__list_8c_0255861c2625a94eb47c75774590bafe}
+
+
+\index{ngbr_list.c@{ngbr\_\-list.c}!ngbr_liste@{ngbr\_\-liste}}
+\index{ngbr_liste@{ngbr\_\-liste}!ngbr_list.c@{ngbr\_\-list.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ngbr\_\-liste (int {\em nlen}, int $\ast$ {\em inp}, int $\ast$ {\em jnp}, int {\em iperd}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NGBR} $\ast$ {\em ngbr}, int {\em ivol})}\label{ngbr__list_8c_470d239b98cb6b2a68be65439274b16f}
+
+

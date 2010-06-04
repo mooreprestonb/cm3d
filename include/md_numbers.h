@@ -1,0 +1,56 @@
+/* 
+   Copyright (C) 1997 1998 1999 2000 Dr. Preston B. Moore
+
+Dr. Preston B. Moore
+Associate Director, Center for Molecular Modeling (CMM)
+University of Pennsylvania, Department of Chemistry, Box 188 
+231 S. 34th St. Philadelphia, PA 19104-6323 USA
+EMAIL: moore@cmm.chem.upenn.edu  
+WWW: http://www.cmm.upenn.edu/~moore
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+/* usefull numbers */
+#define HBAR   1.054588754e-22 /* J / ps */
+#define BOLTS  1.38065812e-23 /* J/K */
+#define AECONV (315773.218)   /* au -> Kelvin */
+#define ALCONV (.529177249)   /* au -> Angstroms */
+#define LCONV  (1./.529177249)
+#define LCONV3 (LCONV*LCONV*LCONV)
+#define PCONV  (138.0622/1.01325)  /* K/A^3 -> atm */
+#define ECONV  (315777.0) /*is not correct in last place*/
+#define KCAL   (503.22289)   /*K->KCAL */
+#define DIM    (3)         /* DIMENSION */
+#define UNIT_CONV (2./3.)
+#define CCONV  (167102.4) /* Jm/C^2 to K A /e^2 */
+#define VCONV  (11604.4465) /* J/C to K/e */
+#define DCONV  (BOLTS*1.e23) /* convert K ps^2/A^5 -> g/cc 
+			       which is just the boltzman constant* 10^23!*/
+#define CSPEED (2.99792458e6) /* A/ps */
+#define MCONV  (10./(6.022045*DCONV)) /* g/mol -> K ps^2/A^2 */
+
+#define FCONV (1.e8/(2.*M_PI*CSPEED)) /* ps-1 -> cm^-1 */
+
+#ifndef DBL_MAX
+#define DBL_MAX         1.7976931348623157E+308  /* max decimal */
+#endif
+
+#define ERRMAX (1e-10)
+#ifndef M_PI
+#define M_PI     3.14159265358979323846
+#endif
+
+#define RARE -99999.73 /* RARE NUMBER*/

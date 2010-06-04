@@ -1,0 +1,121 @@
+\section{test/dzug/md\_\-funcvdw.c File Reference}
+\label{test_2dzug_2md__funcvdw_8c}\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+{\tt \#include $<$math.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf M\_\-PI}~3.14159265358979323846
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf func\_\-lj} (double x, double $\ast$f, double $\ast$df, double $\ast$d2f, double eps, double sig)
+\item 
+void {\bf func\_\-tab\_\-pot} (FILE $\ast$ftab, double x, double $\ast$f, double $\ast$df, double $\ast$d2f)
+\item 
+void {\bf func\_\-lj96} (double x, double $\ast$f, double $\ast$df, double $\ast$d2f, double eps, double sig)
+\item 
+void {\bf func\_\-lj64} (double x, double $\ast$f, double $\ast$df, double $\ast$d2f, double eps, double sig)
+\item 
+void {\bf func\_\-dzug} (double x, double $\ast$f, double $\ast$df, double $\ast$d2f, double eps, double sig)
+\item 
+void {\bf func\_\-will} (double x, double $\ast$f, double $\ast$df, double $\ast$d2f, double awill, double bwill, double c6, double c8, double c10)
+\item 
+void {\bf func\_\-aziz} (double x, double $\ast$f, double $\ast$df, double $\ast$d2f, double awill, double bwill, double c6, double c8, double c9, double c10, double yamma, double drmexp, double gamma)
+\item 
+void {\bf func\_\-hydbnd} (double x, double $\ast$f, double $\ast$df, double $\ast$d2f, double c12, double d10)
+\item 
+void {\bf func\_\-kerf} (double x, double $\ast$f, double $\ast$df, double $\ast$d2f, double alpha)
+\item 
+void {\bf func\_\-erf} (double x, double $\ast$f, double $\ast$df, double $\ast$d2f, double alpha)
+\item 
+void {\bf func\_\-coul} (double x, double $\ast$f, double $\ast$df, double $\ast$d2f)
+\item 
+void {\bf func\_\-hautman} (double x, double $\ast$f, double $\ast$df, double $\ast$d2f, double zmin, double c12, double c3)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char {\bf line} [MAXLINELEN]
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!M_PI@{M\_\-PI}}
+\index{M_PI@{M\_\-PI}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define M\_\-PI~3.14159265358979323846}\label{test_2dzug_2md__funcvdw_8c_e71449b1cc6e6250b91f539153a7a0d3}
+
+
+
+
+\subsection{Function Documentation}
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!func_aziz@{func\_\-aziz}}
+\index{func_aziz@{func\_\-aziz}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-aziz (double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f}, double {\em awill}, double {\em bwill}, double {\em c6}, double {\em c8}, double {\em c9}, double {\em c10}, double {\em yamma}, double {\em drmexp}, double {\em gamma})}\label{test_2dzug_2md__funcvdw_8c_64c66ef88f0a9d62bfc635112ed01b9f}
+
+
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!func_coul@{func\_\-coul}}
+\index{func_coul@{func\_\-coul}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-coul (double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f})}\label{test_2dzug_2md__funcvdw_8c_ea71c8b471297028f0aa05c24a0a539d}
+
+
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!func_dzug@{func\_\-dzug}}
+\index{func_dzug@{func\_\-dzug}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-dzug (double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f}, double {\em eps}, double {\em sig})}\label{test_2dzug_2md__funcvdw_8c_21190a146eb69eb197588fc57f972b06}
+
+
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!func_erf@{func\_\-erf}}
+\index{func_erf@{func\_\-erf}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-erf (double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f}, double {\em alpha})}\label{test_2dzug_2md__funcvdw_8c_e6e78c369620593170770dd286d54e7f}
+
+
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!func_hautman@{func\_\-hautman}}
+\index{func_hautman@{func\_\-hautman}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-hautman (double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f}, double {\em zmin}, double {\em c12}, double {\em c3})}\label{test_2dzug_2md__funcvdw_8c_7515ed5ca7037be0315b230ffd446203}
+
+
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!func_hydbnd@{func\_\-hydbnd}}
+\index{func_hydbnd@{func\_\-hydbnd}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-hydbnd (double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f}, double {\em c12}, double {\em d10})}\label{test_2dzug_2md__funcvdw_8c_f3c16de287ab641abd361d0cec632a5f}
+
+
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!func_kerf@{func\_\-kerf}}
+\index{func_kerf@{func\_\-kerf}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-kerf (double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f}, double {\em alpha})}\label{test_2dzug_2md__funcvdw_8c_9f26633326767e1cb68aee990bfca52c}
+
+
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!func_lj@{func\_\-lj}}
+\index{func_lj@{func\_\-lj}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-lj (double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f}, double {\em eps}, double {\em sig})}\label{test_2dzug_2md__funcvdw_8c_381d91bc068f2d5bc05af1a4587f5bf5}
+
+
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!func_lj64@{func\_\-lj64}}
+\index{func_lj64@{func\_\-lj64}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-lj64 (double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f}, double {\em eps}, double {\em sig})}\label{test_2dzug_2md__funcvdw_8c_f8bee3d3aac582186dcaab89214e6d84}
+
+
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!func_lj96@{func\_\-lj96}}
+\index{func_lj96@{func\_\-lj96}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-lj96 (double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f}, double {\em eps}, double {\em sig})}\label{test_2dzug_2md__funcvdw_8c_5ec21b9c2a409d126611530ccc921ed4}
+
+
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!func_tab_pot@{func\_\-tab\_\-pot}}
+\index{func_tab_pot@{func\_\-tab\_\-pot}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-tab\_\-pot (FILE $\ast$ {\em ftab}, double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f})}\label{test_2dzug_2md__funcvdw_8c_80ef4480b418d557b240d066da1f7b80}
+
+
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!func_will@{func\_\-will}}
+\index{func_will@{func\_\-will}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void func\_\-will (double {\em x}, double $\ast$ {\em f}, double $\ast$ {\em df}, double $\ast$ {\em d2f}, double {\em awill}, double {\em bwill}, double {\em c6}, double {\em c8}, double {\em c10})}\label{test_2dzug_2md__funcvdw_8c_ae40f1230fd286d227a7c624c6f0c81f}
+
+
+
+
+\subsection{Variable Documentation}
+\index{test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}!line@{line}}
+\index{line@{line}!test/dzug/md_funcvdw.c@{test/dzug/md\_\-funcvdw.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf line}[MAXLINELEN]}\label{test_2dzug_2md__funcvdw_8c_e229e1410053afa7afc569ee71be8eca}
+
+

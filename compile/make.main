@@ -1,0 +1,90 @@
+
+MAIN = $(BASE)/main
+POLAR = $(BASE)/polar
+DMAIN = $(TEST)/main
+
+MD_FILES = md_main.o md_mdcntr.o md_subcntr.o md_startup.o nma_cntr.o \
+	sub_proj.o min_cntr.o colvarcntr.o \
+	md_main.new.o md_mdcntr.new.o md_subcntr.new.o md_startup.new.o nma_cntr.new.o \
+	sub_proj.new.o min_cntr.new.o colvarcntr.new.o 
+
+main.a : main.a(md_main.o) main.a(md_mdcntr.o) main.a(md_subcntr.o) \
+	main.a(md_startup.o) main.a(nma_cntr.o) main.a(sub_proj.o) \
+	main.a(min_cntr.o) main.a(colvarcntr.o) \
+	main.a(md_main.new.o) main.a(md_mdcntr.new.o) main.a(md_subcntr.new.o) \
+	main.a(md_startup.new.o) main.a(nma_cntr.new.o) main.a(sub_proj.new.o) \
+	main.a(min_cntr.new.o) main.a(colvarcntr.new.o)
+	$(AR) $(ARFLAGS) $@ $(MD_FILES)
+	$(RANLIB) $@
+
+main.a(md_main.o) : md_main.o
+md_main.o : $(MAIN)/md_main.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(MAIN)/md_main.c
+
+main.a(md_startup.o) : md_startup.o
+md_startup.o : $(MAIN)/md_startup.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(MAIN)/md_startup.c
+
+main.a(md_mdcntr.o) : md_mdcntr.o
+md_mdcntr.o : $(MAIN)/md_mdcntr.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(MAIN)/md_mdcntr.c
+
+main.a(md_subcntr.o) : md_subcntr.o
+md_subcntr.o : $(MAIN)/md_subcntr.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(MAIN)/md_subcntr.c
+
+main.a(nma_cntr.o) : nma_cntr.o
+nma_cntr.o : $(MAIN)/nma_cntr.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(MAIN)/nma_cntr.c
+
+main.a(sub_proj.o) : sub_proj.o
+sub_proj.o : $(MAIN)/sub_proj.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(MAIN)/sub_proj.c
+
+main.a(min_cntr.o) : min_cntr.o
+min_cntr.o : $(MAIN)/min_cntr.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(MAIN)/min_cntr.c
+
+main.a(colvarcntr.o) : colvarcntr.o
+colvarcntr.o : $(MAIN)/colvarcntr.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(MAIN)/colvarcntr.c
+
+
+
+
+
+
+
+
+main.a(md_main.new.o) : md_main.new.o
+md_main.new.o : $(MAIN)/md_main.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(MAIN)/md_main.new.c
+
+main.a(md_startup.new.o) : md_startup.new.o
+md_startup.new.o : $(MAIN)/md_startup.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(MAIN)/md_startup.new.c
+
+main.a(md_mdcntr.new.o) : md_mdcntr.new.o
+md_mdcntr.new.o : $(MAIN)/md_mdcntr.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(MAIN)/md_mdcntr.new.c
+
+main.a(md_subcntr.new.o) : md_subcntr.new.o
+md_subcntr.new.o : $(MAIN)/md_subcntr.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(MAIN)/md_subcntr.new.c
+
+main.a(nma_cntr.new.o) : nma_cntr.new.o
+nma_cntr.new.o : $(MAIN)/nma_cntr.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(MAIN)/nma_cntr.new.c
+
+main.a(sub_proj.new.o) : sub_proj.new.o
+sub_proj.new.o : $(MAIN)/sub_proj.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(MAIN)/sub_proj.new.c
+
+main.a(min_cntr.new.o) : min_cntr.new.o
+min_cntr.new.o : $(MAIN)/min_cntr.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(MAIN)/min_cntr.new.c
+
+main.a(colvarcntr.new.o) : colvarcntr.new.o
+colvarcntr.new.o : $(MAIN)/colvarcntr.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(MAIN)/colvarcntr.new.c
+

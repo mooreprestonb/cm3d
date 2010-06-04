@@ -1,0 +1,43 @@
+
+#HOME = /home/moore
+NAME    = mike_test_intel
+BASE    = $(HOME)/md/mike3.0
+
+# common definitions...
+RM = /bin/rm -f
+CC = cc 
+F77 = f77 
+#CC = cc -n32  
+#F77 = f77 -n32 
+CPP = /usr/lib/cpp
+CP = /bin/cp
+MV = /bin/mv
+#AR = /bin/ar
+ARFLAGS = ruv
+
+# Compiler flages, paths for include files and libraries
+# -DMEMDEBUG -DDMALLOC
+DEBUG = -g 
+DEFINES = 
+
+CFLAGS = -fullwarn $(DEBUG) $(DEFINES)
+#FFLAGS =  
+#CFLAGS = $(DEBUG) $(DEFINES)
+FFLAGS =  
+
+OPT = 
+#OPT = -O2
+#MALLOC = $(HOME)/lib/lib64/libmalloc_d.a
+#MALLOC = $(HOME)/lib/lib64/libmemdb.a
+#MALLOC = $(HOME)/lib/lib32/libmalloc_d.a
+#MALLOC = $(HOME)/lib/libn32/lib/libdmalloc.a
+#MALLOC = $(HOME)/lib/intel/lib/libdmalloc.a
+#MALLOC = $(HOME)/lib/lib32/libmemdb.a
+#MALLOC = $(HOME)/lib/ibm/libmemdb.a
+#MALLOC =
+LIBS = $(MALLOC) -lm 
+
+LD   = $(CC) 
+LDFLAGS = 
+
+

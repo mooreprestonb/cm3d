@@ -1,0 +1,449 @@
+\section{utils/proto\_\-utils.h File Reference}
+\label{proto__utils_8h}\index{utils/proto_utils.h@{utils/proto\_\-utils.h}}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+double {\bf gethinv9} (double hmat[$\,$], double hmati[$\,$])
+\item 
+double {\bf get\_\-deth} (double[$\,$])
+\item 
+double {\bf ddot1} (int n, double $\ast$a, double $\ast$b)
+\item 
+double {\bf dsum1} (int n, double $\ast$a)
+\item 
+double {\bf ddot1a} (int n, double $\ast$a, int astep, double $\ast$b, int bstep)
+\item 
+double {\bf dsum1a} (int n, double $\ast$a, int astep)
+\item 
+int {\bf locate} (int $\ast$, int, int)
+\item 
+int {\bf insert} (int $\ast$ia, int $\ast$n, int jpoint)
+\item 
+void {\bf splint} (double[$\,$], double[$\,$], double[$\,$], int, double, double $\ast$)
+\item 
+void {\bf spline} (double[$\,$], double[$\,$], int, double, double, double[$\,$])
+\item 
+void {\bf polint} (double xa[$\,$], double ya[$\,$], int n, double x, double $\ast$y, double $\ast$dy)
+\item 
+double $\ast$ {\bf dvector} (int, int)
+\item 
+double $\ast$$\ast$ {\bf dmatrix} (int, int, int, int)
+\item 
+double $\ast$$\ast$ {\bf drematrix} (double $\ast$$\ast$, int, int, int, int, int, int, int, int)
+\item 
+double $\ast$$\ast$$\ast$ {\bf d3tensor} (int nrl, int nrh, int ncl, int nch, int ndl, int ndh)
+\item 
+double {\bf cputime} (void)
+\item 
+double {\bf realtime} (void)
+\item 
+void {\bf free\_\-dvector} (double $\ast$, int, int)
+\item 
+void {\bf free\_\-dmatrix} (double $\ast$$\ast$, int, int, int, int)
+\item 
+void {\bf free\_\-d3tensor} (double $\ast$$\ast$$\ast$, int, int, int, int, int, int)
+\item 
+void {\bf srandme} (int)
+\item 
+void {\bf ggauss} (int, double $\ast$)
+\item 
+void $\ast$ {\bf cmalloc} (size\_\-t)
+\item 
+void $\ast$ {\bf crealloc} (void $\ast$, size\_\-t)
+\item 
+void {\bf decomp1d} (int, int, int, long $\ast$, long $\ast$)
+\item 
+void {\bf decomp\_\-trig} (int, int, int, long $\ast$, long $\ast$)
+\item 
+void {\bf rs\_\-me} (int n, double $\ast$, double $\ast$$\ast$, int)
+\item 
+void {\bf ctred2} (double $\ast$$\ast$, int, double[$\,$], double[$\,$])
+\item 
+void {\bf ctred2v} (double $\ast$$\ast$, int, double[$\,$], double[$\,$])
+\item 
+void {\bf ctqli} (double[$\,$], double[$\,$], int, double $\ast$$\ast$)
+\item 
+void {\bf ctqliv} (double[$\,$], double[$\,$], int, double $\ast$$\ast$)
+\item 
+void {\bf ceigsrt} (double[$\,$], double $\ast$$\ast$, int)
+\item 
+void {\bf ceigsrtv} (double[$\,$], double $\ast$$\ast$, int)
+\item 
+void {\bf invres} (int, double $\ast$$\ast$, double $\ast$$\ast$)
+\item 
+void {\bf vsrtasnd} (double d[$\,$], double $\ast$$\ast${\bf v}, int m, int n)
+\item 
+void {\bf matmul} (int n, double $\ast$$\ast$a, double $\ast$$\ast$b, double $\ast$$\ast$c)
+\item 
+void {\bf vecmat} (int n, double $\ast$$\ast$a, double $\ast$x, double $\ast$y)
+\item 
+void {\bf matmulv} (int n, double a[$\,$], double b[$\,$], double c[$\,$])
+\item 
+void {\bf transmatv} (int n, double a[$\,$], double b[$\,$])
+\item 
+void {\bf sym33} (double mat[9])
+\item 
+void {\bf test\_\-anint} (void)
+\item 
+int {\bf same\_\-mole} (int {\bf iatom}, int {\bf jatom}, int $\ast$itype\_\-species, int $\ast$itype\_\-molecules)
+\item 
+FILE $\ast$ {\bf cfopenw} (char $\ast${\bf name})
+\item 
+void {\bf allocate\_\-coords} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf allocate\_\-extend} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf allocate\_\-exttab} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, int)
+\item 
+void {\bf rmass} (int natoms, double $\ast$fx, double $\ast$fy, double $\ast$fz, double $\ast$amass)
+\item 
+void {\bf free\_\-exttab} ({\bf COORDS} $\ast$coords)
+\item 
+void {\bf free\_\-coords} ({\bf COORDS} $\ast$coords)
+\item 
+void {\bf free\_\-extend} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf free\_\-all\_\-pointers} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)
+\item 
+int {\bf check\_\-vals} (int,...)
+\item 
+int {\bf get\_\-dict\_\-num} (int, {\bf WORD}[$\,$], char $\ast$)
+\item 
+void {\bf set\_\-sim\_\-keyword} (int $\ast$, {\bf WORD} $\ast$$\ast$dict)
+\item 
+void {\bf get\_\-meta\_\-key} (FILE $\ast$, char $\ast$, char $\ast$, int $\ast$, int $\ast$, char $\ast$, {\bf KEY} $\ast$, int $\ast$)
+\item 
+void {\bf get\_\-keys} (FILE $\ast$, char $\ast$, char $\ast$, int $\ast$, int $\ast$, int $\ast$, {\bf KEY} $\ast$)
+\item 
+void {\bf free\_\-key} (int, {\bf KEY} $\ast$)
+\item 
+void {\bf syntax\_\-error} (const char $\ast$, FILE $\ast$, int, char $\ast$, int)
+\item 
+void {\bf print\_\-dict} ({\bf WORD}, int, {\bf WORD}[$\,$])
+\item 
+void {\bf err\_\-found} ({\bf WORD}, int, char $\ast$, int)
+\item 
+void {\bf write\_\-key} ({\bf KEY} $\ast$)
+\item 
+void {\bf get\_\-sim\_\-keys} (const char $\ast$, const char $\ast$, int $\ast$, {\bf KEY} $\ast$)
+\item 
+int {\bf getnxtint} (char $\ast$)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{proto_utils.h@{proto\_\-utils.h}!allocate_coords@{allocate\_\-coords}}
+\index{allocate_coords@{allocate\_\-coords}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void allocate\_\-coords ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{proto__utils_8h_93ebcc5eb181eb7ff6725dffcecf0f83}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!allocate_extend@{allocate\_\-extend}}
+\index{allocate_extend@{allocate\_\-extend}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void allocate\_\-extend ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{proto__utils_8h_5ad7b39ff9bb32493b43bc3a76bea3d5}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!allocate_exttab@{allocate\_\-exttab}}
+\index{allocate_exttab@{allocate\_\-exttab}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void allocate\_\-exttab ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, int)}\label{proto__utils_8h_bcc10f7a38b4cebf42f5343c89f5cf8c}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!ceigsrt@{ceigsrt}}
+\index{ceigsrt@{ceigsrt}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ceigsrt (double[$\,$], double $\ast$$\ast$, int)}\label{proto__utils_8h_2eae5fea1789b08b0e071d30762b4a7f}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!ceigsrtv@{ceigsrtv}}
+\index{ceigsrtv@{ceigsrtv}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ceigsrtv (double[$\,$], double $\ast$$\ast$, int)}\label{proto__utils_8h_08ba395911e38cdb1e4bf03f333fee8c}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!cfopenw@{cfopenw}}
+\index{cfopenw@{cfopenw}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ cfopenw (char $\ast$ {\em name})}\label{proto__utils_8h_6dd8c8e7be7ee70a07e47ab5940f6f44}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!check_vals@{check\_\-vals}}
+\index{check_vals@{check\_\-vals}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int check\_\-vals (int,  {\em ...})}\label{proto__utils_8h_c89e012b5966191bee62eaba75e5b78f}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!cmalloc@{cmalloc}}
+\index{cmalloc@{cmalloc}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ cmalloc (size\_\-t)}\label{proto__utils_8h_360a528eb01d28efb74d6d4b000c2140}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!cputime@{cputime}}
+\index{cputime@{cputime}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double cputime (void)}\label{proto__utils_8h_7f0155f7ecefd56c2380285420e85e05}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!crealloc@{crealloc}}
+\index{crealloc@{crealloc}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ crealloc (void $\ast$, size\_\-t)}\label{proto__utils_8h_297bcdb33e0d58a17b7c9bf52c20337a}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!ctqli@{ctqli}}
+\index{ctqli@{ctqli}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ctqli (double[$\,$], double[$\,$], int, double $\ast$$\ast$)}\label{proto__utils_8h_7b301a63a01c1c2c3fb94a29ffcc3aaf}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!ctqliv@{ctqliv}}
+\index{ctqliv@{ctqliv}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ctqliv (double[$\,$], double[$\,$], int, double $\ast$$\ast$)}\label{proto__utils_8h_a5e924b62460bf77916030f9904c5f62}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!ctred2@{ctred2}}
+\index{ctred2@{ctred2}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ctred2 (double $\ast$$\ast$, int, double[$\,$], double[$\,$])}\label{proto__utils_8h_305081d51e6be3754d262d1093054771}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!ctred2v@{ctred2v}}
+\index{ctred2v@{ctred2v}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ctred2v (double $\ast$$\ast$, int, double[$\,$], double[$\,$])}\label{proto__utils_8h_9ce03419a361490ba5299072a2a0af26}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!d3tensor@{d3tensor}}
+\index{d3tensor@{d3tensor}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$$\ast$ d3tensor (int {\em nrl}, int {\em nrh}, int {\em ncl}, int {\em nch}, int {\em ndl}, int {\em ndh})}\label{proto__utils_8h_2160a00a0fb0119cc855d4aee8ce54ae}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!ddot1@{ddot1}}
+\index{ddot1@{ddot1}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double ddot1 (int {\em n}, double $\ast$ {\em a}, double $\ast$ {\em b})}\label{proto__utils_8h_04f9ace366a5d3f8c2bc505269d220b5}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!ddot1a@{ddot1a}}
+\index{ddot1a@{ddot1a}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double ddot1a (int {\em n}, double $\ast$ {\em a}, int {\em astep}, double $\ast$ {\em b}, int {\em bstep})}\label{proto__utils_8h_2e4408dba3a60d5cfa61bf07c935c049}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!decomp1d@{decomp1d}}
+\index{decomp1d@{decomp1d}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void decomp1d (int, int, int, long $\ast$, long $\ast$)}\label{proto__utils_8h_04dafeed4f1598249408e457c38a0b6e}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!decomp_trig@{decomp\_\-trig}}
+\index{decomp_trig@{decomp\_\-trig}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void decomp\_\-trig (int, int, int, long $\ast$, long $\ast$)}\label{proto__utils_8h_867d5b76e8e954b8a2ea3df503e63040}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!dmatrix@{dmatrix}}
+\index{dmatrix@{dmatrix}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ dmatrix (int, int, int, int)}\label{proto__utils_8h_1ccaf1ced1551855c51abb0c1f29a2bb}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!drematrix@{drematrix}}
+\index{drematrix@{drematrix}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ drematrix (double $\ast$$\ast$, int, int, int, int, int, int, int, int)}\label{proto__utils_8h_1adb38d0d9128734dc80cc96a8e2b5e8}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!dsum1@{dsum1}}
+\index{dsum1@{dsum1}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double dsum1 (int {\em n}, double $\ast$ {\em a})}\label{proto__utils_8h_37015c4294d61ebff20245e3ff83638d}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!dsum1a@{dsum1a}}
+\index{dsum1a@{dsum1a}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double dsum1a (int {\em n}, double $\ast$ {\em a}, int {\em astep})}\label{proto__utils_8h_9103b8e1c1802d9301c6fae0be266d3f}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!dvector@{dvector}}
+\index{dvector@{dvector}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ dvector (int, int)}\label{proto__utils_8h_4987ffe6cb6138aba62bb73705251c86}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!err_found@{err\_\-found}}
+\index{err_found@{err\_\-found}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void err\_\-found ({\bf WORD}, int, char $\ast$, int)}\label{proto__utils_8h_6b6aad2f6c7eccc4d479ec8b4f121d9e}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!free_all_pointers@{free\_\-all\_\-pointers}}
+\index{free_all_pointers@{free\_\-all\_\-pointers}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-all\_\-pointers ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)}\label{proto__utils_8h_168f59fb654f1856e8d20a873a7a7875}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!free_coords@{free\_\-coords}}
+\index{free_coords@{free\_\-coords}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-coords ({\bf COORDS} $\ast$ {\em coords})}\label{proto__utils_8h_0ff8cae2318de2aa8baca8b88e6f6c71}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!free_d3tensor@{free\_\-d3tensor}}
+\index{free_d3tensor@{free\_\-d3tensor}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-d3tensor (double $\ast$$\ast$$\ast$, int, int, int, int, int, int)}\label{proto__utils_8h_49d919d6e7283ddb5a3243191653f446}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!free_dmatrix@{free\_\-dmatrix}}
+\index{free_dmatrix@{free\_\-dmatrix}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-dmatrix (double $\ast$$\ast$, int, int, int, int)}\label{proto__utils_8h_1d859f3330b0ef10f3425c3748dc03aa}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!free_dvector@{free\_\-dvector}}
+\index{free_dvector@{free\_\-dvector}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-dvector (double $\ast$, int, int)}\label{proto__utils_8h_4c1dc82fd1e81a06b56ae25b2d099355}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!free_extend@{free\_\-extend}}
+\index{free_extend@{free\_\-extend}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-extend ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$ {\em coords})}\label{proto__utils_8h_56d63c0de11cd3d1937186d875921b21}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!free_exttab@{free\_\-exttab}}
+\index{free_exttab@{free\_\-exttab}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-exttab ({\bf COORDS} $\ast$ {\em coords})}\label{proto__utils_8h_6ebb270f26e89f6ade540453c447ea3b}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!free_key@{free\_\-key}}
+\index{free_key@{free\_\-key}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-key (int, {\bf KEY} $\ast$)}\label{proto__utils_8h_d22bfcd7d7b6d122c380b3c2b473ad1c}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!get_deth@{get\_\-deth}}
+\index{get_deth@{get\_\-deth}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double get\_\-deth (double[$\,$])}\label{proto__utils_8h_59803734a598c045129eed077f53ac32}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!get_dict_num@{get\_\-dict\_\-num}}
+\index{get_dict_num@{get\_\-dict\_\-num}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int get\_\-dict\_\-num (int, {\bf WORD}[$\,$], char $\ast$)}\label{proto__utils_8h_25758eb9f817a60c62e70f9bc2d30ba4}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!get_keys@{get\_\-keys}}
+\index{get_keys@{get\_\-keys}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-keys (FILE $\ast$, char $\ast$, char $\ast$, int $\ast$, int $\ast$, int $\ast$, {\bf KEY} $\ast$)}\label{proto__utils_8h_b3de0894703057a669a8a1454c8bccd2}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!get_meta_key@{get\_\-meta\_\-key}}
+\index{get_meta_key@{get\_\-meta\_\-key}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-meta\_\-key (FILE $\ast$, char $\ast$, char $\ast$, int $\ast$, int $\ast$, char $\ast$, {\bf KEY} $\ast$, int $\ast$)}\label{proto__utils_8h_694152be2acc7f16a783bda0d43a3969}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!get_sim_keys@{get\_\-sim\_\-keys}}
+\index{get_sim_keys@{get\_\-sim\_\-keys}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-sim\_\-keys (const char $\ast$, const char $\ast$, int $\ast$, {\bf KEY} $\ast$)}\label{proto__utils_8h_8e327b8f3754953ec3811a0c4389bb61}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!gethinv9@{gethinv9}}
+\index{gethinv9@{gethinv9}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double gethinv9 (double {\em hmat}[$\,$], double {\em hmati}[$\,$])}\label{proto__utils_8h_3371cf5cbee70fc2645ecee13615a7bd}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!getnxtint@{getnxtint}}
+\index{getnxtint@{getnxtint}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int getnxtint (char $\ast$)}\label{proto__utils_8h_09d0c205490ce97c230660b802ef71af}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!ggauss@{ggauss}}
+\index{ggauss@{ggauss}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ggauss (int, double $\ast$)}\label{proto__utils_8h_416b6ade7409ddaf94d1e0a3885dccc1}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!insert@{insert}}
+\index{insert@{insert}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int insert (int $\ast$ {\em ia}, int $\ast$ {\em n}, int {\em jpoint})}\label{proto__utils_8h_0c2855d2933bc1e9b13db385a6cb1b89}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!invres@{invres}}
+\index{invres@{invres}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void invres (int, double $\ast$$\ast$, double $\ast$$\ast$)}\label{proto__utils_8h_5481a67d6f3bf7ab6407fe1053fb14e3}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!locate@{locate}}
+\index{locate@{locate}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int locate (int $\ast$, int, int)}\label{proto__utils_8h_ef48aed7ae14f44ca251a9e5c706143a}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!matmul@{matmul}}
+\index{matmul@{matmul}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void matmul (int {\em n}, double $\ast$$\ast$ {\em a}, double $\ast$$\ast$ {\em b}, double $\ast$$\ast$ {\em c})}\label{proto__utils_8h_baa37d798e088183b609adf8af0a2f71}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!matmulv@{matmulv}}
+\index{matmulv@{matmulv}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void matmulv (int {\em n}, double {\em a}[$\,$], double {\em b}[$\,$], double {\em c}[$\,$])}\label{proto__utils_8h_ef8cb8452c04c696d2a489a26fc4de59}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!polint@{polint}}
+\index{polint@{polint}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void polint (double {\em xa}[$\,$], double {\em ya}[$\,$], int {\em n}, double {\em x}, double $\ast$ {\em y}, double $\ast$ {\em dy})}\label{proto__utils_8h_9e781dcc9df20e8b93139c48b5627be1}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!print_dict@{print\_\-dict}}
+\index{print_dict@{print\_\-dict}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void print\_\-dict ({\bf WORD}, int, {\bf WORD}[$\,$])}\label{proto__utils_8h_3cdd9e603bcf5f8f5ecb215b60ac2cf5}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!realtime@{realtime}}
+\index{realtime@{realtime}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double realtime (void)}\label{proto__utils_8h_5c553cb00be5deb5480d13b812ac9e38}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!rmass@{rmass}}
+\index{rmass@{rmass}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void rmass (int {\em natoms}, double $\ast$ {\em fx}, double $\ast$ {\em fy}, double $\ast$ {\em fz}, double $\ast$ {\em amass})}\label{proto__utils_8h_81f071e06b2705ae33a2addd6a66c15d}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!rs_me@{rs\_\-me}}
+\index{rs_me@{rs\_\-me}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void rs\_\-me (int {\em n}, double $\ast$, double $\ast$$\ast$, int)}\label{proto__utils_8h_31d8465067779fa813d2d824bded8775}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!same_mole@{same\_\-mole}}
+\index{same_mole@{same\_\-mole}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int same\_\-mole (int {\em iatom}, int {\em jatom}, int $\ast$ {\em itype\_\-species}, int $\ast$ {\em itype\_\-molecules})}\label{proto__utils_8h_e3d0df6067ab8da08e90f66ab8c2c417}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!set_sim_keyword@{set\_\-sim\_\-keyword}}
+\index{set_sim_keyword@{set\_\-sim\_\-keyword}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void set\_\-sim\_\-keyword (int $\ast$, {\bf WORD} $\ast$$\ast$ {\em dict})}\label{proto__utils_8h_d42282fe5cc392c172c3f3da2b160e48}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!spline@{spline}}
+\index{spline@{spline}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void spline (double[$\,$], double[$\,$], int, double, double, double[$\,$])}\label{proto__utils_8h_18ab99a10fb62b5d9e6385bf253d4849}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!splint@{splint}}
+\index{splint@{splint}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void splint (double[$\,$], double[$\,$], double[$\,$], int, double, double $\ast$)}\label{proto__utils_8h_3d61c824d4b5c07a21d5c85b16ab6ccc}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!srandme@{srandme}}
+\index{srandme@{srandme}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void srandme (int)}\label{proto__utils_8h_d584a3d42bdf43a340bca16ce490ade7}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!sym33@{sym33}}
+\index{sym33@{sym33}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void sym33 (double {\em mat}[9])}\label{proto__utils_8h_6088469b1fad01690a4e149702e2587e}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!syntax_error@{syntax\_\-error}}
+\index{syntax_error@{syntax\_\-error}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void syntax\_\-error (const char $\ast$, FILE $\ast$, int, char $\ast$, int)}\label{proto__utils_8h_98f141d11d0c4bcc40906bda9a45e036}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!test_anint@{test\_\-anint}}
+\index{test_anint@{test\_\-anint}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void test\_\-anint (void)}\label{proto__utils_8h_f2bb2600d7dd8b340ea72276e8fbe30b}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!transmatv@{transmatv}}
+\index{transmatv@{transmatv}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void transmatv (int {\em n}, double {\em a}[$\,$], double {\em b}[$\,$])}\label{proto__utils_8h_8d6bd180f89f104802e830b8973e5783}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!vecmat@{vecmat}}
+\index{vecmat@{vecmat}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void vecmat (int {\em n}, double $\ast$$\ast$ {\em a}, double $\ast$ {\em x}, double $\ast$ {\em y})}\label{proto__utils_8h_4fbb371d5ad2e326f2b8820323f20fa5}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!vsrtasnd@{vsrtasnd}}
+\index{vsrtasnd@{vsrtasnd}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void vsrtasnd (double {\em d}[$\,$], double $\ast$$\ast$ {\em v}, int {\em m}, int {\em n})}\label{proto__utils_8h_3228238f335dfbac503d709bd2a224e1}
+
+
+\index{proto_utils.h@{proto\_\-utils.h}!write_key@{write\_\-key}}
+\index{write_key@{write\_\-key}!proto_utils.h@{proto\_\-utils.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void write\_\-key ({\bf KEY} $\ast$)}\label{proto__utils_8h_070817a6c5857ce6ca677694cfe416dc}
+
+

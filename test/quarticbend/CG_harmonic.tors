@@ -1,0 +1,28 @@
+~torsion_parm[\atom1{GBH}\atom2{GBH}\atom3{GBH}\atom4{GBH}
+          \pot_type{harm}\fk{55000.00}\eq{59}]
+~torsion_parm[\atom1{ABH}\atom2{ABH}\atom3{ABH}\atom4{ABH}
+          \pot_type{harm}\fk{60000.0}\eq{55}]
+~torsion_parm[\atom1{GBH}\atom2{GBH}\atom3{GBH}\atom4{ABH}
+          \pot_type{harm}\fk{55000.00}\eq{59}]
+~torsion_parm[\atom1{GBH}\atom2{ABH}\atom3{GBH}\atom4{GBH}
+          \pot_type{harm}\fk{55000.00}\eq{63}]
+~torsion_parm[\atom1{ABH}\atom2{GBH}\atom3{ABH}\atom4{GBH}
+          \pot_type{harm}\fk{55000.00}\eq{52}]
+~torsion_parm[\atom1{ABH}\atom2{GBH}\atom3{ABH}\atom4{GBH}
+          \pot_type{harm}\fk{55000.00}\eq{46}]
+~torsion_parm[\atom1{ABH}\atom2{GBH}\atom3{ABH}\atom4{ABH}
+          \pot_type{harm}\fk{55000.00}\eq{58}]
+~torsion_parm[\atom1{GBH}\atom2{ABH}\atom3{ABH}\atom4{GBH}
+          \pot_type{harm}\fk{55000.00}\eq{59}]
+~torsion_parm[\atom1{GBH}\atom2{GBH}\atom3{ABH}\atom4{ABH}
+          \pot_type{harm}\fk{55000.00}\eq{55}]
+~torsion_parm[\atom1{ABH}\atom2{GBH}\atom3{GBH}\atom4{ABH}
+          \pot_type{harm}\fk{55000.00}\eq{52}]
+~torsion_parm[\atom1{ABH}\atom2{ABH}\atom3{ABH}\atom4{GBH}
+          \pot_type{harm}\fk{55000.00}\eq{52}]
+
+
+
+
+
+

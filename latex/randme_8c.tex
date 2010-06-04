@@ -1,0 +1,120 @@
+\section{utils/randme.c File Reference}
+\label{randme_8c}\index{utils/randme.c@{utils/randme.c}}
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf NR}
+\item 
+\#define {\bf IA}~16807
+\item 
+\#define {\bf IM}~2147483647
+\item 
+\#define {\bf AM}~(1.0/IM)
+\item 
+\#define {\bf IQ}~127773
+\item 
+\#define {\bf IR}~2836
+\item 
+\#define {\bf NTAB}~32
+\item 
+\#define {\bf NDIV}~(1+(IM-1)/NTAB)
+\item 
+\#define {\bf EPS}~1.2e-12
+\item 
+\#define {\bf RNMX}~(1.0-EPS)
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+double {\bf ran1} (long $\ast$)
+\item 
+double {\bf randme} (void)
+\item 
+void {\bf srandme} (int)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static long {\bf seed}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{randme.c@{randme.c}!AM@{AM}}
+\index{AM@{AM}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define AM~(1.0/IM)}\label{randme_8c_d301e6a88b1c01108f4867f2ea6f683c}
+
+
+\index{randme.c@{randme.c}!EPS@{EPS}}
+\index{EPS@{EPS}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define EPS~1.2e-12}\label{randme_8c_6ebf6899d6c1c8b7b9d09be872c05aae}
+
+
+\index{randme.c@{randme.c}!IA@{IA}}
+\index{IA@{IA}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define IA~16807}\label{randme_8c_e4b0efde4fa4613b407716d265d19b0a}
+
+
+\index{randme.c@{randme.c}!IM@{IM}}
+\index{IM@{IM}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define IM~2147483647}\label{randme_8c_51c0dfe766601d31e907fceae818a7ca}
+
+
+\index{randme.c@{randme.c}!IQ@{IQ}}
+\index{IQ@{IQ}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define IQ~127773}\label{randme_8c_b7c5f3342853af6bb48d0ca00b05efbe}
+
+
+\index{randme.c@{randme.c}!IR@{IR}}
+\index{IR@{IR}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define IR~2836}\label{randme_8c_68e22635ff207d8ca10459833856bd75}
+
+
+\index{randme.c@{randme.c}!NDIV@{NDIV}}
+\index{NDIV@{NDIV}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NDIV~(1+(IM-1)/NTAB)}\label{randme_8c_62339d74dd5d9d00480e1a288cf88fe8}
+
+
+\index{randme.c@{randme.c}!NR@{NR}}
+\index{NR@{NR}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NR}\label{randme_8c_f146485306ae74a2edf18636300fd107}
+
+
+\index{randme.c@{randme.c}!NTAB@{NTAB}}
+\index{NTAB@{NTAB}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NTAB~32}\label{randme_8c_0e93cfb2d62849853fd34957ba6e6fdc}
+
+
+\index{randme.c@{randme.c}!RNMX@{RNMX}}
+\index{RNMX@{RNMX}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define RNMX~(1.0-EPS)}\label{randme_8c_a7436c9270ffb06f8c1eae8d2e605cec}
+
+
+
+
+\subsection{Function Documentation}
+\index{randme.c@{randme.c}!ran1@{ran1}}
+\index{ran1@{ran1}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double ran1 (long $\ast$)}\label{randme_8c_67d93b157089b9a93bdf77a69d20a63d}
+
+
+\index{randme.c@{randme.c}!randme@{randme}}
+\index{randme@{randme}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double randme (void)}\label{randme_8c_ad91818df0230e0271f9d12657e86c05}
+
+
+\index{randme.c@{randme.c}!srandme@{srandme}}
+\index{srandme@{srandme}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void srandme (int)}\label{randme_8c_d584a3d42bdf43a340bca16ce490ade7}
+
+
+
+
+\subsection{Variable Documentation}
+\index{randme.c@{randme.c}!seed@{seed}}
+\index{seed@{seed}!randme.c@{randme.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long {\bf seed}\hspace{0.3cm}{\tt  [static]}}\label{randme_8c_ffb5f34f39f7103b999d198b18ffed8e}
+
+

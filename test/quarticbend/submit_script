@@ -1,0 +1,35 @@
+
+# #PBS script to run executable
+
+#PBS -l nodes=1:ppn=1
+#PBS -o output.log
+#PBS -e output.err
+# #PBS -m ae
+#PBS -q tenday 
+#PBS -N ls2-single-cg 
+#PBS -r n
+#!/bin/sh
+### Job name
+### Declare job-non-rerunable
+### output files
+### Mail to user
+### Queue name
+### Number of nodes
+PBS_0_WORKDIR=/home/zliu/TMProteins/ls2/ls2/test-set1
+# This job's working directory
+cd $PBS_O_WORKDIR
+
+PROG=/share/apps/cm3d/bin/cm3d.In.cg
+INPUT=ls2-cg.input
+OUTPUT=ls2-cg.output
+
+echo Working directory is $PBS_O_WORKDIR
+echo Running on host `hostname`
+echo Time is `date`
+echo Directory is `pwd`
+echo This job runs on the following processors:
+echo `cat $PBS_NODEFILE`
+
+# Run the CM3D executable
+
+$PROG $INPUT >> $OUTPUT

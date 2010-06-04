@@ -1,0 +1,64 @@
+\section{output/nmaout.c File Reference}
+\label{nmaout_8c}\index{output/nmaout.c@{output/nmaout.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf ZERO}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+static void {\bf qweighti} (int, double, double, double[$\,$], double[$\,$], double[$\,$], double[$\,$], double[$\,$], double[$\,$], double, int)
+\item 
+void {\bf write\_\-nma\_\-start} (int natoms, int npt, double dt, double frmax, double frmin, int iunits, int {\bf nsave}, {\bf NMODES} $\ast${\bf nmodes})
+\item 
+void {\bf save\_\-nma} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf FILENAMES} $\ast$filenames, int npoints, double freq\_\-min, {\bf NMODES} $\ast${\bf nmodes})
+\item 
+void {\bf print\_\-mat} (int nr, int nc, double $\ast$$\ast$matrix)
+\item 
+void {\bf psysvec} ({\bf FILENAMES} $\ast$filenames, int nconf, int natoms, int iunits, double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$amass, double $\ast$hmat, double $\ast$$\ast$fcmat, double $\ast$dn, double $\ast$$\ast$molmat, int nspec, int $\ast$nmol, int $\ast$napm)
+\item 
+void {\bf store\_\-freq} (int {\bf nmodes}, double $\ast$dn, double time)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{nmaout.c@{nmaout.c}!ZERO@{ZERO}}
+\index{ZERO@{ZERO}!nmaout.c@{nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ZERO}\label{nmaout_8c_c328e551bde3d39b6d7b8cc9e048d941}
+
+
+
+
+\subsection{Function Documentation}
+\index{nmaout.c@{nmaout.c}!print_mat@{print\_\-mat}}
+\index{print_mat@{print\_\-mat}!nmaout.c@{nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void print\_\-mat (int {\em nr}, int {\em nc}, double $\ast$$\ast$ {\em matrix})}\label{nmaout_8c_e03c8642bacdbe20ef827ce0ff30a31e}
+
+
+\index{nmaout.c@{nmaout.c}!psysvec@{psysvec}}
+\index{psysvec@{psysvec}!nmaout.c@{nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void psysvec ({\bf FILENAMES} $\ast$ {\em filenames}, int {\em nconf}, int {\em natoms}, int {\em iunits}, double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$ {\em amass}, double $\ast$ {\em hmat}, double $\ast$$\ast$ {\em fcmat}, double $\ast$ {\em dn}, double $\ast$$\ast$ {\em molmat}, int {\em nspec}, int $\ast$ {\em nmol}, int $\ast$ {\em napm})}\label{nmaout_8c_cd4b3a12c5310bc05e780a2ff5e852ce}
+
+
+\index{nmaout.c@{nmaout.c}!qweighti@{qweighti}}
+\index{qweighti@{qweighti}!nmaout.c@{nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void qweighti (int, double, double, double[$\,$], double[$\,$], double[$\,$], double[$\,$], double[$\,$], double[$\,$], double, int)\hspace{0.3cm}{\tt  [static]}}\label{nmaout_8c_324ab305c13a65f7519ba736664767d9}
+
+
+\index{nmaout.c@{nmaout.c}!save_nma@{save\_\-nma}}
+\index{save_nma@{save\_\-nma}!nmaout.c@{nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-nma ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf FILENAMES} $\ast$ {\em filenames}, int {\em npoints}, double {\em freq\_\-min}, {\bf NMODES} $\ast$ {\em nmodes})}\label{nmaout_8c_07b4b3619b8dde69bf89cabcab0c086d}
+
+
+\index{nmaout.c@{nmaout.c}!store_freq@{store\_\-freq}}
+\index{store_freq@{store\_\-freq}!nmaout.c@{nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void store\_\-freq (int {\em nmodes}, double $\ast$ {\em dn}, double {\em time})}\label{nmaout_8c_4e9a55f263659971dfbb62bec5527f80}
+
+
+\index{nmaout.c@{nmaout.c}!write_nma_start@{write\_\-nma\_\-start}}
+\index{write_nma_start@{write\_\-nma\_\-start}!nmaout.c@{nmaout.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void write\_\-nma\_\-start (int {\em natoms}, int {\em npt}, double {\em dt}, double {\em frmax}, double {\em frmin}, int {\em iunits}, int {\em nsave}, {\bf NMODES} $\ast$ {\em nmodes})}\label{nmaout_8c_b291d317c07e1471b4359902f59f35eb}
+
+

@@ -1,0 +1,74 @@
+\section{utils/matopt.c File Reference}
+\label{matopt_8c}\index{utils/matopt.c@{utils/matopt.c}}
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf bwdgemm} (int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, double $\ast$, void $\ast$, int $\ast$, void $\ast$, int $\ast$, double $\ast$, void $\ast$, int $\ast$)
+\item 
+void {\bf bwdgemv} (int $\ast$, int $\ast$, int $\ast$, double $\ast$, double $\ast$, int $\ast$, double $\ast$, int $\ast$, double $\ast$, double $\ast$, int $\ast$)
+\item 
+void {\bf bwdsytrf} (char $\ast$, int $\ast$, void $\ast$, int $\ast$, void $\ast$, void $\ast$, int $\ast$, int $\ast$)
+\item 
+void {\bf bwdsytri} (char $\ast$, int $\ast$, void $\ast$, int $\ast$, void $\ast$, void $\ast$, int $\ast$)
+\item 
+void {\bf bwdsytrs} (char $\ast$, int $\ast$, int $\ast$, void $\ast$, int $\ast$, void $\ast$, void $\ast$, int $\ast$, int $\ast$)
+\item 
+void {\bf matmul} (int n, double $\ast$$\ast$a, double $\ast$$\ast$b, double $\ast$$\ast$c)
+\item 
+void {\bf vecmat} (int n, double $\ast$$\ast$a, double $\ast$x, double $\ast$y)
+\item 
+void {\bf invsym\-Matrix} (int n, double $\ast$$\ast$a)
+\item 
+void {\bf sol4musym\-Mat} (int n, double $\ast$$\ast$a, double $\ast$b)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{matopt.c@{matopt.c}!bwdgemm@{bwdgemm}}
+\index{bwdgemm@{bwdgemm}!matopt.c@{matopt.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void bwdgemm (int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, double $\ast$, void $\ast$, int $\ast$, void $\ast$, int $\ast$, double $\ast$, void $\ast$, int $\ast$)}\label{matopt_8c_3f8d685a8afd1cbd0ae3c1742e25397d}
+
+
+\index{matopt.c@{matopt.c}!bwdgemv@{bwdgemv}}
+\index{bwdgemv@{bwdgemv}!matopt.c@{matopt.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void bwdgemv (int $\ast$, int $\ast$, int $\ast$, double $\ast$, double $\ast$, int $\ast$, double $\ast$, int $\ast$, double $\ast$, double $\ast$, int $\ast$)}\label{matopt_8c_ab5fc11f7d06e1d0efde054f401aab15}
+
+
+\index{matopt.c@{matopt.c}!bwdsytrf@{bwdsytrf}}
+\index{bwdsytrf@{bwdsytrf}!matopt.c@{matopt.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void bwdsytrf (char $\ast$, int $\ast$, void $\ast$, int $\ast$, void $\ast$, void $\ast$, int $\ast$, int $\ast$)}\label{matopt_8c_0010c10786f1905150e3a0b5af856247}
+
+
+\index{matopt.c@{matopt.c}!bwdsytri@{bwdsytri}}
+\index{bwdsytri@{bwdsytri}!matopt.c@{matopt.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void bwdsytri (char $\ast$, int $\ast$, void $\ast$, int $\ast$, void $\ast$, void $\ast$, int $\ast$)}\label{matopt_8c_27a0718c8c54faf6fe71d4b998491915}
+
+
+\index{matopt.c@{matopt.c}!bwdsytrs@{bwdsytrs}}
+\index{bwdsytrs@{bwdsytrs}!matopt.c@{matopt.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void bwdsytrs (char $\ast$, int $\ast$, int $\ast$, void $\ast$, int $\ast$, void $\ast$, void $\ast$, int $\ast$, int $\ast$)}\label{matopt_8c_a9ada00ac1352ec9de3376438ad7e71a}
+
+
+\index{matopt.c@{matopt.c}!invsymMatrix@{invsymMatrix}}
+\index{invsymMatrix@{invsymMatrix}!matopt.c@{matopt.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void invsym\-Matrix (int {\em n}, double $\ast$$\ast$ {\em a})}\label{matopt_8c_bdd73000def95004e98b62963d5f8908}
+
+
+\index{matopt.c@{matopt.c}!matmul@{matmul}}
+\index{matmul@{matmul}!matopt.c@{matopt.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void matmul (int {\em n}, double $\ast$$\ast$ {\em a}, double $\ast$$\ast$ {\em b}, double $\ast$$\ast$ {\em c})}\label{matopt_8c_baa37d798e088183b609adf8af0a2f71}
+
+
+\index{matopt.c@{matopt.c}!sol4musymMat@{sol4musymMat}}
+\index{sol4musymMat@{sol4musymMat}!matopt.c@{matopt.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void sol4musym\-Mat (int {\em n}, double $\ast$$\ast$ {\em a}, double $\ast$ {\em b})}\label{matopt_8c_21041e316ded62459cb49f9a0b0aa7d0}
+
+
+\index{matopt.c@{matopt.c}!vecmat@{vecmat}}
+\index{vecmat@{vecmat}!matopt.c@{matopt.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void vecmat (int {\em n}, double $\ast$$\ast$ {\em a}, double $\ast$ {\em x}, double $\ast$ {\em y})}\label{matopt_8c_4fbb371d5ad2e326f2b8820323f20fa5}
+
+

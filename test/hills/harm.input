@@ -1,0 +1,34 @@
+Set up file for butane
+
+calculation{colvar}
+\calculation{md}
+
+colvarcntrfile{colvar.input} 
+ncolvar{1}
+hilldepth{500} 
+
+\istart{1} \ntime{100} \ensemble{nve}
+
+\nres_lrf{1} \nres_tors{1} \nres_intra{1} \len_nhc{0} \nbar{0}
+
+\t_ext{300.0} \p_ext{0.0} \dt{1.0} \iperd{0}
+
+\iwr_screen{1}\iwr_dump{10}
+\iwr_confp{1}\iwr_confv{0} \iwr_conff{0}
+\iwr_inst{1}
+
+\dpi_file{harm.coord} \dpo_file{harm.save} 
+\pos_file{harm.conf} \vel_file{harm.vel} \force_file{harm.force2}
+\eng_file{harm.inst} \ham_file{harm.ham} \eval_file{harm.val} 
+
+\mol_set_file{harm.set}
+\neighbor_list{nolist}
+\linkcell{off} \ncell_div{5}
+\skin{1.} \rheal_res{1.}
+\ntable{500} \nlen{3}
+\rcute_max{15} \rcute_resp{3}
+\iseed{1230485}
+\kmax{10} \alp_ewald{.5}
+
+\inter_file{mike.vdw_but}\bond_file{mike.bond_but}\bend_file{mike.bend}
+\torsion_file{mike.tors}\onefour_file{mike.onfo}

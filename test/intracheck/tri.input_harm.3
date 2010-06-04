@@ -1,0 +1,25 @@
+Set up file triatomic bonds + harmonic bends
+
+\istart{1} \ntime{10000} \ensemble{nve}
+
+\nres_lrf{2} \nres_intra{10} \len_nhc{0} \nbar{0}
+
+\t_ext{.001} \p_ext{0} \dt{1.}
+\iperd{0}
+
+\iwr_screen{1000} 
+\iwr_dump{1000} 
+\iwr_confp{500} \iwr_confv{500} \iwr_inst{100}
+
+\dpi_file{tri.init} \dpo_file{tri.save} 
+\pos_file{tri.conf} \vel_file{tri.vel}
+\ham_file{tri.ham}  \eng_file{tri.eng} 
+\eval_file{tri.eval} \hill_file{tri.hill}
+
+\mol_set_file{tri.set}
+\ncell_div{1}
+
+\skin{1.} \rheal_res{.1}
+\rcute_min{.1}
+\ntable{5000}
+\iseed{123456789}

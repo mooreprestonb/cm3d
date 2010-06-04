@@ -1,0 +1,71 @@
+\section{energy/polar/getpolder.c File Reference}
+\label{getpolder_8c}\index{energy/polar/getpolder.c@{energy/polar/getpolder.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf printmatrix} (int n, double $\ast$$\ast$a)
+\item 
+void {\bf getamatrix} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$$\ast$amat, int nef, {\bf INTER} $\ast$inter, double $\ast$bvec)
+\item 
+void {\bf get\-Snk\-Bond} ({\bf COORDS} $\ast$coords, int n, int k, double $\ast$s)
+\item 
+void {\bf getd\-Rkdqt} ({\bf COORDS} $\ast$coords, double $\ast$$\ast$fmat, int k, int imode, double $\ast$r)
+\item 
+void {\bf adjust\-Alphap\_\-der} ({\bf COORDS} $\ast$coords, double $\ast$$\ast$fmat, int n, int imode, double $\ast$alphap\_\-der)
+\item 
+void {\bf getdadq} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$$\ast$amat, double $\ast$$\ast$fmat, int imode)
+\item 
+void {\bf getpolder} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NMODES} $\ast${\bf nmodes})
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+double {\bf global\_\-dad\-Rn} [2]
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{getpolder.c@{getpolder.c}!adjustAlphap_der@{adjustAlphap\_\-der}}
+\index{adjustAlphap_der@{adjustAlphap\_\-der}!getpolder.c@{getpolder.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void adjust\-Alphap\_\-der ({\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em fmat}, int {\em n}, int {\em imode}, double $\ast$ {\em alphap\_\-der})}\label{getpolder_8c_8803665c03bcf500f4a1f1913ce8960b}
+
+
+\index{getpolder.c@{getpolder.c}!getamatrix@{getamatrix}}
+\index{getamatrix@{getamatrix}!getpolder.c@{getpolder.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getamatrix ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em amat}, int {\em nef}, {\bf INTER} $\ast$ {\em inter}, double $\ast$ {\em bvec})}\label{getpolder_8c_7a3acedb9ccfe94a53905c1691cf1aa6}
+
+
+\index{getpolder.c@{getpolder.c}!getdadq@{getdadq}}
+\index{getdadq@{getdadq}!getpolder.c@{getpolder.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getdadq ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em amat}, double $\ast$$\ast$ {\em fmat}, int {\em imode})}\label{getpolder_8c_d95a07fa6d66214cccdc5e575727394c}
+
+
+\index{getpolder.c@{getpolder.c}!getdRkdqt@{getdRkdqt}}
+\index{getdRkdqt@{getdRkdqt}!getpolder.c@{getpolder.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getd\-Rkdqt ({\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em fmat}, int {\em k}, int {\em imode}, double $\ast$ {\em r})}\label{getpolder_8c_e3544c1fcb379dbfd114c63d3fc4e928}
+
+
+\index{getpolder.c@{getpolder.c}!getpolder@{getpolder}}
+\index{getpolder@{getpolder}!getpolder.c@{getpolder.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getpolder ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NMODES} $\ast$ {\em nmodes})}\label{getpolder_8c_5b49bddcb4e09b5b855c52b6d73c5f47}
+
+
+\index{getpolder.c@{getpolder.c}!getSnkBond@{getSnkBond}}
+\index{getSnkBond@{getSnkBond}!getpolder.c@{getpolder.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\-Snk\-Bond ({\bf COORDS} $\ast$ {\em coords}, int {\em n}, int {\em k}, double $\ast$ {\em s})}\label{getpolder_8c_0838532a455cc6628d02d57f74fcf0fb}
+
+
+\index{getpolder.c@{getpolder.c}!printmatrix@{printmatrix}}
+\index{printmatrix@{printmatrix}!getpolder.c@{getpolder.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void printmatrix (int {\em n}, double $\ast$$\ast$ {\em a})}\label{getpolder_8c_768a8bf375f31376a75988c4e0c5919c}
+
+
+
+
+\subsection{Variable Documentation}
+\index{getpolder.c@{getpolder.c}!global_dadRn@{global\_\-dadRn}}
+\index{global_dadRn@{global\_\-dadRn}!getpolder.c@{getpolder.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf global\_\-dad\-Rn}[2]}\label{getpolder_8c_d759e5ee813aa5124bd4f2d393b478d4}
+
+

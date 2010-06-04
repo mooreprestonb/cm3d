@@ -1,0 +1,87 @@
+\section{energy/control/md\_\-fcntr.c File Reference}
+\label{md__fcntr_8c}\index{energy/control/md_fcntr.c@{energy/control/md\_\-fcntr.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+{\tt \#include \char`\"{}vectorize.h\char`\"{}}\par
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum {\bf funcs} \{ {\bf BOND}, 
+{\bf BEND}, 
+{\bf XBOND}
+ \}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf ptensorchk} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NGBR} $\ast$ngbr, int iflg)
+\item 
+void {\bf ngradv} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NGBR} $\ast$ngbr, int iflg)
+\item 
+void {\bf get\_\-p2mt} (int, double[$\,$], double[$\,$], double[$\,$], double[$\,$], double[9])
+\item 
+void {\bf force} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NGBR} $\ast$ngbr, int iflg)
+\item 
+void {\bf getvireal} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf ENERGIES} $\ast${\bf energies}, {\bf INTER} $\ast$inter, {\bf NGBR} $\ast$ngbr, int iflg)
+\item 
+void {\bf geteng} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf ENERGIES} $\ast${\bf energies})
+\item 
+void {\bf freeze\_\-atom} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\end{CompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\index{md_fcntr.c@{md\_\-fcntr.c}!funcs@{funcs}}
+\index{funcs@{funcs}!md_fcntr.c@{md\_\-fcntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum {\bf funcs}}\label{md__fcntr_8c_365f9b159538e6a24e7a578f57903f72}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{BOND@{BOND}!md_fcntr.c@{md\_\-fcntr.c}}\index{md_fcntr.c@{md\_\-fcntr.c}!BOND@{BOND}}\item[{\em 
+BOND\label{md__fcntr_8c_365f9b159538e6a24e7a578f57903f72173a95f5ec8cbbebfdc6c651cdea6a96}
+}]\index{BEND@{BEND}!md_fcntr.c@{md\_\-fcntr.c}}\index{md_fcntr.c@{md\_\-fcntr.c}!BEND@{BEND}}\item[{\em 
+BEND\label{md__fcntr_8c_365f9b159538e6a24e7a578f57903f7209a00e8938ffe5ec3f8441dc445cd5d3}
+}]\index{XBOND@{XBOND}!md_fcntr.c@{md\_\-fcntr.c}}\index{md_fcntr.c@{md\_\-fcntr.c}!XBOND@{XBOND}}\item[{\em 
+XBOND\label{md__fcntr_8c_365f9b159538e6a24e7a578f57903f72308d04dbf6a985a97c095fd0da1f9338}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\index{md_fcntr.c@{md\_\-fcntr.c}!force@{force}}
+\index{force@{force}!md_fcntr.c@{md\_\-fcntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void force ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NGBR} $\ast$ {\em ngbr}, int {\em iflg})}\label{md__fcntr_8c_d9bc982af2ea532bf7ae40c770af2eb3}
+
+
+\index{md_fcntr.c@{md\_\-fcntr.c}!freeze_atom@{freeze\_\-atom}}
+\index{freeze_atom@{freeze\_\-atom}!md_fcntr.c@{md\_\-fcntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void freeze\_\-atom ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__fcntr_8c_f13bb37b9531da8c75e42f33543ffb2a}
+
+
+\index{md_fcntr.c@{md\_\-fcntr.c}!get_p2mt@{get\_\-p2mt}}
+\index{get_p2mt@{get\_\-p2mt}!md_fcntr.c@{md\_\-fcntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-p2mt (int, double[$\,$], double[$\,$], double[$\,$], double[$\,$], double[9])}\label{md__fcntr_8c_7f53df90f37b6a5aaedee6e1c55a054d}
+
+
+\index{md_fcntr.c@{md\_\-fcntr.c}!geteng@{geteng}}
+\index{geteng@{geteng}!md_fcntr.c@{md\_\-fcntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void geteng ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf ENERGIES} $\ast$ {\em energies})}\label{md__fcntr_8c_a8bd253f2ff17437723ee5fa350dfc29}
+
+
+\index{md_fcntr.c@{md\_\-fcntr.c}!getvireal@{getvireal}}
+\index{getvireal@{getvireal}!md_fcntr.c@{md\_\-fcntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvireal ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf ENERGIES} $\ast$ {\em energies}, {\bf INTER} $\ast$ {\em inter}, {\bf NGBR} $\ast$ {\em ngbr}, int {\em iflg})}\label{md__fcntr_8c_ed11c84ded4213d40912843a0a98296d}
+
+
+\index{md_fcntr.c@{md\_\-fcntr.c}!ngradv@{ngradv}}
+\index{ngradv@{ngradv}!md_fcntr.c@{md\_\-fcntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ngradv ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NGBR} $\ast$ {\em ngbr}, int {\em iflg})}\label{md__fcntr_8c_42d991234ac5d82d01f595fa4ee9000b}
+
+
+\index{md_fcntr.c@{md\_\-fcntr.c}!ptensorchk@{ptensorchk}}
+\index{ptensorchk@{ptensorchk}!md_fcntr.c@{md\_\-fcntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ptensorchk ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NGBR} $\ast$ {\em ngbr}, int {\em iflg})}\label{md__fcntr_8c_f188549614d77490e3b051490ec1fc8e}
+
+

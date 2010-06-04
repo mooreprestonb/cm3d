@@ -1,0 +1,85 @@
+\section{main/proto\_\-main.h File Reference}
+\label{proto__main_8h}\index{main/proto_main.h@{main/proto\_\-main.h}}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf md\_\-startup} ({\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$, {\bf SUBSPACE} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf md\_\-mdcntr} (char $\ast$, {\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)
+\item 
+void {\bf colvarcntr} (char $\ast$, {\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)
+\item 
+void {\bf bcast\_\-system} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf gettngbr} ({\bf NGBR} $\ast$ngbr)
+\item 
+void {\bf md\_\-subcntr} (char $\ast$, {\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf COORDS} $\ast$, {\bf SUBSPACE} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)
+\item 
+void {\bf nma\_\-control} (char $\ast$command, {\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$, {\bf WRITE\_\-STEP} $\ast$write\_\-step, {\bf SUBSPACE} $\ast${\bf subspace})
+\item 
+void {\bf nma\_\-allocate} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf NMODES} $\ast${\bf nmodes})
+\item 
+void {\bf min\_\-cntr} (char $\ast$, {\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)
+\item 
+void {\bf init\_\-subproj} ({\bf SIMPARMS} $\ast${\bf simparms})
+\item 
+void {\bf sub\_\-proj} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NMODES} $\ast$)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{proto_main.h@{proto\_\-main.h}!bcast_system@{bcast\_\-system}}
+\index{bcast_system@{bcast\_\-system}!proto_main.h@{proto\_\-main.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void bcast\_\-system ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{proto__main_8h_08f703a3495c07bb5bd8923b766db24f}
+
+
+\index{proto_main.h@{proto\_\-main.h}!colvarcntr@{colvarcntr}}
+\index{colvarcntr@{colvarcntr}!proto_main.h@{proto\_\-main.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void colvarcntr (char $\ast$, {\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)}\label{proto__main_8h_a647b249cbffeef74abdc0d7bafe5fa5}
+
+
+\index{proto_main.h@{proto\_\-main.h}!gettngbr@{gettngbr}}
+\index{gettngbr@{gettngbr}!proto_main.h@{proto\_\-main.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void gettngbr ({\bf NGBR} $\ast$ {\em ngbr})}\label{proto__main_8h_233f2c78de3bc9ce530da8786378d2de}
+
+
+\index{proto_main.h@{proto\_\-main.h}!init_subproj@{init\_\-subproj}}
+\index{init_subproj@{init\_\-subproj}!proto_main.h@{proto\_\-main.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void init\_\-subproj ({\bf SIMPARMS} $\ast$ {\em simparms})}\label{proto__main_8h_aea0a0a1bc5a2ca808b9c5e2391f66c3}
+
+
+\index{proto_main.h@{proto\_\-main.h}!md_mdcntr@{md\_\-mdcntr}}
+\index{md_mdcntr@{md\_\-mdcntr}!proto_main.h@{proto\_\-main.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void md\_\-mdcntr (char $\ast$, {\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)}\label{proto__main_8h_5623aa5393043464f511e1733aee5e57}
+
+
+\index{proto_main.h@{proto\_\-main.h}!md_startup@{md\_\-startup}}
+\index{md_startup@{md\_\-startup}!proto_main.h@{proto\_\-main.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void md\_\-startup ({\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$, {\bf SUBSPACE} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, {\bf COORDS} $\ast$)}\label{proto__main_8h_d441895cdc037c81d99f708981142f36}
+
+
+\index{proto_main.h@{proto\_\-main.h}!md_subcntr@{md\_\-subcntr}}
+\index{md_subcntr@{md\_\-subcntr}!proto_main.h@{proto\_\-main.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void md\_\-subcntr (char $\ast$, {\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf COORDS} $\ast$, {\bf SUBSPACE} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)}\label{proto__main_8h_2d41ae9b1f6a1c06ed61e0d49feef9b2}
+
+
+\index{proto_main.h@{proto\_\-main.h}!min_cntr@{min\_\-cntr}}
+\index{min_cntr@{min\_\-cntr}!proto_main.h@{proto\_\-main.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void min\_\-cntr (char $\ast$, {\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)}\label{proto__main_8h_24dd289c53738562f1de1e81d5cb4a96}
+
+
+\index{proto_main.h@{proto\_\-main.h}!nma_allocate@{nma\_\-allocate}}
+\index{nma_allocate@{nma\_\-allocate}!proto_main.h@{proto\_\-main.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void nma\_\-allocate ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf NMODES} $\ast$ {\em nmodes})}\label{proto__main_8h_7882405e314f23b52ec5c9973c6fa513}
+
+
+\index{proto_main.h@{proto\_\-main.h}!nma_control@{nma\_\-control}}
+\index{nma_control@{nma\_\-control}!proto_main.h@{proto\_\-main.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void nma\_\-control (char $\ast$ {\em command}, {\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$, {\bf WRITE\_\-STEP} $\ast$ {\em write\_\-step}, {\bf SUBSPACE} $\ast$ {\em subspace})}\label{proto__main_8h_7c0bc0675476031e28b757427bb1d740}
+
+
+\index{proto_main.h@{proto\_\-main.h}!sub_proj@{sub\_\-proj}}
+\index{sub_proj@{sub\_\-proj}!proto_main.h@{proto\_\-main.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void sub\_\-proj ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NMODES} $\ast$)}\label{proto__main_8h_324ea0c1881e8924551fccc24449cf82}
+
+

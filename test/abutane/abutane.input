@@ -1,0 +1,28 @@
+
+\calculation{md}      \ensemble{nve} 
+
+\ntime{100} \istart{1} \iperd{3}
+\dt{.5}           \t_ext{267.}
+\nres_lrf{1} \nres_intra{2} \nres_tors{2}
+\len_nhc{0}  \nbar{0}
+\iwr_screen{1}\iwr_dump{100}
+\iwr_inst{1}
+\iwr_confp{1}\iwr_confv{100}\iwr_conff{20}
+
+\dpi_file       {abutane1.init2}
+\dpo_file       {abutane1.save}
+\ham_file       {abutane1.ham}
+\eng_file       {abutane1.eng}
+\eval_file       {abutane1.eval}
+\pos_file       {abutane1.confp}
+\vel_file       {abutane1.confv}
+\force_file     {abutane1.force}
+\mol_set_file   {abutane1.set}
+
+\inter_file   {data_base}
+\bond_file   {data_base}
+\bend_file   {data_base}
+\torsion_file   {data_base}
+\onefour_file   {data_base}
+
+\ntable{5000} \kmax{15}

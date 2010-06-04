@@ -1,0 +1,65 @@
+\section{integrate/md\_\-zeroam.c File Reference}
+\label{md__zeroam_8c}\index{integrate/md_zeroam.c@{integrate/md\_\-zeroam.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf samvel} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, int irandom)
+\item 
+void {\bf zerotm} (int natoms, double $\ast$vx, double $\ast$vy, double $\ast$vz, double $\ast$amass)
+\item 
+double {\bf get\_\-temp} (int natoms, double $\ast$vx, double $\ast$vy, double $\ast$vz, double $\ast$amass, int ndof)
+\item 
+void {\bf scale} (int natoms, double $\ast$vx, double $\ast$vy, double $\ast$vz, double $\ast$amass, double temp, int ndof)
+\item 
+void {\bf radial} (int natoms, double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$vx, double $\ast$vy, double $\ast$vz, double $\ast$amass)
+\item 
+void {\bf zerocm} (int natoms, double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$amass)
+\item 
+void {\bf zero\_\-angm} (int natoms, double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$vx, double $\ast$vy, double $\ast$vz, double $\ast$amass)
+\item 
+void {\bf rotate} (int natoms, double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$amass)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{md_zeroam.c@{md\_\-zeroam.c}!get_temp@{get\_\-temp}}
+\index{get_temp@{get\_\-temp}!md_zeroam.c@{md\_\-zeroam.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double get\_\-temp (int {\em natoms}, double $\ast$ {\em vx}, double $\ast$ {\em vy}, double $\ast$ {\em vz}, double $\ast$ {\em amass}, int {\em ndof})}\label{md__zeroam_8c_3194840753ffa24a42a22c40022d3491}
+
+
+\index{md_zeroam.c@{md\_\-zeroam.c}!radial@{radial}}
+\index{radial@{radial}!md_zeroam.c@{md\_\-zeroam.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void radial (int {\em natoms}, double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$ {\em vx}, double $\ast$ {\em vy}, double $\ast$ {\em vz}, double $\ast$ {\em amass})}\label{md__zeroam_8c_85ca07ac387b61031924cf97eb88a70a}
+
+
+\index{md_zeroam.c@{md\_\-zeroam.c}!rotate@{rotate}}
+\index{rotate@{rotate}!md_zeroam.c@{md\_\-zeroam.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void rotate (int {\em natoms}, double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$ {\em amass})}\label{md__zeroam_8c_40422a104464277eb970aafd61ff78e5}
+
+
+\index{md_zeroam.c@{md\_\-zeroam.c}!samvel@{samvel}}
+\index{samvel@{samvel}!md_zeroam.c@{md\_\-zeroam.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void samvel ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, int {\em irandom})}\label{md__zeroam_8c_c8883bbca4402bb26e18ad034f1ab158}
+
+
+\index{md_zeroam.c@{md\_\-zeroam.c}!scale@{scale}}
+\index{scale@{scale}!md_zeroam.c@{md\_\-zeroam.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void scale (int {\em natoms}, double $\ast$ {\em vx}, double $\ast$ {\em vy}, double $\ast$ {\em vz}, double $\ast$ {\em amass}, double {\em temp}, int {\em ndof})}\label{md__zeroam_8c_33370ef880858acaaa5a6e9f053107f4}
+
+
+\index{md_zeroam.c@{md\_\-zeroam.c}!zero_angm@{zero\_\-angm}}
+\index{zero_angm@{zero\_\-angm}!md_zeroam.c@{md\_\-zeroam.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void zero\_\-angm (int {\em natoms}, double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$ {\em vx}, double $\ast$ {\em vy}, double $\ast$ {\em vz}, double $\ast$ {\em amass})}\label{md__zeroam_8c_1059b368913ab3833db0c39b8807c63b}
+
+
+\index{md_zeroam.c@{md\_\-zeroam.c}!zerocm@{zerocm}}
+\index{zerocm@{zerocm}!md_zeroam.c@{md\_\-zeroam.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void zerocm (int {\em natoms}, double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$ {\em amass})}\label{md__zeroam_8c_f477a4eb137e7d7e794f641dfab3d479}
+
+
+\index{md_zeroam.c@{md\_\-zeroam.c}!zerotm@{zerotm}}
+\index{zerotm@{zerotm}!md_zeroam.c@{md\_\-zeroam.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void zerotm (int {\em natoms}, double $\ast$ {\em vx}, double $\ast$ {\em vy}, double $\ast$ {\em vz}, double $\ast$ {\em amass})}\label{md__zeroam_8c_fdeef22a0c32a1124eec957850479ff0}
+
+

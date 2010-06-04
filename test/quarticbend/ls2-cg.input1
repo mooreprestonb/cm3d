@@ -1,0 +1,49 @@
+Input file for TMProteins 
+
+MD and system parameters
+\istart{1} \ntime{1} \ensemble{nvt}
+\t_ext{.298} \p_ext{1.0} \dt{1}
+\iperd{3}
+rescalevel{10}
+
+neighbor list
+\skin{1.}  \max_exclude{40}
+
+force field parameters
+\bond_file{ls2-set1.bond}
+\bend_file{ls2-set1.bend}
+\torsion_file{CG_harmonic.tors}
+\onefour_file{prot_lipid_wat_cg.onfo}
+\inter_file{ls2-cg.vdw}
+
+ewald and potential
+\alp_ewald{.07}
+\rcute_min{1.0}
+\rcute_max{20.}
+\ntable{2000}
+\kmax{15}
+
+respa
+\nres_lrf{1} \nres_intra{4}
+\rheal_res{1.0}
+
+extend
+\len_nhc{3} \nbar{0}
+\tau_nhc{5000}
+
+output frequency
+\iwr_screen{100}
+\iwr_dump{1000}
+\iwr_confp{1000}
+\iwr_confv{1000}
+\iwr_inst{1000}
+
+files
+\dpi_file{ls2-cg.init}
+\dpo_file{ls2-cg.save}
+\pos_file{ls2-cg.conf}  \vel_file{ls2-cg.vel}
+\ham_file{ls2-cg.ham}  \eng_file{ls2-cg.eng} 
+\eval_file{ls2-cg.inst} \hill_file{ls2-cg.hill}
+
+\mol_set_file{ls2-cg.set}
+

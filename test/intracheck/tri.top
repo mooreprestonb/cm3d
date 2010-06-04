@@ -1,0 +1,15 @@
+Parameter file  
+
+~mol_name_def[\mol_name{di}\natom{3}]
+-----------------------------------------------------------
+~atom_def[\atom_typ{lj}\atom_ind{1}\mass{1.}  charge{-.298} \alpha{1}]
+~atom_def[\atom_typ{lj}\atom_ind{2}\mass{1.}  charge{0.298} \alpha{2}]
+~atom_def[\atom_typ{lj}\atom_ind{3}\mass{1.}  charge{0.298} \alpha{2}]
+----------------------------------------------------------
+~bond_def[\atom1{1}\atom2{2} bond_label{}]
+~bond_def[\atom1{2}\atom2{3} label{morse}]
+~bond_def[\atom1{1}\atom2{3} label{quartic}]
+
+bend_def[\atom1{1}\atom2{2}\atom3{3}]
+bend_def[\atom1{2}\atom2{3}\atom3{1}]
+~bend_def[\atom1{3}\atom2{1}\atom3{2}]

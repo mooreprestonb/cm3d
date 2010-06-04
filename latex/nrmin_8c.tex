@@ -1,0 +1,204 @@
+\section{minimize/nrmin.c File Reference}
+\label{nrmin_8c}\index{minimize/nrmin.c@{minimize/nrmin.c}}
+{\tt \#include $<$math.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf NRANSI}
+\item 
+\#define {\bf GOLD}~1.618034
+\item 
+\#define {\bf GLIMIT}~100.0
+\item 
+\#define {\bf TINY}~1.0e-20
+\item 
+\#define {\bf SHFT}(a, b, c, d)~(a)=(b);(b)=(c);(c)=(d);
+\item 
+\#define {\bf MAX}(a, b)~({\bf maxa1}=(a),{\bf maxa2}=(b),(({\bf maxa1})$>$({\bf maxa2}))?({\bf maxa1}):({\bf maxa2}))
+\item 
+\#define {\bf SIGN}(a, b)~((b)$>$0.0 ? fabs(a) : -fabs(b))
+\item 
+\#define {\bf R}~0.61803399
+\item 
+\#define {\bf C}~(1.0-R)
+\item 
+\#define {\bf SHFT2}(a, b, c)~(a)=(b);(b)=(c);
+\item 
+\#define {\bf SHFT3}(a, b, c, d)~(a)=(b);(b)=(c);(c)=(d);
+\item 
+\#define {\bf NRANSI}
+\item 
+\#define {\bf ITMAX}~100
+\item 
+\#define {\bf CGOLD}~0.3819660
+\item 
+\#define {\bf ZEPS}~1.0e-10
+\item 
+\#define {\bf SHFT}(a, b, c, d)~(a)=(b);(b)=(c);(c)=(d);
+\item 
+\#define {\bf NRANSI}
+\item 
+\#define {\bf ITMAX}~100
+\item 
+\#define {\bf ZEPS}~1.0e-10
+\item 
+\#define {\bf MOV3}(a, b, c, d, e, f)~(a)=(d);(b)=(e);(c)=(f);
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf mnbrak} (double $\ast$ax, double $\ast$bx, double $\ast$cx, double $\ast$fa, double $\ast$fb, double $\ast$fc, double($\ast$func)(double))
+\item 
+double {\bf golden} (double ax, double bx, double cx, double($\ast$f)(double), double tol, double $\ast$xmin)
+\item 
+double {\bf brent} (double ax, double bx, double cx, double($\ast$f)(double), double tol, double $\ast$xmin)
+\item 
+double {\bf dbrent} (double ax, double bx, double cx, double($\ast$f)(double), double($\ast$df)(double), double tol, double $\ast$xmin)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static double {\bf maxa1}
+\item 
+static double {\bf maxa2}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{nrmin.c@{nrmin.c}!C@{C}}
+\index{C@{C}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define C~(1.0-R)}\label{nrmin_8c_c4cf4b2ab929bd23951a8676eeac086b}
+
+
+\index{nrmin.c@{nrmin.c}!CGOLD@{CGOLD}}
+\index{CGOLD@{CGOLD}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define CGOLD~0.3819660}\label{nrmin_8c_84b6d4f75b738c61f98e4d28db6a8ad3}
+
+
+\index{nrmin.c@{nrmin.c}!GLIMIT@{GLIMIT}}
+\index{GLIMIT@{GLIMIT}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define GLIMIT~100.0}\label{nrmin_8c_b08072801a249ee2058194bb698c85a3}
+
+
+\index{nrmin.c@{nrmin.c}!GOLD@{GOLD}}
+\index{GOLD@{GOLD}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define GOLD~1.618034}\label{nrmin_8c_f468028083c9e52aa2c94ef3b9940450}
+
+
+\index{nrmin.c@{nrmin.c}!ITMAX@{ITMAX}}
+\index{ITMAX@{ITMAX}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ITMAX~100}\label{nrmin_8c_3641b6d4c21b7a852dbb32c2b693302e}
+
+
+\index{nrmin.c@{nrmin.c}!ITMAX@{ITMAX}}
+\index{ITMAX@{ITMAX}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ITMAX~100}\label{nrmin_8c_3641b6d4c21b7a852dbb32c2b693302e}
+
+
+\index{nrmin.c@{nrmin.c}!MAX@{MAX}}
+\index{MAX@{MAX}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX(a, b)~({\bf maxa1}=(a),{\bf maxa2}=(b),(({\bf maxa1})$>$({\bf maxa2}))?({\bf maxa1}):({\bf maxa2}))}\label{nrmin_8c_fa99ec4acc4ecb2dc3c2d05da15d0e3f}
+
+
+\index{nrmin.c@{nrmin.c}!MOV3@{MOV3}}
+\index{MOV3@{MOV3}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MOV3(a, b, c, d, e, f)~(a)=(d);(b)=(e);(c)=(f);}\label{nrmin_8c_fa069e7bc1c4fc253e85c69fce265d2b}
+
+
+\index{nrmin.c@{nrmin.c}!NRANSI@{NRANSI}}
+\index{NRANSI@{NRANSI}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NRANSI}\label{nrmin_8c_c35ec264c922c9b83f2b3d79cb8f5d93}
+
+
+\index{nrmin.c@{nrmin.c}!NRANSI@{NRANSI}}
+\index{NRANSI@{NRANSI}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NRANSI}\label{nrmin_8c_c35ec264c922c9b83f2b3d79cb8f5d93}
+
+
+\index{nrmin.c@{nrmin.c}!NRANSI@{NRANSI}}
+\index{NRANSI@{NRANSI}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NRANSI}\label{nrmin_8c_c35ec264c922c9b83f2b3d79cb8f5d93}
+
+
+\index{nrmin.c@{nrmin.c}!R@{R}}
+\index{R@{R}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define R~0.61803399}\label{nrmin_8c_5c71a5e59a53413cd6c270266d63b031}
+
+
+\index{nrmin.c@{nrmin.c}!SHFT@{SHFT}}
+\index{SHFT@{SHFT}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SHFT(a, b, c, d)~(a)=(b);(b)=(c);(c)=(d);}\label{nrmin_8c_199afb41152cc9a1c32d60f129a40ea5}
+
+
+\index{nrmin.c@{nrmin.c}!SHFT@{SHFT}}
+\index{SHFT@{SHFT}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SHFT(a, b, c, d)~(a)=(b);(b)=(c);(c)=(d);}\label{nrmin_8c_199afb41152cc9a1c32d60f129a40ea5}
+
+
+\index{nrmin.c@{nrmin.c}!SHFT2@{SHFT2}}
+\index{SHFT2@{SHFT2}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SHFT2(a, b, c)~(a)=(b);(b)=(c);}\label{nrmin_8c_4a68f16b0ff909c9a2db33ed91c173f3}
+
+
+\index{nrmin.c@{nrmin.c}!SHFT3@{SHFT3}}
+\index{SHFT3@{SHFT3}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SHFT3(a, b, c, d)~(a)=(b);(b)=(c);(c)=(d);}\label{nrmin_8c_a2fe0a6eb610d7d50048c62747994d4a}
+
+
+\index{nrmin.c@{nrmin.c}!SIGN@{SIGN}}
+\index{SIGN@{SIGN}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SIGN(a, b)~((b)$>$0.0 ? fabs(a) : -fabs(b))}\label{nrmin_8c_c89d5f8a358eb8a1abdcd0fcef134f1a}
+
+
+\index{nrmin.c@{nrmin.c}!TINY@{TINY}}
+\index{TINY@{TINY}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TINY~1.0e-20}\label{nrmin_8c_cf1c38f71f39386356edb151a131ad11}
+
+
+\index{nrmin.c@{nrmin.c}!ZEPS@{ZEPS}}
+\index{ZEPS@{ZEPS}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ZEPS~1.0e-10}\label{nrmin_8c_1480be118a74bd98a735eecc3ee0e833}
+
+
+\index{nrmin.c@{nrmin.c}!ZEPS@{ZEPS}}
+\index{ZEPS@{ZEPS}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ZEPS~1.0e-10}\label{nrmin_8c_1480be118a74bd98a735eecc3ee0e833}
+
+
+
+
+\subsection{Function Documentation}
+\index{nrmin.c@{nrmin.c}!brent@{brent}}
+\index{brent@{brent}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double brent (double {\em ax}, double {\em bx}, double {\em cx}, double($\ast$)(double) {\em f}, double {\em tol}, double $\ast$ {\em xmin})}\label{nrmin_8c_4fd8796511d2de86aee49722d758b5b6}
+
+
+\index{nrmin.c@{nrmin.c}!dbrent@{dbrent}}
+\index{dbrent@{dbrent}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double dbrent (double {\em ax}, double {\em bx}, double {\em cx}, double($\ast$)(double) {\em f}, double($\ast$)(double) {\em df}, double {\em tol}, double $\ast$ {\em xmin})}\label{nrmin_8c_20797fbea3a5ab0b6e501ad5752405fb}
+
+
+\index{nrmin.c@{nrmin.c}!golden@{golden}}
+\index{golden@{golden}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double golden (double {\em ax}, double {\em bx}, double {\em cx}, double($\ast$)(double) {\em f}, double {\em tol}, double $\ast$ {\em xmin})}\label{nrmin_8c_ac9129f52275f2d4c2469699cbcf3833}
+
+
+\index{nrmin.c@{nrmin.c}!mnbrak@{mnbrak}}
+\index{mnbrak@{mnbrak}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void mnbrak (double $\ast$ {\em ax}, double $\ast$ {\em bx}, double $\ast$ {\em cx}, double $\ast$ {\em fa}, double $\ast$ {\em fb}, double $\ast$ {\em fc}, double($\ast$)(double) {\em func})}\label{nrmin_8c_ae863d3c940914dec464bad3f8c74e30}
+
+
+
+
+\subsection{Variable Documentation}
+\index{nrmin.c@{nrmin.c}!maxa1@{maxa1}}
+\index{maxa1@{maxa1}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf maxa1}\hspace{0.3cm}{\tt  [static]}}\label{nrmin_8c_dd8b94b61a613d320b3fe27af1259e10}
+
+
+\index{nrmin.c@{nrmin.c}!maxa2@{maxa2}}
+\index{maxa2@{maxa2}!nrmin.c@{nrmin.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf maxa2}\hspace{0.3cm}{\tt  [static]}}\label{nrmin_8c_c23cffca82c25765f2edb16deb9ce323}
+
+

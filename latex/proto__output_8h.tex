@@ -1,0 +1,211 @@
+\section{output/proto\_\-output.h File Reference}
+\label{proto__output_8h}\index{output/proto_output.h@{output/proto\_\-output.h}}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf usage} (char $\ast$)
+\item 
+void {\bf md\_\-error} (char $\ast$)
+\item 
+void {\bf md\_\-warning} (char $\ast$)
+\item 
+void {\bf md\_\-stdout} (char $\ast$)
+\item 
+void {\bf set\_\-stderrnow} (char $\ast$s)
+\item 
+void {\bf set\_\-stdoutnow} (char $\ast$s)
+\item 
+void {\bf writestart} ({\bf FILENAMES} $\ast$, int, {\bf SIMPARMS} $\ast$, {\bf ENERGIES} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf writescreen} ({\bf SIMPARMS} $\ast$, {\bf NGBR} $\ast$, {\bf ENERGIES} $\ast$, double $\ast$)
+\item 
+void {\bf finish} ({\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$, {\bf ENERGIES} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf write\_\-coord} (char $\ast${\bf name}, int natoms, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf write\_\-all\_\-coords} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf output\_\-initval} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf NGBR} $\ast$, {\bf ENERGIES} $\ast$)
+\item 
+void {\bf output\_\-subparm} ({\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf SUBSPACE} $\ast$, int)
+\item 
+void {\bf output\_\-simparm} ({\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, int)
+\item 
+void {\bf openfiles} ({\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf FILENAMES} $\ast$)
+\item 
+void {\bf write\_\-vectors} (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, {\bf SUBSPACE} $\ast$, double $\ast$$\ast$, double $\ast$, double)
+\item 
+void {\bf save\_\-conf} (FILE $\ast$, int, {\bf COORDS} $\ast$)
+\item 
+void {\bf save\_\-vel} (FILE $\ast$, int, {\bf COORDS} $\ast$)
+\item 
+void {\bf save\_\-force} (FILE $\ast$, int, {\bf COORDS} $\ast$)
+\item 
+void {\bf save\_\-inst} (FILE $\ast$, FILE $\ast$, FILE $\ast$, int, double, {\bf ENERGIES} $\ast$, double $\ast$)
+\item 
+void {\bf save\_\-hills} (char $\ast$hillname, int istep, double dt, {\bf COLVAR} $\ast${\bf colvar})
+\item 
+void {\bf save\_\-colv} (FILE $\ast$fcolv, int istep, double dt, {\bf COLVAR} $\ast${\bf colvar})
+\item 
+void {\bf read\_\-hills} (char $\ast$hillfile, int istep, double dt, {\bf COLVAR} $\ast${\bf colvar})
+\item 
+void {\bf print\_\-mat} (int, int, double $\ast$$\ast$)
+\item 
+void {\bf psysvec} ({\bf FILENAMES} $\ast$, int, int, int, int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$$\ast$, double $\ast$, double $\ast$$\ast$, int, int $\ast$, int $\ast$)
+\item 
+void {\bf partratio} (double $\ast$$\ast$fcmat, double $\ast$dn, double $\ast$part, int natoms)
+\item 
+void {\bf save\_\-nma} ({\bf SIMPARMS} $\ast$, {\bf FILENAMES} $\ast$, int, double, {\bf NMODES} $\ast$)
+\item 
+void {\bf write\_\-nma\_\-start} (int, int, double, double, double, int, int, {\bf NMODES} $\ast$)
+\item 
+void {\bf store\_\-freq} ({\bf SIMPARMS} $\ast$, int {\bf nmodes}, double $\ast$dn, double time)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{proto_output.h@{proto\_\-output.h}!finish@{finish}}
+\index{finish@{finish}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void finish ({\bf FILENAMES} $\ast$, {\bf SIMPARMS} $\ast$, {\bf ENERGIES} $\ast$, {\bf COORDS} $\ast$)}\label{proto__output_8h_df0c0def071c8a2ac72886efee76939c}
+
+
+\index{proto_output.h@{proto\_\-output.h}!md_error@{md\_\-error}}
+\index{md_error@{md\_\-error}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void md\_\-error (char $\ast$)}\label{proto__output_8h_8976c9bff4b0598995fa8cc61584d873}
+
+
+\index{proto_output.h@{proto\_\-output.h}!md_stdout@{md\_\-stdout}}
+\index{md_stdout@{md\_\-stdout}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void md\_\-stdout (char $\ast$)}\label{proto__output_8h_1bbcc1372923a6f8645f9763c7407bfd}
+
+
+\index{proto_output.h@{proto\_\-output.h}!md_warning@{md\_\-warning}}
+\index{md_warning@{md\_\-warning}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void md\_\-warning (char $\ast$)}\label{proto__output_8h_6cfbb471612c01c843a61f674a13d612}
+
+
+\index{proto_output.h@{proto\_\-output.h}!openfiles@{openfiles}}
+\index{openfiles@{openfiles}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void openfiles ({\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf FILENAMES} $\ast$)}\label{proto__output_8h_803d9548ee918f5bd057b2bfbd6a085d}
+
+
+\index{proto_output.h@{proto\_\-output.h}!output_initval@{output\_\-initval}}
+\index{output_initval@{output\_\-initval}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void output\_\-initval ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf NGBR} $\ast$, {\bf ENERGIES} $\ast$)}\label{proto__output_8h_8a1ed125b6eaaeb8f296e1544a189bce}
+
+
+\index{proto_output.h@{proto\_\-output.h}!output_simparm@{output\_\-simparm}}
+\index{output_simparm@{output\_\-simparm}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void output\_\-simparm ({\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, int)}\label{proto__output_8h_531130be1bfd2b001d36586804aff399}
+
+
+\index{proto_output.h@{proto\_\-output.h}!output_subparm@{output\_\-subparm}}
+\index{output_subparm@{output\_\-subparm}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void output\_\-subparm ({\bf SIMPARMS} $\ast$, {\bf WRITE\_\-STEP} $\ast$, {\bf SUBSPACE} $\ast$, int)}\label{proto__output_8h_e3695f362218ac1ddc91befe181386fc}
+
+
+\index{proto_output.h@{proto\_\-output.h}!partratio@{partratio}}
+\index{partratio@{partratio}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void partratio (double $\ast$$\ast$ {\em fcmat}, double $\ast$ {\em dn}, double $\ast$ {\em part}, int {\em natoms})}\label{proto__output_8h_f16ff482025a0122cbc39dfa823e5fa5}
+
+
+\index{proto_output.h@{proto\_\-output.h}!print_mat@{print\_\-mat}}
+\index{print_mat@{print\_\-mat}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void print\_\-mat (int, int, double $\ast$$\ast$)}\label{proto__output_8h_8506db5128ef7e8d1e2af6dc56340aec}
+
+
+\index{proto_output.h@{proto\_\-output.h}!psysvec@{psysvec}}
+\index{psysvec@{psysvec}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void psysvec ({\bf FILENAMES} $\ast$, int, int, int, int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$$\ast$, double $\ast$, double $\ast$$\ast$, int, int $\ast$, int $\ast$)}\label{proto__output_8h_f65b2114197eda1c0c8a56ffca3c465d}
+
+
+\index{proto_output.h@{proto\_\-output.h}!read_hills@{read\_\-hills}}
+\index{read_hills@{read\_\-hills}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void read\_\-hills (char $\ast$ {\em hillfile}, int {\em istep}, double {\em dt}, {\bf COLVAR} $\ast$ {\em colvar})}\label{proto__output_8h_8e393b90678e169ee19a52da44dc7751}
+
+
+\index{proto_output.h@{proto\_\-output.h}!save_colv@{save\_\-colv}}
+\index{save_colv@{save\_\-colv}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-colv (FILE $\ast$ {\em fcolv}, int {\em istep}, double {\em dt}, {\bf COLVAR} $\ast$ {\em colvar})}\label{proto__output_8h_ff2ccfb457bffeaf8c264bde0763917f}
+
+
+\index{proto_output.h@{proto\_\-output.h}!save_conf@{save\_\-conf}}
+\index{save_conf@{save\_\-conf}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-conf (FILE $\ast$, int, {\bf COORDS} $\ast$)}\label{proto__output_8h_aa2e8bcf423c31ad7aaf576e2516c4e9}
+
+
+\index{proto_output.h@{proto\_\-output.h}!save_force@{save\_\-force}}
+\index{save_force@{save\_\-force}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-force (FILE $\ast$, int, {\bf COORDS} $\ast$)}\label{proto__output_8h_a6989dfcad93e4a1f175e85ad5a8008b}
+
+
+\index{proto_output.h@{proto\_\-output.h}!save_hills@{save\_\-hills}}
+\index{save_hills@{save\_\-hills}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-hills (char $\ast$ {\em hillname}, int {\em istep}, double {\em dt}, {\bf COLVAR} $\ast$ {\em colvar})}\label{proto__output_8h_bd4aa1eeb7fad1931de6d7d33f75b09f}
+
+
+\index{proto_output.h@{proto\_\-output.h}!save_inst@{save\_\-inst}}
+\index{save_inst@{save\_\-inst}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-inst (FILE $\ast$, FILE $\ast$, FILE $\ast$, int, double, {\bf ENERGIES} $\ast$, double $\ast$)}\label{proto__output_8h_d8292c9c199ccd3de84d34f18afd7401}
+
+
+\index{proto_output.h@{proto\_\-output.h}!save_nma@{save\_\-nma}}
+\index{save_nma@{save\_\-nma}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-nma ({\bf SIMPARMS} $\ast$, {\bf FILENAMES} $\ast$, int, double, {\bf NMODES} $\ast$)}\label{proto__output_8h_61f40bbda4a96615b2d284a20e652518}
+
+
+\index{proto_output.h@{proto\_\-output.h}!save_vel@{save\_\-vel}}
+\index{save_vel@{save\_\-vel}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-vel (FILE $\ast$, int, {\bf COORDS} $\ast$)}\label{proto__output_8h_0ea3fad0adadc6ed88748c9df3c12e5d}
+
+
+\index{proto_output.h@{proto\_\-output.h}!set_stderrnow@{set\_\-stderrnow}}
+\index{set_stderrnow@{set\_\-stderrnow}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void set\_\-stderrnow (char $\ast$ {\em s})}\label{proto__output_8h_d93f0a3363d8b18136b1a296cdad91a2}
+
+
+\index{proto_output.h@{proto\_\-output.h}!set_stdoutnow@{set\_\-stdoutnow}}
+\index{set_stdoutnow@{set\_\-stdoutnow}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void set\_\-stdoutnow (char $\ast$ {\em s})}\label{proto__output_8h_ac9026696b42ec2c8e192c84bb2c268c}
+
+
+\index{proto_output.h@{proto\_\-output.h}!store_freq@{store\_\-freq}}
+\index{store_freq@{store\_\-freq}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void store\_\-freq ({\bf SIMPARMS} $\ast$, int {\em nmodes}, double $\ast$ {\em dn}, double {\em time})}\label{proto__output_8h_b282e7a96783b6cad91675a8060d77dd}
+
+
+\index{proto_output.h@{proto\_\-output.h}!usage@{usage}}
+\index{usage@{usage}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void usage (char $\ast$)}\label{proto__output_8h_f2cb254df75f4b45ca0b0893f9f01979}
+
+
+\index{proto_output.h@{proto\_\-output.h}!write_all_coords@{write\_\-all\_\-coords}}
+\index{write_all_coords@{write\_\-all\_\-coords}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void write\_\-all\_\-coords ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{proto__output_8h_1ba9243dfdb2771405c4343aee2c4445}
+
+
+\index{proto_output.h@{proto\_\-output.h}!write_coord@{write\_\-coord}}
+\index{write_coord@{write\_\-coord}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void write\_\-coord (char $\ast$ {\em name}, int {\em natoms}, {\bf COORDS} $\ast$ {\em coords})}\label{proto__output_8h_d455a9b7eb5bf2015780dfffbe8a9405}
+
+
+\index{proto_output.h@{proto\_\-output.h}!write_nma_start@{write\_\-nma\_\-start}}
+\index{write_nma_start@{write\_\-nma\_\-start}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void write\_\-nma\_\-start (int, int, double, double, double, int, int, {\bf NMODES} $\ast$)}\label{proto__output_8h_ead22ffcd90c5fd45d982352a5524fe7}
+
+
+\index{proto_output.h@{proto\_\-output.h}!write_vectors@{write\_\-vectors}}
+\index{write_vectors@{write\_\-vectors}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void write\_\-vectors (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, {\bf SUBSPACE} $\ast$, double $\ast$$\ast$, double $\ast$, double)}\label{proto__output_8h_029a09e090b5165a13e647e85d31b7e1}
+
+
+\index{proto_output.h@{proto\_\-output.h}!writescreen@{writescreen}}
+\index{writescreen@{writescreen}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void writescreen ({\bf SIMPARMS} $\ast$, {\bf NGBR} $\ast$, {\bf ENERGIES} $\ast$, double $\ast$)}\label{proto__output_8h_9fcc72a0f8413ffe00a7bc59ac753339}
+
+
+\index{proto_output.h@{proto\_\-output.h}!writestart@{writestart}}
+\index{writestart@{writestart}!proto_output.h@{proto\_\-output.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void writestart ({\bf FILENAMES} $\ast$, int, {\bf SIMPARMS} $\ast$, {\bf ENERGIES} $\ast$, {\bf COORDS} $\ast$)}\label{proto__output_8h_feb877f7613157eb3c6922b2ee5f3413}
+
+

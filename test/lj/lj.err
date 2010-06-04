@@ -1,0 +1,41 @@
+Setting stdout to lj.out
+WARNING: File lj.conf exists! overwriting!
+WARNING: File lj.vel exists! overwriting!
+WARNING: File lj.inst exists! overwriting!
+WARNING: File lj.eng exists! overwriting!
+WARNING: File lj.eval exists! overwriting!
+WARNING: Resampling velocities from a gaussian distribution
+WARNING: Scaled temperature from 0.921663 K to 1 K
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: 1 distance out of range in force routine
+ (ie atoms 252 and 253)
+WARNING: File lj.save exists! overwriting!
+WARNING: File lj.save exists! overwriting!
+WARNING: File lj.save exists! overwriting!

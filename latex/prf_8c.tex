@@ -1,0 +1,237 @@
+\section{utils/fft/prf.c File Reference}
+\label{prf_8c}\index{utils/fft/prf.c@{utils/fft/prf.c}}
+{\tt \#include \char`\"{}prf.h\char`\"{}}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$time.h$>$}\par
+{\tt \#include $<$sys/time.h$>$}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct {\bf timer\_\-s}
+\item 
+struct {\bf profiler\_\-s}
+\item 
+struct {\bf prf\_\-list\_\-n\_\-s}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf PRF\_\-STACKSIZE}~100
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf timer\_\-s} {\bf Timer}
+\item 
+typedef {\bf prf\_\-list\_\-n\_\-s} {\bf prf\_\-list\_\-n}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+static void {\bf prf\-Add\-Profiler\-To\-List} (Profiler P)
+\item 
+static void {\bf prf\-Push\-Check} (const Profiler P)
+\item 
+static void {\bf prf\-Pop\-Check} (const Profiler P)
+\item 
+static void {\bf prf\-Assert\-Active} (const Profiler P)
+\item 
+static void {\bf prf\-Assert\-Inactive} (const Profiler P)
+\item 
+static double {\bf cpu\_\-time} (void)
+\item 
+static double {\bf wall\_\-time} (void)
+\item 
+void {\bf New\-Profiler} (const char $\ast${\bf name}, Profiler $\ast$p\-P)
+\item 
+void {\bf Profile\-Start} (Profiler P)
+\item 
+void {\bf Profile\-Stop} (Profiler P)
+\item 
+void {\bf Profile\-Stop\-I} (Profiler P)
+\item 
+double {\bf Profile\-Get\-Wall\-Time} (Profiler P)
+\item 
+double {\bf Profile\-Get\-Cpu\-Time} (Profiler P)
+\item 
+int {\bf Profile\-Get\-Count} (Profiler P)
+\item 
+void {\bf Dump\-Profile\-Results} (FILE $\ast$fp)
+\item 
+static void {\bf Delete\-Profiler} (Profiler P)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+\$Author {\bf \_\-\_\-pad0\_\-\_\-}
+\item 
+\$Author {\bf v}
+\item 
+static {\bf prf\_\-list\_\-n} {\bf prf\_\-listhead} = \{0,0\}
+\item 
+static {\bf prf\_\-list\_\-n} $\ast$ {\bf pprf\_\-listtail} = \&{\bf prf\_\-listhead}
+\item 
+static int {\bf prf\-Stack} [PRF\_\-STACKSIZE]
+\item 
+static int {\bf prf\-Stack\-Pos} = 0
+\item 
+static double {\bf prf\-Global\-Cpu\-Timer\-Advance} = 0
+\item 
+static double {\bf prf\-Global\-Wall\-Timer\-Advance} = 0
+\item 
+static int {\bf prf\-Count} = 0
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{prf.c@{prf.c}!PRF_STACKSIZE@{PRF\_\-STACKSIZE}}
+\index{PRF_STACKSIZE@{PRF\_\-STACKSIZE}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define PRF\_\-STACKSIZE~100}\label{prf_8c_2f078497ee08ff20c04278df84018c05}
+
+
+
+
+\subsection{Typedef Documentation}
+\index{prf.c@{prf.c}!prf_list_n@{prf\_\-list\_\-n}}
+\index{prf_list_n@{prf\_\-list\_\-n}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf prf\_\-list\_\-n\_\-s} {\bf prf\_\-list\_\-n}}\label{prf_8c_3800aef7a10feca23a39320ea5c8c1ee}
+
+
+\index{prf.c@{prf.c}!Timer@{Timer}}
+\index{Timer@{Timer}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf timer\_\-s}  {\bf Timer}}\label{prf_8c_0d7728dfe3501f0336343cb211225ce1}
+
+
+
+
+\subsection{Function Documentation}
+\index{prf.c@{prf.c}!cpu_time@{cpu\_\-time}}
+\index{cpu_time@{cpu\_\-time}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static double cpu\_\-time (void)\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_25d3d52f4ce644e00d98f61966345ea1}
+
+
+\index{prf.c@{prf.c}!DeleteProfiler@{DeleteProfiler}}
+\index{DeleteProfiler@{DeleteProfiler}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void Delete\-Profiler (Profiler {\em P})\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_a9662f1a52962d40f0a638927c8bac0c}
+
+
+\index{prf.c@{prf.c}!DumpProfileResults@{DumpProfileResults}}
+\index{DumpProfileResults@{DumpProfileResults}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Dump\-Profile\-Results (FILE $\ast$ {\em fp})}\label{prf_8c_c2c80796c939e13fe915eae93bbc91e8}
+
+
+\index{prf.c@{prf.c}!NewProfiler@{NewProfiler}}
+\index{NewProfiler@{NewProfiler}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void New\-Profiler (const char $\ast$ {\em name}, Profiler $\ast$ {\em p\-P})}\label{prf_8c_00f679998c8b8a0dd0cfb902b620e8a2}
+
+
+\index{prf.c@{prf.c}!prfAddProfilerToList@{prfAddProfilerToList}}
+\index{prfAddProfilerToList@{prfAddProfilerToList}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void prf\-Add\-Profiler\-To\-List (Profiler {\em P})\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_2214405ddf4877bf9eee47a6ad3a2787}
+
+
+\index{prf.c@{prf.c}!prfAssertActive@{prfAssertActive}}
+\index{prfAssertActive@{prfAssertActive}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void prf\-Assert\-Active (const Profiler {\em P})\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_44467941e134d4b0a27906b56a06716e}
+
+
+\index{prf.c@{prf.c}!prfAssertInactive@{prfAssertInactive}}
+\index{prfAssertInactive@{prfAssertInactive}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void prf\-Assert\-Inactive (const Profiler {\em P})\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_dd8dfdd360afa15a97d3eb406b46c803}
+
+
+\index{prf.c@{prf.c}!prfPopCheck@{prfPopCheck}}
+\index{prfPopCheck@{prfPopCheck}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void prf\-Pop\-Check (const Profiler {\em P})\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_730a0b2ac4ee5017b217b67dc1df9525}
+
+
+\index{prf.c@{prf.c}!prfPushCheck@{prfPushCheck}}
+\index{prfPushCheck@{prfPushCheck}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void prf\-Push\-Check (const Profiler {\em P})\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_25a2240beeadaefc904ab1df5965bb74}
+
+
+\index{prf.c@{prf.c}!ProfileGetCount@{ProfileGetCount}}
+\index{ProfileGetCount@{ProfileGetCount}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Profile\-Get\-Count (Profiler {\em P})}\label{prf_8c_545cbfe8e133fa7370638ca24c2bb6ca}
+
+
+\index{prf.c@{prf.c}!ProfileGetCpuTime@{ProfileGetCpuTime}}
+\index{ProfileGetCpuTime@{ProfileGetCpuTime}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Profile\-Get\-Cpu\-Time (Profiler {\em P})}\label{prf_8c_2235baa0bfc79e7bd4cf226f3fcec251}
+
+
+\index{prf.c@{prf.c}!ProfileGetWallTime@{ProfileGetWallTime}}
+\index{ProfileGetWallTime@{ProfileGetWallTime}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Profile\-Get\-Wall\-Time (Profiler {\em P})}\label{prf_8c_b512cf96e56a879c4a7320d0fbbeb13c}
+
+
+\index{prf.c@{prf.c}!ProfileStart@{ProfileStart}}
+\index{ProfileStart@{ProfileStart}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Profile\-Start (Profiler {\em P})}\label{prf_8c_d04ca3e3c7e0576c1889a573a9cef746}
+
+
+\index{prf.c@{prf.c}!ProfileStop@{ProfileStop}}
+\index{ProfileStop@{ProfileStop}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Profile\-Stop (Profiler {\em P})}\label{prf_8c_ac612c1c5e04ab6f72a3234550facab8}
+
+
+\index{prf.c@{prf.c}!ProfileStopI@{ProfileStopI}}
+\index{ProfileStopI@{ProfileStopI}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Profile\-Stop\-I (Profiler {\em P})}\label{prf_8c_9fb4d4f127af50f5e3c4a416ec00362d}
+
+
+\index{prf.c@{prf.c}!wall_time@{wall\_\-time}}
+\index{wall_time@{wall\_\-time}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static double wall\_\-time (void)\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_baaa0189599f9dcc5ae23dfdc655d4e6}
+
+
+
+
+\subsection{Variable Documentation}
+\index{prf.c@{prf.c}!__pad0__@{\_\-\_\-pad0\_\-\_\-}}
+\index{__pad0__@{\_\-\_\-pad0\_\-\_\-}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$Author {\bf \_\-\_\-pad0\_\-\_\-}}\label{prf_8c_250e35fe6e22b1c989554bff4f2e2cf4}
+
+
+\index{prf.c@{prf.c}!pprf_listtail@{pprf\_\-listtail}}
+\index{pprf_listtail@{pprf\_\-listtail}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf prf\_\-list\_\-n}$\ast$ {\bf pprf\_\-listtail} = \&{\bf prf\_\-listhead}\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_4e5f4a4affea484ce7e5d81f5f19fe31}
+
+
+\index{prf.c@{prf.c}!prf_listhead@{prf\_\-listhead}}
+\index{prf_listhead@{prf\_\-listhead}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf prf\_\-list\_\-n} {\bf prf\_\-listhead} = \{0,0\}\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_e383a943c617f0f2e5d1c06472d705aa}
+
+
+\index{prf.c@{prf.c}!prfCount@{prfCount}}
+\index{prfCount@{prfCount}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf prf\-Count} = 0\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_b517aaf10c2becf104453dc77ac1288d}
+
+
+\index{prf.c@{prf.c}!prfGlobalCpuTimerAdvance@{prfGlobalCpuTimerAdvance}}
+\index{prfGlobalCpuTimerAdvance@{prfGlobalCpuTimerAdvance}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf prf\-Global\-Cpu\-Timer\-Advance} = 0\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_b37a8b60714684550514073a48f997b9}
+
+
+\index{prf.c@{prf.c}!prfGlobalWallTimerAdvance@{prfGlobalWallTimerAdvance}}
+\index{prfGlobalWallTimerAdvance@{prfGlobalWallTimerAdvance}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf prf\-Global\-Wall\-Timer\-Advance} = 0\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_d4bfb2cd875f6f148cb63fc3dd377122}
+
+
+\index{prf.c@{prf.c}!prfStack@{prfStack}}
+\index{prfStack@{prfStack}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf prf\-Stack}[PRF\_\-STACKSIZE]\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_0d8396ce83d823aae331d847174edb05}
+
+
+\index{prf.c@{prf.c}!prfStackPos@{prfStackPos}}
+\index{prfStackPos@{prfStackPos}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf prf\-Stack\-Pos} = 0\hspace{0.3cm}{\tt  [static]}}\label{prf_8c_013393e20d0960ef3f9b33a78efd57fa}
+
+
+\index{prf.c@{prf.c}!v@{v}}
+\index{v@{v}!prf.c@{prf.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\$Author {\bf v}}\label{prf_8c_a1b38c1673f194605d0c518de79ddda3}
+
+

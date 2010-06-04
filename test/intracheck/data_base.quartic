@@ -1,0 +1,8 @@
+
+~inter_parm[\atom1{di}\atom2{di}\pot_type{lennard-jones}
+\eps{1}\sig{1}\min_dist{0.1}\max_dist{3}\res_dist{2}]
+
+bond_parm[\atom1{di}\atom2{di}\pot_type{harm}\eq{1}\fk{10000}]
+bond_parm[\atom1{di}\atom2{di}\pot_type{morse}\eq{1}\fk{10000}\bmorse{10}]
+~bond_parm[\atom1{di}\atom2{di}\pot_type{quartic}\eq{1}\fk{10000}
+	\a0{1000}\a1{2000}\a2{5000}\a3{3000}\a4{4000}]

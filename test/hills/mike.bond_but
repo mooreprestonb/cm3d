@@ -1,0 +1,5 @@
+
+~bond_parm[\atom1{harm}\atom2{harm}\pot_type{harm}\fk{500}\eq{1}]
+
+~bond_parm[\atom1{C.3}\atom2{C.3}\pot_type{harm}\fk{318745}\eq{1.54}\label{1}]
+~bond_parm[\atom1{C.3}\atom2{H}\pot_type{harm}\fk{333234}\eq{1.1}\label{1}]

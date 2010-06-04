@@ -1,0 +1,7 @@
+~mol_def[
+  \mol_parm_file{abutane.top}
+  \mol_therm_opt{none}  \nmol{1}\mol_index{1} 
+]
+
+~mol_freeze[\atom_freeze{2}]
+~mol_freeze[\atom_freeze{4}]

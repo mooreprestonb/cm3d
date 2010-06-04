@@ -1,0 +1,72 @@
+\section{energy/inter/finter\_\-e.c File Reference}
+\label{finter__e_8c}\index{energy/inter/finter_e.c@{energy/inter/finter\_\-e.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+{\tt \#include \char`\"{}vectorize.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf zero\_\-pote} (void)
+\item 
+void {\bf force\_\-e} (int natoms, int nlen, int $\ast$indx, int $\ast$jndx, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, int iperd, int ivol, int iflg, int ipolar)
+\item 
+void {\bf vinter\_\-e} (int nlen, int $\ast$inp, int $\ast$jnp, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, int iperd, double $\ast$spelec, double $\ast$spelech, double $\ast$swelec, double swelectensor[9], int ivol, int iflg, int ipolar)
+\item 
+void {\bf getsvirter\_\-e} (double $\ast$velec, double $\ast$welec, double welectensor[9])
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static double {\bf spothe}
+\item 
+static double {\bf spote}
+\item 
+static double {\bf sprse}
+\item 
+static double {\bf sprset} [9]
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{finter_e.c@{finter\_\-e.c}!force_e@{force\_\-e}}
+\index{force_e@{force\_\-e}!finter_e.c@{finter\_\-e.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void force\_\-e (int {\em natoms}, int {\em nlen}, int $\ast$ {\em indx}, int $\ast$ {\em jndx}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, int {\em iperd}, int {\em ivol}, int {\em iflg}, int {\em ipolar})}\label{finter__e_8c_67bef09fb63a6a41578b9d666686ab95}
+
+
+\index{finter_e.c@{finter\_\-e.c}!getsvirter_e@{getsvirter\_\-e}}
+\index{getsvirter_e@{getsvirter\_\-e}!finter_e.c@{finter\_\-e.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getsvirter\_\-e (double $\ast$ {\em velec}, double $\ast$ {\em welec}, double {\em welectensor}[9])}\label{finter__e_8c_9208d6046cf9dc1722cf0d801b9da208}
+
+
+\index{finter_e.c@{finter\_\-e.c}!vinter_e@{vinter\_\-e}}
+\index{vinter_e@{vinter\_\-e}!finter_e.c@{finter\_\-e.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void vinter\_\-e (int {\em nlen}, int $\ast$ {\em inp}, int $\ast$ {\em jnp}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, int {\em iperd}, double $\ast$ {\em spelec}, double $\ast$ {\em spelech}, double $\ast$ {\em swelec}, double {\em swelectensor}[9], int {\em ivol}, int {\em iflg}, int {\em ipolar})}\label{finter__e_8c_542d6b8e226c2b52c3131754eeb5e5a6}
+
+
+\index{finter_e.c@{finter\_\-e.c}!zero_pote@{zero\_\-pote}}
+\index{zero_pote@{zero\_\-pote}!finter_e.c@{finter\_\-e.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void zero\_\-pote (void)}\label{finter__e_8c_d8204917082dd0a8cf30e570067a6318}
+
+
+
+
+\subsection{Variable Documentation}
+\index{finter_e.c@{finter\_\-e.c}!spote@{spote}}
+\index{spote@{spote}!finter_e.c@{finter\_\-e.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf spote}\hspace{0.3cm}{\tt  [static]}}\label{finter__e_8c_46174b721cc7fc50f34a75884e4bba99}
+
+
+\index{finter_e.c@{finter\_\-e.c}!spothe@{spothe}}
+\index{spothe@{spothe}!finter_e.c@{finter\_\-e.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf spothe}\hspace{0.3cm}{\tt  [static]}}\label{finter__e_8c_840805f3d6756ac1e574fbeabe80444c}
+
+
+\index{finter_e.c@{finter\_\-e.c}!sprse@{sprse}}
+\index{sprse@{sprse}!finter_e.c@{finter\_\-e.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf sprse}\hspace{0.3cm}{\tt  [static]}}\label{finter__e_8c_ccea0863e26777c6e8fca4048af5e685}
+
+
+\index{finter_e.c@{finter\_\-e.c}!sprset@{sprset}}
+\index{sprset@{sprset}!finter_e.c@{finter\_\-e.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf sprset}[9]\hspace{0.3cm}{\tt  [static]}}\label{finter__e_8c_db1f2423e02dcfff02e4011fabe614aa}
+
+

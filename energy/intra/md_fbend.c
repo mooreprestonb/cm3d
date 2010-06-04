@@ -1,0 +1,873 @@
+/* 
+   Copyright (C) Dr. Preston B. Moore
+
+Dr. Preston B. Moore
+Associate Director, Center for Molecular Modeling (CMM)
+University of Pennsylvania, Department of Chemistry, Box 188 
+231 S. 34th St. Philadelphia, PA 19104-6323 USA
+EMAIL: moore@cmm.chem.upenn.edu  
+WWW: http://www.cmm.upenn.edu/~moore
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+*/
+
+
+/*---------------------------------------------------------------*/
+/* subroutines dealing with bended interactions
+   search_bond_base - searches the data base and sets up initial vectors
+   fbend - gets the force of the bend
+   getvbend - gets the potential energy of the bend
+   bended   - check to see if to atoms are involved in a bend
+*/
+
+#include "md.h"
+
+#define PRESSURE /* calculate pressure but it is = 0? */
+
+#ifdef JS
+static double fact_quart(double x)
+{
+  int i;
+  double result=1.0;
+  for(i=2;i<=x;i++) result*=(double)i;
+  return(result);	
+}
+
+static double poly_quart( double s_theta, int order )
+{
+  int i;
+  double result=1.0;
+  double fqi;
+  
+  for(i=1;i<=order;i++){
+    fqi = fact_quart(i);
+    result+=(fact_quart(2*i)/(pow(2, 2*i)*fqi*fqi*(2*i+1)))*pow(s_theta, 2*i);
+  }
+  return(result);
+}
+#endif
+
+/*-----------------------------------------------------------------------*/
+int bend_pair(int iatom,int jatom,BENDS *bends)
+{
+  int i,j,itemp,nb;
+
+  if(iatom>jatom){ itemp = iatom;iatom = jatom; jatom = itemp; }
+
+  for(nb=0;nb<bends->nbends;nb++){
+    i = bends->ibend[nb]; j = bends->jbend[nb];
+    if(i>j){itemp = i;i = j; j = itemp; }
+    if(iatom == i && jatom == j) return 1;
+
+    i = bends->ibend[nb]; j = bends->kbend[nb];
+    if(i>j){itemp = i;i = j; j = itemp; }
+    if(iatom == i && jatom == j) return 1;
+
+    i = bends->jbend[nb]; j = bends->kbend[nb];
+    if(i>j){itemp = i;i = j;j = itemp;}
+    if(iatom == i && jatom == j) return 1;
+  }
+  return 0;
+}
+/*-----------------------------------------------------------------------*/
+/* \brief exclude bends from intermolecular interactions 
+ *
+ */
+void exclude_bends(int *nexclude,int **exclude,BENDS *bends)
+{
+  int i,j,nb;
+
+  for(nb=0;nb<bends->nbends;nb++){
+    if(bends->ibend[nb]<bends->jbend[nb]){
+      i=bends->ibend[nb];j=bends->jbend[nb];
+    }else {
+      j=bends->ibend[nb];i=bends->jbend[nb];
+    }
+    insert(exclude[i],&nexclude[i],j);
+
+    /* JCS if the bendtype is not 0 (harmonic) don't exclude the 1-3 interaction 
+       printf("bend type %i\n",bends->ibendtype[nb]);
+       fflush(stdout);
+       Not true anymore, 
+       if(bends->ibendtype[nb] == 0) */
+ /* we now exclude this and use 1-4 to put it back if we want */
+    
+    if(bends->ibend[nb]<bends->kbend[nb]){
+      i=bends->ibend[nb];j=bends->kbend[nb];
+    }else {
+      j=bends->ibend[nb];i=bends->kbend[nb];
+    }
+    insert(exclude[i],&nexclude[i],j);
+    
+    if(bends->jbend[nb]<bends->kbend[nb]){
+      i=bends->jbend[nb];j=bends->kbend[nb];
+    } else {
+      j=bends->jbend[nb];i=bends->kbend[nb];
+    }
+    insert(exclude[i],&nexclude[i],j);
+  }
+}
+
+/*------------------------------------------------------------------------*/
+/* \brief calculte bending forces */
+void fbend(SIMPARMS *simparms,COORDS *coords)
+{
+  int i,j,k,idx,nb,nbends,*ibend,*jbend,*kbend,*tybend,*idxbend;
+  long ibegin,iend,nbt,inow;
+  double adotb,r11,costh,th,dudth,dthdcos,dudcos,dth;
+  double dcdx1,dcdy1,dcdz1,dcdx2,dcdy2,dcdz2,dcdx3,dcdy3,dcdz3;
+  double ax,ay,az,bx,by,bz,al,bl;
+  double *px,*py,*pz,*fx,*fy,*fz,*eqbend,*fkbend,*aq,*ac;
+  double *fx1,*fy1,*fz1,*fx2,*fy2,*fz2,*fx3,*fy3,*fz3;
+  /* double sinth, a, b, c, t1; JS quartic variables */
+ 
+  px = coords->px;  py = coords->py;  pz = coords->pz;
+  fx = coords->fxa; fy = coords->fya; fz = coords->fza;
+  nbends = coords->bends.nbends;  idxbend= coords->bends.idxbend;
+  ibend = coords->bends.ibend;
+  jbend = coords->bends.jbend;
+  kbend = coords->bends.kbend;
+  tybend = coords->bends.itypbend;
+  eqbend = coords->bends.eqbend;  
+  fkbend = coords->bends.fkbend;
+  aq = coords->bends.aq;
+
+  decomp1d((long)nbends,simparms->size,simparms->rank,&ibegin,&iend);
+
+  nbt = iend-ibegin;
+  fx1 = (double *)cmalloc(9*nbt*sizeof(double));
+  fy1 = fx1 + nbt;
+  fz1 = fx1 + 2*nbt;
+  fx2 = fx1 + 3*nbt;  fy2 = fx1 + 4*nbt;  fz2 = fx1 + 5*nbt;
+  fx3 = fx1 + 6*nbt;  fy3 = fx1 + 7*nbt;  fz3 = fx1 + 8*nbt;
+  
+/*
+  printf("n bends ibegin %i iend %i\n",ibegin,iend);
+*/
+  dudcos = 0.;
+  dudth = 0.;
+
+#include "vectorize.h"
+  for(inow=0,nb=ibegin;nb<iend;nb++,inow++){
+    i = ibend[nb];
+    j = jbend[nb];
+    k = kbend[nb];
+    idx = idxbend[nb];
+/*
+    printf("inow %i idx %i itype %i\n",inow,idx,tybend[idx]);
+*/
+
+    ax = px[i] - px[j];
+    ay = py[i] - py[j];
+    az = pz[i] - pz[j];
+    al = ax*ax+ay*ay+az*az;
+
+    bx = px[k] - px[j];
+    by = py[k] - py[j];
+    bz = pz[k] - pz[j];
+    bl = bx*bx+by*by+bz*bz;
+
+    adotb = ax*bx + ay*by + az*bz;
+    r11 = 1./sqrt(al*bl);
+    costh = adotb*r11;
+
+    switch(tybend[idx]) {
+    case 0: /* original harmonic */
+      if(fabs(costh) >= 1.){
+	th = 1.;
+	dth = th - eqbend[idx];
+	dthdcos = -1.;
+	dudth = 0.;
+      } else {
+	th = acos(costh);
+	dth = th - eqbend[idx];      
+	dudth   = fkbend[idx]*dth;
+	dthdcos = -1./sqrt(1.-costh*costh);
+      }
+      dudcos = dudth*dthdcos;
+      break;
+    case 1: /* cosine */
+      if(costh > 1.) costh =1.;
+      else if(costh < -1.) costh = -1.;
+      /* th = acos(costh); */
+      dudcos =  fkbend[idx];
+      break;
+    case 2: /* quartic */
+      if(costh > 1.) costh =1.;
+      else if(costh < -1.) costh = -1.;
+
+      ac = &(aq[idx*NP_BEND]);
+      th = acos(costh);
+      dth = th - eqbend[idx];      
+      dudth = (ac[1] + dth*(2.*ac[2]+dth*(3.*ac[3]+dth*4.*ac[4])));
+      dthdcos = -1./sqrt(1.-costh*costh);
+      dudcos = dudth*dthdcos;
+
+/* #ifdef JCS for small angles*/
+/*       sinth = sin(th-M_PI);       */
+/*       if(sinth > 1.) sinth =1.; */
+/*       else if(sinth < -1.) sinth = -1.; */
+/*       if(fabs(th-M_PI) < 0.01) t1 =  -1. * poly_quart(sinth, 20); */
+/*       else t1 = -(th-M_PI)/sinth; */
+/*       c = (eqbend[idx]-M_PI)*(eqbend[idx]-M_PI); */
+/*       b = c - (th-M_PI)*(th-M_PI); */
+/*       a = 0.5 * fkbend[idx] / c; */
+/*       dudcos = a * b * t1;       */
+/* #endif */
+      break;
+    }
+    dcdx1 = costh*ax/al - bx*r11;
+    dcdy1 = costh*ay/al - by*r11;
+    dcdz1 = costh*az/al - bz*r11;
+    dcdx3 = costh*bx/bl - ax*r11;
+    dcdy3 = costh*by/bl - ay*r11;
+    dcdz3 = costh*bz/bl - az*r11;
+    dcdx2 = -dcdx1-dcdx3;
+    dcdy2 = -dcdy1-dcdy3;
+    dcdz2 = -dcdz1-dcdz3;
+
+    fx1[inow] = dudcos*dcdx1;
+    fy1[inow] = dudcos*dcdy1;
+    fz1[inow] = dudcos*dcdz1;
+    fx2[inow] = dudcos*dcdx2;
+    fy2[inow] = dudcos*dcdy2;
+    fz2[inow] = dudcos*dcdz2;
+    fx3[inow] = dudcos*dcdx3;
+    fy3[inow] = dudcos*dcdy3;
+    fz3[inow] = dudcos*dcdz3;
+  }
+  for(inow=0,nb=ibegin;nb<iend;nb++,inow++){
+    i = ibend[nb];    j = jbend[nb];    k = kbend[nb];
+    fx[i] += fx1[inow];    fy[i] += fy1[inow];    fz[i] += fz1[inow];
+    fx[j] += fx2[inow];    fy[j] += fy2[inow];    fz[j] += fz2[inow];
+    fx[k] += fx3[inow];    fy[k] += fy3[inow];    fz[k] += fz3[inow];
+  }
+  free(fx1);
+}
+
+/*-----------------------------------------------------------------------*/
+void getvbend(SIMPARMS *simparms,COORDS *coords,
+	      double *UI,double *WI,double WItensor[9])
+{
+  int i,j,k,idx,nb,*tybend;
+  long ibegin,iend;
+  double adotb,r11,costh,th,dth;
+  double ax,ay,az,bx,by,bz,al,bl;
+  double spot,sprs,spotl,sprsl;
+  double *px,*py,*pz;
+  double *eqbend,*fkbend,*aq,*ac;
+  int nbends,*ibend,*jbend,*kbend,*idxbend;
+  double sprstensor[9],sprstl[9];
+#ifdef PRESSURE
+  double dudth,dthdcos,dudcos,dcdx1,dcdy1,dcdz1,dcdx3,dcdy3,dcdz3;
+  double dcdx2,dcdy2,dcdz2;
+#endif
+  // double t_coef, b, c;
+
+  px = coords->px;
+  py = coords->py;
+  pz = coords->pz;
+  nbends = coords->bends.nbends;
+  ibend = coords->bends.ibend;
+  jbend = coords->bends.jbend;
+  kbend = coords->bends.kbend;
+  idxbend= coords->bends.idxbend;
+  eqbend = coords->bends.eqbend;
+  fkbend = coords->bends.fkbend;
+  tybend = coords->bends.itypbend;
+  aq = coords->bends.aq;
+
+  for(i=0;i<9;i++) sprstensor[i]=0.0;
+
+  spot = sprs = 0.;
+  decomp1d((long)nbends,simparms->size,simparms->rank,&ibegin,&iend);
+  dudth = 0.;
+
+#include "vectorize.h"
+  for(nb=ibegin;nb<iend;nb++){
+    i = ibend[nb];
+    j = jbend[nb];
+    k = kbend[nb];
+    idx = idxbend[nb];
+    
+    ax = px[i] - px[j];
+    ay = py[i] - py[j];
+    az = pz[i] - pz[j];
+    al = ax*ax+ay*ay+az*az;
+
+    bx = px[k] - px[j];
+    by = py[k] - py[j];
+    bz = pz[k] - pz[j];
+    bl = bx*bx+by*by+bz*bz;
+
+    adotb = ax*bx + ay*by + az*bz;
+    r11 = 1./sqrt(al*bl);
+    costh = adotb*r11;
+    
+    costh = MIN(1.,costh);
+    costh = MAX(-1.,costh);
+    switch(tybend[idx]) {
+    case 0: /* original harmonic */
+      if(fabs(costh) >= 1.){
+	th = 1.;
+	dth = th - eqbend[idx];
+	spot += .5*fkbend[idx]*dth*dth;
+#ifdef PRESSURE
+	dthdcos = -1.;
+	dudth = 0.;
+#endif
+      } else {
+	th = acos(costh);
+	dth = th - eqbend[idx];
+	spot += .5*fkbend[idx]*dth*dth;
+#ifdef PRESSURE      
+	dthdcos = -1.;
+	dudth   = fkbend[idx]*dth;
+#endif
+      }
+      break;
+    case 1: /* cosine */
+      if(costh > 1.) costh =1.;
+      else if(costh < -1.) costh = -1.;
+      /* th = acos(costh); */      
+      spot += fkbend[idx] * (1.+costh);
+      dudth = - fkbend[idx] * sqrt(1. - costh*costh);
+      break;
+    case 2: /* quartic */
+      if(costh > 1.) costh =1.;
+      if(costh < -1.) costh = -1.;
+      th = acos(costh);      
+      dth =  th - eqbend[idx];
+      ac = &(aq[idx*NP_BEND]);
+      spot += ac[0]+dth*(ac[1]+dth*(ac[2]+dth*(ac[3]+dth*ac[4])));
+      dudth =  (ac[1] + dth*(2.*ac[2] + dth*(3.*ac[3]+ dth*4.*ac[4])));
+      /*       c = (eqbend[idx]-M_PI)*(eqbend[idx]-M_PI); */
+      /*       b = c - (th-M_PI)*(th-M_PI); */
+      /*       a = 0.5 * fkbend[idx] / c;  */
+      /*       t_coef =  0.25 * (fkbend[idx] * 0.5 / c); */
+      /*       spot += t_coef * b*b; */
+      /*       dudth =  4. * t_coef * b * (th-M_PI); */
+      break;
+    }
+    if(fabs(costh) >= 1.){
+      dthdcos = -1.;
+    } else {
+      dthdcos = -1./sqrt(1.-costh*costh);
+    }
+    dudcos = dudth*dthdcos;
+#ifdef PRESSURE
+    dcdx1 = costh*ax/al - bx*r11;
+    dcdy1 = costh*ay/al - by*r11;
+    dcdz1 = costh*az/al - bz*r11;
+    dcdx2 = -costh*(ax/al+bx/bl)+(ax+bx)*r11;
+    dcdy2 = -costh*(ay/al+by/bl)+(ay+by)*r11;
+    dcdz2 = -costh*(az/al+bz/bl)+(az+bz)*r11;
+    dcdx3 = costh*bx/bl - ax*r11;
+    dcdy3 = costh*by/bl - ay*r11;
+    dcdz3 = costh*bz/bl - az*r11;
+    sprs += dudcos*(ax*dcdx1+ay*dcdy1+az*dcdz1-bx*dcdx3-by*dcdy3-bz*dcdz3);
+
+    sprstensor[0] += dudcos*(px[i]*dcdx1+px[j]*dcdx2+px[k]*dcdx3);
+    sprstensor[1] += dudcos*(py[i]*dcdx1+py[j]*dcdx2+py[k]*dcdx3);
+    sprstensor[2] += dudcos*(pz[i]*dcdx1+pz[j]*dcdx2+pz[k]*dcdx3);
+
+    sprstensor[3] += dudcos*(px[i]*dcdy1+px[j]*dcdy2+px[k]*dcdy3);
+    sprstensor[4] += dudcos*(py[i]*dcdy1+py[j]*dcdy2+py[k]*dcdy3);
+    sprstensor[5] += dudcos*(pz[i]*dcdy1+pz[j]*dcdy2+pz[k]*dcdy3);
+
+    sprstensor[6] += dudcos*(px[i]*dcdz1+px[j]*dcdz2+px[k]*dcdz3);
+    sprstensor[7] += dudcos*(py[i]*dcdz1+py[j]*dcdz2+py[k]*dcdz3);
+    sprstensor[8] += dudcos*(pz[i]*dcdz1+pz[j]*dcdz2+pz[k]*dcdz3);
+
+#endif
+  }
+#ifdef PARA
+  MPI_Allreduce(&spot,&spotl,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+  MPI_Allreduce(&sprs,&sprsl,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+  MPI_Allreduce(sprstensor,sprstl,9,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+#else
+  spotl = spot;
+  sprsl = sprs;
+  for(i=0;i<9;i++) sprstl[i] = sprstensor[i];
+#endif
+
+  *UI += spotl;  
+  *WI += sprsl;
+  for(i=0;i<9;i++) WItensor[i] += sprstl[i];
+}
+/*------------------------------------------------------------------------*/
+void fcbend(COORDS *coords,double **fcmat)
+{
+  int i,j,k,ii,jj,nb,idx;
+  double ax,ay,az,al2,ral2,ral4,bx,by,bz,bl2,rbl2,rbl4;
+  double adotb,r11,r33,costh,th,costh2;
+  double dthdcos,dth,dudth,du2dth2,dth2cos2,du2dcos2,dudcos;
+  double dcdxi,dcdyi,dcdzi,dcdxj,dcdyj,dcdzj,dcdxk,dcdyk,dcdzk;
+  double dxx,dyy,dzz,dxy,dxz,dyz,dyx,dzx,dzy;
+  double dc2dxx,dc2dyy,dc2dzz,dc2dxy,dc2dxz,dc2dyx,dc2dyz,dc2dzx,dc2dzy;
+  double dabdxi,dabdyi,dabdzi,dabdxj,dabdyj,dabdzj,dabdxk,dabdyk,dabdzk;
+  double drrdxi,drrdyi,drrdzi,drrdxj,drrdyj,drrdzj,drrdxk,drrdyk,drrdzk;
+  double *px,*py,*pz;
+  double *eqbend,*fkbend,*aq,*ac;
+  int nbends,*ibend,*jbend,*kbend,*idxbend,*itypbend;
+
+  px = coords->px;
+  py = coords->py;
+  pz = coords->pz;
+  nbends = coords->bends.nbends;
+  ibend = coords->bends.ibend;
+  jbend = coords->bends.jbend;
+  kbend = coords->bends.kbend;
+  idxbend= coords->bends.idxbend;
+  itypbend = coords->bends.itypbend;
+  eqbend = coords->bends.eqbend;
+  fkbend = coords->bends.fkbend;
+  aq = coords->bends.aq;
+
+  dudth = du2dth2 = 0;
+
+  for(nb=0;nb<nbends;nb++){
+    
+    i = ibend[nb];
+    j = jbend[nb];
+    k = kbend[nb];
+    idx = idxbend[nb];
+
+    ax = px[i] - px[j];
+    ay = py[i] - py[j];
+    az = pz[i] - pz[j];
+    al2 = ax*ax+ay*ay+az*az;
+    ral2=1./al2;
+    ral4 = ral2*ral2;
+  
+    bx = px[k] - px[j];
+    by = py[k] - py[j];
+    bz = pz[k] - pz[j];
+    bl2=bx*bx+by*by+bz*bz;
+
+    rbl2=1./bl2;
+    rbl4=rbl2*rbl2;
+    
+    adotb = ax*bx + ay*by + az*bz;
+    r11 = 1./sqrt(al2*bl2);
+    r33 = r11*r11*r11;
+    costh = adotb*r11;
+    if(costh <= -1.){
+      costh = -1.;
+      th = M_PI;
+      dthdcos = -1.;
+      dth2cos2= 0.;
+    } else {
+      th = acos(costh);
+      dthdcos = -1./sqrt(1.-costh*costh);
+      dth2cos2= -costh/pow(1.-costh*costh,3./2.);
+    }
+    costh2 = costh*costh;
+    
+    /* d f[g[h[x]]]/ dx = f'' g' g' h' h' + f' g'' h' h' + f' g' h'' */
+    
+    switch(itypbend[idx]){
+    case 0: /* harmonic */
+      dth = th - eqbend[idx];
+      dudth   = fkbend[idx]*dth;
+      du2dth2 = fkbend[idx];
+    case 1: /* cosine */
+      dudth = fkbend[idx]/dthdcos; /* -fk sin(th) */
+      du2dth2 = -fkbend[idx]*costh; /* -fk cos(th) */
+      break;
+    case 2:
+      ac = &(aq[idx*NP_BEND]);
+      dth = th - eqbend[idx];
+      dudth = ac[1]+dth*(2.*ac[2]+dth*(3.*ac[3]+dth*4.*ac[4]));
+      du2dth2 = 2.*ac[2] + dth*(6.*ac[3] + dth*12.*ac[4]);
+      break;
+    default:
+      md_error("unknown type in second derivative of bend :-(");
+    }
+
+    du2dcos2= (du2dth2*dthdcos*dthdcos+dudth*dth2cos2);
+    dudcos  = dudth*dthdcos;
+    
+    dabdxi = bx;     dabdyi = by;     dabdzi = bz;
+    dabdxj = -bx-ax; dabdyj = -by-ay; dabdzj = -bz-az;
+    dabdxk = ax;     dabdyk = ay;     dabdzk = az;
+    
+    drrdxi = -ax*ral2*r11;    drrdyi = -ay*ral2*r11;   drrdzi = -az*ral2*r11;
+    drrdxj = (ax*ral2 + bx*rbl2)*r11;
+    drrdyj = (ay*ral2 + by*rbl2)*r11;
+    drrdzj = (az*ral2 + bz*rbl2)*r11;
+    drrdxk = -bx*rbl2*r11;    drrdyk = -by*rbl2*r11;   drrdzk = -bz*rbl2*r11;
+    
+    dcdxi = adotb*drrdxi + dabdxi*r11;
+    dcdyi = adotb*drrdyi + dabdyi*r11;
+    dcdzi = adotb*drrdzi + dabdzi*r11;
+    dcdxj = adotb*drrdxj + dabdxj*r11;
+    dcdyj = adotb*drrdyj + dabdyj*r11;
+    dcdzj = adotb*drrdzj + dabdzj*r11;
+    dcdxk = adotb*drrdxk + dabdxk*r11;
+    dcdyk = adotb*drrdyk + dabdyk*r11;
+    dcdzk = adotb*drrdzk + dabdzk*r11;
+    
+    /* d f[x,y]h[x,y]/dxy=df/dx dh/dy+dh/dx df/dy+h df2/dxy+f dh2/dxy*/
+    /*  calculate force constant matrix interact partical 1-1  */
+  
+    dc2dxx=(2.*dabdxi*drrdxi+adotb*(3.*ax*ax*r11*ral4 - r11*ral2));
+    dc2dyy=(2.*dabdyi*drrdyi+adotb*(3.*ay*ay*r11*ral4 - r11*ral2));
+    dc2dzz=(2.*dabdzi*drrdzi+adotb*(3.*az*az*r11*ral4 - r11*ral2));
+    
+    dc2dxy=(dabdxi*drrdyi+drrdxi*dabdyi+adotb*3.*ax*ay*r11*ral4);
+    dc2dxz=(dabdxi*drrdzi+drrdxi*dabdzi+adotb*3.*ax*az*r11*ral4);
+    dc2dyz=(dabdyi*drrdzi+drrdyi*dabdzi+adotb*3.*ay*az*r11*ral4);
+    
+    dc2dyx= dc2dxy;
+    dc2dzx= dc2dxz;
+    dc2dzy= dc2dyz;
+    
+    dxx = du2dcos2*dcdxi*dcdxi + dudcos*dc2dxx;
+    dxy = du2dcos2*dcdxi*dcdyi + dudcos*dc2dxy;
+    dxz = du2dcos2*dcdxi*dcdzi + dudcos*dc2dxz;
+    dyx = du2dcos2*dcdyi*dcdxi + dudcos*dc2dyx;
+    dyy = du2dcos2*dcdyi*dcdyi + dudcos*dc2dyy;
+    dyz = du2dcos2*dcdyi*dcdzi + dudcos*dc2dyz;
+    dzx = du2dcos2*dcdzi*dcdxi + dudcos*dc2dzx;
+    dzy = du2dcos2*dcdzi*dcdyi + dudcos*dc2dzy;
+    dzz = du2dcos2*dcdzi*dcdzi + dudcos*dc2dzz;
+    
+    ii = 3*i-1;
+
+    fcmat[ii+1][ii+1] += dxx;
+    fcmat[ii+1][ii+2] += dxy;
+    fcmat[ii+1][ii+3] += dxz;
+    fcmat[ii+2][ii+1] += dyx;
+    fcmat[ii+2][ii+2] += dyy;
+    fcmat[ii+2][ii+3] += dyz;
+    fcmat[ii+3][ii+1] += dzx;
+    fcmat[ii+3][ii+2] += dzy;
+    fcmat[ii+3][ii+3] += dzz;
+    
+    /*  calculate force constant matrix for interact 1-2 */
+    
+    dc2dxx=(dabdxi*drrdxj+drrdxi*dabdxj-r11+
+            adotb*(-3.*ax*ax*r11*ral4-ax*bx*r33+r11*ral2));
+    dc2dyy=(dabdyi*drrdyj+drrdyi*dabdyj-r11+
+            adotb*(-3.*ay*ay*r11*ral4-ay*by*r33+r11*ral2));
+    dc2dzz=(dabdzi*drrdzj+drrdzi*dabdzj-r11+
+            adotb*(-3.*az*az*r11*ral4-az*bz*r33+r11*ral2));
+
+    dc2dxy=(dabdxi*drrdyj+drrdxi*dabdyj+adotb*
+            (-3.*ax*ay*r11*ral4-ax*by*r33));
+    dc2dyx=(dabdyi*drrdxj+drrdyi*dabdxj+adotb*
+            (-3.*ay*ax*r11*ral4-ay*bx*r33));
+    dc2dxz=(dabdxi*drrdzj+drrdxi*dabdzj+adotb*
+            (-3.*ax*az*r11*ral4-ax*bz*r33));
+    dc2dzx=(dabdzi*drrdxj+drrdzi*dabdxj+adotb*
+            (-3.*az*ax*r11*ral4-az*bx*r33));
+    dc2dyz=(dabdyi*drrdzj+drrdyi*dabdzj+adotb*
+            (-3.*ay*az*r11*ral4-ay*bz*r33));
+    dc2dzy=(dabdzi*drrdyj+drrdzi*dabdyj+adotb*
+            (-3.*az*ay*r11*ral4-az*by*r33));
+    
+    dxx = du2dcos2*dcdxi*dcdxj + dudcos*dc2dxx;
+    dxy = du2dcos2*dcdxi*dcdyj + dudcos*dc2dxy;
+    dxz = du2dcos2*dcdxi*dcdzj + dudcos*dc2dxz;
+    dyx = du2dcos2*dcdyi*dcdxj + dudcos*dc2dyx;
+    dyy = du2dcos2*dcdyi*dcdyj + dudcos*dc2dyy;
+    dyz = du2dcos2*dcdyi*dcdzj + dudcos*dc2dyz;
+    dzx = du2dcos2*dcdzi*dcdxj + dudcos*dc2dzx;
+    dzy = du2dcos2*dcdzi*dcdyj + dudcos*dc2dzy;
+    dzz = du2dcos2*dcdzi*dcdzj + dudcos*dc2dzz;
+    
+    ii=3*i-1;
+    jj=3*j-1;
+
+    fcmat[ii+1][jj+1] += dxx;
+    fcmat[ii+1][jj+2] += dxy;
+    fcmat[ii+1][jj+3] += dxz;
+    fcmat[ii+2][jj+1] += dyx;
+    fcmat[ii+2][jj+2] += dyy;
+    fcmat[ii+2][jj+3] += dyz;
+    fcmat[ii+3][jj+1] += dzx;
+    fcmat[ii+3][jj+2] += dzy;
+    fcmat[ii+3][jj+3] += dzz;
+
+    fcmat[jj+1][ii+1] += dxx;
+    fcmat[jj+2][ii+1] += dxy;
+    fcmat[jj+3][ii+1] += dxz;
+    fcmat[jj+1][ii+2] += dyx;
+    fcmat[jj+2][ii+2] += dyy;
+    fcmat[jj+3][ii+2] += dyz;
+    fcmat[jj+1][ii+3] += dzx;
+    fcmat[jj+2][ii+3] += dzy;
+    fcmat[jj+3][ii+3] += dzz;
+    
+    /*  calculate force constant matrix for interact 1-3 */
+    
+    dc2dxx=(dabdxi*drrdxk+drrdxi*dabdxk+r11+adotb*(ax*bx*r33));
+    dc2dyy=(dabdyi*drrdyk+drrdyi*dabdyk+r11+adotb*(ay*by*r33));
+    dc2dzz=(dabdzi*drrdzk+drrdzi*dabdzk+r11+adotb*(az*bz*r33));
+    
+    dc2dxy=(dabdxi*drrdyk+drrdxi*dabdyk+adotb*ax*by*r33);
+    dc2dxz=(dabdxi*drrdzk+drrdxi*dabdzk+adotb*ax*bz*r33);
+    dc2dyz=(dabdyi*drrdzk+drrdyi*dabdzk+adotb*ay*bz*r33);
+    
+    dc2dyx=(dabdyi*drrdxk+drrdyi*dabdxk+adotb*ay*bx*r33);
+    dc2dzx=(dabdzi*drrdxk+drrdzi*dabdxk+adotb*az*bx*r33);
+    dc2dzy=(dabdzi*drrdyk+drrdzi*dabdyk+adotb*az*by*r33);
+    
+    dxx = du2dcos2*dcdxi*dcdxk + dudcos*dc2dxx;
+    dxy = du2dcos2*dcdxi*dcdyk + dudcos*dc2dxy;
+    dxz = du2dcos2*dcdxi*dcdzk + dudcos*dc2dxz;
+    dyx = du2dcos2*dcdyi*dcdxk + dudcos*dc2dyx;
+    dyy = du2dcos2*dcdyi*dcdyk + dudcos*dc2dyy;
+    dyz = du2dcos2*dcdyi*dcdzk + dudcos*dc2dyz;
+    dzx = du2dcos2*dcdzi*dcdxk + dudcos*dc2dzx;
+    dzy = du2dcos2*dcdzi*dcdyk + dudcos*dc2dzy;
+    dzz = du2dcos2*dcdzi*dcdzk + dudcos*dc2dzz;
+    
+    ii=3*i-1;
+    jj=3*k-1;
+    
+    fcmat[ii+1][jj+1] += dxx;
+    fcmat[ii+1][jj+2] += dxy;
+    fcmat[ii+1][jj+3] += dxz;
+    fcmat[ii+2][jj+1] += dyx;
+    fcmat[ii+2][jj+2] += dyy;
+    fcmat[ii+2][jj+3] += dyz;
+    fcmat[ii+3][jj+1] += dzx;
+    fcmat[ii+3][jj+2] += dzy;
+    fcmat[ii+3][jj+3] += dzz;
+
+    fcmat[jj+1][ii+1] += dxx;
+    fcmat[jj+2][ii+1] += dxy;
+    fcmat[jj+3][ii+1] += dxz;
+    fcmat[jj+1][ii+2] += dyx;
+    fcmat[jj+2][ii+2] += dyy;
+    fcmat[jj+3][ii+2] += dyz;
+    fcmat[jj+1][ii+3] += dzx;
+    fcmat[jj+2][ii+3] += dzy;
+    fcmat[jj+3][ii+3] += dzz;
+
+    /*  calculate force constant matrix for interact 2-2 */
+    
+    dc2dxx=(2.*dabdxj*drrdxj+2.*r11+adotb*
+            (3.*ax*ax*r11*ral4+3.*bx*bx*r11*rbl4+
+             2.*ax*bx*r33-r11*ral2-r11*rbl2));
+    dc2dyy=(2.*dabdyj*drrdyj+2.*r11+adotb*
+            (3.*ay*ay*r11*ral4+3.*by*by*r11*rbl4+
+             2.*ay*by*r33-r11*ral2-r11*rbl2));
+    dc2dzz=(2.*dabdzj*drrdzj+2.*r11+adotb*
+            (3.*az*az*r11*ral4+3.*bz*bz*r11*rbl4+
+             2.*az*bz*r33-r11*ral2-r11*rbl2));
+    
+    dc2dxy=(dabdxj*drrdyj+drrdxj*dabdyj+adotb*
+            (3.*ax*ay*r11*ral4+3.*bx*by*r11*rbl4+
+             (ax*by+ay*bx)*r33));
+    dc2dxz=(dabdxj*drrdzj+drrdxj*dabdzj+adotb*
+            (3.*ax*az*r11*ral4+3.*bx*bz*r11*rbl4+
+             (ax*bz+az*bx)*r33));
+    dc2dyz=(dabdyj*drrdzj+drrdyj*dabdzj+adotb*
+            (3.*ay*az*r11*ral4+3.*by*bz*r11*rbl4+
+             (ay*bz+az*by)*r33));
+    
+    dc2dyx=dc2dxy;
+    dc2dzx=dc2dxz;
+    dc2dzy=dc2dyz;
+
+    
+    dxx = du2dcos2*dcdxj*dcdxj + dudcos*dc2dxx;
+    dxy = du2dcos2*dcdxj*dcdyj + dudcos*dc2dxy;
+    dxz = du2dcos2*dcdxj*dcdzj + dudcos*dc2dxz;
+    dyx = du2dcos2*dcdyj*dcdxj + dudcos*dc2dyx;
+    dyy = du2dcos2*dcdyj*dcdyj + dudcos*dc2dyy;
+    dyz = du2dcos2*dcdyj*dcdzj + dudcos*dc2dyz;
+    dzx = du2dcos2*dcdzj*dcdxj + dudcos*dc2dzx;
+    dzy = du2dcos2*dcdzj*dcdyj + dudcos*dc2dzy;
+    dzz = du2dcos2*dcdzj*dcdzj + dudcos*dc2dzz;
+    
+    ii=3*j-1;
+
+    fcmat[ii+1][ii+1] += dxx;
+    fcmat[ii+1][ii+2] += dxy;
+    fcmat[ii+1][ii+3] += dxz;
+    fcmat[ii+2][ii+1] += dyx;
+    fcmat[ii+2][ii+2] += dyy;
+    fcmat[ii+2][ii+3] += dyz;
+    fcmat[ii+3][ii+1] += dzx;
+    fcmat[ii+3][ii+2] += dzy;
+    fcmat[ii+3][ii+3] += dzz;
+    
+    /*  calculate force constant matrix for interact 2-3 */
+    
+    dc2dxx=(dabdxj*drrdxk+drrdxj*dabdxk-r11+
+            adotb*(-3.*bx*bx*r11*rbl4-ax*bx*r33+r11*rbl2));
+    dc2dyy=(dabdyj*drrdyk+drrdyj*dabdyk-r11+
+            adotb*(-3.*by*by*r11*rbl4-ay*by*r33+r11*rbl2));
+    dc2dzz=(dabdzj*drrdzk+drrdzj*dabdzk-r11+
+            adotb*(-3.*bz*bz*r11*rbl4-az*bz*r33+r11*rbl2));
+   
+    dc2dxy=(dabdxj*drrdyk+drrdxj*dabdyk+adotb*(-ax*by*r33-3.*bx*by*r11*rbl4));
+    dc2dxz=(dabdxj*drrdzk+drrdxj*dabdzk+adotb*(-ax*bz*r33-3.*bx*bz*r11*rbl4));
+    dc2dyz=(dabdyj*drrdzk+drrdyj*dabdzk+adotb*(-ay*bz*r33-3.*by*bz*r11*rbl4));
+    dc2dyx=(dabdyj*drrdxk+drrdyj*dabdxk+adotb*(-ay*bx*r33-3.*by*bx*r11*rbl4));
+    dc2dzx=(dabdzj*drrdxk+drrdzj*dabdxk+adotb*(-az*bx*r33-3.*bz*bx*r11*rbl4));
+    dc2dzy=(dabdzj*drrdyk+drrdzj*dabdyk+adotb*(-az*by*r33-3.*bz*by*r11*rbl4));
+    
+    dxx = du2dcos2*dcdxj*dcdxk + dudcos*dc2dxx;
+    dxy = du2dcos2*dcdxj*dcdyk + dudcos*dc2dxy;
+    dxz = du2dcos2*dcdxj*dcdzk + dudcos*dc2dxz;
+    dyx = du2dcos2*dcdyj*dcdxk + dudcos*dc2dyx;
+    dyy = du2dcos2*dcdyj*dcdyk + dudcos*dc2dyy;
+    dyz = du2dcos2*dcdyj*dcdzk + dudcos*dc2dyz;
+    dzx = du2dcos2*dcdzj*dcdxk + dudcos*dc2dzx;
+    dzy = du2dcos2*dcdzj*dcdyk + dudcos*dc2dzy;
+    dzz = du2dcos2*dcdzj*dcdzk + dudcos*dc2dzz;
+
+    ii=3*j-1;
+    jj=3*k-1;
+
+    fcmat[ii+1][jj+1] += dxx;
+    fcmat[ii+1][jj+2] += dxy;
+    fcmat[ii+1][jj+3] += dxz;
+    fcmat[ii+2][jj+1] += dyx;
+    fcmat[ii+2][jj+2] += dyy;
+    fcmat[ii+2][jj+3] += dyz;
+    fcmat[ii+3][jj+1] += dzx;
+    fcmat[ii+3][jj+2] += dzy;
+    fcmat[ii+3][jj+3] += dzz;
+    
+    fcmat[jj+1][ii+1] += dxx;
+    fcmat[jj+2][ii+1] += dxy;
+    fcmat[jj+3][ii+1] += dxz;
+    fcmat[jj+1][ii+2] += dyx;
+    fcmat[jj+2][ii+2] += dyy;
+    fcmat[jj+3][ii+2] += dyz;
+    fcmat[jj+1][ii+3] += dzx;
+    fcmat[jj+2][ii+3] += dzy;
+    fcmat[jj+3][ii+3] += dzz;
+
+    /*  calculate force constant matrix for interact 3-3 */
+    
+    dc2dxx=(2.*dabdxk*drrdxk+adotb*(3.*bx*bx*r11*rbl4 - r11*rbl2));
+    dc2dyy=(2.*dabdyk*drrdyk+adotb*(3.*by*by*r11*rbl4 - r11*rbl2));
+    dc2dzz=(2.*dabdzk*drrdzk+adotb*(3.*bz*bz*r11*rbl4 - r11*rbl2));
+    dc2dxy=(dabdxk*drrdyk+drrdxk*dabdyk+adotb*3.*bx*by*r11*rbl4);
+    dc2dxz=(dabdxk*drrdzk+drrdxk*dabdzk+adotb*3.*bx*bz*r11*rbl4);
+    dc2dyz=(dabdyk*drrdzk+drrdyk*dabdzk+adotb*3.*by*bz*r11*rbl4);
+    dc2dyx= dc2dxy;
+    dc2dzx= dc2dxz;
+    dc2dzy= dc2dyz;
+    
+    dxx = du2dcos2*dcdxk*dcdxk + dudcos*dc2dxx;
+    dxy = du2dcos2*dcdxk*dcdyk + dudcos*dc2dxy;
+    dxz = du2dcos2*dcdxk*dcdzk + dudcos*dc2dxz;
+    dyx = du2dcos2*dcdyk*dcdxk + dudcos*dc2dyx;
+    dyy = du2dcos2*dcdyk*dcdyk + dudcos*dc2dyy;
+    dyz = du2dcos2*dcdyk*dcdzk + dudcos*dc2dyz;
+    dzx = du2dcos2*dcdzk*dcdxk + dudcos*dc2dzx;
+    dzy = du2dcos2*dcdzk*dcdyk + dudcos*dc2dzy;
+    dzz = du2dcos2*dcdzk*dcdzk + dudcos*dc2dzz;
+
+    ii=3*k-1;
+    
+    fcmat[ii+1][ii+1] += dxx;
+    fcmat[ii+1][ii+2] += dxy;
+    fcmat[ii+1][ii+3] += dxz;
+    fcmat[ii+2][ii+1] += dyx;
+    fcmat[ii+2][ii+2] += dyy;
+    fcmat[ii+2][ii+3] += dyz;
+    fcmat[ii+3][ii+1] += dzx;
+    fcmat[ii+3][ii+2] += dzy;
+    fcmat[ii+3][ii+3] += dzz;
+  }
+}
+/*------------------------------------------------------------------------*/
+static int iben,jben,kben,itben;
+static double eqben,fkben,*aq;
+
+void fcbendn(COORDS *coords,double **fcmat)
+{
+  int nb,idx;
+  for(nb=0;nb<coords->bends.nbends;nb++){
+    
+    iben = coords->bends.ibend[nb];
+    jben = coords->bends.jbend[nb];
+    kben = coords->bends.kbend[nb];
+    idx = coords->bends.idxbend[nb];
+    
+    itben = coords->bends.itypbend[idx];
+    eqben = coords->bends.eqbend[idx];
+    fkben = coords->bends.fkbend[idx];
+    aq = &(coords->bends.aq[idx*NP_BEND]);
+    
+    ngradv2(coords->px,coords->py,coords->pz,iben,iben,potbend,fcmat);
+    ngradv2(coords->px,coords->py,coords->pz,iben,jben,potbend,fcmat);
+    ngradv2(coords->px,coords->py,coords->pz,iben,kben,potbend,fcmat);
+    ngradv2(coords->px,coords->py,coords->pz,jben,iben,potbend,fcmat);
+    ngradv2(coords->px,coords->py,coords->pz,jben,jben,potbend,fcmat);
+    ngradv2(coords->px,coords->py,coords->pz,jben,kben,potbend,fcmat);
+    ngradv2(coords->px,coords->py,coords->pz,kben,iben,potbend,fcmat);
+    ngradv2(coords->px,coords->py,coords->pz,kben,jben,potbend,fcmat);
+    ngradv2(coords->px,coords->py,coords->pz,kben,kben,potbend,fcmat);
+  }
+}
+/*---------------------------------------------------------------------*/
+double potbend(double *px,double *py,double *pz)
+{
+  double ax,ay,az,al2,bx,by,bz,bl2,adotb,r11,costh,th,dth;
+  double spot = 0;
+  ax = px[iben] - px[jben];
+  ay = py[iben] - py[jben];
+  az = pz[iben] - pz[jben];
+  al2 = ax*ax+ay*ay+az*az;
+
+  
+  bx = px[kben] - px[jben];
+  by = py[kben] - py[jben];
+  bz = pz[kben] - pz[jben];
+  bl2=bx*bx+by*by+bz*bz;
+  
+  adotb = ax*bx + ay*by + az*bz;
+  r11 = 1./sqrt(al2*bl2);
+  costh = adotb*r11;
+  if(costh <= -1.){
+    costh = -1.;
+    th = M_PI;
+  } else {
+    th = acos(costh);
+  }
+
+  switch(itben){
+  case 0: /* harmonic */
+    dth = th - eqben;  
+    spot = .5*fkben*dth*dth;
+    break;
+  case 1: /* cosine */
+    if(costh > 1.) costh =1.;
+    else if(costh < -1.) costh = -1.;
+    /* th = acos(costh); */      
+    spot = fkben * (1.+costh);
+    break;
+  case 2: /* quartic */
+    dth = th - eqben;  
+    spot = aq[0] + dth*(aq[1] + dth*(aq[2] + dth*(aq[3] + dth*aq[4])));
+    break;
+  default:
+    md_error("itype not implemented in potbend (numerical test)");
+    break;
+  }
+  return spot;
+}
+/*---------------------------------------------------------------------*/

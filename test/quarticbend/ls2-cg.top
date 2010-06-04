@@ -1,0 +1,189 @@
+---------------------Header info --------------------------
+~mol_name_def[\mol_name{ls2-cg}\natom{42}
+\nbond{41} \nbend{59} \ntors{18} (76 + 19) \n14{18}]
+-------------------- Atom defs ----------------------------
+~atom_def[\atom_typ{  GBH}\atom_ind{   0}\mass{54.028}\charge{0}\valence{2}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{   1}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{   2}\mass{54.028}\charge{0}\valence{3}\group{SER}]
+~atom_def[\atom_typ{  SER}\atom_ind{   3}\mass{31.034}\charge{0}\valence{1}\group{SER}]
+~atom_def[\atom_typ{  GBH}\atom_ind{   4}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{   5}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{   6}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{   7}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{   8}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{   9}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  10}\mass{54.028}\charge{0}\valence{3}\group{SER}]
+~atom_def[\atom_typ{  SER}\atom_ind{  11}\mass{31.034}\charge{0}\valence{1}\group{SER}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  12}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{  13}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  14}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{  15}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  16}\mass{54.028}\charge{0}\valence{3}\group{SER}]
+~atom_def[\atom_typ{  SER}\atom_ind{  17}\mass{31.034}\charge{0}\valence{1}\group{SER}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  18}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{  19}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  20}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{  21}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  22}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{  23}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  24}\mass{54.028}\charge{0}\valence{3}\group{SER}]
+~atom_def[\atom_typ{  SER}\atom_ind{  25}\mass{31.034}\charge{0}\valence{1}\group{SER}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  26}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{  27}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  28}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{  29}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  30}\mass{54.028}\charge{0}\valence{3}\group{SER}]
+~atom_def[\atom_typ{  SER}\atom_ind{  31}\mass{31.034}\charge{0}\valence{1}\group{SER}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  32}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{  33}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  34}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{  35}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  36}\mass{54.028}\charge{0}\valence{3}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{  37}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  38}\mass{54.028}\charge{0}\valence{3}\group{SER}]
+~atom_def[\atom_typ{  SER}\atom_ind{  39}\mass{31.034}\charge{0}\valence{1}\group{SER}]
+~atom_def[\atom_typ{  GBH}\atom_ind{  40}\mass{54.028}\charge{0}\valence{2}\group{LEU}]
+~atom_def[\atom_typ{  LEU}\atom_ind{  41}\mass{57.116}\charge{0}\valence{1}\group{LEU}]
+-------------------- Bond defs ----------------------------
+~bond_def[\atom1{   0} \atom2{   1}] GBH-LEU
+~bond_def[\atom1{   0} \atom2{   2}] GBH-GBH
+~bond_def[\atom1{   2} \atom2{   3}] GBH-SER
+~bond_def[\atom1{   2} \atom2{   4}] GBH-GBH
+~bond_def[\atom1{   4} \atom2{   5}] GBH-LEU
+~bond_def[\atom1{   4} \atom2{   6}] GBH-GBH
+~bond_def[\atom1{   6} \atom2{   7}] GBH-LEU
+~bond_def[\atom1{   6} \atom2{   8}] GBH-GBH
+~bond_def[\atom1{   8} \atom2{   9}] GBH-LEU
+~bond_def[\atom1{   8} \atom2{  10}] GBH-GBH
+~bond_def[\atom1{  10} \atom2{  11}] GBH-SER
+~bond_def[\atom1{  10} \atom2{  12}] GBH-GBH
+~bond_def[\atom1{  12} \atom2{  13}] GBH-LEU
+~bond_def[\atom1{  12} \atom2{  14}] GBH-GBH
+~bond_def[\atom1{  14} \atom2{  15}] GBH-LEU
+~bond_def[\atom1{  14} \atom2{  16}] GBH-GBH
+~bond_def[\atom1{  16} \atom2{  17}] GBH-SER
+~bond_def[\atom1{  16} \atom2{  18}] GBH-GBH
+~bond_def[\atom1{  18} \atom2{  19}] GBH-LEU
+~bond_def[\atom1{  18} \atom2{  20}] GBH-GBH
+~bond_def[\atom1{  20} \atom2{  21}] GBH-LEU
+~bond_def[\atom1{  20} \atom2{  22}] GBH-GBH
+~bond_def[\atom1{  22} \atom2{  23}] GBH-LEU
+~bond_def[\atom1{  22} \atom2{  24}] GBH-GBH
+~bond_def[\atom1{  24} \atom2{  25}] GBH-SER
+~bond_def[\atom1{  24} \atom2{  26}] GBH-GBH
+~bond_def[\atom1{  26} \atom2{  27}] GBH-LEU
+~bond_def[\atom1{  26} \atom2{  28}] GBH-GBH
+~bond_def[\atom1{  28} \atom2{  29}] GBH-LEU
+~bond_def[\atom1{  28} \atom2{  30}] GBH-GBH
+~bond_def[\atom1{  30} \atom2{  31}] GBH-SER
+~bond_def[\atom1{  30} \atom2{  32}] GBH-GBH
+~bond_def[\atom1{  32} \atom2{  33}] GBH-LEU
+~bond_def[\atom1{  32} \atom2{  34}] GBH-GBH
+~bond_def[\atom1{  34} \atom2{  35}] GBH-LEU
+~bond_def[\atom1{  34} \atom2{  36}] GBH-GBH
+~bond_def[\atom1{  36} \atom2{  37}] GBH-LEU
+~bond_def[\atom1{  36} \atom2{  38}] GBH-GBH
+~bond_def[\atom1{  38} \atom2{  39}] GBH-SER
+~bond_def[\atom1{  38} \atom2{  40}] GBH-GBH
+~bond_def[\atom1{  40} \atom2{  41}] GBH-LEU
+-------------------- Bend defs ----------------------------
+~bend_def[\atom1{   1} \atom2{   0} \atom3{   2} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{   0} \atom2{   2} \atom3{   3} \label{nside} ] GBH-GBH-SER
+~bend_def[\atom1{   0} \atom2{   2} \atom3{   4}] GBH-GBH-GBH
+~bend_def[\atom1{   3} \atom2{   2} \atom3{   4} \label{cside} ] SER-GBH-GBH
+~bend_def[\atom1{   2} \atom2{   4} \atom3{   5} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{   2} \atom2{   4} \atom3{   6}] GBH-GBH-GBH
+~bend_def[\atom1{   5} \atom2{   4} \atom3{   6} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{   4} \atom2{   6} \atom3{   7} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{   4} \atom2{   6} \atom3{   8}] GBH-GBH-GBH
+~bend_def[\atom1{   7} \atom2{   6} \atom3{   8} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{   6} \atom2{   8} \atom3{   9} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{   6} \atom2{   8} \atom3{  10}] GBH-GBH-GBH
+~bend_def[\atom1{   9} \atom2{   8} \atom3{  10} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{   8} \atom2{  10} \atom3{  11} \label{nside} ] GBH-GBH-SER
+~bend_def[\atom1{   8} \atom2{  10} \atom3{  12}] GBH-GBH-GBH
+~bend_def[\atom1{  11} \atom2{  10} \atom3{  12} \label{cside} ] SER-GBH-GBH
+~bend_def[\atom1{  10} \atom2{  12} \atom3{  13} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{  10} \atom2{  12} \atom3{  14}] GBH-GBH-GBH
+~bend_def[\atom1{  13} \atom2{  12} \atom3{  14} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{  12} \atom2{  14} \atom3{  15} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{  12} \atom2{  14} \atom3{  16}] GBH-GBH-GBH
+~bend_def[\atom1{  15} \atom2{  14} \atom3{  16} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{  14} \atom2{  16} \atom3{  17} \label{nside} ] GBH-GBH-SER
+~bend_def[\atom1{  14} \atom2{  16} \atom3{  18}] GBH-GBH-GBH
+~bend_def[\atom1{  17} \atom2{  16} \atom3{  18} \label{cside} ] SER-GBH-GBH
+~bend_def[\atom1{  16} \atom2{  18} \atom3{  19} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{  16} \atom2{  18} \atom3{  20}] GBH-GBH-GBH
+~bend_def[\atom1{  19} \atom2{  18} \atom3{  20} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{  18} \atom2{  20} \atom3{  21} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{  18} \atom2{  20} \atom3{  22}] GBH-GBH-GBH
+~bend_def[\atom1{  21} \atom2{  20} \atom3{  22} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{  20} \atom2{  22} \atom3{  23} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{  20} \atom2{  22} \atom3{  24}] GBH-GBH-GBH
+~bend_def[\atom1{  23} \atom2{  22} \atom3{  24} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{  22} \atom2{  24} \atom3{  25} \label{nside} ] GBH-GBH-SER
+~bend_def[\atom1{  22} \atom2{  24} \atom3{  26}] GBH-GBH-GBH
+~bend_def[\atom1{  25} \atom2{  24} \atom3{  26} \label{cside} ] SER-GBH-GBH
+~bend_def[\atom1{  24} \atom2{  26} \atom3{  27} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{  24} \atom2{  26} \atom3{  28}] GBH-GBH-GBH
+~bend_def[\atom1{  27} \atom2{  26} \atom3{  28} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{  26} \atom2{  28} \atom3{  29} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{  26} \atom2{  28} \atom3{  30}] GBH-GBH-GBH
+~bend_def[\atom1{  29} \atom2{  28} \atom3{  30} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{  28} \atom2{  30} \atom3{  31} \label{nside} ] GBH-GBH-SER
+~bend_def[\atom1{  28} \atom2{  30} \atom3{  32}] GBH-GBH-GBH
+~bend_def[\atom1{  31} \atom2{  30} \atom3{  32} \label{cside} ] SER-GBH-GBH
+~bend_def[\atom1{  30} \atom2{  32} \atom3{  33} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{  30} \atom2{  32} \atom3{  34}] GBH-GBH-GBH
+~bend_def[\atom1{  33} \atom2{  32} \atom3{  34} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{  32} \atom2{  34} \atom3{  35} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{  32} \atom2{  34} \atom3{  36}] GBH-GBH-GBH
+~bend_def[\atom1{  35} \atom2{  34} \atom3{  36} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{  34} \atom2{  36} \atom3{  37} \label{nside} ] GBH-GBH-LEU
+~bend_def[\atom1{  34} \atom2{  36} \atom3{  38}] GBH-GBH-GBH
+~bend_def[\atom1{  37} \atom2{  36} \atom3{  38} \label{cside} ] LEU-GBH-GBH
+~bend_def[\atom1{  36} \atom2{  38} \atom3{  39} \label{nside} ] GBH-GBH-SER
+~bend_def[\atom1{  36} \atom2{  38} \atom3{  40}] GBH-GBH-GBH
+~bend_def[\atom1{  39} \atom2{  38} \atom3{  40} \label{cside} ] SER-GBH-GBH
+~bend_def[\atom1{  38} \atom2{  40} \atom3{  41} \label{nside} ] GBH-GBH-LEU
+--------------------Tors defs -----------------------------
+~torsion_def[\atom1{   0}\atom2{   2}\atom3{   4}\atom4{   6}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{   2}\atom2{   4}\atom3{   6}\atom4{   8}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{   4}\atom2{   6}\atom3{   8}\atom4{  10}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{   6}\atom2{   8}\atom3{  10}\atom4{  12}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{   8}\atom2{  10}\atom3{  12}\atom4{  14}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  10}\atom2{  12}\atom3{  14}\atom4{  16}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  12}\atom2{  14}\atom3{  16}\atom4{  18}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  14}\atom2{  16}\atom3{  18}\atom4{  20}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  16}\atom2{  18}\atom3{  20}\atom4{  22}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  18}\atom2{  20}\atom3{  22}\atom4{  24}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  20}\atom2{  22}\atom3{  24}\atom4{  26}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  22}\atom2{  24}\atom3{  26}\atom4{  28}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  24}\atom2{  26}\atom3{  28}\atom4{  30}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  26}\atom2{  28}\atom3{  30}\atom4{  32}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  28}\atom2{  30}\atom3{  32}\atom4{  34}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  30}\atom2{  32}\atom3{  34}\atom4{  36}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  32}\atom2{  34}\atom3{  36}\atom4{  38}] GBH-GBH-GBH-GBH
+~torsion_def[\atom1{  34}\atom2{  36}\atom3{  38}\atom4{  40}] GBH-GBH-GBH-GBH
+-------------------- Improper tors defs -------------------
+--------------------- One four defs -----------------------
+~onefour_def[\atom1{   0}\atom2{   6}] GBH-GBH
+~onefour_def[\atom1{   2}\atom2{   8}] GBH-GBH
+~onefour_def[\atom1{   4}\atom2{  10}] GBH-GBH
+~onefour_def[\atom1{   6}\atom2{  12}] GBH-GBH
+~onefour_def[\atom1{   8}\atom2{  14}] GBH-GBH
+~onefour_def[\atom1{  10}\atom2{  16}] GBH-GBH
+~onefour_def[\atom1{  12}\atom2{  18}] GBH-GBH
+~onefour_def[\atom1{  14}\atom2{  20}] GBH-GBH
+~onefour_def[\atom1{  16}\atom2{  22}] GBH-GBH
+~onefour_def[\atom1{  18}\atom2{  24}] GBH-GBH
+~onefour_def[\atom1{  20}\atom2{  26}] GBH-GBH
+~onefour_def[\atom1{  22}\atom2{  28}] GBH-GBH
+~onefour_def[\atom1{  24}\atom2{  30}] GBH-GBH
+~onefour_def[\atom1{  26}\atom2{  32}] GBH-GBH
+~onefour_def[\atom1{  28}\atom2{  34}] GBH-GBH
+~onefour_def[\atom1{  30}\atom2{  36}] GBH-GBH
+~onefour_def[\atom1{  32}\atom2{  38}] GBH-GBH
+~onefour_def[\atom1{  34}\atom2{  40}] GBH-GBH
+-----------------------------------------------------------
+ntors is 18   and n14 is 18

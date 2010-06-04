@@ -1,0 +1,71 @@
+\section{include/md\_\-macros.h File Reference}
+\label{md__macros_8h}\index{include/md_macros.h@{include/md\_\-macros.h}}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf IEEE}
+\item 
+\#define {\bf MAX}(A, B)~((A$>$B)?(A):(B))
+\item 
+\#define {\bf MIN}(A, B)~((A$<$B)?(A):(B))
+\item 
+\#define {\bf TZ}(A)~((A==0.0)?(1):(A))
+\item 
+\#define {\bf MAGIC}~6755399441055744.0
+\item 
+\#define {\bf MNINT}(X)~(((X)+MAGIC)-MAGIC)
+\item 
+\#define {\bf anint}(X)~MNINT(X)
+\item 
+\#define {\bf COPY\_\-SIGN}(X, Y)~((Y$>$=0)?fabs(X):-fabs(X))
+\item 
+\#define {\bf cbrt}(A)~(pow((A),1./3.))
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{md_macros.h@{md\_\-macros.h}!anint@{anint}}
+\index{anint@{anint}!md_macros.h@{md\_\-macros.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define anint(X)~MNINT(X)}\label{md__macros_8h_8b080d6ca17f9849549f62ac8fa16d75}
+
+
+\index{md_macros.h@{md\_\-macros.h}!cbrt@{cbrt}}
+\index{cbrt@{cbrt}!md_macros.h@{md\_\-macros.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define cbrt(A)~(pow((A),1./3.))}\label{md__macros_8h_9470bb91cd8ad02a9ae82499bfdf21f6}
+
+
+\index{md_macros.h@{md\_\-macros.h}!COPY_SIGN@{COPY\_\-SIGN}}
+\index{COPY_SIGN@{COPY\_\-SIGN}!md_macros.h@{md\_\-macros.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define COPY\_\-SIGN(X, Y)~((Y$>$=0)?fabs(X):-fabs(X))}\label{md__macros_8h_2e53a83c391639fbade4bd527a8b93d0}
+
+
+\index{md_macros.h@{md\_\-macros.h}!IEEE@{IEEE}}
+\index{IEEE@{IEEE}!md_macros.h@{md\_\-macros.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define IEEE}\label{md__macros_8h_a7930e33c57bab29f34a2b6e20369a48}
+
+
+\index{md_macros.h@{md\_\-macros.h}!MAGIC@{MAGIC}}
+\index{MAGIC@{MAGIC}!md_macros.h@{md\_\-macros.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAGIC~6755399441055744.0}\label{md__macros_8h_94630370ae389fb1189282fa0742f310}
+
+
+\index{md_macros.h@{md\_\-macros.h}!MAX@{MAX}}
+\index{MAX@{MAX}!md_macros.h@{md\_\-macros.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX(A, B)~((A$>$B)?(A):(B))}\label{md__macros_8h_d935f1ff1a50822e317bdb321ce991ad}
+
+
+\index{md_macros.h@{md\_\-macros.h}!MIN@{MIN}}
+\index{MIN@{MIN}!md_macros.h@{md\_\-macros.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MIN(A, B)~((A$<$B)?(A):(B))}\label{md__macros_8h_dcd021ac91d43a62b2cdecf9a5b971a7}
+
+
+\index{md_macros.h@{md\_\-macros.h}!MNINT@{MNINT}}
+\index{MNINT@{MNINT}!md_macros.h@{md\_\-macros.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MNINT(X)~(((X)+MAGIC)-MAGIC)}\label{md__macros_8h_4fa54e763a15e07e4a568ae9913a5be1}
+
+
+\index{md_macros.h@{md\_\-macros.h}!TZ@{TZ}}
+\index{TZ@{TZ}!md_macros.h@{md\_\-macros.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TZ(A)~((A==0.0)?(1):(A))}\label{md__macros_8h_813c00f9f7ed20ecc767c453e9fabfe0}
+
+

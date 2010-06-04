@@ -1,0 +1,11 @@
+
+
+~mol_def[\mol_parm_file{ls2-cg.top}\mol_therm_opt{global}\nmol{1}
+          \mol_index{1}]
+---------------------------------------------------------------------
+mol_def[\mol_parm_file{popc-cg.top}\mol_therm_opt{global}\nmol{80}
+          \mol_index{2}]
+
+mol_def[\mol_parm_file{water-cg.top}\mol_therm_opt{global}\nmol{1683}
+          \mol_index{3}]
+

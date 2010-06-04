@@ -1,0 +1,79 @@
+\section{utils/md\_\-char.c File Reference}
+\label{md__char_8c}\index{utils/md_char.c@{utils/md\_\-char.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf get\_\-meta\_\-key} (FILE $\ast$fp, char $\ast$filename, char $\ast${\bf line}, int $\ast$nch, int $\ast$nline, char $\ast$metakey, {\bf KEY} $\ast$key\_\-root, int $\ast$num\_\-keys)
+\item 
+void {\bf get\_\-keys} (FILE $\ast$fp, char $\ast$filename, char $\ast${\bf line}, int $\ast$nline, int $\ast$nch, int $\ast$num\_\-keys, {\bf KEY} $\ast$key\_\-root)
+\item 
+void {\bf free\_\-key} (int num\_\-keys, {\bf KEY} $\ast${\bf key\_\-now})
+\item 
+void {\bf syntax\_\-error} (const char $\ast$infile, FILE $\ast$fp, int nline, char $\ast${\bf line}, int nch)
+\item 
+int {\bf get\_\-dict\_\-num} (int num\_\-dict, {\bf WORD} dict[$\,$], char $\ast${\bf name})
+\item 
+void {\bf print\_\-dict} ({\bf WORD} keyword, int num, {\bf WORD} dict[$\,$])
+\item 
+void {\bf err\_\-found} ({\bf WORD} dict, int num\_\-found, char $\ast$filename, int nline)
+\item 
+void {\bf write\_\-key} ({\bf KEY} $\ast$key)
+\item 
+void {\bf get\_\-sim\_\-keys} (const char $\ast$command, const char $\ast$infile, int $\ast$num\_\-keys, {\bf KEY} $\ast$key\_\-root)
+\item 
+int {\bf getnxtint} (char $\ast$charinfo)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{md_char.c@{md\_\-char.c}!err_found@{err\_\-found}}
+\index{err_found@{err\_\-found}!md_char.c@{md\_\-char.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void err\_\-found ({\bf WORD} {\em dict}, int {\em num\_\-found}, char $\ast$ {\em filename}, int {\em nline})}\label{md__char_8c_a49e8b65ece1730584ffece22c01a315}
+
+
+\index{md_char.c@{md\_\-char.c}!free_key@{free\_\-key}}
+\index{free_key@{free\_\-key}!md_char.c@{md\_\-char.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-key (int {\em num\_\-keys}, {\bf KEY} $\ast$ {\em key\_\-now})}\label{md__char_8c_2fbbbab18403570cbf51d1ab794db539}
+
+
+\index{md_char.c@{md\_\-char.c}!get_dict_num@{get\_\-dict\_\-num}}
+\index{get_dict_num@{get\_\-dict\_\-num}!md_char.c@{md\_\-char.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int get\_\-dict\_\-num (int {\em num\_\-dict}, {\bf WORD} {\em dict}[$\,$], char $\ast$ {\em name})}\label{md__char_8c_330c7fbb9aa4f8ba98ca797555912c17}
+
+
+\index{md_char.c@{md\_\-char.c}!get_keys@{get\_\-keys}}
+\index{get_keys@{get\_\-keys}!md_char.c@{md\_\-char.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-keys (FILE $\ast$ {\em fp}, char $\ast$ {\em filename}, char $\ast$ {\em line}, int $\ast$ {\em nline}, int $\ast$ {\em nch}, int $\ast$ {\em num\_\-keys}, {\bf KEY} $\ast$ {\em key\_\-root})}\label{md__char_8c_c258ea686aa9fefdddb270c2eb6fdcf4}
+
+
+\index{md_char.c@{md\_\-char.c}!get_meta_key@{get\_\-meta\_\-key}}
+\index{get_meta_key@{get\_\-meta\_\-key}!md_char.c@{md\_\-char.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-meta\_\-key (FILE $\ast$ {\em fp}, char $\ast$ {\em filename}, char $\ast$ {\em line}, int $\ast$ {\em nch}, int $\ast$ {\em nline}, char $\ast$ {\em metakey}, {\bf KEY} $\ast$ {\em key\_\-root}, int $\ast$ {\em num\_\-keys})}\label{md__char_8c_4641500cc258afc7065d49ff2a53f00a}
+
+
+\index{md_char.c@{md\_\-char.c}!get_sim_keys@{get\_\-sim\_\-keys}}
+\index{get_sim_keys@{get\_\-sim\_\-keys}!md_char.c@{md\_\-char.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-sim\_\-keys (const char $\ast$ {\em command}, const char $\ast$ {\em infile}, int $\ast$ {\em num\_\-keys}, {\bf KEY} $\ast$ {\em key\_\-root})}\label{md__char_8c_ad85edd45abc9b8d321c28a765ec2564}
+
+
+\index{md_char.c@{md\_\-char.c}!getnxtint@{getnxtint}}
+\index{getnxtint@{getnxtint}!md_char.c@{md\_\-char.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int getnxtint (char $\ast$ {\em charinfo})}\label{md__char_8c_398f408ae1a92043e0aa2601424864de}
+
+
+\index{md_char.c@{md\_\-char.c}!print_dict@{print\_\-dict}}
+\index{print_dict@{print\_\-dict}!md_char.c@{md\_\-char.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void print\_\-dict ({\bf WORD} {\em keyword}, int {\em num}, {\bf WORD} {\em dict}[$\,$])}\label{md__char_8c_c98bfb297c95ddd2c6a1c338fea14eae}
+
+
+\index{md_char.c@{md\_\-char.c}!syntax_error@{syntax\_\-error}}
+\index{syntax_error@{syntax\_\-error}!md_char.c@{md\_\-char.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void syntax\_\-error (const char $\ast$ {\em infile}, FILE $\ast$ {\em fp}, int {\em nline}, char $\ast$ {\em line}, int {\em nch})}\label{md__char_8c_faa8c94c422b1a46ed8e7f5f8dd9e86b}
+
+
+\index{md_char.c@{md\_\-char.c}!write_key@{write\_\-key}}
+\index{write_key@{write\_\-key}!md_char.c@{md\_\-char.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void write\_\-key ({\bf KEY} $\ast$ {\em key})}\label{md__char_8c_e74726713af19aa1997413ce9033c631}
+
+

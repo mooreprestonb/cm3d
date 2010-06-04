@@ -1,0 +1,8 @@
+
+---------------------------------------------------------------------
+~mol_def[\mol_parm_file{abutane.top}
+	\mol_therm_opt{none}\nmol{1}\mol_index{1}]
+---------------------------------------------------------------------
+
+Thermostat options: NONE GLOBAL GLOB_MOL IND_MOL ATM_MOL
+

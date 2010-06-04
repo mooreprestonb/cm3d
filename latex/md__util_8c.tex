@@ -1,0 +1,100 @@
+\section{utils/md\_\-util.c File Reference}
+\label{md__util_8c}\index{utils/md_util.c@{utils/md\_\-util.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf same\_\-mole} (int {\bf iatom}, int {\bf jatom}, int $\ast$itype\_\-species, int $\ast$itype\_\-molecules)
+\item 
+FILE $\ast$ {\bf cfopenw} (char $\ast${\bf name})
+\item 
+void $\ast$ {\bf cmalloc} (size\_\-t mem)
+\item 
+void $\ast$ {\bf crealloc} (void $\ast$ptr, size\_\-t mem)
+\item 
+void {\bf allocate\_\-coords} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf free\_\-coords} ({\bf COORDS} $\ast$coords)
+\item 
+void {\bf allocate\_\-extend} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf free\_\-extend} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf allocate\_\-exttab} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, int ntable)
+\item 
+void {\bf free\_\-exttab} ({\bf COORDS} $\ast$coords)
+\item 
+void {\bf rmass} (int natoms, double $\ast$fx, double $\ast$fy, double $\ast$fz, double $\ast$amass)
+\item 
+void {\bf test\_\-anint} (void)
+\item 
+void {\bf free\_\-all\_\-pointers} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NGBR} $\ast$ngbr)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{md_util.c@{md\_\-util.c}!allocate_coords@{allocate\_\-coords}}
+\index{allocate_coords@{allocate\_\-coords}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void allocate\_\-coords ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__util_8c_93ebcc5eb181eb7ff6725dffcecf0f83}
+
+
+\index{md_util.c@{md\_\-util.c}!allocate_extend@{allocate\_\-extend}}
+\index{allocate_extend@{allocate\_\-extend}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void allocate\_\-extend ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__util_8c_5ad7b39ff9bb32493b43bc3a76bea3d5}
+
+
+\index{md_util.c@{md\_\-util.c}!allocate_exttab@{allocate\_\-exttab}}
+\index{allocate_exttab@{allocate\_\-exttab}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void allocate\_\-exttab ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, int {\em ntable})}\label{md__util_8c_a92b3b51f009836567801c624886cfd2}
+
+
+\index{md_util.c@{md\_\-util.c}!cfopenw@{cfopenw}}
+\index{cfopenw@{cfopenw}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ cfopenw (char $\ast$ {\em name})}\label{md__util_8c_6dd8c8e7be7ee70a07e47ab5940f6f44}
+
+
+\index{md_util.c@{md\_\-util.c}!cmalloc@{cmalloc}}
+\index{cmalloc@{cmalloc}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ cmalloc (size\_\-t {\em mem})}\label{md__util_8c_a5c3f1d97e43a7c3bb8e219daa2c6e5f}
+
+
+\index{md_util.c@{md\_\-util.c}!crealloc@{crealloc}}
+\index{crealloc@{crealloc}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ crealloc (void $\ast$ {\em ptr}, size\_\-t {\em mem})}\label{md__util_8c_a6dd3d6ff2bb384cf8edd1388d645568}
+
+
+\index{md_util.c@{md\_\-util.c}!free_all_pointers@{free\_\-all\_\-pointers}}
+\index{free_all_pointers@{free\_\-all\_\-pointers}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-all\_\-pointers ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NGBR} $\ast$ {\em ngbr})}\label{md__util_8c_63964c6e98e40f123b60d2cf7a2bcdc9}
+
+
+\index{md_util.c@{md\_\-util.c}!free_coords@{free\_\-coords}}
+\index{free_coords@{free\_\-coords}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-coords ({\bf COORDS} $\ast$ {\em coords})}\label{md__util_8c_0ff8cae2318de2aa8baca8b88e6f6c71}
+
+
+\index{md_util.c@{md\_\-util.c}!free_extend@{free\_\-extend}}
+\index{free_extend@{free\_\-extend}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-extend ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__util_8c_215290bdc1809b6e067daf4779d1012b}
+
+
+\index{md_util.c@{md\_\-util.c}!free_exttab@{free\_\-exttab}}
+\index{free_exttab@{free\_\-exttab}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-exttab ({\bf COORDS} $\ast$ {\em coords})}\label{md__util_8c_6ebb270f26e89f6ade540453c447ea3b}
+
+
+\index{md_util.c@{md\_\-util.c}!rmass@{rmass}}
+\index{rmass@{rmass}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void rmass (int {\em natoms}, double $\ast$ {\em fx}, double $\ast$ {\em fy}, double $\ast$ {\em fz}, double $\ast$ {\em amass})}\label{md__util_8c_81f071e06b2705ae33a2addd6a66c15d}
+
+
+\index{md_util.c@{md\_\-util.c}!same_mole@{same\_\-mole}}
+\index{same_mole@{same\_\-mole}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int same\_\-mole (int {\em iatom}, int {\em jatom}, int $\ast$ {\em itype\_\-species}, int $\ast$ {\em itype\_\-molecules})}\label{md__util_8c_e3d0df6067ab8da08e90f66ab8c2c417}
+
+
+\index{md_util.c@{md\_\-util.c}!test_anint@{test\_\-anint}}
+\index{test_anint@{test\_\-anint}!md_util.c@{md\_\-util.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void test\_\-anint (void)}\label{md__util_8c_f2bb2600d7dd8b340ea72276e8fbe30b}
+
+

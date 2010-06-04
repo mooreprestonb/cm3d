@@ -1,0 +1,23 @@
+
+\ncoord{3}
+
+~coll_coor[\number{1} \type{distance} \mass{5} \fk{300} 
+	\hills{on} \hilldepth{500} \hillwidth{20} 
+	\frozen{on} \const_vel{20} \temp{300} \thermstat_mass{50} \min_val{0}
+	\max_val{10} \wall_stiff{50}
+	\atoms1{1,50} \atoms2{3,51,52,53}
+]
+
+~coll_coor[\number{2} \type{diff_distance} \mass{5} \fk{300} \hilldepth{500} \hillwidth{20} 
+	\frozen{on} \const_vel{20} \temp{300} \thermstat_mass{50} \min_val{0}
+	\max_val{10} \wall_stiff{50}
+
+	\atom1{50} \atom2{51} \atom3{52}
+]
+
+~coll_coor[\number{3} \type{cornum} \mass{5} \fk{300} \hilldepth{500} \hillwidth{20} 
+	\frozen{on} \const_vel{20} \temp{300} \thermstat_mass{50} \min_val{0}
+	\max_val{10} \wall_stiff{50}
+
+	\atoms1{1,50} \atomstypes{OH,HO}
+]

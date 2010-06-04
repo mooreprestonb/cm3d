@@ -1,0 +1,154 @@
+\section{main/min\_\-cntr.c File Reference}
+\label{min__cntr_8c}\index{main/min_cntr.c@{main/min\_\-cntr.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf DXSTEP}~.01
+\item 
+\#define {\bf IRSTEP}~100
+\item 
+\#define {\bf PRINT\_\-FREQ}
+\item 
+\#define {\bf KCOM}~10
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf mal\_\-verify} (int)
+\item 
+double {\bf func} (double $\ast$x)
+\item 
+double {\bf func\_\-ir} (double $\ast$x)
+\item 
+void {\bf dfunc} (double $\ast$x, double $\ast$dx)
+\item 
+void {\bf print\_\-potential} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf load\_\-fix} ({\bf COORDS} $\ast$coords, int $\ast${\bf ndim}, double $\ast$$\ast$p)
+\item 
+void {\bf min\_\-cntr} (char $\ast$command, {\bf FILENAMES} $\ast$filenames, {\bf SIMPARMS} $\ast${\bf simparms}, {\bf WRITE\_\-STEP} $\ast$write\_\-step, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NGBR} $\ast$ngbr)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static {\bf NMODES} {\bf nmodes}
+\item 
+static {\bf ENERGIES} {\bf energies}
+\item 
+static {\bf SIMPARMS} $\ast$ {\bf simparms\_\-s}
+\item 
+static {\bf COORDS} $\ast$ {\bf coords\_\-s}
+\item 
+static {\bf INTER} $\ast$ {\bf inter\_\-s}
+\item 
+static {\bf NGBR} $\ast$ {\bf ngbr\_\-s}
+\item 
+static int {\bf ndim}
+\item 
+static double $\ast$ {\bf svec}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{min_cntr.c@{min\_\-cntr.c}!DXSTEP@{DXSTEP}}
+\index{DXSTEP@{DXSTEP}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DXSTEP~.01}\label{min__cntr_8c_42c66cba209595e332d1252893fdd385}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!IRSTEP@{IRSTEP}}
+\index{IRSTEP@{IRSTEP}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define IRSTEP~100}\label{min__cntr_8c_9e269974525a7a0fd3712acf3f805770}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!KCOM@{KCOM}}
+\index{KCOM@{KCOM}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define KCOM~10}\label{min__cntr_8c_38bc6b522ccd213299c55551451f33bf}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!PRINT_FREQ@{PRINT\_\-FREQ}}
+\index{PRINT_FREQ@{PRINT\_\-FREQ}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define PRINT\_\-FREQ}\label{min__cntr_8c_80aba34bd5f5567647b5bcb85c50beab}
+
+
+
+
+\subsection{Function Documentation}
+\index{min_cntr.c@{min\_\-cntr.c}!dfunc@{dfunc}}
+\index{dfunc@{dfunc}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dfunc (double $\ast$ {\em x}, double $\ast$ {\em dx})}\label{min__cntr_8c_56d5f96a412bbb814006f84fdc15640f}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!func@{func}}
+\index{func@{func}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double func (double $\ast$ {\em x})}\label{min__cntr_8c_758ffd839db1a666c87b2d61a20839c0}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!func_ir@{func\_\-ir}}
+\index{func_ir@{func\_\-ir}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double func\_\-ir (double $\ast$ {\em x})}\label{min__cntr_8c_d7b5b4ae50bb5f9c75d4ac7ad0b153da}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!load_fix@{load\_\-fix}}
+\index{load_fix@{load\_\-fix}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void load\_\-fix ({\bf COORDS} $\ast$ {\em coords}, int $\ast$ {\em ndim}, double $\ast$$\ast$ {\em p})}\label{min__cntr_8c_7e4b9de41c8146e54344e56955447127}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!mal_verify@{mal\_\-verify}}
+\index{mal_verify@{mal\_\-verify}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void mal\_\-verify (int)}\label{min__cntr_8c_87051351b4758adbcfc4c35051e76ad4}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!min_cntr@{min\_\-cntr}}
+\index{min_cntr@{min\_\-cntr}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void min\_\-cntr (char $\ast$ {\em command}, {\bf FILENAMES} $\ast$ {\em filenames}, {\bf SIMPARMS} $\ast$ {\em simparms}, {\bf WRITE\_\-STEP} $\ast$ {\em write\_\-step}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NGBR} $\ast$ {\em ngbr})}\label{min__cntr_8c_8587880c16f322bf7500562de0fe1805}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!print_potential@{print\_\-potential}}
+\index{print_potential@{print\_\-potential}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void print\_\-potential ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$ {\em coords})}\label{min__cntr_8c_8107c3f78d6eb2be81e3a7ee9db2c2ce}
+
+
+
+
+\subsection{Variable Documentation}
+\index{min_cntr.c@{min\_\-cntr.c}!coords_s@{coords\_\-s}}
+\index{coords_s@{coords\_\-s}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf COORDS}$\ast$ {\bf coords\_\-s}\hspace{0.3cm}{\tt  [static]}}\label{min__cntr_8c_3a3eacd0da1348aa99408f8a09f6944f}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!energies@{energies}}
+\index{energies@{energies}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf ENERGIES} {\bf energies}\hspace{0.3cm}{\tt  [static]}}\label{min__cntr_8c_59c3f5a9f5f4158c0a1fd0cff94400b9}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!inter_s@{inter\_\-s}}
+\index{inter_s@{inter\_\-s}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf INTER}$\ast$ {\bf inter\_\-s}\hspace{0.3cm}{\tt  [static]}}\label{min__cntr_8c_a7537c5650f71c7c708b0f21155e05bc}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!ndim@{ndim}}
+\index{ndim@{ndim}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf ndim}\hspace{0.3cm}{\tt  [static]}}\label{min__cntr_8c_0d9c8cbc461c7cf86cad8e548f195bd1}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!ngbr_s@{ngbr\_\-s}}
+\index{ngbr_s@{ngbr\_\-s}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NGBR}$\ast$ {\bf ngbr\_\-s}\hspace{0.3cm}{\tt  [static]}}\label{min__cntr_8c_c51ca313dea37775f6db3ae373e2cc48}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!nmodes@{nmodes}}
+\index{nmodes@{nmodes}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf NMODES} {\bf nmodes}\hspace{0.3cm}{\tt  [static]}}\label{min__cntr_8c_107b34897f6b419cadac03a1a7d1efb3}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!simparms_s@{simparms\_\-s}}
+\index{simparms_s@{simparms\_\-s}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf SIMPARMS}$\ast$ {\bf simparms\_\-s}\hspace{0.3cm}{\tt  [static]}}\label{min__cntr_8c_6f31cac1a5e167f737d9fd8a6b44d8ad}
+
+
+\index{min_cntr.c@{min\_\-cntr.c}!svec@{svec}}
+\index{svec@{svec}!min_cntr.c@{min\_\-cntr.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf svec}\hspace{0.3cm}{\tt  [static]}}\label{min__cntr_8c_ac9054b66ef731cec2f6a11399d90ded}
+
+

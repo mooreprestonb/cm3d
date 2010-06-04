@@ -1,0 +1,30 @@
+\section{utils/fft/mpi3dfft.c File Reference}
+\label{mpi3dfft_8c}\index{utils/fft/mpi3dfft.c@{utils/fft/mpi3dfft.c}}
+{\tt \#include $<$mpi.h$>$}\par
+{\tt \#include $<$assert.h$>$}\par
+{\tt \#include \char`\"{}prf.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct {\bf dcomplex}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+static void {\bf z\-Transpose12} ({\bf dcomplex} $\ast$ut, {\bf dcomplex} $\ast$u, int n1, int n2, int n3, MPI\_\-Datatype mpitype, MPI\_\-Comm comm)
+\item 
+void {\bf mpi\-Z3d\-FFT} (void $\ast$u, int n1, int n2, int n3, void $\ast${\bf v}, int isign, double scale, MPI\_\-Comm comm)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{mpi3dfft.c@{mpi3dfft.c}!mpiZ3dFFT@{mpiZ3dFFT}}
+\index{mpiZ3dFFT@{mpiZ3dFFT}!mpi3dfft.c@{mpi3dfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void mpi\-Z3d\-FFT (void $\ast$ {\em u}, int {\em n1}, int {\em n2}, int {\em n3}, void $\ast$ {\em v}, int {\em isign}, double {\em scale}, MPI\_\-Comm {\em comm})}\label{mpi3dfft_8c_0e65b820b0862f5165be8457a6f8e632}
+
+
+\index{mpi3dfft.c@{mpi3dfft.c}!zTranspose12@{zTranspose12}}
+\index{zTranspose12@{zTranspose12}!mpi3dfft.c@{mpi3dfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void z\-Transpose12 ({\bf dcomplex} $\ast$ {\em ut}, {\bf dcomplex} $\ast$ {\em u}, int {\em n1}, int {\em n2}, int {\em n3}, MPI\_\-Datatype {\em mpitype}, MPI\_\-Comm {\em comm})\hspace{0.3cm}{\tt  [static]}}\label{mpi3dfft_8c_57cf08940e486cb0a8a8bccad6b80c2a}
+
+

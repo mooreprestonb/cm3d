@@ -1,0 +1,601 @@
+/* 
+   Copyright (C) 1997 1998 1999 2000 Dr. Preston B. Moore
+
+Dr. Preston B. Moore
+Associate Director, Center for Molecular Modeling (CMM)
+University of Pennsylvania, Department of Chemistry, Box 188 
+231 S. 34th St. Philadelphia, PA 19104-6323 USA
+EMAIL: moore@cmm.chem.upenn.edu  
+WWW: http://www.cmm.upenn.edu/~moore
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+*/
+
+/* 
+   subroutine for the calculation of lennard jones forces 
+   force_ter() gets the intermolecular forces
+   getvirter() get the virial for the pressure tensor    
+   check_distance() make sure interactions aren't too close 
+   */
+
+#include "md.h"
+
+/* #define VERBOSE  */
+/* #define DEBUG */
+/* #define WRITE_TABLE */
+/* #define CUBIC */
+/* #define CHEESE */
+/*------------------------------------------------------------------*/
+
+void nrefsh(SIMPARMS *simparms,COORDS *coords,INTER *inter,NGBR *ngbr)
+{
+  int i,iflag=0;
+<<<<<<< md_finter.c
+  double *dxn,*dyn,*dzn,*px,*py,*pz,xc,yc,zc,r2;
+  double skin2;
+  static int istepl = 0;
+=======
+  double *dxn,*dyn,*dzn,*px,*py,*pz,xc,yc,zc;
+  double skin2,scale;
+  static int isteplast=0;
+>>>>>>> 1.2
+
+  dxn = inter->dxn;
+  dyn = inter->dyn;
+  dzn = inter->dzn;
+  px = coords->px;
+  py = coords->py;
+  pz = coords->pz;
+
+  switch(ngbr->ilist){
+  case 0:  /* nolist */
+    break;
+  case 1: /* ngbr list */
+    if(simparms->rank==0){
+      iflag = 0;
+      skin2 = .25*inter->skin_ter*inter->skin_ter;
+      for (i=0;i<simparms->natoms;++i){
+        xc = dxn[i]-px[i]; 
+        yc = dyn[i]-py[i]; 
+        zc = dzn[i]-pz[i];
+<<<<<<< md_finter.c
+	r2 = xc*xc+yc*yc+zc*zc;
+	if(r2>skin2){ iflag = 1;}
+=======
+        if(xc*xc+yc*yc+zc*zc>skin2){
+          iflag = 1;
+	  break;
+        }
+>>>>>>> 1.2
+      }
+    }
+    
+#ifdef PARA
+    MPI_Bcast(&iflag,1,MPI_INT,0,MPI_COMM_WORLD);
+#endif
+<<<<<<< md_finter.c
+    if((iflag==1) && (simparms->istep-istepl==1)){
+      md_warning("large step detected -> resetting positions");
+      for (i=0;i<simparms->natoms;i++){
+        xc = px[i] - dxn[i]; 
+        yc = py[i] - dyn[i]; 
+        zc = pz[i] - dzn[i];
+	r2 = xc*xc+yc*yc+zc*zc;
+	if(r2>skin2){
+	  r2 = .5*(skin2/r2);
+	  px[i] += xc*r2;
+	  py[i] += yc*r2;
+	  pz[i] += zc*r2;
+	}
+      }
+    }
+    if(iflag==1) get_ngbr(simparms,coords,inter,ngbr);
+=======
+    
+    if(iflag==1) {
+#define RESETPOS
+#ifdef RESETPOS
+      if(simparms->istep - isteplast <3){
+	md_warning("reseting position! Energy not conserved");
+	for (i=0;i<simparms->natoms;++i){
+	  xc = px[i] - dxn[i]; 
+	  yc = py[i] - dyn[i]; 
+	  zc = pz[i] - dzn[i];
+	  if(xc*xc+yc*yc+zc*zc>skin2){
+	    scale = skin2/(xc*xc+yc*yc+zc*zc);
+	    px[i] = dxn[i] + scale*xc;
+	    py[i] = dyn[i] + scale*yc;
+	    pz[i] = dzn[i] + scale*zc;
+	  }
+	}
+      }
+#endif
+      
+      get_ngbr(simparms,coords,inter,ngbr);
+      isteplast = simparms->istep;
+    }
+>>>>>>> 1.2
+    break;
+  case 2: /* link list only */
+    if(fabs(coords->cell_old-cbrt(get_deth(coords->hmat))) >
+       (inter->skin_ter/2.)){
+      get_ngbr(simparms,coords,inter,ngbr);
+    }
+    break;
+  }
+  istepl = simparms->istep;
+}
+/*------------------------------------------------------------------*/
+void force_ter(SIMPARMS *simparms,COORDS *coords,
+	       INTER *inter,NGBR *ngbr,int iflg)
+{
+  int i,j,ii,jj,k,npair,icell,jcell,n3,natoms;
+  int *excl,nexcl,nbreak,icell_old;
+  int *off,*inp,*jnp,*ibreak,**map,*mapi,*itype,i_type;
+  long ibegin,iend;
+  double *fx,*fxs,*sbuf,*rbuf;
+#ifdef CUBIC
+  double f2;
+#endif
+
+  npair = 0;
+  off = inp = jnp = (int *)NULL;
+  fx  = coords->fxl;  /* default to long range force */
+  fxs = coords->fxs;
+
+  natoms = simparms->natoms;
+  n3 = 3*natoms;
+
+  /* switch to long pair or short pair */
+  switch(iflg){
+  case 0:
+    sbuf = coords->scr_buf;
+    for(i=0;i<n3;i++) sbuf[i] = 0.0;
+    npair = ngbr->nprs; 
+    off = ngbr->offs; 
+    inp = ngbr->inps; 
+    jnp = ngbr->jnps; 
+    fx = coords->fxs;
+#ifdef VERBOSE
+    printf("Short - interactions\n");
+    for(i=0;i<npair;i++){
+      printf("%d %d - %d\n",i,inp[i],jnp[i]);
+    }
+#endif
+    break;
+  case 1:
+    zero_potl(); 
+    sbuf = coords->scr_buf; rbuf = coords->scr_rec;
+    for(i=0;i<n3;i++) sbuf[i] = rbuf[i] = 0.0;
+    npair = ngbr->nprt; 
+    off = ngbr->offt; 
+    inp = ngbr->inpt;
+    jnp = ngbr->jnpt;
+#ifdef VERBOSE
+    printf("Total - interactions\n");
+    for(i=0;i<npair;i++){
+      printf("%d %d - %d\n",i,inp[i],jnp[i]);
+    }
+#endif
+    break;
+  default:
+    md_error("ERROR: in inter-molecular force routine?!?!?");
+  }
+
+  map = inter->map;
+  itype = inter->itype;
+  ibreak = coords->ibreak;
+
+  /* calculate force with various neigbor list */
+  switch(ngbr->ilist){
+  case 0:  /* nolist */
+    inp = coords->indx;
+    jnp = coords->jndx;
+
+    /* decompose i so that they is roughly the same number of
+       i-j pairs on each processors */
+
+    decomp_trig((long)natoms,simparms->size,simparms->rank,&ibegin,&iend);
+    ibreak[0] = 0;
+    nbreak = 0;
+    k = 0;
+
+    for(i=ibegin;i<iend;i++){
+      excl = &(inter->exclude[i][0]);
+      nexcl = *(excl);
+      i_type = itype[i];
+      mapi = map[i_type];
+      for(j=i+1;j<natoms;j++){
+#ifdef VERBOSE
+	printf("in= %d %d %d %d %d\n",i,j,mapi[itype[j]],nexcl,excl[1]);
+#endif
+	if (nexcl == j){ 
+	  nexcl = *(++excl);
+	} else if (mapi[itype[j]] == -1){
+	  /* skip null interactions (check if also bonded exclusion)*/
+	} else {
+	  inp[k] = i;
+	  jnp[k] = j;
+	  k++;
+
+	  if(k==simparms->nlen){
+	    if(ibreak[nbreak] != k) ibreak[++nbreak] = k;
+	    force_npol(simparms,coords,k,inp,jnp,nbreak,ibreak,inter,iflg);
+	    k = nbreak = 0;
+	  }
+	} /* if excl */
+      }
+      if(ibreak[nbreak] != k) ibreak[++nbreak] = k;
+    }
+    /* take care of stragglers */
+
+    if(ibreak[nbreak] != k) ibreak[++nbreak] = k;
+    if(k != 0) force_npol(simparms,coords,k,inp,jnp,nbreak,ibreak,inter,iflg);
+    break;
+
+  case 1: /* verlist */
+    ibreak[0] = 0;
+    j = 1;
+    for(i=0;i<npair;i+=simparms->nlen){
+      k = MIN(simparms->nlen,npair-i);
+      nbreak = 0;
+      while((off[j]-i)<k) ibreak[++nbreak] = off[j++] - i;
+      ibreak[++nbreak] = k; 
+      force_npol(simparms,coords,k,&inp[i],&jnp[i],nbreak,ibreak,inter,iflg);
+    }
+    break;
+  case 2: /* link list */
+    get_lnklist(natoms,ngbr->ncells,ngbr->hlist,ngbr->lnklist,
+		simparms->iperd,coords->hmat,
+		coords->px,coords->py,coords->pz);
+    inp = coords->indx;
+    jnp = coords->jndx;    
+
+    icell_old = -1;
+    ibreak[0] = 0;
+    nbreak = 0;
+    k = 0;
+    for(i=0;i<ngbr->npaircell;i++){
+      icell = ngbr->icell[i];
+      jcell = ngbr->jcell[i];
+
+      ii = ngbr->hlist[icell];
+      
+      while(ii!=-1){
+        i_type = itype[ii];
+        mapi = map[i_type];
+
+        if(icell==jcell){
+          jj = ngbr->lnklist[ii];
+        } else {
+          jj = ngbr->hlist[jcell];
+        }
+        while(jj!=-1){
+          if(mapi[itype[jj]] == -1){
+            /* skip null interactions */
+          } else if(!exclij(ii,jj,inter->nexclude,inter->exclude)){ 
+            inp[k] = ii;
+            jnp[k] = jj;
+            k++;
+            
+            if(k==simparms->nlen){
+	      if(ibreak[nbreak] != k) ibreak[++nbreak] = k;
+	      force_npol(simparms,coords,k,inp,jnp,nbreak,ibreak,inter,iflg);
+	      nbreak = k = 0;
+	    }
+	  }
+	  jj = ngbr->lnklist[jj];
+	} /* end while(jj!=-1) */
+	if((icell==jcell) && (ibreak[nbreak]!=k)) ibreak[++nbreak] = k;
+	ii = ngbr->lnklist[ii];
+        i_type = itype[ii];
+      } /* end while (ii!= -1) */
+      if(ibreak[nbreak]!=k && icell_old!=icell) ibreak[++nbreak] = k;
+      icell_old = icell;
+    }
+    /* take care of stragglers */
+    if(ibreak[nbreak] != k) ibreak[++nbreak] = k;
+    if(k!=0)force_npol(simparms,coords,k,inp,jnp,nbreak,ibreak,inter,iflg);
+    break;
+  }
+
+#ifdef PARA
+  rbuf = cmalloc(2*n3*sizeof(double));
+  sbuf = rbuf + n3;
+
+  MPI_Allreduce(coords->scr_buf,sbuf,n3,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+  if(iflg==1)
+    MPI_Allreduce(coords->scr_rec,rbuf,n3,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+#else
+  sbuf = coords->scr_buf;
+  rbuf = coords->scr_rec;
+#endif
+
+#include "vectorize.h"
+  for(i=0;i<n3;i++) fx[i] += sbuf[i];
+  if(iflg==1){
+#include "vectorize.h"
+    for(i=0;i<n3;i++) fxs[i] += rbuf[i];
+  }
+
+#ifdef PARA
+  free(rbuf);
+#endif
+  
+#ifdef VERBOSE
+  printf("\nprinting forces\n");
+  for(i=0;i<n3;i++)  printf("%d %g %g %g %g\n",i,fx[i],sbuf[i],fxs[i],rbuf[i]);
+#endif
+}
+
+
+/*-----------------------------------------------------------------------*/
+void getvirter(SIMPARMS *simparms,COORDS *coords,INTER *inter,NGBR *ngbr,
+	       double *vhinter,double *vinter,double *winter,
+               double wintertensor[9])
+{
+  int i,j,k,*inp,*jnp,*excl,nexcl;
+  int icell,jcell,ii,jj,**map,*mapi,*itype,i_type;
+  long ibegin,iend;
+  double sprs,spot,spoth,sprstensor[9];
+  double sprs_local,spot_local,spoth_local;
+  double sprs_localtensor[9];
+#ifdef CUBIC
+  double f2;
+#endif
+
+  sprs = spot = spoth = 0.;
+  for(i=0;i<9;i++) sprstensor[i]=sprs_localtensor[i]=0.0;
+  sprs_local = spot_local = spoth_local = 0.;
+
+  inp = ngbr->inpt;
+  jnp = ngbr->jnpt;
+  map = inter->map;
+  itype = inter->itype;
+
+#ifndef FREE
+  switch(ngbr->ilist){
+  case 0:
+    inp = coords->indx;
+    jnp = coords->jndx;
+    /* decompose i so that they is roughly the same number of
+       i-j pairs on each processors */
+
+    if(simparms->natoms<=simparms->size) {
+      ibegin = MIN(simparms->rank,simparms->natoms-1);
+      iend = MIN(simparms->rank+1,simparms->natoms-1);
+    } else {
+      decomp_trig((long)(simparms->natoms),simparms->size,simparms->rank,
+		   &ibegin,&iend);
+    }
+    k = 0;
+
+    for(i=ibegin;i<iend;i++){
+      excl = &(inter->exclude[i][0]);
+      nexcl = *(excl);
+      i_type = itype[i];
+      mapi = map[i_type];
+      for(j=i+1;j<simparms->natoms;j++){
+        if (nexcl == j){ 
+          nexcl = *(++excl);
+        } else if(mapi[itype[j]] == -1){
+          /* skip null interactions (check if also bonded exclusion)*/
+        } else {
+          inp[k] = i;
+          jnp[k] = j;
+          k++;
+          
+          if(k==simparms->nlen){
+            vinter_npol(k,inp,jnp,inter->itype,
+               coords->px,coords->py,coords->pz,coords->hmat,
+               simparms->iperd,
+               inter->map,inter->rmins_cut2,inter->rmaxl_cut2,
+               inter->dx2tab,inter->ntable,inter->vtab,inter->dvtab,
+               &spot_local,&spoth_local,&sprs_local,
+               sprs_localtensor,simparms->ivol);
+            k = 0;
+          }
+        }
+      }
+    }
+    /* take care of stragglers */ 
+    vinter_npol(k,inp,jnp,inter->itype,
+		coords->px,coords->py,coords->pz,coords->hmat,
+		simparms->iperd,
+		inter->map,inter->rmins_cut2,inter->rmaxl_cut2,
+		inter->dx2tab,inter->ntable,inter->vtab,inter->dvtab,
+		&spot_local,&spoth_local,&sprs_local,
+                sprs_localtensor,simparms->ivol);
+    break;
+     case 1:
+       for(i=0;i<ngbr->nprt;i+=simparms->nlen){
+         k = MIN(simparms->nlen,ngbr->nprt-i);
+         vinter_npol(k,&inp[i],&jnp[i],inter->itype,coords->px,coords->py,
+            coords->pz,coords->hmat,simparms->iperd,
+            inter->map,inter->rmins_cut2,inter->rmaxl_cut2,
+            inter->dx2tab,inter->ntable,inter->vtab,inter->dvtab,
+            &spot_local,&spoth_local,&sprs_local,
+            sprs_localtensor,simparms->ivol);
+       }
+       break;
+     case 2:
+       get_lnklist(simparms->natoms,ngbr->ncells,ngbr->hlist,ngbr->lnklist,
+          simparms->iperd,coords->hmat,
+          coords->px,coords->py,coords->pz);
+       inp = coords->indx;
+       jnp = coords->jndx;    
+       
+       k = 0;
+       for(i=0;i<ngbr->npaircell;i++){
+         icell = ngbr->icell[i];
+         jcell = ngbr->jcell[i];
+         
+         ii = ngbr->hlist[icell];
+         
+         while(ii!=-1){
+           i_type = itype[ii]; 
+           mapi = map[i_type];
+           if(icell==jcell){
+             jj = ngbr->lnklist[ii];
+           } else {
+             jj = ngbr->hlist[jcell];
+           }
+           while(jj!=-1){
+             if(mapi[itype[jj]] == -1){
+               /* exclude null interactions */
+             } else if(!exclij(ii,jj,inter->nexclude,inter->exclude)){ 
+               inp[k] = ii;
+               jnp[k] = jj;
+               k++;
+               
+               if(k==simparms->nlen){
+                 vinter_npol(k,inp,jnp,inter->itype,
+                    coords->px,coords->py,coords->pz,coords->hmat,
+                    simparms->iperd,
+                    inter->map,inter->rmins_cut2,inter->rmaxl_cut2,
+                    inter->dx2tab,inter->ntable,inter->vtab,inter->dvtab,
+                    &spot_local,&spoth_local,&sprs_local,
+                    sprs_localtensor,simparms->ivol);
+                 
+                 k = 0;
+               }
+             }
+             jj = ngbr->lnklist[jj];
+           } /* end while(jj!=-1) */
+           ii = ngbr->lnklist[ii];
+           i_type = itype[ii]; 
+         } 
+       }
+       vinter_npol(k,inp,jnp,inter->itype,
+          coords->px,coords->py,coords->pz,coords->hmat,
+          simparms->iperd,
+          inter->map,inter->rmins_cut2,inter->rmaxl_cut2,
+          inter->dx2tab,inter->ntable,inter->vtab,inter->dvtab,
+          &spot_local,&spoth_local,&sprs_local,
+          sprs_localtensor,simparms->ivol);
+       break;
+  }
+  
+#ifdef PARA
+  MPI_Allreduce(&spoth_local,&spoth,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+  MPI_Allreduce(&spot_local ,&spot ,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+  MPI_Allreduce(&sprs_local ,&sprs ,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+  MPI_Allreduce(sprs_localtensor,sprstensor,9,
+	     MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+#else
+  spoth = spoth_local;
+  spot  = spot_local;
+  sprs  = sprs_local;
+  for(i=0;i<9;i++) sprstensor[i] += sprs_localtensor[i];
+#endif
+#endif
+  *vhinter += spoth; 
+  *vinter  += spot; 
+  *winter  += sprs;
+  for(i=0;i<9;i++) wintertensor[i] += sprstensor[i];
+}
+/*-----------------------------------------------------------------------*/
+void check_distance(SIMPARMS *simparms,COORDS *coords,INTER *inter)
+{
+  int i,j,natoms,intr,*excl,nexcl,i_type,j_type,iperd,**map,*itype,ivol;
+  double xdis,ydis,zdis,rdis2;
+  double *x,*y,*z;
+#ifdef PARA
+  double *xt,*yt,*zt;
+#endif
+
+  natoms = simparms->natoms;
+  iperd = simparms->iperd;
+  ivol = simparms->ivol;
+  map = inter->map;
+  itype = inter->itype;
+
+  x = coords->px;
+  y = coords->py;
+  z = coords->pz;
+
+#ifdef PARA
+  xt = cmalloc(3*natoms*sizeof(double));
+  yt = xt +   natoms;
+  zt = xt + 2*natoms;
+
+  /* broad cast positions and check */
+  for(i=0;i<3*natoms;i++) xt[i] = x[i];
+  MPI_Bcast(x,3*natoms,MPI_DOUBLE,0,MPI_COMM_WORLD);
+  for(i=0;i<natoms;i++){
+    if(fabs(x[i]-xt[i]) != 0.0) md_error("X Positions are different");
+    if(fabs(y[i]-yt[i]) != 0.0) md_error("Y Positions are different");
+    if(fabs(z[i]-zt[i]) != 0.0) md_error("Z Positions are different");
+  }
+
+  /* broad cast velocity and check */
+  for(i=0;i<3*natoms;i++) xt[i] = coords->vx[i];
+  MPI_Bcast(coords->vx,3*natoms,MPI_DOUBLE,0,MPI_COMM_WORLD);
+  for(i=0;i<natoms;i++){
+    if(fabs(coords->vx[i]-xt[i])!=0.) md_error("X Velocities are different");
+    if(fabs(coords->vy[i]-yt[i])!=0.) md_error("Y Velocities are different");
+    if(fabs(coords->vz[i]-zt[i])!=0.) md_error("Z Velocities are different");
+  }
+  free(xt);
+#endif
+
+  /* check neighbor pairs */
+  for(i=0;i<natoms-1;i++){
+    i_type = inter->itype[i];
+    excl = &(inter->exclude[i][0]);
+    nexcl = *(excl);
+    for(j=i+1;j<natoms;j++){
+      if(nexcl == j){
+        nexcl = *(++excl);
+      } else if(map[i_type][itype[j]] == -1){
+        /* skip null interactions (check if also bonded exclusion)*/
+      } else {
+        j_type = inter->itype[j];
+        xdis = x[i] - x[j];
+        ydis = y[i] - y[j];
+        zdis = z[i] - z[j];
+        
+        period(1,&xdis,&ydis,&zdis,coords->hmat,coords->hmati,iperd,ivol);
+        rdis2 = xdis*xdis+ydis*ydis+zdis*zdis;
+        
+        intr = map[i_type][j_type];
+        if(rdis2 < inter->rmins_cut2[intr]){
+          fprintf(stderr,"ERROR: distance out of range in finter force\n");
+          fprintf(stderr,"distance = %g (between atoms %d and %d)\n",
+             sqrt(rdis2),i,j);
+          fprintf(stderr,"Distance should be > %g (interaction max=%g)\n",
+             sqrt(inter->rmins_cut2[intr]),
+             sqrt(inter->rmaxs_cut2[intr]));
+          fprintf(stderr,"for intermolecular interations between types");
+          fprintf(stderr," %d and %d\n",i_type,j_type);
+          
+          xdis = x[i] - x[j];
+          ydis = y[i] - y[j];
+          zdis = z[i] - z[j];
+          printf("p1 = %g %g %g, p2= %g %g %g\n",
+             x[i],y[i],z[i],x[j],y[j],z[j]);
+          printf("before period %g %g %g\n",xdis,ydis,zdis);
+          period(1,&xdis,&ydis,&zdis,coords->hmat,coords->hmati,iperd,ivol);
+          printf("after period %g %g %g\n",xdis,ydis,zdis);
+          exit(1);
+        }
+      }
+    }
+  }
+  check_distance_e(simparms,coords,inter);
+}
+
+/*-----------------------------------------------------------------------*/

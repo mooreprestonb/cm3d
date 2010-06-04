@@ -1,0 +1,747 @@
+/* 
+   Copyright (C) 1997 1998 1999 2000 Dr. Preston B. Moore
+
+Dr. Preston B. Moore
+Associate Director, Center for Molecular Modeling (CMM)
+University of Pennsylvania, Department of Chemistry, Box 188 
+231 S. 34th St. Philadelphia, PA 19104-6323 USA
+EMAIL: moore@cmm.chem.upenn.edu  
+WWW: http://www.cmm.upenn.edu/~moore
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+*/
+
+/* subroutines to read in potential parameters */
+
+#include "md.h"
+#define MIN_MEM 100
+#define FREEZE_DEF "mol_freeze"
+#define COLVARKEY "coll_coor"
+#define DEBUG 1
+#define NKEYS 18
+#define TEMP 0
+#define THRMMASS 1e10
+#define MAXSYMGRPS 100
+#define PRINTSTUFF printf("%4d%5d%5d |%5d%5d%8s |%5d%8s   %5d  %5d%12s \n",idim,i,iat,sim->itype[iat],sim->iatom[iat],sim->atom[sim->itype[iat]],sim->imolecule[iat],sim->mole[sim->ispecies[iat]],sim->ispecies[iat],sim->igroup[iat],sim->group[sim->igroup[iat]]);
+void printcolvar(COLVAR *colvar)
+{
+  int i,j,k;
+  fprintf(stderr," -----  COLVAR -----  \n");
+  fprintf(stderr,"ncolvar = %d\n",colvar->ncolvar);
+  fprintf(stderr,"lrestart = %d\n",colvar->lrestart);
+  fprintf(stderr,"ltunehills = %d\n",colvar->ltunehills);
+  fprintf(stderr,"nhills = %d\n",colvar->nhills);
+  fprintf(stderr,"ecolvar (energy) = %lg\n",colvar->ecolvar);
+  fprintf(stderr,"hilldepth = %lg\n",colvar->hilldepth);
+  fprintf(stderr,"maxstephill = %d\n",colvar->maxstephill);
+  fprintf(stderr,"minstephill = %d\n",colvar->minstephill);
+  
+  for(i=0;i<colvar->ncolvar;++i){
+    fprintf(stderr,"type[%d] = %d\n",i,colvar->type[i]);
+    fprintf(stderr,"lconst_vel = %d\n",colvar->lconst_vel[i]);
+    fprintf(stderr,"lhills = %d\n",colvar->lhills[i]);
+    fprintf(stderr,"mindwidth = %g\n",colvar->mindwidth[i]);
+    fprintf(stderr,"ndim = %d\n",colvar->ndim[i]);
+    for(j=0;j<colvar->ndim[i];++j){
+      fprintf(stderr,"\tnatom[%d][%d] = %d\n",i,j,colvar->natom[i][j]);
+      for(k=0;k<colvar->natom[i][j];++k){
+	fprintf(stderr,"\t\tatom[%d][%d][%d] = %d\n",i,j,k,colvar->atom[i][j][k]);
+      }
+    }
+    fprintf(stderr,"amass = %lg\n",colvar->amass[i]);
+    fprintf(stderr,"fk = %lg\n",colvar->fk[i]);
+    fprintf(stderr,"pcolvar = %lg\n",colvar->pcolvar[i]);
+    fprintf(stderr,"vcolvar = %lg\n",colvar->vcolvar[i]);
+    fprintf(stderr,"fcolvar = %lg\n",colvar->fcolvar[i]);
+    fprintf(stderr,"pistcolvar = %lg\n",colvar->pistcolvar[i]);
+    fprintf(stderr,"pcolvarlast = %lg\n",colvar->pcolvarlast[i]);
+    fprintf(stderr,"f_hills = %lg\n",colvar->f_hills[i]);    
+    fprintf(stderr,"f_boundry = %lg\n",colvar->f_boundry[i]);    
+    fprintf(stderr,"f_spring = %lg\n",colvar->f_spring[i]);    
+    fprintf(stderr,"hillwidth = %lg\n",colvar->hillwidth[i]);
+    fprintf(stderr,"min_val = %lg\n",colvar->min_val[i]);
+    fprintf(stderr,"max_val = %lg\n",colvar->max_val[i]);
+    for(j=0;j<colvar->nhills;++j){
+      fprintf(stderr,"\tt_pcolvar[%d] = %lg\n",j,colvar->t_pcolvar[i][j]);
+      fprintf(stderr,"\tt_hillwidth[%d] = %lg\n",j,colvar->t_hillwidth[i][j]);
+    }
+  }
+
+  for(j=0;j<colvar->nhills;++j){
+    fprintf(stderr,"\tt_hilldepth[%d] = %lg\n",j,colvar->t_hilldepth[j]);
+  }
+}
+
+/*--------------------------------------------------------------*/
+void colvar_init(int ncolvar,COLVAR *colvar)
+{
+  int i;
+  colvar->lasthill = 999999999;
+  colvar->nhills = 0;
+  colvar->lconst_vel = (int *)malloc(ncolvar*sizeof(int));
+  colvar->lhills = (int *)malloc(ncolvar*sizeof(int));
+  colvar->type = (int *)malloc(ncolvar*sizeof(int));
+  colvar->ndim = (int *)malloc(ncolvar*sizeof(int));
+  colvar->natom = (int **)malloc(ncolvar*sizeof(int *));
+  colvar->atom = (int ***)malloc(ncolvar*sizeof(int **));
+
+  colvar->amass = (double *)malloc(ncolvar*sizeof(double));
+  colvar->temp = (double *)malloc(ncolvar*sizeof(double));
+  colvar->thrmmass = (double *)malloc(ncolvar*sizeof(double));
+  colvar->fk = (double *)malloc(ncolvar*sizeof(double));
+  colvar->pcolvar = (double *)malloc(ncolvar*sizeof(double));
+  colvar->vcolvar = (double *)malloc(ncolvar*sizeof(double));
+  colvar->fcolvar = (double *)malloc(ncolvar*sizeof(double));
+  colvar->pistcolvar = (double *)malloc(ncolvar*sizeof(double));
+  colvar->f_hills = (double *)malloc(ncolvar*sizeof(double));
+  colvar->f_boundry = (double *)malloc(ncolvar*sizeof(double));
+  colvar->f_spring = (double *)malloc(ncolvar*sizeof(double));
+  colvar->f_spring_cum = (double *)malloc(ncolvar*sizeof(double));
+  colvar->hillwidth = (double *)malloc(ncolvar*sizeof(double));
+  colvar->min_val = (double *)malloc(ncolvar*sizeof(double));
+  colvar->max_val = (double *)malloc(ncolvar*sizeof(double));
+  colvar->mindwidth = (double *)malloc(ncolvar*sizeof(double));
+  colvar->pcolvarlast = (double *)malloc(ncolvar*sizeof(double));
+  colvar->pcolvarmin = (double *)malloc(ncolvar*sizeof(double));
+  colvar->pcolvarmax = (double *)malloc(ncolvar*sizeof(double));
+  colvar->vcolvarlast = (double *)malloc(ncolvar*sizeof(double));
+  colvar->pcolvarmean = (double *)malloc(ncolvar*sizeof(double));
+  colvar->pcolvarstd = (double *)malloc(ncolvar*sizeof(double));
+
+  colvar->t_pcolvar = (double **)malloc(ncolvar*sizeof(double *));
+  colvar->t_hillwidth = (double **)malloc(ncolvar*sizeof(double *));
+  for(i=0;i<ncolvar;++i){
+    colvar->f_spring_cum[i] = 0.0;
+  }
+
+}
+
+/*--------------------------------------------------------------*/
+void alloc_colatoms(int ndim,int icol,COLVAR *colvar)
+{
+  int i;
+  colvar->ndim[icol] = ndim;
+  colvar->natom[icol] = (int *)malloc(ndim*sizeof(int));
+  colvar->atom[icol] = (int **)malloc(ndim*sizeof(int*));
+  for(i=0;i<ndim;++i){
+    colvar->natom[icol][i] = 0;
+    colvar->atom[icol][i] = (int *)malloc(sizeof(int));
+    colvar->atom[icol][i][0] = -1;
+  }
+}
+/*--------------------------------------------------------------*/
+void parse_atoms(int icol,char *atoms,COORDS *coords,SIMPARMS *sim)
+{
+  int i,ndim,num,idim,n,iat,iatlast,iatfirst,j;
+  char *pt;
+  printf("parsing atom\n");
+  pt = strtok(atoms,",");
+  sscanf(pt,"%d",&ndim);
+  coords->colvar.ndim[icol] = ndim;
+  alloc_colatoms(ndim,icol,&coords->colvar);
+#ifdef DEBUG
+  printf("\n idim iat num  | type atomno  name | molno molname  specno groupno groupname\n");
+#endif
+  for(idim=0;idim<ndim;++idim){
+    pt = strtok(NULL,",");
+    sscanf(pt,"%d",&num);
+    for(i=0;i<num;i++){
+      pt = strtok(NULL,",");
+      if(strcasecmp(pt,"atom")==0){
+	pt = strtok(NULL,",");
+	sscanf(pt,"%d",&iat);
+	n = coords->colvar.natom[icol][idim]++;
+	coords->colvar.atom[icol][idim] = realloc(coords->colvar.atom[icol][idim],(n+1)*sizeof(int));
+	coords->colvar.atom[icol][idim][n]=iat;
+#ifdef DEBUG
+	  PRINTSTUFF
+#endif
+      } else if(strcasecmp(pt,"atomname")==0){
+	pt = strtok(NULL,",");
+	for(iat=0;iat<sim->natoms;++iat){
+	  if(strcasecmp(pt,sim->atom[sim->itype[iat]])==0){
+	    n = coords->colvar.natom[icol][idim]++;
+	    coords->colvar.atom[icol][idim] = realloc(coords->colvar.atom[icol][idim],(n+1)*sizeof(int));
+	    coords->colvar.atom[icol][idim][n]=iat;
+#ifdef DEBUG
+	    PRINTSTUFF
+#endif
+	  }
+	}
+      } else if(strcasecmp(pt,"atomrange")==0){
+	pt = strtok(NULL,",");
+	sscanf(pt,"%d",&iatfirst);
+	pt = strtok(NULL,",");
+	sscanf(pt,"%d",&iatlast);
+	for(iat=iatfirst;iat<iatlast+1;++iat){
+	  n = coords->colvar.natom[icol][idim]++;
+	  coords->colvar.atom[icol][idim] = realloc(coords->colvar.atom[icol][idim],(n+1)*sizeof(int));
+	  coords->colvar.atom[icol][idim][n]=iat;
+#ifdef DEBUG
+	  PRINTSTUFF
+#endif
+	}
+      } else if(strcasecmp(pt,"atomlist")==0){
+	pt = strtok(NULL,",");
+	sscanf(pt,"%d",&n);
+	coords->colvar.natom[icol][idim]+=n;
+	coords->colvar.atom[icol][idim] = realloc(coords->colvar.atom[icol][idim],(n+1)*sizeof(int));
+	for(j=0;j<n;++j){
+	  pt = strtok(NULL,",");
+  	  sscanf(pt,"%d",&iat);
+	  coords->colvar.atom[icol][idim][j]=iat;
+#ifdef DEBUG
+	  PRINTSTUFF
+#endif
+	}
+      } else if(strcasecmp(pt,"molname")==0){
+	pt = strtok(NULL,",");
+	for(iat=0;iat<sim->natoms;++iat){
+	  if(strcasecmp(pt,sim->mole[sim->ispecies[iat]])==0){
+	    n = coords->colvar.natom[icol][idim]++;
+	    coords->colvar.atom[icol][idim] = realloc(coords->colvar.atom[icol][idim],(n+1)*sizeof(int));
+	    coords->colvar.atom[icol][idim][n]=iat;
+#ifdef DEBUG
+	    PRINTSTUFF
+#endif
+	  }
+	}
+      } else if(strcasecmp(pt,"groupname")==0){
+	pt = strtok(NULL,",");
+	for(iat=0;iat<sim->natoms;++iat){
+	  if(strcasecmp(pt,sim->group[sim->igroup[iat]])==0){
+	    n = coords->colvar.natom[icol][idim]++;
+	    coords->colvar.atom[icol][idim] = realloc(coords->colvar.atom[icol][idim],(n+1)*sizeof(int));
+	    coords->colvar.atom[icol][idim][n]=iat;
+#ifdef DEBUG
+	    PRINTSTUFF
+#endif
+	  }
+	}
+      } else if(strcasecmp(pt,"pairs")==0){
+	pt = strtok(NULL,",");
+	sscanf(pt,"%d",&n);
+	for(idim=0;idim<ndim;++idim){
+	  coords->colvar.natom[icol][idim]=n;
+	  coords->colvar.atom[icol][idim] = realloc(coords->colvar.atom[icol][idim],(n+1)*sizeof(int));
+	}
+	for(j=0;j<n;++j){
+	  for(idim=0;idim<ndim;++idim){
+	    pt = strtok(NULL,",");
+	    sscanf(pt,"%d",&iat);
+	    coords->colvar.atom[icol][idim][j]=iat;
+#ifdef DEBUG
+	    PRINTSTUFF
+#endif
+	  }
+	}
+      } else {
+	md_error("Please call Steve to purchase a new token, they are sold at 60th and Market at 1am, ask for Pete.");
+      }
+    }
+    printf("%s\n",pt);
+    /*
+    while(pt != NULL){
+    }
+    */
+  }
+}
+
+/*--------------------------------------------------------------*/
+void parse_atoms_line(int icol,char *atoms,COORDS *coords,SIMPARMS *sim)
+{
+  int i,ndim,num,idim,n,iat,iatlast,iatfirst,j;
+  double dx,dy,dz;
+  char *pt;
+  printf("parsing atom\n");
+  pt = strtok(atoms,",");
+  sscanf(pt,"%d",&ndim);
+  coords->colvar.ndim[icol] = ndim;
+  alloc_colatoms(ndim,icol,&coords->colvar);
+#ifdef DEBUG
+  printf("\n idim iat num  | type atomno  name | molno molname  specno groupno groupname\n");
+#endif
+  for(idim=0;idim<ndim;++idim){
+    pt = strtok(NULL,",");
+    sscanf(pt,"%d",&num);
+    for(i=0;i<num;i++){
+      pt = strtok(NULL,",");
+      if(strcasecmp(pt,"atom")==0){
+	pt = strtok(NULL,",");
+	sscanf(pt,"%d",&iat);
+	n = coords->colvar.natom[icol][idim]++;
+	coords->colvar.atom[icol][idim] = realloc(coords->colvar.atom[icol][idim],(n+1)*sizeof(int));
+	coords->colvar.atom[icol][idim][n]=iat;
+      } else {
+	md_error("Please call Steve to purchase a new token, they are sold at 60th and Market at 1am, ask for Pete.");
+      }
+    }
+  }
+
+
+}
+
+
+/*--------------------------------------------------------------*/
+
+void parse_atoms_sphere_R(int icol,char *atoms,COORDS *coords,SIMPARMS *sim)
+{
+  int nsph_idx;
+  coords->colvar.ndim[icol] = 1;
+  alloc_colatoms(1,icol,&coords->colvar);
+  sscanf(atoms,"%d",&nsph_idx);
+  coords->colvar.natom[icol][0]=nsph_idx;
+}
+
+
+/*--------------------------------------------------------------*/
+
+void parse_atoms_sphere(int icol,char *atoms,COORDS *coords,SIMPARMS *sim)
+{
+  int nsph_idx;
+  coords->colvar.ndim[icol] = 1;
+  alloc_colatoms(1,icol,&coords->colvar);
+  sscanf(atoms,"%d",&nsph_idx);
+  coords->colvar.natom[icol][0]=nsph_idx;
+}
+
+
+/*--------------------------------------------------------------*/
+void read_colvarfile(SIMPARMS *simparms,char *colvarfile,COORDS *coords)
+{
+  int i,ich,nline,nch,num_keys,icase,ispec;
+
+  char line[MAXLINELEN];
+  int  num_dict=NKEYS,num_found[NKEYS];
+  int icol = 0;
+  WORD metakey,dict[NKEYS],type,atoms,lhills,params;
+  KEY key_root,*key_now;
+  FILE *fp;
+  COLVAR *colvar = &(coords->colvar);
+
+  double amass,fk,vcolvar,temp,thrmmass,vmin,vmax;
+  double hillwidth,mindwidth,pcolvar,mirror_pnt;
+  int sym_grp;
+
+  strcpy(dict[0],"number");       strcpy(dict[1],"type");
+  strcpy(dict[2],"mass");         strcpy(dict[3],"fk");
+  strcpy(dict[4],"hills");        strcpy(dict[5],"hillwidth");
+  strcpy(dict[6],"frozen");       strcpy(dict[7],"const_vel");
+  strcpy(dict[8],"temp");         strcpy(dict[9],"thermstat_mass");
+  strcpy(dict[10],"min_val");     strcpy(dict[11],"max_val");
+  strcpy(dict[12],"atoms");       strcpy(dict[13],"mindwidth");  
+  strcpy(dict[14],"switchparams");strcpy(dict[15],"pcolvar_init");
+  strcpy(dict[16],"sym_grp");     strcpy(dict[17],"mirror_pnt");
+  strcpy(dict[18],"vcolvar_init");
+
+/* open colvarfile */
+  if ((fp=fopen(colvarfile,"r"))==NULL){
+    sprintf(line,"can't open colvar file \"%s\"",colvarfile);
+    md_error(line);
+  } else {
+    if(simparms->rank==0){
+      sprintf(line,"Reading in colvar file \"%s\"",colvarfile);
+      md_stdout(line);
+    }
+  }
+  /* loop until end of file */
+  nline = nch = ispec = 0;
+  while( (ich = fgetc(fp)) != EOF) {
+    line[nch++] = (char)ich;
+    if(ich == META_KEY_CHAR){
+      if(icol >= coords->colvar.ncolvar ) {
+	md_error("ncolvar doesn't match the number of collective coords you specified");
+      }
+      get_meta_key(fp,colvarfile,line,&nch,&nline,metakey,&key_root,&num_keys);
+
+#ifdef DEBUG
+      md_stdout(metakey);
+      for(i=0,key_now=&key_root;i<num_keys;i++,key_now = key_now->next){
+	sprintf(line,"%d %s %s",i,key_now->keyword,key_now->keyarg);
+	md_stdout(line);
+      }
+#endif
+      if(!strcasecmp(metakey,COLVARKEY)){
+	for(i=0;i<num_dict;i++) num_found[i] = 0;
+	/* set some defaults */
+	amass = 1.0;           /* if no mass given (e.g, steered MD) avoid NANs */
+	vmin = -99999.;	
+	vmax = 99999.;
+	mindwidth = 1.0;
+	temp = TEMP;
+	thrmmass = THRMMASS;
+	sym_grp=-99;
+	mirror_pnt=0.0;
+
+	for(i=0,key_now=&key_root;i<num_keys;i++,key_now = key_now->next){
+	  icase = get_dict_num(num_dict,dict,key_now->keyword);
+	  if(icase == -1){
+	    print_dict(key_now->keyword,num_dict,dict);
+	  }
+	  num_found[icase]++;
+
+	  switch (icase) {
+	  case 0: /* number not read */
+	    break;
+	  case 1:strcpy(type,key_now->keyarg); /* type */
+	    break;
+	  case 2:sscanf(key_now->keyarg,"%lg",&(amass)); /* mass */
+	    break;
+	  case 3:sscanf(key_now->keyarg,"%lg",&(fk));/* fk */
+	    break;
+	  case 4:strcpy(lhills,key_now->keyarg); /* lhills */
+	    break;
+	  case 5:sscanf(key_now->keyarg,"%lg",&(hillwidth));/* hillwidth */
+	    break;
+	  case 6: /* frozen */
+	    md_error("Frozen key word has been replaced with \\const_vel{0} (version 1.01)");
+	    break;
+	  case 7:sscanf(key_now->keyarg,"%lg",&(vcolvar)); /* const_vel */
+	    break;
+	  case 8:sscanf(key_now->keyarg,"%lg",&(temp)); /* temp */
+	    break;
+	  case 9:sscanf(key_now->keyarg,"%lg",&(thrmmass)); /* thermstat_mass */
+	    break;
+	  case 10:sscanf(key_now->keyarg,"%lg",&(vmin)); /* min_val */
+	    break;
+	  case 11:sscanf(key_now->keyarg,"%lg",&(vmax)); /* max_val */
+	    break;
+       	  case 12:strcpy(atoms,key_now->keyarg); /* atoms */
+	    break;
+	  case 13:sscanf(key_now->keyarg,"%lg",&(mindwidth)); /* dwidth */
+	    break;
+	  case 14:strcpy(params,key_now->keyarg); /* switchparams */
+	    break;
+	  case 15:sscanf(key_now->keyarg,"%lg",&(pcolvar)); /* pcolvar_init */
+	    break;
+	  case 16:sscanf(key_now->keyarg,"%d",&(sym_grp)); /* symmetry group */
+	    break;
+	  case 17:sscanf(key_now->keyarg,"%lg",&(mirror_pnt)); /* mirror_point */
+	    break;
+	  default:
+	    print_dict(key_now->keyword,num_dict,dict); break;
+	  }
+	}
+
+	/*  Make sure nothing specified more then once */ 
+	for(i=0;i<NKEYS;i++){
+	  if(num_found[i] > 1) {
+	    sprintf(line,"You didn't specified %s %d times",dict[i],num_found[i]);
+	    md_error(line);
+	  }
+	}
+
+	/* set defaults */
+	colvar->lhills[icol] = 0;
+	if(num_found[4]==1){ /* lhills */
+	  if(strcasecmp(lhills,"on")==0){
+	    int j;
+	    /* check to make sure we specify stuff */
+	    for(j=2;j<=5;j++){
+	      if(num_found[j]==0){
+		char line[256];
+		sprintf(line,"You didn't specified the a required keyword %s",dict[j]);
+		md_error(line);
+	      }
+	    }
+	    colvar->lhills[icol] = 1;
+	  }
+	}
+
+	/* checks */
+	/*  Make sure we have the required keywords */ 
+	if(num_found[1] == 0) {
+	  md_error("You didn't specify the type of colvar");
+	}
+	if(num_found[12] == 0) {
+	  md_error("You didn't specify the atoms of the colvar");
+	}
+	if( (num_found[14]==1) && (strcasecmp(type,"sumofswitches")!=0) && (strcasecmp(type,"coordnum")!=0) && (strcasecmp(type,"torsionswitches")!=0) ){ /* switchparams */
+	  md_warning("Funny, you set switch parameters without using a switch or coordination number...");
+	}
+	if((num_found[14]==0)&&((strcasecmp(type,"sumofswitches")==0)||(strcasecmp(type,"coordnums")==0))){ /* switchparams */
+	  md_error("You didn't specify switchparams");
+	}
+
+
+	/* type of colvar                               */
+	/*  type0: distance                             */
+	/*  type1: angle                                */
+	/*  type2: torsion                              */
+	/*  type4: sum of coordination numbers          */
+	/*  type5: relative z-position                  */
+	/*  type6: abs z-position                       */
+	/*  type7: sum of switch functions of torsions  */
+	/*  type8: angle wrt z-axis                     */
+	/*  type9: fixed distance                       */
+	/*  type10: constrained to a sine function      */
+	/*  type11: sphere suface                       */
+	/*  type12: colvar couple to sphere radius      */
+	/*  type13: tether to sphere surface            */
+	/*  type14: line constraint (for sphere simulations)*/
+        /*  type15: radius of gyration                  */
+        /*  type16: COM tethered to origin              */
+        /*  type17: coordmin                            */
+        /*  type18: cluster                            */
+        /*  type19: clusteradd                         */
+        /*  type20: Morse tether to sphere surface     */
+	if(strcasecmp(type,"distance")==0){
+	  colvar->type[icol]=0;
+	} else if(strcasecmp(type,"angle")==0){
+	  colvar->type[icol]=1;
+	} else if(strcasecmp(type,"torsion")==0){
+	  colvar->type[icol]=2;
+	} else if(strcasecmp(type,"coordnum")==0){
+	  colvar->type[icol]=4;
+	} else if(strcasecmp(type,"dzplane")==0){
+	  colvar->type[icol]=5;
+	} else if(strcasecmp(type,"dzplaneabs")==0){
+	  colvar->type[icol]=6;
+	} else if(strcasecmp(type,"torsionswitches")==0){
+	  colvar->type[icol]=7;
+	} else if(strcasecmp(type,"zangle")==0){
+	  colvar->type[icol]=8;
+	} else if(strcasecmp(type,"fixedr")==0){
+	  colvar->type[icol]=9;
+	} else if(strcasecmp(type,"xyfunction")==0){
+	  colvar->type[icol]=10;
+	} else if(strcasecmp(type,"sphere")==0){
+	  colvar->type[icol]=11;
+	} else if(strcasecmp(type,"sphere_R")==0){
+	  colvar->type[icol]=12;
+	} else if(strcasecmp(type,"tether")==0){
+	  colvar->type[icol]=13;
+	} else if(strcasecmp(type,"line")==0){
+	  colvar->type[icol]=14;
+	} else if(strcasecmp(type,"gyration")==0){
+	  colvar->type[icol]=15;
+	} else if(strcasecmp(type,"COMorigin")==0){
+	  colvar->type[icol]=16;
+	} else if(strcasecmp(type,"coordmin")==0){
+	  colvar->type[icol]=17;
+	} else if(strcasecmp(type,"cluster")==0){
+	  colvar->type[icol]=18;
+	} else if(strcasecmp(type,"clusteradd")==0){
+	  colvar->type[icol]=19;
+	} else if(strcasecmp(type,"morsetether")==0){
+	  colvar->type[icol]=20;
+	} else {
+	  md_error("Unknown collective variable type.....Please call Steve to implement this, we meet at 60th and market at 1am...");
+	}
+
+	fprintf(stderr,"HAY!!!\n");
+	/* copy inputs to actually variables */
+	colvar->amass[icol] = amass;
+	colvar->fk[icol] = fk;
+	colvar->hillwidth[icol] = hillwidth;
+	colvar->mindwidth[icol]= mindwidth;
+	colvar->pcolvarlast[icol] = 0.0;
+	colvar->min_val[icol]= vmin;
+	colvar->max_val[icol]= vmax;
+	if(strcasecmp(type,"angle")==0){ 
+	  colvar->min_val[icol]*= (M_PI/180.);
+	  colvar->max_val[icol]*= (M_PI/180.);
+	}
+
+	colvar->lconst_vel[icol] = 0;
+	colvar->pcolvar[icol] = RARE;
+	if(num_found[15]==1){
+	  colvar->pcolvar[icol]=pcolvar;
+	  if((strcasecmp(type,"angle")==0)||(strcasecmp(type,"torsion")==0)){ 
+	    colvar->pcolvar[icol]*= (M_PI/180.);
+	  }
+	}
+	if(num_found[7]==1) {
+	  if(colvar->lhills[icol] == 1) {
+	    sprintf(line,"Inconsistant hills and constant velocity on colvar #%d",
+		    icol);
+	    md_error(line);
+	  }
+	  colvar->lconst_vel[icol] = 1;
+	  colvar->vcolvar[icol] = vcolvar;
+	}
+
+	colvar->temp[icol] = temp; 
+	colvar->thrmmass[icol] = thrmmass;
+
+	/* parse atom string */
+	switch(colvar->type[icol]){
+	case 0 :  /*  type0: distance                             */
+	  parse_atoms(icol,atoms,coords,simparms);
+	  break;
+	case 5 : /*  type5: height above plane                   */
+	  parse_atoms(icol,atoms,coords,simparms);
+	  break;
+	case 6 : /*  type6: abs height above plane                   */
+	  parse_atoms(icol,atoms,coords,simparms);
+	  break;
+	case 11 :  /*  type11: sphere */
+	  /* different potential form needed */ 
+	  parse_atoms_sphere(icol,atoms,coords,simparms);
+	  break;
+	case 12 :  /*  type12: collective variable coupled to sphere radius    */
+	  parse_atoms_sphere_R(icol,atoms,coords,simparms);	  
+	  /* different potential form needed */ 
+	  break;
+	case 13 :  /*  type13: tether to sphere surface                        */
+	  parse_atoms(icol,atoms,coords,simparms);
+	  break;
+	case 14 :  /*  type14: line (sphere)                        */
+	  parse_atoms_line(icol,atoms,coords,simparms);
+	  break;
+	case 15 :  /*  type15: radius of gyration                        */
+	  parse_atoms(icol,atoms,coords,simparms);
+	  break;
+	case 16 :  /*  type16: COM tethered to origin                    */
+	  parse_atoms(icol,atoms,coords,simparms);
+	  break;
+	case 17 :  /*  type17: coordmin                        */
+	  parse_atoms(icol,atoms,coords,simparms);
+	  break;
+	case 18 :  /*  type18: cluster                        */
+	  parse_atoms(icol,atoms,coords,simparms);
+	  break;
+	case 19 :  /*  type19: clusteradd                        */
+	  parse_atoms(icol,atoms,coords,simparms);
+	  break;
+	case 20 :  /*  type20: Morse tether to sphere surface                        */
+	  parse_atoms(icol,atoms,coords,simparms);
+	  break;
+	default:
+	  md_error("Collective variable type not implemented!!!  Please call Steve to implement this, we meet at 60th and market at 1am...");
+	  break;
+	}
+	++icol; /* increment collective variables */
+      }
+      free_key(num_keys,&key_root);
+    }
+    if(ich == NEWLINE){nch = 0; nline++;}
+  }
+  fclose(fp);
+
+  /* set initial values but don't change the force on the atoms */
+  fcolvar_cntr(simparms,coords,0);
+  for(i=0;i<icol;++i){
+    coords->colvar.pcolvar[i] = coords->colvar.pistcolvar[i];
+    if(colvar->lconst_vel[i]==0){
+      coords->colvar.vcolvar[i] = 0.0;
+    }
+    coords->colvar.fcolvar[i] = 0.0;
+    coords->colvar.f_hills[i] = 0.0;
+    coords->colvar.f_boundry[i] = 0.0;
+    coords->colvar.f_spring[i] = 0.0;
+  }
+  /* compute distance tollerance mindtol2 from the hillwidths and mindwidths */
+  vmax = vmin = 0;
+  for(i=0;i<icol;++i){
+    vmax = coords->colvar.mindwidth[i] * coords->colvar.hillwidth[i];
+    vmin += vmax*vmax;
+  }
+  coords->colvar.mindtol2 = vmin;
+  colvar->lasthill=0;        /* step of last hill placed overwritten if restart */
+
+#ifdef DEBUG
+  printcolvar(&(coords->colvar));
+#endif
+
+  if(icol != coords->colvar.ncolvar ) {
+    md_error("ncolvar doesn't match the number of collective coords you specified");
+  }
+}
+
+/*--------------------------------------------------------------*/
+#ifdef PARA
+void bcast_colvar(SIMPARMS *simparms,COORDS *coords)
+{
+  int icol, idim, ncolvar, ndim;
+
+   MPI_Bcast(&coords->colvar.ncolvar,1,MPI_INT,0,MPI_COMM_WORLD);
+   ncolvar = coords->colvar.ncolvar;
+   MPI_Bcast(&coords->colvar.hilldepth,1,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(&coords->colvar.minstephill,1,MPI_INT,0,MPI_COMM_WORLD);
+   MPI_Bcast(&coords->colvar.meanforce_inst,1,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(&coords->colvar.meanforce_cum,1,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(&coords->colvar.maxstephill,1,MPI_INT,0,MPI_COMM_WORLD);
+   MPI_Bcast(&coords->colvar.ltunehills,1,MPI_INT,0,MPI_COMM_WORLD);
+
+   if(simparms->rank!=0){
+     colvar_init(ncolvar,&(coords->colvar));
+   }
+   MPI_Bcast(&coords->colvar.lasthill,1,MPI_INT,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.lconst_vel,ncolvar,MPI_INT,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.lhills,ncolvar,MPI_INT,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.type,ncolvar,MPI_INT,0,MPI_COMM_WORLD);
+
+   for(icol=0;icol<ncolvar;++icol){
+     if(simparms->rank!=0){
+     }
+   }
+   MPI_Bcast(coords->colvar.ndim,ncolvar,MPI_INT,0,MPI_COMM_WORLD);
+   if(simparms->rank!=0){
+     for(icol=0;icol<ncolvar;++icol){
+       ndim=coords->colvar.ndim[icol];
+       alloc_colatoms(ndim,icol,&coords->colvar);
+     }
+   }
+   for(icol=0;icol<ncolvar;++icol){
+     ndim=coords->colvar.ndim[icol];
+     MPI_Bcast(coords->colvar.natom[icol],ndim,MPI_INT,0,MPI_COMM_WORLD);
+     if(simparms->rank!=0){
+       for(idim=0;idim<ndim;++idim){
+	 coords->colvar.atom[icol][idim] = realloc(coords->colvar.atom[icol][idim],coords->colvar.natom[icol][idim]*sizeof(int));
+       }
+     }
+     for(idim=0;idim<ndim;++idim){
+       MPI_Bcast(coords->colvar.atom[icol][idim],coords->colvar.natom[icol][idim],MPI_INT,0,MPI_COMM_WORLD);
+     }
+   }
+
+   MPI_Bcast(coords->colvar.amass,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.temp,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.thrmmass,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.fk,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.pcolvar,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.vcolvar,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.fcolvar,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.pistcolvar,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.f_hills,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.f_spring,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.f_spring_cum,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.hillwidth,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.min_val,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.max_val,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.mindwidth,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.pcolvarlast,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.pcolvarmin,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.pcolvarmax,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.vcolvarlast,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.pcolvarmean,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   MPI_Bcast(coords->colvar.pcolvarstd,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   /* 
+      MPI_Bcast(&coords->colvar.t_pcolvar,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+      MPI_Bcast(&coords->colvar.t_hillwidth,ncolvar,MPI_DOUBLE,0,MPI_COMM_WORLD);
+   */
+}
+
+#endif /* PARA */
+
+/*   colvar->switch_r= (double **)malloc(ncolvar*sizeof(double *)); */
+/*   colvar->natom = (int **)malloc(ncolvar*sizeof(int *)); */
+/*   colvar->atom = (int ***)malloc(ncolvar*sizeof(int **)); */
+
+/*   colvar->t_pcolvar = (double **)malloc(ncolvar*sizeof(double *));
+     colvar->t_hillwidth = (double **)malloc(ncolvar*sizeof(double *));
+*/

@@ -1,0 +1,183 @@
+\section{minimize/nrminmd.c File Reference}
+\label{nrminmd_8c}\index{minimize/nrminmd.c@{minimize/nrminmd.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf NRANSI}
+\item 
+\#define {\bf SQR}(A)~((({\bf sqra}=(A)) == 0.)?0.:{\bf sqra}$\ast${\bf sqra})
+\item 
+\#define {\bf TOL}~2.0e-4
+\item 
+\#define {\bf EPS}~1.0e-10
+\item 
+\#define {\bf SWAP}(a, b)~\{swap=(a);(a)=(b);(b)=swap;\}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf mal\_\-verify} (int)
+\item 
+void {\bf linmin} (double p[$\,$], double xi[$\,$], int n, double $\ast$fret, double($\ast$func)(double[$\,$]))
+\item 
+double $\ast$ {\bf dvector} (int nl, int nh)
+\item 
+void {\bf free\_\-dvector} (double $\ast${\bf v}, int nl, int nh)
+\item 
+double $\ast$$\ast$ {\bf dmatrix} (int nrl, int nrh, int ncl, int nch)
+\item 
+void {\bf free\_\-dmatrix} (double $\ast$$\ast$m, int nrl, int nrh, int ncl, int nch)
+\item 
+double {\bf brent} (double ax, double bx, double cx, double($\ast$f)(double), double tol, double $\ast$xmin)
+\item 
+double {\bf f1dim} (double x)
+\item 
+void {\bf mnbrak} (double $\ast$ax, double $\ast$bx, double $\ast$cx, double $\ast$fa, double $\ast$fb, double $\ast$fc, double($\ast$func)(double))
+\item 
+void {\bf powell} (double p[$\,$], double $\ast$$\ast$xi, int n, double ftol, int $\ast$iter, double $\ast$fret, double($\ast$func)(double[$\,$]), int itmax)
+\item 
+void {\bf frprmn} (double p[$\,$], int n, double ftol, int $\ast$iter, double $\ast$fret, double($\ast$func)(double[$\,$]), void($\ast$dfunc)(double[$\,$], double[$\,$]), int itmax)
+\item 
+double {\bf amotry} (double $\ast$$\ast$p, double y[$\,$], double psum[$\,$], int {\bf ndim}, double($\ast$funk)(double[$\,$]), int ihi, double fac)
+\item 
+void {\bf amoeba} (double $\ast$$\ast$p, double y[$\,$], int {\bf ndim}, double ftol, double($\ast$funk)(double[$\,$]), int $\ast$nfunk, int nmax)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static double {\bf sqra} = 0
+\item 
+static int {\bf ncom}
+\item 
+static double $\ast$ {\bf pcom}
+\item 
+static double $\ast$ {\bf xicom}
+\item 
+static double($\ast$ {\bf nrfunc} )(double[$\,$])
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{nrminmd.c@{nrminmd.c}!EPS@{EPS}}
+\index{EPS@{EPS}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define EPS~1.0e-10}\label{nrminmd_8c_6ebf6899d6c1c8b7b9d09be872c05aae}
+
+
+\index{nrminmd.c@{nrminmd.c}!NRANSI@{NRANSI}}
+\index{NRANSI@{NRANSI}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NRANSI}\label{nrminmd_8c_c35ec264c922c9b83f2b3d79cb8f5d93}
+
+
+\index{nrminmd.c@{nrminmd.c}!SQR@{SQR}}
+\index{SQR@{SQR}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SQR(A)~((({\bf sqra}=(A)) == 0.)?0.:{\bf sqra}$\ast${\bf sqra})}\label{nrminmd_8c_a6604d165d6a0e3fef3654e08d69cdf9}
+
+
+\index{nrminmd.c@{nrminmd.c}!SWAP@{SWAP}}
+\index{SWAP@{SWAP}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SWAP(a, b)~\{swap=(a);(a)=(b);(b)=swap;\}}\label{nrminmd_8c_ac9153aee4bdb92701df902e06a74eb3}
+
+
+\index{nrminmd.c@{nrminmd.c}!TOL@{TOL}}
+\index{TOL@{TOL}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TOL~2.0e-4}\label{nrminmd_8c_156b862ebf6d213f5da19b9e3ccb779e}
+
+
+
+
+\subsection{Function Documentation}
+\index{nrminmd.c@{nrminmd.c}!amoeba@{amoeba}}
+\index{amoeba@{amoeba}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void amoeba (double $\ast$$\ast$ {\em p}, double {\em y}[$\,$], int {\em ndim}, double {\em ftol}, double($\ast$)(double[$\,$]) {\em funk}, int $\ast$ {\em nfunk}, int {\em nmax})}\label{nrminmd_8c_c0567ca4c726bf8ffe9a0e182ca0b5cc}
+
+
+\index{nrminmd.c@{nrminmd.c}!amotry@{amotry}}
+\index{amotry@{amotry}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double amotry (double $\ast$$\ast$ {\em p}, double {\em y}[$\,$], double {\em psum}[$\,$], int {\em ndim}, double($\ast$)(double[$\,$]) {\em funk}, int {\em ihi}, double {\em fac})}\label{nrminmd_8c_f5b85260cf99fa6442fdf0a9f4eb6d46}
+
+
+\index{nrminmd.c@{nrminmd.c}!brent@{brent}}
+\index{brent@{brent}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double brent (double {\em ax}, double {\em bx}, double {\em cx}, double($\ast$)(double) {\em f}, double {\em tol}, double $\ast$ {\em xmin})}\label{nrminmd_8c_4fd8796511d2de86aee49722d758b5b6}
+
+
+\index{nrminmd.c@{nrminmd.c}!dmatrix@{dmatrix}}
+\index{dmatrix@{dmatrix}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$$\ast$ dmatrix (int {\em nrl}, int {\em nrh}, int {\em ncl}, int {\em nch})}\label{nrminmd_8c_9829823d1fef07b2a9636d185a61cfa8}
+
+
+\index{nrminmd.c@{nrminmd.c}!dvector@{dvector}}
+\index{dvector@{dvector}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ dvector (int {\em nl}, int {\em nh})}\label{nrminmd_8c_adf545b87862c6aa65798a2937ffc0e9}
+
+
+\index{nrminmd.c@{nrminmd.c}!f1dim@{f1dim}}
+\index{f1dim@{f1dim}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double f1dim (double {\em x})}\label{nrminmd_8c_1f33ec0c582389ac212cdd33637c4291}
+
+
+\index{nrminmd.c@{nrminmd.c}!free_dmatrix@{free\_\-dmatrix}}
+\index{free_dmatrix@{free\_\-dmatrix}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-dmatrix (double $\ast$$\ast$ {\em m}, int {\em nrl}, int {\em nrh}, int {\em ncl}, int {\em nch})}\label{nrminmd_8c_daec44c9a213f1abf0024b8dd18a1dc2}
+
+
+\index{nrminmd.c@{nrminmd.c}!free_dvector@{free\_\-dvector}}
+\index{free_dvector@{free\_\-dvector}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-dvector (double $\ast$ {\em v}, int {\em nl}, int {\em nh})}\label{nrminmd_8c_de97c412868dfcf63ffa3db5ce03ec70}
+
+
+\index{nrminmd.c@{nrminmd.c}!frprmn@{frprmn}}
+\index{frprmn@{frprmn}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void frprmn (double {\em p}[$\,$], int {\em n}, double {\em ftol}, int $\ast$ {\em iter}, double $\ast$ {\em fret}, double($\ast$)(double[$\,$]) {\em func}, void($\ast$)(double[$\,$], double[$\,$]) {\em dfunc}, int {\em itmax})}\label{nrminmd_8c_f8fff74ef81fc8a2f4b1b2aaf9681de6}
+
+
+\index{nrminmd.c@{nrminmd.c}!linmin@{linmin}}
+\index{linmin@{linmin}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void linmin (double {\em p}[$\,$], double {\em xi}[$\,$], int {\em n}, double $\ast$ {\em fret}, double($\ast$)(double[$\,$]) {\em func})}\label{nrminmd_8c_fa23520c3f1daeead3c49076a30bb3a9}
+
+
+\index{nrminmd.c@{nrminmd.c}!mal_verify@{mal\_\-verify}}
+\index{mal_verify@{mal\_\-verify}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void mal\_\-verify (int)}\label{nrminmd_8c_87051351b4758adbcfc4c35051e76ad4}
+
+
+\index{nrminmd.c@{nrminmd.c}!mnbrak@{mnbrak}}
+\index{mnbrak@{mnbrak}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void mnbrak (double $\ast$ {\em ax}, double $\ast$ {\em bx}, double $\ast$ {\em cx}, double $\ast$ {\em fa}, double $\ast$ {\em fb}, double $\ast$ {\em fc}, double($\ast$)(double) {\em func})}\label{nrminmd_8c_ae863d3c940914dec464bad3f8c74e30}
+
+
+\index{nrminmd.c@{nrminmd.c}!powell@{powell}}
+\index{powell@{powell}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void powell (double {\em p}[$\,$], double $\ast$$\ast$ {\em xi}, int {\em n}, double {\em ftol}, int $\ast$ {\em iter}, double $\ast$ {\em fret}, double($\ast$)(double[$\,$]) {\em func}, int {\em itmax})}\label{nrminmd_8c_b5bbed773331f96a7c35ddd95eb380a2}
+
+
+
+
+\subsection{Variable Documentation}
+\index{nrminmd.c@{nrminmd.c}!ncom@{ncom}}
+\index{ncom@{ncom}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf ncom}\hspace{0.3cm}{\tt  [static]}}\label{nrminmd_8c_30236c67e1f0e59ef05fe357a8bbf6f0}
+
+
+\index{nrminmd.c@{nrminmd.c}!nrfunc@{nrfunc}}
+\index{nrfunc@{nrfunc}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double($\ast$ {\bf nrfunc})(double[$\,$])\hspace{0.3cm}{\tt  [static]}}\label{nrminmd_8c_6420a7b7ce8471bdaee783b2fc2ae5f0}
+
+
+\index{nrminmd.c@{nrminmd.c}!pcom@{pcom}}
+\index{pcom@{pcom}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf pcom}\hspace{0.3cm}{\tt  [static]}}\label{nrminmd_8c_158f5b620d9439709808617c60f16389}
+
+
+\index{nrminmd.c@{nrminmd.c}!sqra@{sqra}}
+\index{sqra@{sqra}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf sqra} = 0\hspace{0.3cm}{\tt  [static]}}\label{nrminmd_8c_4272858460f0b9692a1d14811e56e0a8}
+
+
+\index{nrminmd.c@{nrminmd.c}!xicom@{xicom}}
+\index{xicom@{xicom}!nrminmd.c@{nrminmd.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ {\bf xicom}\hspace{0.3cm}{\tt  [static]}}\label{nrminmd_8c_339c026f0fd0ca6f227cd8ba1afb99f4}
+
+

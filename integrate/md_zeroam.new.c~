@@ -1,0 +1,338 @@
+/* 
+   Copyright (C) 1997 1998 1999 2000 Dr. Preston B. Moore
+
+Dr. Preston B. Moore
+Associate Director, Center for Molecular Modeling (CMM)
+University of Pennsylvania, Department of Chemistry, Box 188 
+231 S. 34th St. Philadelphia, PA 19104-6323 USA
+EMAIL: moore@cmm.chem.upenn.edu  
+WWW: http://www.cmm.upenn.edu/~moore
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+*/
+
+/* routines that zero total momentum, scale temperature, zero COM, etc.. */
+
+#include "md.h"
+
+/* #define DEBUG */
+/*----------------------------------------------------------------------*/
+void samvel_new(SIMPARMS *simparms,COORDS *coords,int irandom)
+{
+  /* take advantange of the fact that the velocities are contiguous */
+  if(irandom){
+    md_warning("Resampling velocities from a gaussian distribution");
+    ggauss(simparms->natoms*3,coords->v);
+  }
+  zerotm_new(simparms->natoms,coords->v,coords->amass);  
+  if(simparms->nfreeze>0) freeze_atom(simparms,coords);
+  scale_new(simparms->natoms,coords->v,coords->amass,simparms->temp,simparms->ndof);
+
+}
+/*--------------------------------------------------------------------*/
+
+
+void zerotm_new(int natoms, double *v, double *amass) {
+
+	int i, ii, j;
+	double vel[3], tmass;
+
+	vel[0] = 0.0;
+	vel[1] = 0.0;
+	vel[2] = 0.0;
+	tmass = 0.0;
+
+	if(natoms > 1){
+
+		for(i = 0; i < natoms; i++) {
+
+			ii = i*3;
+
+			tmass += amass[i];
+
+			for(j = 0; j < 3; j++)
+				vel[j] += v[ii+j]*amass[i];
+
+		}
+
+		for(j = 0; j < 3; j++)
+			vel[j] /= tmass;
+
+		for(i = 0; i < natoms; i++) {
+
+			ii = i*3;
+
+			for(j = 0; j < 3; j++)
+				v[ii+j] -= vel[j];
+
+		}
+
+	}
+}
+/*---------------------------------------------------------------------*/
+double get_temp_new(int natoms, double *v, double *amass, int ndof) {
+
+	int i, ii, j;
+	double p2m;
+  
+	p2m = 0.0;
+
+	for(i = 0; i < natoms; i++) {
+
+		ii = i*3;
+
+		for(j = 0; j < 3; j++)
+			p2m += v[ii+j]*v[ii+j];
+
+		p2m *= amass[i];
+
+	}
+
+	return(p2m/(double)ndof);
+
+}
+/*---------------------------------------------------------------------*/
+void scale_new(int natoms, double *v, double *amass, double temp, int ndof) {
+
+	int i, ii, j;
+	LINE line;
+	double fact, svel2;
+  
+	svel2 = 0.0;
+
+	for(i = 0; i < natoms; i++) {
+
+		ii = i*3;
+
+		for(j = 0; j < 3; j++)
+			svel2 += amass[i]*v[ii+j]*v[ii+j];
+
+	}
+
+	if(svel2 <= 0.0) {
+		sprintf(line,"You have all zero velocities!");
+	} else {
+		sprintf(line,"Scaled temperature from %g K to %g K", svel2/((double)ndof),temp);
+		fact = sqrt((double)ndof*temp/svel2);
+	}
+
+	/* do the rescaling here */
+	for(i = 0; i < natoms; i++) {
+
+		ii = i*3;
+
+		for(j = 0; j < 3; j++)
+			v[ii+j] *= fact;
+
+	}
+
+	md_warning(line);
+
+	if(svel2 != svel2)
+		md_error("A NaN was incountered while rescaling velocties!");
+
+}
+
+/*-----------------------------------------------------------*/
+void radial_new(int natoms, double *p, double *v, double *amass) 
+{
+  
+  int i, ii, j;
+  double r, vel;
+  
+  zerotm_new(natoms, v, amass);
+  zerocm_new(natoms, p, amass);
+  
+  for(i = 0; i < natoms; i++) {  
+    ii = i*3;
+    
+    vel = 0.0;
+    r = 0.0;
+    for(j = 0; j < 3; j++) {
+      vel += v[ii+j]*v[ii+j];
+      r += p[ii+j]*p[ii+j];
+    }
+    vel = sqrt(vel);
+    r = sqrt(r);
+    
+    for(j = 0; j < 3; j++)
+      v[ii+j] = vel*p[ii+j]/r;
+    
+  }
+  
+  zerotm_new(natoms, v, amass);
+  
+}
+/*-----------------------------------------------------------*/
+void zerocm_new(int natoms, double *p, double *amass)
+{
+  int i, ii, j;
+  double cm[3], tm;
+  
+  cm[0] = cm[1] = cm[2] = tm = 0.0;
+
+  for(i=0;i<natoms;i++){
+    ii = i*3;
+    for(j = 0; j < 3; j++) cm[j] += p[ii+j]*amass[i];
+    tm += amass[i];
+  }
+
+  for(j = 0; j < 3; j++)  cm[j] /= tm;
+  
+  for(i = 0; i < natoms; i++) {
+    for(j = 0; j < 3; j++)   p[ii+j] -= cm[j];
+  }
+  
+}
+/*--------------------------------------------------------------*/
+void zero_angm_new(int natoms, double *p, double *v, double *amass) {
+
+  int i, ii, j;
+  double d[3], vel[3], omega[3], l[3];
+  double **imat, **invmat;
+  
+  if(natoms == 1) return;
+
+  md_warning("Zeroing total angular momentum");
+  zerocm_new(natoms, p, amass);
+  
+  imat   = dmatrix(0,2,0,2);
+  invmat = dmatrix(0,2,0,2);
+  
+  if(natoms == 2){
+    radial_new(natoms, p, v, amass);
+  } else {
+    
+    /* zero total linear momentum */
+    zerotm_new(natoms, v, amass);
+    
+    /* calculate angular momentum */
+    for(i = 0; i < 3; i++){
+      for(j = 0; j < 3; j++) {
+	imat[i][j] = 0.0;
+	invmat[i][j] = 0.0;
+      }
+      d[i] = 0.0;
+      vel[i] = 0.0;
+      omega[i] = 0.0;
+      l[i] = 0.0;
+    }
+    
+    for(i = 0; i < natoms; i++){
+      
+      ii = i*3;
+      
+      for(j = 0; j < 3; j++) {
+	d[j] = p[ii+j];
+	vel[j] = v[ii+j];
+      }
+      
+      
+      l[0] += amass[i]*(d[1]*vel[2]-d[2]*vel[1]);
+      l[1] += amass[i]*(d[2]*vel[0]-d[0]*vel[2]);
+      l[2] += amass[i]*(d[0]*vel[1]-d[1]*vel[0]);
+      
+      imat[0][0] += amass[i]*(d[1]*d[1]+d[2]*d[2]);
+      imat[1][1] += amass[i]*(d[0]*d[0]+d[2]*d[2]);
+      imat[2][2] += amass[i]*(d[0]*d[0]+d[1]*d[1]);
+      
+      imat[0][1] -= amass[i]*d[0]*d[1];
+      imat[0][2] -= amass[i]*d[0]*d[2];
+      imat[1][2] -= amass[i]*d[1]*d[2];
+      
+    }
+    imat[1][0] = imat[0][1];
+    imat[2][0] = imat[0][2];
+    imat[2][1] = imat[1][2];
+    
+    invres(3,imat,invmat);
+    
+    omega[0] = l[0]*invmat[0][0] + l[1]*invmat[1][0] + l[2]*invmat[2][0];
+    omega[1] = l[0]*invmat[0][1] + l[1]*invmat[1][1] + l[2]*invmat[2][1];
+    omega[2] = l[0]*invmat[0][2] + l[1]*invmat[1][2] + l[2]*invmat[2][2];
+    
+    for(i = 0; i < natoms; i++){
+      
+      ii = i*3;
+      
+      v[ii+0] -= p[ii+2]*omega[1] - p[ii+1]*omega[2];
+      v[ii+1] -= p[ii+0]*omega[2] - p[ii+2]*omega[0];
+      v[ii+2] -= p[ii+1]*omega[0] - p[ii+0]*omega[1];
+      
+    }
+    
+  }
+  
+  free_dmatrix(imat,0,2,0,2);
+  free_dmatrix(invmat,0,2,0,2);
+  
+}
+
+
+/*------------------------------------------------------------------*/
+void rotate_new(int natoms, double *p, double *amass) {
+
+  int i, ii, j;
+  double d[3];
+  double **imat;
+
+  md_stdout("Rotating so that axis are principle axis");
+  
+  imat = dmatrix(0,2,0,2);
+  for(i = 0; i < 3; i++)
+    for(j = 0; j < 3; j++)
+      imat[i][j] = 0.0;
+
+  for(i = 0; i < natoms; i++){
+    
+    ii = i*3;
+    
+    for(j = 0; j < 3; j++)
+      d[j] = p[ii+j];
+    
+    imat[0][0] += amass[i]*(d[1]*d[1]+d[2]*d[2]);
+    imat[1][1] += amass[i]*(d[0]*d[0]+d[2]*d[2]);
+    imat[2][2] += amass[i]*(d[0]*d[0]+d[1]*d[1]);
+    imat[0][1] -= amass[i]*d[0]*d[1];
+    imat[0][2] -= amass[i]*d[0]*d[2];
+    imat[1][2] -= amass[i]*d[1]*d[2];
+    
+  }
+  imat[1][0] = imat[0][1];
+  imat[2][0] = imat[0][2];
+  imat[2][1] = imat[1][2];
+  
+  rs_me(3,d,imat,1);
+  ceigsrtv(d,imat,3); /* we don't need them sorted, but it nice */
+  
+  /* rotate into priciple frame  */
+  for(i = 0; i < natoms; i++) {
+    
+    ii = i*3;
+    
+    d[0] = imat[0][0]*p[ii+0]+imat[1][0]*p[ii+1]+imat[2][0]*p[ii+2];
+    d[1] = imat[0][1]*p[ii+0]+imat[1][1]*p[ii+1]+imat[2][1]*p[ii+2];
+    d[2] = imat[0][2]*p[ii+0]+imat[1][2]*p[ii+1]+imat[2][2]*p[ii+2];
+    
+    for(j = 0; j < 3; j++)
+      p[ii+j] = d[j];
+    
+  }
+  
+  free_dmatrix(imat,0,2,0,2);
+  
+}
+/*------------------------------------------------------------------*/

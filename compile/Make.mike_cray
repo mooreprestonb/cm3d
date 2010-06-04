@@ -1,0 +1,28 @@
+
+HOME = $(TMP)
+BASE = $(HOME)/md
+
+# common definitions...
+RM = /bin/rm -f
+CC = cc -h report=vf
+F77 = cf77
+CPP = /lib/cpp
+CP = /bin/cp
+AR = /bin/ar
+MV = /bin/mv
+
+# Compiler flages, paths for include files and libraries
+
+DEFINES = -DBLAS -DCRAY -DPRESSURE
+CFLAGS = -F -Gp -O inline3 -O vector3 $(DEFINES) 
+FFLAGS =  
+
+OPT = -O
+LIBS = 
+
+LD   = segldr 
+LDFLAGS = -lperf
+ARFLAGS = ruv
+
+NAME    = mike_cray
+

@@ -1,0 +1,224 @@
+\section{compile/mpif.h File Reference}
+\label{mpif_8h}\index{compile/mpif.h@{compile/mpif.h}}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+{\bf C} (C) 1993 by Argonne National Laboratory and Mississipi State University.C All rights reserved.See COPYRIGHT in top-level directory.C C C user include file for MPI programs
+\item 
+{\bf with} no dependencies C C It really isn t possible to make a perfect include file that can C be used by both F77 and F90 but this is close We ve removed C continuation {\bf lines} (allows free form input in F90)
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED {\bf parameter} (MPI\_\-UNDEFINED=(-32766)) C INTEGER MPI\_\-GRAPH
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL {\bf PARAMETER} (MPI\_\-PROC\_\-NULL=(-1)) C INTEGER MPI\_\-BSEND\_\-OVERHEAD INTEGER MPI\_\-SOURCE
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+{\bf with} no dependencies C C It really isn t possible to make a perfect include file that can C be used by both F77 and F90 {\bf compilers}
+\item 
+systems whose C Fortran {\bf compilers} support instead of just C or $\ast$for {\bf comments} can C globally replace a C in the first column {\bf with}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for {\bf comments}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER {\bf MPI\_\-SUCCESS}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER {\bf MPI\_\-ERR\_\-BUFFER}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER {\bf MPI\_\-ERR\_\-COUNT}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER {\bf MPI\_\-ERR\_\-TAG}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER {\bf MPI\_\-ERR\_\-COMM}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER {\bf MPI\_\-ERR\_\-RANK}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER {\bf MPI\_\-ERR\_\-OP}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER {\bf MPI\_\-ERR\_\-TOPOLOGY}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER {\bf MPI\_\-ERR\_\-DIMS}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER {\bf MPI\_\-ERR\_\-UNKNOWN}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER {\bf MPI\_\-ERR\_\-TRUNCATE}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER {\bf MPI\_\-ERR\_\-INTERN}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER {\bf MPI\_\-ERR\_\-IN\_\-STATUS}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER {\bf MPI\_\-ERR\_\-REQUEST}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL {\bf MPI\_\-TAG}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL MPI\_\-ERROR INTEGER MPI\_\-STATUS\_\-SIZE INTEGER {\bf MPI\_\-MAX\_\-PROCESSOR\_\-NAME}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL MPI\_\-ERROR INTEGER MPI\_\-STATUS\_\-SIZE INTEGER MPI\_\-MAX\_\-ERROR\_\-STRING INTEGER MPI\_\-MAX\_\-NAME\_\-STRING C INTEGER MPI\_\-COMM\_\-NULL C INTEGER MPI\_\-DATATYPE\_\-NULL INTEGER MPI\_\-ERRHANDLER\_\-NULL INTEGER MPI\_\-GROUP\_\-NULL INTEGER MPI\_\-KEYVAL\_\-INVALID INTEGER MPI\_\-REQUEST\_\-NULL C INTEGER {\bf MPI\_\-IDENT}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL MPI\_\-ERROR INTEGER MPI\_\-STATUS\_\-SIZE INTEGER MPI\_\-MAX\_\-ERROR\_\-STRING INTEGER MPI\_\-MAX\_\-NAME\_\-STRING C INTEGER MPI\_\-COMM\_\-NULL C INTEGER MPI\_\-DATATYPE\_\-NULL INTEGER MPI\_\-ERRHANDLER\_\-NULL INTEGER MPI\_\-GROUP\_\-NULL INTEGER MPI\_\-KEYVAL\_\-INVALID INTEGER MPI\_\-REQUEST\_\-NULL C INTEGER {\bf MPI\_\-CONGRUENT}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL MPI\_\-ERROR INTEGER MPI\_\-STATUS\_\-SIZE INTEGER MPI\_\-MAX\_\-ERROR\_\-STRING INTEGER MPI\_\-MAX\_\-NAME\_\-STRING C INTEGER MPI\_\-COMM\_\-NULL C INTEGER MPI\_\-DATATYPE\_\-NULL INTEGER MPI\_\-ERRHANDLER\_\-NULL INTEGER MPI\_\-GROUP\_\-NULL INTEGER MPI\_\-KEYVAL\_\-INVALID INTEGER MPI\_\-REQUEST\_\-NULL C INTEGER {\bf MPI\_\-SIMILAR}
+\item 
+the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL MPI\_\-ERROR INTEGER MPI\_\-STATUS\_\-SIZE INTEGER MPI\_\-MAX\_\-ERROR\_\-STRING INTEGER MPI\_\-MAX\_\-NAME\_\-STRING C INTEGER MPI\_\-COMM\_\-NULL C INTEGER MPI\_\-DATATYPE\_\-NULL INTEGER MPI\_\-ERRHANDLER\_\-NULL INTEGER MPI\_\-GROUP\_\-NULL INTEGER MPI\_\-KEYVAL\_\-INVALID INTEGER MPI\_\-REQUEST\_\-NULL C INTEGER MPI\_\-UNEQUAL C C {\bf MPI\_\-BOTTOM} needs to be a known {\bf address}
+\item 
+here we put it at the C beginning of the common block The point to point and collective C routines know about {\bf MPI\_\-BOTTOM}
+\item 
+here we put it at the C beginning of the common block The point to point and collective C routines know about but MPI\_\-TYPE\_\-STRUCT as yet does not C C The types {\bf MPI\_\-INTEGER1}
+\item 
+here we put it at the C beginning of the common block The point to point and collective C routines know about but MPI\_\-TYPE\_\-STRUCT as yet does not C C The types and {\bf MPI\_\-REAL4}
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{mpif.h@{mpif.h}!C@{C}}
+\index{C@{C}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}C (C)}\label{mpif_8h_5ca1110bc53ab1954705d212e4265d48}
+
+
+\index{mpif.h@{mpif.h}!lines@{lines}}
+\index{lines@{lines}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf with} no dependencies C C It really isn t possible to make a perfect include file that can C be used by both F77 and F90 but this is close We ve removed C continuation lines (allows free form input in {\em F90})}\label{mpif_8h_2493b2e6b1d0ba5c60b484a8b6421e86}
+
+
+\index{mpif.h@{mpif.h}!PARAMETER@{PARAMETER}}
+\index{PARAMETER@{PARAMETER}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL PARAMETER (MPI\_\-PROC\_\-NULL = {\tt (-1)})}\label{mpif_8h_5312ca67a174dea9e2a3bba05696745e}
+
+
+\index{mpif.h@{mpif.h}!parameter@{parameter}}
+\index{parameter@{parameter}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED parameter (MPI\_\-UNDEFINED = {\tt (-32766)})}\label{mpif_8h_ab31459ae78d9f8288b875fab66c58d2}
+
+
+
+
+\subsection{Variable Documentation}
+\index{mpif.h@{mpif.h}!address@{address}}
+\index{address@{address}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL MPI\_\-ERROR INTEGER MPI\_\-STATUS\_\-SIZE INTEGER MPI\_\-MAX\_\-ERROR\_\-STRING INTEGER MPI\_\-MAX\_\-NAME\_\-STRING C INTEGER MPI\_\-COMM\_\-NULL C INTEGER MPI\_\-DATATYPE\_\-NULL INTEGER MPI\_\-ERRHANDLER\_\-NULL INTEGER MPI\_\-GROUP\_\-NULL INTEGER MPI\_\-KEYVAL\_\-INVALID INTEGER MPI\_\-REQUEST\_\-NULL C INTEGER MPI\_\-UNEQUAL C C {\bf MPI\_\-BOTTOM} needs to be a known {\bf address}}\label{mpif_8h_b4cbabdf25ecc88985b013dcd9a9bbf2}
+
+
+\index{mpif.h@{mpif.h}!comments@{comments}}
+\index{comments@{comments}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for {\bf comments}}\label{mpif_8h_7f2cf24dc6f52b97e85e4ac8c7e69575}
+
+
+\index{mpif.h@{mpif.h}!compilers@{compilers}}
+\index{compilers@{compilers}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf with} no dependencies C C It really isn t possible to make a perfect include file that can C be used by both F77 and F90 {\bf compilers}}\label{mpif_8h_1f2664a4bb068d0d1bf004fe61262aa3}
+
+
+\index{mpif.h@{mpif.h}!MPI_BOTTOM@{MPI\_\-BOTTOM}}
+\index{MPI_BOTTOM@{MPI\_\-BOTTOM}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}here we put it at the C beginning of the common block The point to point and collective C routines know about {\bf MPI\_\-BOTTOM}}\label{mpif_8h_af5bfd47ef0ad1f75476f4a1e6eaa8ba}
+
+
+\index{mpif.h@{mpif.h}!MPI_CONGRUENT@{MPI\_\-CONGRUENT}}
+\index{MPI_CONGRUENT@{MPI\_\-CONGRUENT}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL MPI\_\-ERROR INTEGER MPI\_\-STATUS\_\-SIZE INTEGER MPI\_\-MAX\_\-ERROR\_\-STRING INTEGER MPI\_\-MAX\_\-NAME\_\-STRING C INTEGER MPI\_\-COMM\_\-NULL C INTEGER MPI\_\-DATATYPE\_\-NULL INTEGER MPI\_\-ERRHANDLER\_\-NULL INTEGER MPI\_\-GROUP\_\-NULL INTEGER MPI\_\-KEYVAL\_\-INVALID INTEGER MPI\_\-REQUEST\_\-NULL C INTEGER {\bf MPI\_\-CONGRUENT}}\label{mpif_8h_013c15467340a240f465de76255552b3}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_BUFFER@{MPI\_\-ERR\_\-BUFFER}}
+\index{MPI_ERR_BUFFER@{MPI\_\-ERR\_\-BUFFER}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER {\bf MPI\_\-ERR\_\-BUFFER}}\label{mpif_8h_ee8d8aa5d7b8d51c7bcff6fc0f59200e}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_COMM@{MPI\_\-ERR\_\-COMM}}
+\index{MPI_ERR_COMM@{MPI\_\-ERR\_\-COMM}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER {\bf MPI\_\-ERR\_\-COMM}}\label{mpif_8h_4a8aa25233054288fe0a2d2cdb23f1b7}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_COUNT@{MPI\_\-ERR\_\-COUNT}}
+\index{MPI_ERR_COUNT@{MPI\_\-ERR\_\-COUNT}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER {\bf MPI\_\-ERR\_\-COUNT}}\label{mpif_8h_4557f56e9682ef81ef532ab44bc14e7a}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_DIMS@{MPI\_\-ERR\_\-DIMS}}
+\index{MPI_ERR_DIMS@{MPI\_\-ERR\_\-DIMS}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER {\bf MPI\_\-ERR\_\-DIMS}}\label{mpif_8h_b474188aebb8dfe10cdc4eca2848ad62}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_IN_STATUS@{MPI\_\-ERR\_\-IN\_\-STATUS}}
+\index{MPI_ERR_IN_STATUS@{MPI\_\-ERR\_\-IN\_\-STATUS}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER {\bf MPI\_\-ERR\_\-IN\_\-STATUS}}\label{mpif_8h_532135b827549fab226332c577d24568}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_INTERN@{MPI\_\-ERR\_\-INTERN}}
+\index{MPI_ERR_INTERN@{MPI\_\-ERR\_\-INTERN}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER {\bf MPI\_\-ERR\_\-INTERN}}\label{mpif_8h_a8e022edcacc019b7269c2d6fd6f311a}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_OP@{MPI\_\-ERR\_\-OP}}
+\index{MPI_ERR_OP@{MPI\_\-ERR\_\-OP}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER {\bf MPI\_\-ERR\_\-OP}}\label{mpif_8h_91fe235f16eb11cde40b4d32fe0afbbb}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_RANK@{MPI\_\-ERR\_\-RANK}}
+\index{MPI_ERR_RANK@{MPI\_\-ERR\_\-RANK}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER {\bf MPI\_\-ERR\_\-RANK}}\label{mpif_8h_1fa7e45fa5dafd762bca87ad054806de}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_REQUEST@{MPI\_\-ERR\_\-REQUEST}}
+\index{MPI_ERR_REQUEST@{MPI\_\-ERR\_\-REQUEST}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER {\bf MPI\_\-ERR\_\-REQUEST}}\label{mpif_8h_d4cc17b60cd977109d51bd3d832440da}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_TAG@{MPI\_\-ERR\_\-TAG}}
+\index{MPI_ERR_TAG@{MPI\_\-ERR\_\-TAG}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER {\bf MPI\_\-ERR\_\-TAG}}\label{mpif_8h_416a50cabec27a3a4d4ee1d3f76be817}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_TOPOLOGY@{MPI\_\-ERR\_\-TOPOLOGY}}
+\index{MPI_ERR_TOPOLOGY@{MPI\_\-ERR\_\-TOPOLOGY}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER {\bf MPI\_\-ERR\_\-TOPOLOGY}}\label{mpif_8h_46c1d8500640a09b9ab190f05fff82d5}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_TRUNCATE@{MPI\_\-ERR\_\-TRUNCATE}}
+\index{MPI_ERR_TRUNCATE@{MPI\_\-ERR\_\-TRUNCATE}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER {\bf MPI\_\-ERR\_\-TRUNCATE}}\label{mpif_8h_fa621998a4f229dcdf972e5da257ee74}
+
+
+\index{mpif.h@{mpif.h}!MPI_ERR_UNKNOWN@{MPI\_\-ERR\_\-UNKNOWN}}
+\index{MPI_ERR_UNKNOWN@{MPI\_\-ERR\_\-UNKNOWN}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER {\bf MPI\_\-ERR\_\-UNKNOWN}}\label{mpif_8h_108d80b9be33e2b4e87f504d8321ddfa}
+
+
+\index{mpif.h@{mpif.h}!MPI_IDENT@{MPI\_\-IDENT}}
+\index{MPI_IDENT@{MPI\_\-IDENT}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL MPI\_\-ERROR INTEGER MPI\_\-STATUS\_\-SIZE INTEGER MPI\_\-MAX\_\-ERROR\_\-STRING INTEGER MPI\_\-MAX\_\-NAME\_\-STRING C INTEGER MPI\_\-COMM\_\-NULL C INTEGER MPI\_\-DATATYPE\_\-NULL INTEGER MPI\_\-ERRHANDLER\_\-NULL INTEGER MPI\_\-GROUP\_\-NULL INTEGER MPI\_\-KEYVAL\_\-INVALID INTEGER MPI\_\-REQUEST\_\-NULL C INTEGER {\bf MPI\_\-IDENT}}\label{mpif_8h_320e8809198e6b813977fce7a0ff2ca5}
+
+
+\index{mpif.h@{mpif.h}!MPI_INTEGER1@{MPI\_\-INTEGER1}}
+\index{MPI_INTEGER1@{MPI\_\-INTEGER1}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}here we put it at the C beginning of the common block The point to point and collective C routines know about but MPI\_\-TYPE\_\-STRUCT as yet does not C C The types {\bf MPI\_\-INTEGER1}}\label{mpif_8h_0aa8c24d6c103be23cd75b6cba7d9647}
+
+
+\index{mpif.h@{mpif.h}!MPI_MAX_PROCESSOR_NAME@{MPI\_\-MAX\_\-PROCESSOR\_\-NAME}}
+\index{MPI_MAX_PROCESSOR_NAME@{MPI\_\-MAX\_\-PROCESSOR\_\-NAME}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL MPI\_\-ERROR INTEGER MPI\_\-STATUS\_\-SIZE INTEGER {\bf MPI\_\-MAX\_\-PROCESSOR\_\-NAME}}\label{mpif_8h_6ce8a6afc4787c3cadc95172fb3097d9}
+
+
+\index{mpif.h@{mpif.h}!MPI_REAL4@{MPI\_\-REAL4}}
+\index{MPI_REAL4@{MPI\_\-REAL4}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}here we put it at the C beginning of the common block The point to point and collective C routines know about but MPI\_\-TYPE\_\-STRUCT as yet does not C C The types and {\bf MPI\_\-REAL4}}\label{mpif_8h_b38beff28506b606cc8c5a4cb045aaa3}
+
+
+\index{mpif.h@{mpif.h}!MPI_SIMILAR@{MPI\_\-SIMILAR}}
+\index{MPI_SIMILAR@{MPI\_\-SIMILAR}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL MPI\_\-ERROR INTEGER MPI\_\-STATUS\_\-SIZE INTEGER MPI\_\-MAX\_\-ERROR\_\-STRING INTEGER MPI\_\-MAX\_\-NAME\_\-STRING C INTEGER MPI\_\-COMM\_\-NULL C INTEGER MPI\_\-DATATYPE\_\-NULL INTEGER MPI\_\-ERRHANDLER\_\-NULL INTEGER MPI\_\-GROUP\_\-NULL INTEGER MPI\_\-KEYVAL\_\-INVALID INTEGER MPI\_\-REQUEST\_\-NULL C INTEGER {\bf MPI\_\-SIMILAR}}\label{mpif_8h_fe6c4041a40dad0cf63e0c9054e4bf49}
+
+
+\index{mpif.h@{mpif.h}!MPI_SUCCESS@{MPI\_\-SUCCESS}}
+\index{MPI_SUCCESS@{MPI\_\-SUCCESS}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER {\bf MPI\_\-SUCCESS}}\label{mpif_8h_e85dccbe6561d9573ef9d25d4bc9005b}
+
+
+\index{mpif.h@{mpif.h}!MPI_TAG@{MPI\_\-TAG}}
+\index{MPI_TAG@{MPI\_\-TAG}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}the resulting file C should {\bf work} for both Fortran and Fortran C C If your Fortran compiler supports for you can run this C through sed {\bf with} C sed e s C g C C return codes INTEGER MPI\_\-ERR\_\-TYPE INTEGER MPI\_\-ERR\_\-ROOT INTEGER MPI\_\-ERR\_\-GROUP INTEGER MPI\_\-ERR\_\-ARG INTEGER MPI\_\-ERR\_\-OTHER INTEGER MPI\_\-ERR\_\-PENDING INTEGER MPI\_\-ERR\_\-LASTCODE C INTEGER MPI\_\-UNDEFINED MPI\_\-CART INTEGER MPI\_\-PROC\_\-NULL {\bf MPI\_\-TAG}}\label{mpif_8h_a81f1159c044e7a170c2b72174d3e055}
+
+
+\index{mpif.h@{mpif.h}!with@{with}}
+\index{with@{with}!mpif.h@{mpif.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}systems whose C Fortran {\bf compilers} support instead of just C or$\ast$ for {\bf comments} can C globally replace a C in the first column {\bf with}}\label{mpif_8h_85d7fd0be66a2a78ada1d90021e4f3b2}
+
+

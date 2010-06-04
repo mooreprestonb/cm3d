@@ -1,0 +1,73 @@
+\section{integrate/md\_\-baro.c File Reference}
+\label{integrate_2md__baro_8c}\index{integrate/md_baro.c@{integrate/md\_\-baro.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+{\tt \#include \char`\"{}vectorize.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf set\_\-baro} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double tauv)
+\item 
+void {\bf force\-V} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf ENERGIES} $\ast${\bf energies})
+\item 
+void {\bf samvbar} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf getengv} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$zkev, double $\ast$potv)
+\item 
+void {\bf getengv\_\-cheese} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$zkev, double $\ast$potv, double $\ast$zken)
+\item 
+void {\bf intbar} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double dta2, int iflag)
+\item 
+void {\bf app\_\-ux2} (int natoms, double dta2, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf app\_\-up2} (int natoms, double dta2, double dnf, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf app\_\-uh} (double dta2, {\bf COORDS} $\ast$coords)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{integrate/md_baro.c@{integrate/md\_\-baro.c}!app_uh@{app\_\-uh}}
+\index{app_uh@{app\_\-uh}!integrate/md_baro.c@{integrate/md\_\-baro.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void app\_\-uh (double {\em dta2}, {\bf COORDS} $\ast$ {\em coords})}\label{integrate_2md__baro_8c_db5bb2d6c57d2e3aa807d1c0e6114759}
+
+
+\index{integrate/md_baro.c@{integrate/md\_\-baro.c}!app_up2@{app\_\-up2}}
+\index{app_up2@{app\_\-up2}!integrate/md_baro.c@{integrate/md\_\-baro.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void app\_\-up2 (int {\em natoms}, double {\em dta2}, double {\em dnf}, {\bf COORDS} $\ast$ {\em coords})}\label{integrate_2md__baro_8c_e572784a592d8e297ffde89f7d61b579}
+
+
+\index{integrate/md_baro.c@{integrate/md\_\-baro.c}!app_ux2@{app\_\-ux2}}
+\index{app_ux2@{app\_\-ux2}!integrate/md_baro.c@{integrate/md\_\-baro.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void app\_\-ux2 (int {\em natoms}, double {\em dta2}, {\bf COORDS} $\ast$ {\em coords})}\label{integrate_2md__baro_8c_0e7fc8608a044c8629b0d4498ff55ac8}
+
+
+\index{integrate/md_baro.c@{integrate/md\_\-baro.c}!forceV@{forceV}}
+\index{forceV@{forceV}!integrate/md_baro.c@{integrate/md\_\-baro.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void force\-V ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf ENERGIES} $\ast$ {\em energies})}\label{integrate_2md__baro_8c_f41913430c6c7a45b9342969f7d3299b}
+
+
+\index{integrate/md_baro.c@{integrate/md\_\-baro.c}!getengv@{getengv}}
+\index{getengv@{getengv}!integrate/md_baro.c@{integrate/md\_\-baro.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getengv ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em zkev}, double $\ast$ {\em potv})}\label{integrate_2md__baro_8c_8f6b220b5497a9d83e02b4949112aa6b}
+
+
+\index{integrate/md_baro.c@{integrate/md\_\-baro.c}!getengv_cheese@{getengv\_\-cheese}}
+\index{getengv_cheese@{getengv\_\-cheese}!integrate/md_baro.c@{integrate/md\_\-baro.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getengv\_\-cheese ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em zkev}, double $\ast$ {\em potv}, double $\ast$ {\em zken})}\label{integrate_2md__baro_8c_254a20535f90eca030f210db5ed233fc}
+
+
+\index{integrate/md_baro.c@{integrate/md\_\-baro.c}!intbar@{intbar}}
+\index{intbar@{intbar}!integrate/md_baro.c@{integrate/md\_\-baro.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void intbar ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double {\em dta2}, int {\em iflag})}\label{integrate_2md__baro_8c_dc8a3b70853b7fac5ee77bb389205afb}
+
+
+\index{integrate/md_baro.c@{integrate/md\_\-baro.c}!samvbar@{samvbar}}
+\index{samvbar@{samvbar}!integrate/md_baro.c@{integrate/md\_\-baro.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void samvbar ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{integrate_2md__baro_8c_fabc38b1f16b28ba02a6112e4c2cb433}
+
+
+\index{integrate/md_baro.c@{integrate/md\_\-baro.c}!set_baro@{set\_\-baro}}
+\index{set_baro@{set\_\-baro}!integrate/md_baro.c@{integrate/md\_\-baro.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void set\_\-baro ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double {\em tauv})}\label{integrate_2md__baro_8c_d72b222d3469248fbdede94c4961c53d}
+
+

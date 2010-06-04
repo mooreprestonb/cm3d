@@ -1,0 +1,416 @@
+Running serial job ../../compile/cm3d.linux on cesium (id=26142)
+Reading in set from file "ls2-cg.set"
+Reading in parameter from file ls2-cg.top
+Bytes of memory allocated after coordinates  = 8064
+There are 12 groups and 3 types of atoms
+Searching intermolecular data base ls2-cg.vdw for interactions
+There were 3 atom types and 6 interations (out of 6)
+Long range correction factor V = -2.19195e+07 K A^3, W = 8.70472e+07 K A^3
+Bytes of memory allocated so far = 880200
+Searching data base ls2-set1.bond for bonded interactions
+There were 3 bonds types and 41 bonds
+Bytes of memory allocated so far = 883152
+Searching data base ls2-set1.bend for bended interactions
+There were 5 types and 59 bends
+Bytes of memory allocated so far = 883472
+Searching data base CG_harmonic.tors for torsions interactions
+Number of torss types = 1, Number of total torss = 18
+Number of harmonic = 1, Number of power series = 0
+Bytes of memory allocated so far = 883704
+# of one-fours = 18, and n14_types = 1
+scale_onefour = 1 and scale_onefour_e = 1
+Searching data base prot_lipid_wat_cg.onfo for one-four interactions
+Bytes of memory allocated so far = 883728
+number of bondx types = 0 number of total cross bonds = 0
+Bytes of memory allocated so far = 883728
+Bytes of memory allocated so far = 931728
+There are 0 charged particles (out of a total of 42)
+There were 0 k-vectors set up.
+Self correction term = 0 K
+Back ground term = 0 K = 0 e
+Bytes of memory allocated so far = 931728
+Allocating exclusion list memory
+Excluding bonded interactions
+There were 118 interaction exclusions found
+Setting up electrostatic exclusion list
+Setting up electrostatic exclusion list (ncharge = 0)
+There are 0 real space electrostatic corrections
+There are 0 coulomb space electrostatic corrections
+Bytes of memory allocated so far = 932904
+Bytes of memory allocated so far = 933544
+Barostat set up: mvol = 12.516 and you have 0 barostates
+Doing cold start from initial file "ls2-cg.init"
+42 Atoms read in with a Cell Volume of 243283
+***********************************
+* istart=1 or 2 : Reset averages  *
+*      and counters and deriv.    *
+***********************************
+Calculating initial forces
+Setting up link list neighbors (~343 cells/processor)
+Number of interacting cells (procs #0) is 24696 (out of 58996)
+Number of electrostatic cells (procs #0) is 40474 (out of 58996)
+Bytes of memory allocated so far = 1482660
+Counting vdw pairs
+Van der Waals Neighbor list memory changed!
+Bytes of memory allocated so far = 1500436
+Electrostatic Neighbor list memory changed!
+Bytes of memory allocated so far = 1500460
+BENDINFO 0 idx=0 tpbend=2 (i,j,k)=(1,0,2)
+BENDINFO 1 idx=1 tpbend=0 (i,j,k)=(0,2,3)
+BENDINFO 2 idx=2 tpbend=2 (i,j,k)=(0,2,4)
+BENDINFO 3 idx=3 tpbend=2 (i,j,k)=(3,2,4)
+BENDINFO 4 idx=4 tpbend=2 (i,j,k)=(2,4,5)
+BENDINFO 5 idx=2 tpbend=2 (i,j,k)=(2,4,6)
+BENDINFO 6 idx=0 tpbend=2 (i,j,k)=(5,4,6)
+BENDINFO 7 idx=4 tpbend=2 (i,j,k)=(4,6,7)
+BENDINFO 8 idx=2 tpbend=2 (i,j,k)=(4,6,8)
+BENDINFO 9 idx=0 tpbend=2 (i,j,k)=(7,6,8)
+BENDINFO 10 idx=4 tpbend=2 (i,j,k)=(6,8,9)
+BENDINFO 11 idx=2 tpbend=2 (i,j,k)=(6,8,10)
+BENDINFO 12 idx=0 tpbend=2 (i,j,k)=(9,8,10)
+BENDINFO 13 idx=1 tpbend=0 (i,j,k)=(8,10,11)
+BENDINFO 14 idx=2 tpbend=2 (i,j,k)=(8,10,12)
+BENDINFO 15 idx=3 tpbend=2 (i,j,k)=(11,10,12)
+BENDINFO 16 idx=4 tpbend=2 (i,j,k)=(10,12,13)
+BENDINFO 17 idx=2 tpbend=2 (i,j,k)=(10,12,14)
+BENDINFO 18 idx=0 tpbend=2 (i,j,k)=(13,12,14)
+BENDINFO 19 idx=4 tpbend=2 (i,j,k)=(12,14,15)
+BENDINFO 20 idx=2 tpbend=2 (i,j,k)=(12,14,16)
+BENDINFO 21 idx=0 tpbend=2 (i,j,k)=(15,14,16)
+BENDINFO 22 idx=1 tpbend=0 (i,j,k)=(14,16,17)
+BENDINFO 23 idx=2 tpbend=2 (i,j,k)=(14,16,18)
+BENDINFO 24 idx=3 tpbend=2 (i,j,k)=(17,16,18)
+BENDINFO 25 idx=4 tpbend=2 (i,j,k)=(16,18,19)
+BENDINFO 26 idx=2 tpbend=2 (i,j,k)=(16,18,20)
+BENDINFO 27 idx=0 tpbend=2 (i,j,k)=(19,18,20)
+BENDINFO 28 idx=4 tpbend=2 (i,j,k)=(18,20,21)
+BENDINFO 29 idx=2 tpbend=2 (i,j,k)=(18,20,22)
+BENDINFO 30 idx=0 tpbend=2 (i,j,k)=(21,20,22)
+BENDINFO 31 idx=4 tpbend=2 (i,j,k)=(20,22,23)
+BENDINFO 32 idx=2 tpbend=2 (i,j,k)=(20,22,24)
+BENDINFO 33 idx=0 tpbend=2 (i,j,k)=(23,22,24)
+BENDINFO 34 idx=1 tpbend=0 (i,j,k)=(22,24,25)
+BENDINFO 35 idx=2 tpbend=2 (i,j,k)=(22,24,26)
+BENDINFO 36 idx=3 tpbend=2 (i,j,k)=(25,24,26)
+BENDINFO 37 idx=4 tpbend=2 (i,j,k)=(24,26,27)
+BENDINFO 38 idx=2 tpbend=2 (i,j,k)=(24,26,28)
+BENDINFO 39 idx=0 tpbend=2 (i,j,k)=(27,26,28)
+BENDINFO 40 idx=4 tpbend=2 (i,j,k)=(26,28,29)
+BENDINFO 41 idx=2 tpbend=2 (i,j,k)=(26,28,30)
+BENDINFO 42 idx=0 tpbend=2 (i,j,k)=(29,28,30)
+BENDINFO 43 idx=1 tpbend=0 (i,j,k)=(28,30,31)
+BENDINFO 44 idx=2 tpbend=2 (i,j,k)=(28,30,32)
+BENDINFO 45 idx=3 tpbend=2 (i,j,k)=(31,30,32)
+BENDINFO 46 idx=4 tpbend=2 (i,j,k)=(30,32,33)
+BENDINFO 47 idx=2 tpbend=2 (i,j,k)=(30,32,34)
+BENDINFO 48 idx=0 tpbend=2 (i,j,k)=(33,32,34)
+BENDINFO 49 idx=4 tpbend=2 (i,j,k)=(32,34,35)
+BENDINFO 50 idx=2 tpbend=2 (i,j,k)=(32,34,36)
+BENDINFO 51 idx=0 tpbend=2 (i,j,k)=(35,34,36)
+BENDINFO 52 idx=4 tpbend=2 (i,j,k)=(34,36,37)
+BENDINFO 53 idx=2 tpbend=2 (i,j,k)=(34,36,38)
+BENDINFO 54 idx=0 tpbend=2 (i,j,k)=(37,36,38)
+BENDINFO 55 idx=1 tpbend=0 (i,j,k)=(36,38,39)
+BENDINFO 56 idx=2 tpbend=2 (i,j,k)=(36,38,40)
+BENDINFO 57 idx=3 tpbend=2 (i,j,k)=(39,38,40)
+BENDINFO 58 idx=4 tpbend=2 (i,j,k)=(38,40,41)
+Calculating initial potential energies
+
+type of calculation   = 1
+units                 = 0
+periodicity           = 3
+# of atoms            = 42
+# of frozen atoms     = 0
+MD time step          = 0.001 ps
+# of inter time steps = 1 (dt = 0.001)
+# of Torsion steps    = 1 (dt = 0.001)
+# of Bond/Bend steps  = 4 (dt = 0.00025)
+# of thermostats      = 1
+# of nh chains links  = 3
+# of barostats        = 0
+Temperature           = 0.298 K
+Volume will not fluctuate.
+
+Averages reported every       100 ts
+Restart info dumped every     1000 ts
+A config is save every        1000 ts
+A velocity file is save every 1000 ts
+A force file is save every    0 ts
+Instant quantaties recorded   1000 ts
+
+Calcutaion time step 1 to 1.
+total time of simulation 0.001 ps.
+
+
+  *** Initial Report ***
+npairs = s=201 t=364 se=0 te=0
+  density  = 0.0148631 g/cc
+  Volume   = 243283 A^3 (cbrt = 62.4267)
+  Temp     = 0.298 K
+  Pressure = 0.0578805 K/A^3 = 7.88661 ATM
+
+time steps= 1, time= 0.001 ps, <cpu>= 0.02, <cpu/ps>= 20
+nprs=201, nprt=364, nprse=0, nprte=0, <ts/update>=0
+<Ura/N>  	=        0.000000	~     1951.632517 K
+<Uer/N>  	=        0.000000	~     -433.104434 K
+<Ke /N>  	=        0.000000	~        0.447000 K
+<inter>  	=        0.000000	~   -18100.287165 K
+<bond>   	=        0.000000	~     2773.155537 K
+<bend>   	=        0.000000	~    79341.542139 K
+<tors>   	=        0.000000	~     1564.708616 K
+<onefour>	=        0.000000	~    -1710.840591 K
+<Ueta/NC>	=        0.000000	~        0.000000 K
+<Keta/NC>	=        0.000000	~        0.149000 K
+<Ham/N>  	=        0.000000	~     1532.915857 K
+<temp>   	=        0.000000	~        0.298000 K
+<pres>   	=        0.000000	~        0.057880 K/A^3
+<pres>   	=        0.000000	~        7.886609 atm
+Pressure Tensor
+  0.000000   0.000000   0.000000 ~  19.114433  -5.709904  13.516829 atm
+  0.000000   0.000000   0.000000 ~  -5.709904  15.452315  -6.674306 atm
+  0.000000   0.000000   0.000000 ~  13.516829  -6.674306 -10.906921 atm
+
+ ***** Begining Molecular Dynamics Steps *****
+BENDINFO 0 idx=0 tpbend=2 (i,j,k)=(1,0,2)
+BENDINFO 1 idx=1 tpbend=0 (i,j,k)=(0,2,3)
+BENDINFO 2 idx=2 tpbend=2 (i,j,k)=(0,2,4)
+BENDINFO 3 idx=3 tpbend=2 (i,j,k)=(3,2,4)
+BENDINFO 4 idx=4 tpbend=2 (i,j,k)=(2,4,5)
+BENDINFO 5 idx=2 tpbend=2 (i,j,k)=(2,4,6)
+BENDINFO 6 idx=0 tpbend=2 (i,j,k)=(5,4,6)
+BENDINFO 7 idx=4 tpbend=2 (i,j,k)=(4,6,7)
+BENDINFO 8 idx=2 tpbend=2 (i,j,k)=(4,6,8)
+BENDINFO 9 idx=0 tpbend=2 (i,j,k)=(7,6,8)
+BENDINFO 10 idx=4 tpbend=2 (i,j,k)=(6,8,9)
+BENDINFO 11 idx=2 tpbend=2 (i,j,k)=(6,8,10)
+BENDINFO 12 idx=0 tpbend=2 (i,j,k)=(9,8,10)
+BENDINFO 13 idx=1 tpbend=0 (i,j,k)=(8,10,11)
+BENDINFO 14 idx=2 tpbend=2 (i,j,k)=(8,10,12)
+BENDINFO 15 idx=3 tpbend=2 (i,j,k)=(11,10,12)
+BENDINFO 16 idx=4 tpbend=2 (i,j,k)=(10,12,13)
+BENDINFO 17 idx=2 tpbend=2 (i,j,k)=(10,12,14)
+BENDINFO 18 idx=0 tpbend=2 (i,j,k)=(13,12,14)
+BENDINFO 19 idx=4 tpbend=2 (i,j,k)=(12,14,15)
+BENDINFO 20 idx=2 tpbend=2 (i,j,k)=(12,14,16)
+BENDINFO 21 idx=0 tpbend=2 (i,j,k)=(15,14,16)
+BENDINFO 22 idx=1 tpbend=0 (i,j,k)=(14,16,17)
+BENDINFO 23 idx=2 tpbend=2 (i,j,k)=(14,16,18)
+BENDINFO 24 idx=3 tpbend=2 (i,j,k)=(17,16,18)
+BENDINFO 25 idx=4 tpbend=2 (i,j,k)=(16,18,19)
+BENDINFO 26 idx=2 tpbend=2 (i,j,k)=(16,18,20)
+BENDINFO 27 idx=0 tpbend=2 (i,j,k)=(19,18,20)
+BENDINFO 28 idx=4 tpbend=2 (i,j,k)=(18,20,21)
+BENDINFO 29 idx=2 tpbend=2 (i,j,k)=(18,20,22)
+BENDINFO 30 idx=0 tpbend=2 (i,j,k)=(21,20,22)
+BENDINFO 31 idx=4 tpbend=2 (i,j,k)=(20,22,23)
+BENDINFO 32 idx=2 tpbend=2 (i,j,k)=(20,22,24)
+BENDINFO 33 idx=0 tpbend=2 (i,j,k)=(23,22,24)
+BENDINFO 34 idx=1 tpbend=0 (i,j,k)=(22,24,25)
+BENDINFO 35 idx=2 tpbend=2 (i,j,k)=(22,24,26)
+BENDINFO 36 idx=3 tpbend=2 (i,j,k)=(25,24,26)
+BENDINFO 37 idx=4 tpbend=2 (i,j,k)=(24,26,27)
+BENDINFO 38 idx=2 tpbend=2 (i,j,k)=(24,26,28)
+BENDINFO 39 idx=0 tpbend=2 (i,j,k)=(27,26,28)
+BENDINFO 40 idx=4 tpbend=2 (i,j,k)=(26,28,29)
+BENDINFO 41 idx=2 tpbend=2 (i,j,k)=(26,28,30)
+BENDINFO 42 idx=0 tpbend=2 (i,j,k)=(29,28,30)
+BENDINFO 43 idx=1 tpbend=0 (i,j,k)=(28,30,31)
+BENDINFO 44 idx=2 tpbend=2 (i,j,k)=(28,30,32)
+BENDINFO 45 idx=3 tpbend=2 (i,j,k)=(31,30,32)
+BENDINFO 46 idx=4 tpbend=2 (i,j,k)=(30,32,33)
+BENDINFO 47 idx=2 tpbend=2 (i,j,k)=(30,32,34)
+BENDINFO 48 idx=0 tpbend=2 (i,j,k)=(33,32,34)
+BENDINFO 49 idx=4 tpbend=2 (i,j,k)=(32,34,35)
+BENDINFO 50 idx=2 tpbend=2 (i,j,k)=(32,34,36)
+BENDINFO 51 idx=0 tpbend=2 (i,j,k)=(35,34,36)
+BENDINFO 52 idx=4 tpbend=2 (i,j,k)=(34,36,37)
+BENDINFO 53 idx=2 tpbend=2 (i,j,k)=(34,36,38)
+BENDINFO 54 idx=0 tpbend=2 (i,j,k)=(37,36,38)
+BENDINFO 55 idx=1 tpbend=0 (i,j,k)=(36,38,39)
+BENDINFO 56 idx=2 tpbend=2 (i,j,k)=(36,38,40)
+BENDINFO 57 idx=3 tpbend=2 (i,j,k)=(39,38,40)
+BENDINFO 58 idx=4 tpbend=2 (i,j,k)=(38,40,41)
+BENDINFO 0 idx=0 tpbend=2 (i,j,k)=(1,0,2)
+BENDINFO 1 idx=1 tpbend=0 (i,j,k)=(0,2,3)
+BENDINFO 2 idx=2 tpbend=2 (i,j,k)=(0,2,4)
+BENDINFO 3 idx=3 tpbend=2 (i,j,k)=(3,2,4)
+BENDINFO 4 idx=4 tpbend=2 (i,j,k)=(2,4,5)
+BENDINFO 5 idx=2 tpbend=2 (i,j,k)=(2,4,6)
+BENDINFO 6 idx=0 tpbend=2 (i,j,k)=(5,4,6)
+BENDINFO 7 idx=4 tpbend=2 (i,j,k)=(4,6,7)
+BENDINFO 8 idx=2 tpbend=2 (i,j,k)=(4,6,8)
+BENDINFO 9 idx=0 tpbend=2 (i,j,k)=(7,6,8)
+BENDINFO 10 idx=4 tpbend=2 (i,j,k)=(6,8,9)
+BENDINFO 11 idx=2 tpbend=2 (i,j,k)=(6,8,10)
+BENDINFO 12 idx=0 tpbend=2 (i,j,k)=(9,8,10)
+BENDINFO 13 idx=1 tpbend=0 (i,j,k)=(8,10,11)
+BENDINFO 14 idx=2 tpbend=2 (i,j,k)=(8,10,12)
+BENDINFO 15 idx=3 tpbend=2 (i,j,k)=(11,10,12)
+BENDINFO 16 idx=4 tpbend=2 (i,j,k)=(10,12,13)
+BENDINFO 17 idx=2 tpbend=2 (i,j,k)=(10,12,14)
+BENDINFO 18 idx=0 tpbend=2 (i,j,k)=(13,12,14)
+BENDINFO 19 idx=4 tpbend=2 (i,j,k)=(12,14,15)
+BENDINFO 20 idx=2 tpbend=2 (i,j,k)=(12,14,16)
+BENDINFO 21 idx=0 tpbend=2 (i,j,k)=(15,14,16)
+BENDINFO 22 idx=1 tpbend=0 (i,j,k)=(14,16,17)
+BENDINFO 23 idx=2 tpbend=2 (i,j,k)=(14,16,18)
+BENDINFO 24 idx=3 tpbend=2 (i,j,k)=(17,16,18)
+BENDINFO 25 idx=4 tpbend=2 (i,j,k)=(16,18,19)
+BENDINFO 26 idx=2 tpbend=2 (i,j,k)=(16,18,20)
+BENDINFO 27 idx=0 tpbend=2 (i,j,k)=(19,18,20)
+BENDINFO 28 idx=4 tpbend=2 (i,j,k)=(18,20,21)
+BENDINFO 29 idx=2 tpbend=2 (i,j,k)=(18,20,22)
+BENDINFO 30 idx=0 tpbend=2 (i,j,k)=(21,20,22)
+BENDINFO 31 idx=4 tpbend=2 (i,j,k)=(20,22,23)
+BENDINFO 32 idx=2 tpbend=2 (i,j,k)=(20,22,24)
+BENDINFO 33 idx=0 tpbend=2 (i,j,k)=(23,22,24)
+BENDINFO 34 idx=1 tpbend=0 (i,j,k)=(22,24,25)
+BENDINFO 35 idx=2 tpbend=2 (i,j,k)=(22,24,26)
+BENDINFO 36 idx=3 tpbend=2 (i,j,k)=(25,24,26)
+BENDINFO 37 idx=4 tpbend=2 (i,j,k)=(24,26,27)
+BENDINFO 38 idx=2 tpbend=2 (i,j,k)=(24,26,28)
+BENDINFO 39 idx=0 tpbend=2 (i,j,k)=(27,26,28)
+BENDINFO 40 idx=4 tpbend=2 (i,j,k)=(26,28,29)
+BENDINFO 41 idx=2 tpbend=2 (i,j,k)=(26,28,30)
+BENDINFO 42 idx=0 tpbend=2 (i,j,k)=(29,28,30)
+BENDINFO 43 idx=1 tpbend=0 (i,j,k)=(28,30,31)
+BENDINFO 44 idx=2 tpbend=2 (i,j,k)=(28,30,32)
+BENDINFO 45 idx=3 tpbend=2 (i,j,k)=(31,30,32)
+BENDINFO 46 idx=4 tpbend=2 (i,j,k)=(30,32,33)
+BENDINFO 47 idx=2 tpbend=2 (i,j,k)=(30,32,34)
+BENDINFO 48 idx=0 tpbend=2 (i,j,k)=(33,32,34)
+BENDINFO 49 idx=4 tpbend=2 (i,j,k)=(32,34,35)
+BENDINFO 50 idx=2 tpbend=2 (i,j,k)=(32,34,36)
+BENDINFO 51 idx=0 tpbend=2 (i,j,k)=(35,34,36)
+BENDINFO 52 idx=4 tpbend=2 (i,j,k)=(34,36,37)
+BENDINFO 53 idx=2 tpbend=2 (i,j,k)=(34,36,38)
+BENDINFO 54 idx=0 tpbend=2 (i,j,k)=(37,36,38)
+BENDINFO 55 idx=1 tpbend=0 (i,j,k)=(36,38,39)
+BENDINFO 56 idx=2 tpbend=2 (i,j,k)=(36,38,40)
+BENDINFO 57 idx=3 tpbend=2 (i,j,k)=(39,38,40)
+BENDINFO 58 idx=4 tpbend=2 (i,j,k)=(38,40,41)
+BENDINFO 0 idx=0 tpbend=2 (i,j,k)=(1,0,2)
+BENDINFO 1 idx=1 tpbend=0 (i,j,k)=(0,2,3)
+BENDINFO 2 idx=2 tpbend=2 (i,j,k)=(0,2,4)
+BENDINFO 3 idx=3 tpbend=2 (i,j,k)=(3,2,4)
+BENDINFO 4 idx=4 tpbend=2 (i,j,k)=(2,4,5)
+BENDINFO 5 idx=2 tpbend=2 (i,j,k)=(2,4,6)
+BENDINFO 6 idx=0 tpbend=2 (i,j,k)=(5,4,6)
+BENDINFO 7 idx=4 tpbend=2 (i,j,k)=(4,6,7)
+BENDINFO 8 idx=2 tpbend=2 (i,j,k)=(4,6,8)
+BENDINFO 9 idx=0 tpbend=2 (i,j,k)=(7,6,8)
+BENDINFO 10 idx=4 tpbend=2 (i,j,k)=(6,8,9)
+BENDINFO 11 idx=2 tpbend=2 (i,j,k)=(6,8,10)
+BENDINFO 12 idx=0 tpbend=2 (i,j,k)=(9,8,10)
+BENDINFO 13 idx=1 tpbend=0 (i,j,k)=(8,10,11)
+BENDINFO 14 idx=2 tpbend=2 (i,j,k)=(8,10,12)
+BENDINFO 15 idx=3 tpbend=2 (i,j,k)=(11,10,12)
+BENDINFO 16 idx=4 tpbend=2 (i,j,k)=(10,12,13)
+BENDINFO 17 idx=2 tpbend=2 (i,j,k)=(10,12,14)
+BENDINFO 18 idx=0 tpbend=2 (i,j,k)=(13,12,14)
+BENDINFO 19 idx=4 tpbend=2 (i,j,k)=(12,14,15)
+BENDINFO 20 idx=2 tpbend=2 (i,j,k)=(12,14,16)
+BENDINFO 21 idx=0 tpbend=2 (i,j,k)=(15,14,16)
+BENDINFO 22 idx=1 tpbend=0 (i,j,k)=(14,16,17)
+BENDINFO 23 idx=2 tpbend=2 (i,j,k)=(14,16,18)
+BENDINFO 24 idx=3 tpbend=2 (i,j,k)=(17,16,18)
+BENDINFO 25 idx=4 tpbend=2 (i,j,k)=(16,18,19)
+BENDINFO 26 idx=2 tpbend=2 (i,j,k)=(16,18,20)
+BENDINFO 27 idx=0 tpbend=2 (i,j,k)=(19,18,20)
+BENDINFO 28 idx=4 tpbend=2 (i,j,k)=(18,20,21)
+BENDINFO 29 idx=2 tpbend=2 (i,j,k)=(18,20,22)
+BENDINFO 30 idx=0 tpbend=2 (i,j,k)=(21,20,22)
+BENDINFO 31 idx=4 tpbend=2 (i,j,k)=(20,22,23)
+BENDINFO 32 idx=2 tpbend=2 (i,j,k)=(20,22,24)
+BENDINFO 33 idx=0 tpbend=2 (i,j,k)=(23,22,24)
+BENDINFO 34 idx=1 tpbend=0 (i,j,k)=(22,24,25)
+BENDINFO 35 idx=2 tpbend=2 (i,j,k)=(22,24,26)
+BENDINFO 36 idx=3 tpbend=2 (i,j,k)=(25,24,26)
+BENDINFO 37 idx=4 tpbend=2 (i,j,k)=(24,26,27)
+BENDINFO 38 idx=2 tpbend=2 (i,j,k)=(24,26,28)
+BENDINFO 39 idx=0 tpbend=2 (i,j,k)=(27,26,28)
+BENDINFO 40 idx=4 tpbend=2 (i,j,k)=(26,28,29)
+BENDINFO 41 idx=2 tpbend=2 (i,j,k)=(26,28,30)
+BENDINFO 42 idx=0 tpbend=2 (i,j,k)=(29,28,30)
+BENDINFO 43 idx=1 tpbend=0 (i,j,k)=(28,30,31)
+BENDINFO 44 idx=2 tpbend=2 (i,j,k)=(28,30,32)
+BENDINFO 45 idx=3 tpbend=2 (i,j,k)=(31,30,32)
+BENDINFO 46 idx=4 tpbend=2 (i,j,k)=(30,32,33)
+BENDINFO 47 idx=2 tpbend=2 (i,j,k)=(30,32,34)
+BENDINFO 48 idx=0 tpbend=2 (i,j,k)=(33,32,34)
+BENDINFO 49 idx=4 tpbend=2 (i,j,k)=(32,34,35)
+BENDINFO 50 idx=2 tpbend=2 (i,j,k)=(32,34,36)
+BENDINFO 51 idx=0 tpbend=2 (i,j,k)=(35,34,36)
+BENDINFO 52 idx=4 tpbend=2 (i,j,k)=(34,36,37)
+BENDINFO 53 idx=2 tpbend=2 (i,j,k)=(34,36,38)
+BENDINFO 54 idx=0 tpbend=2 (i,j,k)=(37,36,38)
+BENDINFO 55 idx=1 tpbend=0 (i,j,k)=(36,38,39)
+BENDINFO 56 idx=2 tpbend=2 (i,j,k)=(36,38,40)
+BENDINFO 57 idx=3 tpbend=2 (i,j,k)=(39,38,40)
+BENDINFO 58 idx=4 tpbend=2 (i,j,k)=(38,40,41)
+BENDINFO 0 idx=0 tpbend=2 (i,j,k)=(1,0,2)
+BENDINFO 1 idx=1 tpbend=0 (i,j,k)=(0,2,3)
+BENDINFO 2 idx=2 tpbend=2 (i,j,k)=(0,2,4)
+BENDINFO 3 idx=3 tpbend=2 (i,j,k)=(3,2,4)
+BENDINFO 4 idx=4 tpbend=2 (i,j,k)=(2,4,5)
+BENDINFO 5 idx=2 tpbend=2 (i,j,k)=(2,4,6)
+BENDINFO 6 idx=0 tpbend=2 (i,j,k)=(5,4,6)
+BENDINFO 7 idx=4 tpbend=2 (i,j,k)=(4,6,7)
+BENDINFO 8 idx=2 tpbend=2 (i,j,k)=(4,6,8)
+BENDINFO 9 idx=0 tpbend=2 (i,j,k)=(7,6,8)
+BENDINFO 10 idx=4 tpbend=2 (i,j,k)=(6,8,9)
+BENDINFO 11 idx=2 tpbend=2 (i,j,k)=(6,8,10)
+BENDINFO 12 idx=0 tpbend=2 (i,j,k)=(9,8,10)
+BENDINFO 13 idx=1 tpbend=0 (i,j,k)=(8,10,11)
+BENDINFO 14 idx=2 tpbend=2 (i,j,k)=(8,10,12)
+BENDINFO 15 idx=3 tpbend=2 (i,j,k)=(11,10,12)
+BENDINFO 16 idx=4 tpbend=2 (i,j,k)=(10,12,13)
+BENDINFO 17 idx=2 tpbend=2 (i,j,k)=(10,12,14)
+BENDINFO 18 idx=0 tpbend=2 (i,j,k)=(13,12,14)
+BENDINFO 19 idx=4 tpbend=2 (i,j,k)=(12,14,15)
+BENDINFO 20 idx=2 tpbend=2 (i,j,k)=(12,14,16)
+BENDINFO 21 idx=0 tpbend=2 (i,j,k)=(15,14,16)
+BENDINFO 22 idx=1 tpbend=0 (i,j,k)=(14,16,17)
+BENDINFO 23 idx=2 tpbend=2 (i,j,k)=(14,16,18)
+BENDINFO 24 idx=3 tpbend=2 (i,j,k)=(17,16,18)
+BENDINFO 25 idx=4 tpbend=2 (i,j,k)=(16,18,19)
+BENDINFO 26 idx=2 tpbend=2 (i,j,k)=(16,18,20)
+BENDINFO 27 idx=0 tpbend=2 (i,j,k)=(19,18,20)
+BENDINFO 28 idx=4 tpbend=2 (i,j,k)=(18,20,21)
+BENDINFO 29 idx=2 tpbend=2 (i,j,k)=(18,20,22)
+BENDINFO 30 idx=0 tpbend=2 (i,j,k)=(21,20,22)
+BENDINFO 31 idx=4 tpbend=2 (i,j,k)=(20,22,23)
+BENDINFO 32 idx=2 tpbend=2 (i,j,k)=(20,22,24)
+BENDINFO 33 idx=0 tpbend=2 (i,j,k)=(23,22,24)
+BENDINFO 34 idx=1 tpbend=0 (i,j,k)=(22,24,25)
+BENDINFO 35 idx=2 tpbend=2 (i,j,k)=(22,24,26)
+BENDINFO 36 idx=3 tpbend=2 (i,j,k)=(25,24,26)
+BENDINFO 37 idx=4 tpbend=2 (i,j,k)=(24,26,27)
+BENDINFO 38 idx=2 tpbend=2 (i,j,k)=(24,26,28)
+BENDINFO 39 idx=0 tpbend=2 (i,j,k)=(27,26,28)
+BENDINFO 40 idx=4 tpbend=2 (i,j,k)=(26,28,29)
+BENDINFO 41 idx=2 tpbend=2 (i,j,k)=(26,28,30)
+BENDINFO 42 idx=0 tpbend=2 (i,j,k)=(29,28,30)
+BENDINFO 43 idx=1 tpbend=0 (i,j,k)=(28,30,31)
+BENDINFO 44 idx=2 tpbend=2 (i,j,k)=(28,30,32)
+BENDINFO 45 idx=3 tpbend=2 (i,j,k)=(31,30,32)
+BENDINFO 46 idx=4 tpbend=2 (i,j,k)=(30,32,33)
+BENDINFO 47 idx=2 tpbend=2 (i,j,k)=(30,32,34)
+BENDINFO 48 idx=0 tpbend=2 (i,j,k)=(33,32,34)
+BENDINFO 49 idx=4 tpbend=2 (i,j,k)=(32,34,35)
+BENDINFO 50 idx=2 tpbend=2 (i,j,k)=(32,34,36)
+BENDINFO 51 idx=0 tpbend=2 (i,j,k)=(35,34,36)
+BENDINFO 52 idx=4 tpbend=2 (i,j,k)=(34,36,37)
+BENDINFO 53 idx=2 tpbend=2 (i,j,k)=(34,36,38)
+BENDINFO 54 idx=0 tpbend=2 (i,j,k)=(37,36,38)
+BENDINFO 55 idx=1 tpbend=0 (i,j,k)=(36,38,39)
+BENDINFO 56 idx=2 tpbend=2 (i,j,k)=(36,38,40)
+BENDINFO 57 idx=3 tpbend=2 (i,j,k)=(39,38,40)
+BENDINFO 58 idx=4 tpbend=2 (i,j,k)=(38,40,41)
+
+ *** Finnished Molecular Dynamics Steps ***
+
+Closing files
+Saving new initial file (ls2-cg.init_N) with final coordinates
+../../compile/cm3d.linux on cesium has completed.
+:-)

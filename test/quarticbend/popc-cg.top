@@ -1,0 +1,55 @@
+---------------------Header info --------------------------
+~mol_name_def[\mol_name{popc_cg}\natom{16}
+\nbond{15} \nbend{15} \ntors{0}\n14{0}]
+-------------------- Atom defs ----------------------------
+~atom_def[\atom_typ{   NC}\atom_ind{   0}\mass{87.2}\charge{0.1118}\valence{1}\group{POPC}]
+~atom_def[\atom_typ{   PH}\atom_ind{   1}\mass{95}\charge{-0.1118}\valence{2}\group{POPC}]
+~atom_def[\atom_typ{   GL}\atom_ind{   2}\mass{41}\charge{0}\valence{3}\group{POPC}]
+~atom_def[\atom_typ{ EST1}\atom_ind{   3}\mass{58}\charge{0}\valence{2}\group{POPC}]
+~atom_def[\atom_typ{ EST2}\atom_ind{   4}\mass{58}\charge{0}\valence{2}\group{POPC}]
+~atom_def[\atom_typ{   CM}\atom_ind{   5}\mass{42}\charge{0}\valence{2}\group{POPC}]
+~atom_def[\atom_typ{   CM}\atom_ind{   6}\mass{42}\charge{0}\valence{2}\group{POPC}]
+~atom_def[\atom_typ{ CMD2}\atom_ind{   7}\mass{26}\charge{0}\valence{2}\group{POPC}]
+~atom_def[\atom_typ{   CM}\atom_ind{   8}\mass{42}\charge{0}\valence{2}\group{POPC}]
+~atom_def[\atom_typ{   CM}\atom_ind{   9}\mass{42}\charge{0}\valence{2}\group{POPC}]
+~atom_def[\atom_typ{  CT2}\atom_ind{  10}\mass{29}\charge{0}\valence{1}\group{POPC}]
+~atom_def[\atom_typ{   CM}\atom_ind{  11}\mass{42}\charge{0}\valence{2}\group{POPC}]
+~atom_def[\atom_typ{   CM}\atom_ind{  12}\mass{42}\charge{0}\valence{2}\group{POPC}]
+~atom_def[\atom_typ{   CM}\atom_ind{  13}\mass{42}\charge{0}\valence{2}\group{POPC}]
+~atom_def[\atom_typ{   CM}\atom_ind{  14}\mass{42}\charge{0}\valence{2}\group{POPC}]
+~atom_def[\atom_typ{  CT2}\atom_ind{  15}\mass{29}\charge{0}\valence{1}\group{POPC}]
+-------------------- Bond defs ----------------------------
+~bond_def[\atom1{   0} \atom2{   1}] NC-PH
+~bond_def[\atom1{   1} \atom2{   2}] PH-GL
+~bond_def[\atom1{   2} \atom2{   3}] GL-EST1
+~bond_def[\atom1{   2} \atom2{   4}] GL-EST2
+~bond_def[\atom1{   3} \atom2{   5}] EST1-CM
+~bond_def[\atom1{   5} \atom2{   6}] CM-CM
+~bond_def[\atom1{   6} \atom2{   7}] CM-CMD2
+~bond_def[\atom1{   7} \atom2{   8}] CMD2-CM
+~bond_def[\atom1{   8} \atom2{   9}] CM-CM
+~bond_def[\atom1{   9} \atom2{  10}] CM-CT2
+~bond_def[\atom1{   4} \atom2{  11}] EST2-CM
+~bond_def[\atom1{  11} \atom2{  12}] CM-CM
+~bond_def[\atom1{  12} \atom2{  13}] CM-CM
+~bond_def[\atom1{  13} \atom2{  14}] CM-CM
+~bond_def[\atom1{  14} \atom2{  15}] CM-CT2
+-------------------- Bend defs ----------------------------
+~bend_def[\atom1{   0} \atom2{   1} \atom3{   2}] NC-PH-GL
+~bend_def[\atom1{   1} \atom2{   2} \atom3{   3}] PH-GL-EST1
+~bend_def[\atom1{   1} \atom2{   2} \atom3{   4}] PH-GL-EST2
+~bend_def[\atom1{   3} \atom2{   2} \atom3{   4}] EST1-GL-EST2
+~bend_def[\atom1{   2} \atom2{   3} \atom3{   5}] GL-EST1-CM
+~bend_def[\atom1{   2} \atom2{   4} \atom3{  11}] GL-EST2-CM
+~bend_def[\atom1{   3} \atom2{   5} \atom3{   6}] EST1-CM-CM
+~bend_def[\atom1{   5} \atom2{   6} \atom3{   7}] CM-CM-CMD2
+~bend_def[\atom1{   6} \atom2{   7} \atom3{   8}] CM-CMD2-CM
+~bend_def[\atom1{   7} \atom2{   8} \atom3{   9}] CMD2-CM-CM
+~bend_def[\atom1{   8} \atom2{   9} \atom3{  10}] CM-CM-CT2
+~bend_def[\atom1{   4} \atom2{  11} \atom3{  12}] EST2-CM-CM
+~bend_def[\atom1{  11} \atom2{  12} \atom3{  13}] CM-CM-CM
+~bend_def[\atom1{  12} \atom2{  13} \atom3{  14}] CM-CM-CM
+~bend_def[\atom1{  13} \atom2{  14} \atom3{  15}] CM-CM-CT2
+--------------------Tors defs -----------------------------
+-------------------- Improper tors defs -------------------
+--------------------- One four defs -----------------------

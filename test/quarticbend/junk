@@ -1,0 +1,331 @@
+Running serial job ../../compile/cm3d.linux.fast on cesium (id=20100)
+Reading in set from file "ls2-cg.set"
+Reading in parameter from file ls2-cg.top
+Bytes of memory allocated after coordinates  = 8064
+There are 12 groups and 3 types of atoms
+Searching intermolecular data base ls2-cg.vdw for interactions
+There were 3 atom types and 6 interations (out of 6)
+Long range correction factor V = -2.19195e+07 K A^3, W = 8.70472e+07 K A^3
+Bytes of memory allocated so far = 880200
+Searching data base ls2-set1.bond for bonded interactions
+There were 3 bonds types and 41 bonds
+Bytes of memory allocated so far = 883152
+Searching data base ls2-set1.bend for bended interactions
+There were 5 types and 59 bends
+Bytes of memory allocated so far = 883472
+Searching data base CG_harmonic.tors for torsions interactions
+Number of torss types = 1, Number of total torss = 18
+Number of harmonic = 1, Number of power series = 0
+Bytes of memory allocated so far = 883704
+# of one-fours = 18, and n14_types = 1
+scale_onefour = 1 and scale_onefour_e = 1
+Searching data base prot_lipid_wat_cg.onfo for one-four interactions
+Bytes of memory allocated so far = 883728
+number of bondx types = 0 number of total cross bonds = 0
+Bytes of memory allocated so far = 883728
+Bytes of memory allocated so far = 931728
+There are 0 charged particles (out of a total of 42)
+There were 0 k-vectors set up.
+Self correction term = 0 K
+Back ground term = 0 K = 0 e
+Bytes of memory allocated so far = 931728
+Allocating exclusion list memory
+Excluding bonded interactions
+There were 118 interaction exclusions found
+Setting up electrostatic exclusion list
+Setting up electrostatic exclusion list (ncharge = 0)
+There are 0 real space electrostatic corrections
+There are 0 coulomb space electrostatic corrections
+Bytes of memory allocated so far = 932904
+Bytes of memory allocated so far = 933544
+Barostat set up: mvol = 12.516 and you have 0 barostates
+Doing cold start from initial file "ls2-cg.init"
+42 Atoms read in with a Cell Volume of 243283
+***********************************
+* istart=1 or 2 : Reset averages  *
+*      and counters and deriv.    *
+***********************************
+Calculating initial forces
+Setting up link list neighbors (~343 cells/processor)
+Number of interacting cells (procs #0) is 24696 (out of 58996)
+Number of electrostatic cells (procs #0) is 40474 (out of 58996)
+Bytes of memory allocated so far = 1482660
+Counting vdw pairs
+Van der Waals Neighbor list memory changed!
+Bytes of memory allocated so far = 1500436
+Electrostatic Neighbor list memory changed!
+Bytes of memory allocated so far = 1500460
+Calculating initial potential energies
+
+type of calculation   = 1
+units                 = 0
+periodicity           = 3
+# of atoms            = 42
+# of frozen atoms     = 0
+MD time step          = 0.001 ps
+# of inter time steps = 1 (dt = 0.001)
+# of Torsion steps    = 1 (dt = 0.001)
+# of Bond/Bend steps  = 4 (dt = 0.00025)
+# of thermostats      = 1
+# of nh chains links  = 3
+# of barostats        = 0
+Temperature           = 0.298 K
+Volume will not fluctuate.
+
+Averages reported every       100 ts
+Restart info dumped every     1000 ts
+A config is save every        1000 ts
+A velocity file is save every 1000 ts
+A force file is save every    0 ts
+Instant quantaties recorded   1000 ts
+
+Calcutaion time step 1 to 1000.
+total time of simulation 1 ps.
+
+
+  *** Initial Report ***
+npairs = s=201 t=364 se=0 te=0
+  density  = 0.0148631 g/cc
+  Volume   = 243283 A^3 (cbrt = 62.4267)
+  Temp     = 0.298 K
+  Pressure = 0.0578805 K/A^3 = 7.88661 ATM
+
+time steps= 1, time= 0.001 ps, <cpu>= 0.03, <cpu/ps>= 30
+nprs=201, nprt=364, nprse=0, nprte=0, <ts/update>=0
+<Ura/N>  	=        0.000000	~     1896.084880 K
+<Uer/N>  	=        0.000000	~     -433.104434 K
+<Ke /N>  	=        0.000000	~        0.447000 K
+<inter>  	=        0.000000	~   -18100.287165 K
+<bond>   	=        0.000000	~     2773.155537 K
+<bend>   	=        0.000000	~    77008.541391 K
+<tors>   	=        0.000000	~     1564.708616 K
+<onefour>	=        0.000000	~    -1710.840591 K
+<Ueta/NC>	=        0.000000	~        0.000000 K
+<Keta/NC>	=        0.000000	~        0.149000 K
+<Ham/N>  	=        0.000000	~     1477.368220 K
+<temp>   	=        0.000000	~        0.298000 K
+<pres>   	=        0.000000	~        0.057880 K/A^3
+<pres>   	=        0.000000	~        7.886609 atm
+Pressure Tensor
+  0.000000   0.000000   0.000000 ~  18.780556  -4.943268  15.149239 atm
+  0.000000   0.000000   0.000000 ~  -4.943268  16.828951 -10.545244 atm
+  0.000000   0.000000   0.000000 ~  15.149239 -10.545244 -11.949680 atm
+
+ ***** Begining Molecular Dynamics Steps *****
+time steps= 100, time= 0.1 ps, <cpu>= 0.000707071, <cpu/ps>= 0.707071
+nprs=201, nprt=364, nprse=0, nprte=0, <ts/update>=99
+<Ura/N>  	=     1792.722299	~     1720.692160 K
+<Uer/N>  	=     -434.209191	~     -434.482369 K
+<Ke /N>  	=      102.834325	~      168.235041 K
+<inter>  	=   -18146.686970	~   -18158.160419 K
+<bond>   	=     -544.018489	~    -2547.855675 K
+<bend>   	=    76184.934556	~    75099.109194 K
+<tors>   	=     1372.601579	~     1429.223842 K
+<onefour>	=    -1719.181091	~    -1711.406653 K
+<Ueta/NC>	=        0.100974	~        0.395982 K
+<Keta/NC>	=       28.899538	~      126.819008 K
+<Ham/N>  	=     1477.361242	~     1477.361323 K
+<temp>   	=       68.556216	~      112.156694 K
+<pres>   	=        0.023860	~       -0.008745 K/A^3
+<pres>   	=        3.251118	~       -1.191537 atm
+Pressure Tensor
+ 12.645942   3.023738   8.758801 ~   7.995582   5.464401   6.542195 atm
+  3.023738  10.412252  -6.389623 ~   5.464401   1.728353  -4.768605 atm
+  8.758801  -6.389623 -13.304842 ~   6.542195  -4.768605 -13.298545 atm
+<dE>     	=        0.000002	~       0.000001
+time steps= 200, time= 0.2 ps, <cpu>= 0.000552764, <cpu/ps>= 0.552764
+nprs=198, nprt=363, nprse=0, nprte=0, <ts/update>=199
+<Ura/N>  	=     1747.295269	~     1699.556060 K
+<Uer/N>  	=     -434.215852	~     -433.979794 K
+<Ke /N>  	=      134.845131	~      149.073397 K
+<inter>  	=   -18146.966722	~   -18137.052298 K
+<bond>   	=    -1245.006304	~    -1882.665059 K
+<bend>   	=    75109.450781	~    73126.181823 K
+<tors>   	=     1221.646955	~     1792.959284 K
+<onefour>	=    -1699.690136	~    -1655.121512 K
+<Ueta/NC>	=        0.634573	~        2.017997 K
+<Keta/NC>	=      217.282663	~      680.866838 K
+<Ham/N>  	=     1477.360657	~     1477.364587 K
+<temp>   	=       89.896754	~       99.382264 K
+<pres>   	=       -0.010444	~       -0.062476 K/A^3
+<pres>   	=       -1.423078	~       -8.512825 atm
+Pressure Tensor
+  6.504715   3.853202   5.733125 ~  -4.257248   3.417866  -2.014460 atm
+  3.853202   3.427627  -2.719058 ~   3.417866  -5.084833   2.851936 atm
+  5.733125  -2.719058 -14.201578 ~  -2.014460   2.851936 -16.196395 atm
+<dE>     	=        0.000002	~       0.000000
+time steps= 300, time= 0.3 ps, <cpu>= 0.000535117, <cpu/ps>= 0.535117
+nprs=198, nprt=369, nprse=0, nprte=0, <ts/update>=149.5
+<Ura/N>  	=     1715.320832	~     1631.393599 K
+<Uer/N>  	=     -434.032341	~     -434.920111 K
+<Ke /N>  	=      149.103065	~      176.632180 K
+<inter>  	=   -18139.259249	~   -18176.545603 K
+<bond>   	=    -1745.388919	~    -3129.244870 K
+<bend>   	=    74293.246455	~    72336.638308 K
+<tors>   	=     1178.388733	~      961.748335 K
+<onefour>	=    -1682.771316	~    -1650.610624 K
+<Ueta/NC>	=        1.384569	~        3.801231 K
+<Keta/NC>	=      461.723397	~     1260.830875 K
+<Ham/N>  	=     1477.361175	~     1477.367107 K
+<temp>   	=       99.402043	~      117.754787 K
+<pres>   	=       -0.026908	~       -0.061289 K/A^3
+<pres>   	=       -3.666410	~       -8.351045 atm
+Pressure Tensor
+  3.160296   3.305570   3.599543 ~  -7.451350   4.452508  -1.786628 atm
+  3.305570   0.233373  -2.425420 ~   4.452508  -4.139704  -1.710013 atm
+  3.599543  -2.425420 -14.392899 ~  -1.786628  -1.710013 -13.462080 atm
+<dE>     	=        0.000002	~       0.000000
+time steps= 400, time= 0.4 ps, <cpu>= 0.000501253, <cpu/ps>= 0.501253
+nprs=199, nprt=370, nprse=0, nprte=0, <ts/update>=133
+<Ura/N>  	=     1693.211226	~     1622.822640 K
+<Uer/N>  	=     -434.970241	~     -439.773406 K
+<Ke /N>  	=      151.914011	~      143.547814 K
+<inter>  	=   -18178.651057	~   -18380.383984 K
+<bond>   	=    -2051.993067	~    -2901.051374 K
+<bend>   	=    73749.915581	~    71805.304543 K
+<tors>   	=     1093.647080	~      915.904396 K
+<onefour>	=    -1676.698122	~    -1661.606696 K
+<Ueta/NC>	=        2.261513	~        6.004440 K
+<Keta/NC>	=      743.777016	~     1908.671541 K
+<Ham/N>  	=     1477.362208	~     1477.368649 K
+<temp>   	=      101.276007	~       95.698543 K
+<pres>   	=       -0.037742	~       -0.066181 K/A^3
+<pres>   	=       -5.142551	~       -9.017614 atm
+Pressure Tensor
+  0.671495   2.538036   2.085019 ~  -8.315754  -3.041419  -3.602869 atm
+  2.538036  -1.398386  -2.726145 ~  -3.041419  -4.068659  -1.369696 atm
+  2.085019  -2.726145 -14.700762 ~  -3.602869  -1.369696 -14.668428 atm
+<dE>     	=        0.000002	~       0.000000
+time steps= 500, time= 0.5 ps, <cpu>= 0.000480962, <cpu/ps>= 0.480962
+nprs=201, nprt=368, nprse=0, nprte=0, <ts/update>=124.75
+<Ura/N>  	=     1674.013900	~     1585.173487 K
+<Uer/N>  	=     -435.509937	~     -435.182881 K
+<Ke /N>  	=      150.463545	~      132.209854 K
+<inter>  	=   -18201.318279	~   -18187.581954 K
+<bond>   	=    -2341.327715	~    -3965.029253 K
+<bend>   	=    73307.168725	~    71404.517877 K
+<tors>   	=     1021.908556	~      863.861122 K
+<onefour>	=    -1679.165784	~    -1726.063291 K
+<Ueta/NC>	=        3.246676	~        8.372575 K
+<Keta/NC>	=     1038.871215	~     2525.809937 K
+<Ham/N>  	=     1477.363191	~     1477.366530 K
+<temp>   	=      100.309030	~       88.139903 K
+<pres>   	=       -0.043629	~       -0.071561 K/A^3
+<pres>   	=       -5.944700	~       -9.750675 atm
+Pressure Tensor
+ -0.956678   2.492096   0.544585 ~  -8.121413   6.573872  -7.523415 atm
+  2.492096  -2.616434  -2.903710 ~   6.573872 -10.688834  -2.245334 atm
+  0.544585  -2.903710 -14.260989 ~  -7.523415  -2.245334 -10.441779 atm
+<dE>     	=        0.000003	~       0.000000
+time steps= 600, time= 0.6 ps, <cpu>= 0.00048414, <cpu/ps>= 0.48414
+nprs=200, nprt=371, nprse=0, nprte=0, <ts/update>=119.8
+<Ura/N>  	=     1659.010611	~     1585.900195 K
+<Uer/N>  	=     -435.899251	~     -444.660747 K
+<Ke /N>  	=      144.902071	~      104.748808 K
+<inter>  	=   -18217.669477	~   -18585.652302 K
+<bond>   	=    -2658.659967	~    -4200.683202 K
+<bend>   	=    73028.603420	~    71858.076589 K
+<tors>   	=     1000.261840	~      731.336371 K
+<onefour>	=    -1691.759642	~    -1780.921572 K
+<Ueta/NC>	=        4.305345	~       10.797009 K
+<Keta/NC>	=     1330.464299	~     3027.641411 K
+<Ham/N>  	=     1477.364336	~     1477.370248 K
+<temp>   	=       96.601380	~       69.832539 K
+<pres>   	=       -0.044185	~       -0.023734 K/A^3
+<pres>   	=       -6.020551	~       -3.233965 atm
+Pressure Tensor
+ -1.560778   2.680556  -0.080399 ~  -2.366593   1.575921  -0.687592 atm
+  2.680556  -3.547704  -3.108694 ~   1.575921  -4.593443  -4.112573 atm
+ -0.080399  -3.108694 -12.953169 ~  -0.687592  -4.112573  -2.741860 atm
+<dE>     	=        0.000003	~       0.000000
+time steps= 700, time= 0.7 ps, <cpu>= 0.000472103, <cpu/ps>= 0.472103
+nprs=200, nprt=371, nprse=0, nprte=0, <ts/update>=139.8
+<Ura/N>  	=     1649.352531	~     1585.075769 K
+<Uer/N>  	=     -438.823563	~     -467.103533 K
+<Ke /N>  	=      137.968750	~       99.294881 K
+<inter>  	=   -18340.490585	~   -19528.249346 K
+<bond>   	=    -2856.501946	~    -4026.750405 K
+<bend>   	=    72877.960222	~    71961.405400 K
+<tors>   	=      956.708150	~      431.059963 K
+<onefour>	=    -1705.360121	~    -1792.532664 K
+<Ueta/NC>	=        5.405616	~       13.189918 K
+<Keta/NC>	=     1601.838142	~     3426.128741 K
+<Ham/N>  	=     1477.365704	~     1477.376406 K
+<temp>   	=       91.979167	~       66.196587 K
+<pres>   	=       -0.038956	~        0.002577 K/A^3
+<pres>   	=       -5.307959	~        0.351151 atm
+Pressure Tensor
+ -1.548802   2.548039  -0.124321 ~   1.598072  -0.389700   0.352349 atm
+  2.548039  -3.071261  -3.299154 ~  -0.389700   2.115344  -6.217455 atm
+ -0.124321  -3.299154 -11.303814 ~   0.352349  -6.217455  -2.659965 atm
+<dE>     	=        0.000004	~       0.000000
+time steps= 800, time= 0.8 ps, <cpu>= 0.000475594, <cpu/ps>= 0.475594
+nprs=209, nprt=376, nprse=0, nprte=0, <ts/update>=133.167
+<Ura/N>  	=     1640.798906	~     1578.705833 K
+<Uer/N>  	=     -443.221485	~     -478.907584 K
+<Ke /N>  	=      132.660017	~       88.815823 K
+<inter>  	=   -18525.203309	~   -20024.019457 K
+<bond>   	=    -3008.899798	~    -4107.660791 K
+<bend>   	=    72747.036816	~    71787.766534 K
+<tors>   	=      890.778428	~      390.606151 K
+<onefour>	=    -1715.361381	~    -1765.066893 K
+<Ueta/NC>	=        6.532147	~       15.629275 K
+<Keta/NC>	=     1855.706085	~     3824.833574 K
+<Ham/N>  	=     1477.367043	~     1477.376519 K
+<temp>   	=       88.440011	~       59.210549 K
+<pres>   	=       -0.035807	~       -0.028076 K/A^3
+<pres>   	=       -4.878924	~       -3.825577 atm
+Pressure Tensor
+ -1.388747   2.044205   0.108853 ~  -1.178346  -3.449244   4.992224 atm
+  2.044205  -2.610404  -3.509046 ~  -3.449244  -1.363582  -6.518531 atm
+  0.108853  -3.509046 -10.637619 ~   4.992224  -6.518531  -8.934803 atm
+<dE>     	=        0.000004	~       0.000000
+time steps= 900, time= 0.9 ps, <cpu>= 0.000467186, <cpu/ps>= 0.467186
+nprs=209, nprt=376, nprse=0, nprte=0, <ts/update>=149.833
+<Ura/N>  	=     1633.815024	~     1572.588100 K
+<Uer/N>  	=     -447.538775	~     -484.938591 K
+<Ke /N>  	=      126.843278	~       77.189062 K
+<inter>  	=   -18706.529508	~   -20277.321747 K
+<bond>   	=    -3128.687272	~    -4155.278811 K
+<bend>   	=    72626.516586	~    71347.795535 K
+<tors>   	=      844.152799	~      653.214846 K
+<onefour>	=    -1721.751113	~    -1797.031377 K
+<Ueta/NC>	=        7.679775	~       18.060587 K
+<Keta/NC>	=     2093.600352	~     4154.059342 K
+<Ham/N>  	=     1477.368431	~     1477.381733 K
+<temp>   	=       84.562186	~       51.459374 K
+<pres>   	=       -0.035062	~       -0.032025 K/A^3
+<pres>   	=       -4.777470	~       -4.363630 atm
+Pressure Tensor
+ -1.435979   1.446376   0.796988 ~   0.564343  -3.160825   7.664249 atm
+  1.446376  -2.303298  -3.766242 ~  -3.160825  -2.290749  -5.060245 atm
+  0.796988  -3.766242 -10.593135 ~   7.664249  -5.060245 -11.364485 atm
+<dE>     	=        0.000005	~       0.000000
+time steps= 1000, time= 1 ps, <cpu>= 0.00047047, <cpu/ps>= 0.47047
+nprs=210, nprt=378, nprse=0, nprte=0, <ts/update>=142.714
+<Ura/N>  	=     1625.971331	~     1544.814493 K
+<Uer/N>  	=     -451.855601	~     -498.139145 K
+<Ke /N>  	=      122.921410	~       92.236674 K
+<inter>  	=   -18887.836187	~   -20831.745012 K
+<bond>   	=    -3250.949595	~    -4437.333429 K
+<bend>   	=    72440.658955	~    70344.752403 K
+<tors>   	=      833.039349	~      815.328345 K
+<onefour>	=    -1731.952824	~    -1840.538609 K
+<Ueta/NC>	=        8.840777	~       20.514197 K
+<Keta/NC>	=     2317.036894	~     4513.278404 K
+<Ham/N>  	=     1477.369841	~     1477.386164 K
+<temp>   	=       81.947607	~       61.491116 K
+<pres>   	=       -0.035840	~       -0.055690 K/A^3
+<pres>   	=       -4.883398	~       -7.588082 atm
+Pressure Tensor
+ -1.228312   1.004078   1.382121 ~  -1.087141  -1.208183   5.939265 atm
+  1.004078  -2.350147  -3.783589 ~  -1.208183  -4.734120  -3.012983 atm
+  1.382121  -3.783589 -11.071737 ~   5.939265  -3.012983 -16.942986 atm
+<dE>     	=        0.000005	~       0.000000
+
+ *** Finnished Molecular Dynamics Steps ***
+
+Closing files
+Saving new initial file (ls2-cg.init_N) with final coordinates
+../../compile/cm3d.linux.fast on cesium has completed.
+:-)

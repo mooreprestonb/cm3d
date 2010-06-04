@@ -1,0 +1,78 @@
+\section{input/colvar.c File Reference}
+\label{colvar_8c}\index{input/colvar.c@{input/colvar.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf MIN\_\-MEM}~100
+\item 
+\#define {\bf FREEZE\_\-DEF}~\char`\"{}mol\_\-freeze\char`\"{}
+\item 
+\#define {\bf COLVARKEY}~\char`\"{}coll\_\-coor\char`\"{}
+\item 
+\#define {\bf DEBUG}
+\item 
+\#define {\bf NKEYS}~14
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf printcolvar} ({\bf COLVAR} $\ast${\bf colvar})
+\item 
+void {\bf alloc\_\-colatoms} (int {\bf ndim}, int icol, {\bf COLVAR} $\ast${\bf colvar})
+\item 
+void {\bf parse\_\-atoms} (int {\bf ndim}, int icol, char $\ast$atoms, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf read\_\-colvarfile} ({\bf SIMPARMS} $\ast${\bf simparms}, char $\ast$colvarfile, {\bf COORDS} $\ast$coords)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{colvar.c@{colvar.c}!COLVARKEY@{COLVARKEY}}
+\index{COLVARKEY@{COLVARKEY}!colvar.c@{colvar.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define COLVARKEY~\char`\"{}coll\_\-coor\char`\"{}}\label{colvar_8c_2ab8bccce5b5a850d95c8c99ccc647c6}
+
+
+\index{colvar.c@{colvar.c}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!colvar.c@{colvar.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG}\label{colvar_8c_d72dbcf6d0153db1b8d8a58001feed83}
+
+
+\index{colvar.c@{colvar.c}!FREEZE_DEF@{FREEZE\_\-DEF}}
+\index{FREEZE_DEF@{FREEZE\_\-DEF}!colvar.c@{colvar.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define FREEZE\_\-DEF~\char`\"{}mol\_\-freeze\char`\"{}}\label{colvar_8c_895b0a9342a93bb623ffd2ad183f3d2b}
+
+
+\index{colvar.c@{colvar.c}!MIN_MEM@{MIN\_\-MEM}}
+\index{MIN_MEM@{MIN\_\-MEM}!colvar.c@{colvar.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MIN\_\-MEM~100}\label{colvar_8c_222bb42c64dd689a1894480c718306c1}
+
+
+\index{colvar.c@{colvar.c}!NKEYS@{NKEYS}}
+\index{NKEYS@{NKEYS}!colvar.c@{colvar.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NKEYS~14}\label{colvar_8c_ee3c099580c48d099307b9493696fd23}
+
+
+
+
+\subsection{Function Documentation}
+\index{colvar.c@{colvar.c}!alloc_colatoms@{alloc\_\-colatoms}}
+\index{alloc_colatoms@{alloc\_\-colatoms}!colvar.c@{colvar.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void alloc\_\-colatoms (int {\em ndim}, int {\em icol}, {\bf COLVAR} $\ast$ {\em colvar})}\label{colvar_8c_cc9efad0a98ddb1a52894f7c9cfaf09d}
+
+
+\index{colvar.c@{colvar.c}!parse_atoms@{parse\_\-atoms}}
+\index{parse_atoms@{parse\_\-atoms}!colvar.c@{colvar.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void parse\_\-atoms (int {\em ndim}, int {\em icol}, char $\ast$ {\em atoms}, {\bf COORDS} $\ast$ {\em coords})}\label{colvar_8c_7ce44816362546a49ac6ed2322538a24}
+
+
+\index{colvar.c@{colvar.c}!printcolvar@{printcolvar}}
+\index{printcolvar@{printcolvar}!colvar.c@{colvar.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void printcolvar ({\bf COLVAR} $\ast$ {\em colvar})}\label{colvar_8c_b51da641e1b1450772cb5f3aeae7e39d}
+
+
+\index{colvar.c@{colvar.c}!read_colvarfile@{read\_\-colvarfile}}
+\index{read_colvarfile@{read\_\-colvarfile}!colvar.c@{colvar.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void read\_\-colvarfile ({\bf SIMPARMS} $\ast$ {\em simparms}, char $\ast$ {\em colvarfile}, {\bf COORDS} $\ast$ {\em coords})}\label{colvar_8c_43706745fd12499bf9a633b44869b447}
+
+

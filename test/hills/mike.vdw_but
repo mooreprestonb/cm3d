@@ -1,0 +1,10 @@
+
+~inter_parm[\atom1{harm}\atom2{harm}\pot_type{lennard-jones}
+\eps{3553.8285}\sig{3.92906}\min_dist{0.5}\max_dist{28}\res_dist{16.05811}]
+
+~inter_parm[\atom1{C.3}\atom2{C.3}\pot_type{lennard-jones}
+\eps{53.8285}\sig{3.02906}\min_dist{1.0}\max_dist{8}\res_dist{6.05811}]
+~inter_parm[\atom1{C.3}\atom2{H}\pot_type{lennard-jones}
+\eps{33.7245}\sig{2.85088}\min_dist{1.0}\max_dist{8}\res_dist{5.70175}]
+~inter_parm[\atom1{H}\atom2{H}\pot_type{lennard-jones}
+\eps{21.1289}\sig{2.6727}\min_dist{1.0}\max_dist{8}\res_dist{5.34539}]

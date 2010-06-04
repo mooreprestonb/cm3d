@@ -1,0 +1,112 @@
+\section{energy/control/md\_\-fintermat.c File Reference}
+\label{md__fintermat_8c}\index{energy/control/md_fintermat.c@{energy/control/md\_\-fintermat.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf CUBIC}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf fcinter} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, double $\ast$$\ast$fcmat)
+\item 
+void {\bf fcintern} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, double $\ast$$\ast$fcmat)
+\item 
+double {\bf pot\_\-inter} (double $\ast$px, double $\ast$py, double $\ast$pz)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+int {\bf iatom}
+\item 
+int {\bf jatom}
+\item 
+int {\bf iperdn}
+\item 
+int {\bf iensembln}
+\item 
+double $\ast$ {\bf hmatn}
+\item 
+double $\ast$ {\bf hmatin}
+\item 
+double {\bf qiatom}
+\item 
+double {\bf qjatom}
+\item 
+{\bf INTER} $\ast$ {\bf intern}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{md_fintermat.c@{md\_\-fintermat.c}!CUBIC@{CUBIC}}
+\index{CUBIC@{CUBIC}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define CUBIC}\label{md__fintermat_8c_7c4d2b81af3d1fd0723a5c3e53146d52}
+
+
+
+
+\subsection{Function Documentation}
+\index{md_fintermat.c@{md\_\-fintermat.c}!fcinter@{fcinter}}
+\index{fcinter@{fcinter}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcinter ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, double $\ast$$\ast$ {\em fcmat})}\label{md__fintermat_8c_c63caeef38827ce84f45d8477a1cd6ba}
+
+
+\index{md_fintermat.c@{md\_\-fintermat.c}!fcintern@{fcintern}}
+\index{fcintern@{fcintern}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcintern ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, double $\ast$$\ast$ {\em fcmat})}\label{md__fintermat_8c_6405b085112acc8f9f87b74c1f5db01e}
+
+
+\index{md_fintermat.c@{md\_\-fintermat.c}!pot_inter@{pot\_\-inter}}
+\index{pot_inter@{pot\_\-inter}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double pot\_\-inter (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz})}\label{md__fintermat_8c_0a3de8557bac0930b067108ab9f2f7f0}
+
+
+
+
+\subsection{Variable Documentation}
+\index{md_fintermat.c@{md\_\-fintermat.c}!hmatin@{hmatin}}
+\index{hmatin@{hmatin}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ {\bf hmatin}}\label{md__fintermat_8c_bd543ce29e7ad16c9843c747b2a8de5e}
+
+
+\index{md_fintermat.c@{md\_\-fintermat.c}!hmatn@{hmatn}}
+\index{hmatn@{hmatn}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf hmatn}}\label{md__fintermat_8c_71f3d0255ce49b5980c9e95a984c91fe}
+
+
+\index{md_fintermat.c@{md\_\-fintermat.c}!iatom@{iatom}}
+\index{iatom@{iatom}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf iatom}}\label{md__fintermat_8c_7f565845a358eac77b4326c057431863}
+
+
+\index{md_fintermat.c@{md\_\-fintermat.c}!iensembln@{iensembln}}
+\index{iensembln@{iensembln}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf iensembln}}\label{md__fintermat_8c_a31b718d9b8b9b183482d46454600230}
+
+
+\index{md_fintermat.c@{md\_\-fintermat.c}!intern@{intern}}
+\index{intern@{intern}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf INTER}$\ast$ {\bf intern}}\label{md__fintermat_8c_4c3de025826e7503e10ebfcdff4061ce}
+
+
+\index{md_fintermat.c@{md\_\-fintermat.c}!iperdn@{iperdn}}
+\index{iperdn@{iperdn}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf iperdn}}\label{md__fintermat_8c_33c2dcde92a678478325c6f89d0962b6}
+
+
+\index{md_fintermat.c@{md\_\-fintermat.c}!jatom@{jatom}}
+\index{jatom@{jatom}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf jatom}}\label{md__fintermat_8c_c4e5c9bdf18c8265453196a76690a511}
+
+
+\index{md_fintermat.c@{md\_\-fintermat.c}!qiatom@{qiatom}}
+\index{qiatom@{qiatom}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf qiatom}}\label{md__fintermat_8c_deb10b804b1f2a52c618bf7fce374438}
+
+
+\index{md_fintermat.c@{md\_\-fintermat.c}!qjatom@{qjatom}}
+\index{qjatom@{qjatom}!md_fintermat.c@{md\_\-fintermat.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf qjatom}}\label{md__fintermat_8c_d9f41c987039ad78abdff2dad829841c}
+
+

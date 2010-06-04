@@ -1,0 +1,189 @@
+\section{main/sub\_\-proj.c File Reference}
+\label{sub__proj_8c}\index{main/sub_proj.c@{main/sub\_\-proj.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf PROG\_\-CO2}
+\item 
+\#define {\bf FCUTOFF}~(1.1)
+\item 
+\#define {\bf NTIME}~50
+\item 
+\#define {\bf NCONF}~500
+\item 
+\#define {\bf NCOMP}~1
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+static double {\bf govl} (int il, int ih, int jl, int jh, double $\ast$$\ast${\bf rov})
+\item 
+void {\bf init\_\-subproj} ({\bf SIMPARMS} $\ast${\bf simparms})
+\item 
+void {\bf sub\_\-proj} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, {\bf NMODES} $\ast${\bf nmodes})
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static int {\bf numm\_\-l} [NCOMP] = \{100\}
+\item 
+static int {\bf numm\_\-h} [NCOMP] = \{200\}
+\item 
+static int {\bf numn\_\-l} [NCOMP] = \{100\}
+\item 
+static int {\bf numn\_\-h} [NCOMP] = \{200\}
+\item 
+static int {\bf nsave}
+\item 
+static int $\ast$ {\bf time\_\-store}
+\item 
+static int $\ast$ {\bf ilife}
+\item 
+static double $\ast$$\ast$ {\bf rov}
+\item 
+static double $\ast$$\ast$$\ast$ {\bf cormat}
+\item 
+static double $\ast$$\ast$ {\bf rov\_\-dcomp}
+\item 
+static double $\ast$ {\bf comp} [NCOMP]
+\item 
+static double $\ast$ {\bf compt} [NCOMP]
+\item 
+static double $\ast$ {\bf compr} [NCOMP]
+\item 
+static double $\ast$ {\bf compb} [NCOMP]
+\item 
+static double $\ast$ {\bf comps} [NCOMP]
+\item 
+static double $\ast$ {\bf compa} [NCOMP]
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{sub_proj.c@{sub\_\-proj.c}!FCUTOFF@{FCUTOFF}}
+\index{FCUTOFF@{FCUTOFF}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define FCUTOFF~(1.1)}\label{sub__proj_8c_8a4df856c98c17e7ada06831ed0a5e56}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!NCOMP@{NCOMP}}
+\index{NCOMP@{NCOMP}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NCOMP~1}\label{sub__proj_8c_22bc9d6f1ad600b96fdf86442683e993}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!NCONF@{NCONF}}
+\index{NCONF@{NCONF}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NCONF~500}\label{sub__proj_8c_669ed1a00cfe083230f8876c3fde5245}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!NTIME@{NTIME}}
+\index{NTIME@{NTIME}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NTIME~50}\label{sub__proj_8c_f1f42666da6098b5656cd05c78f8f532}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!PROG_CO2@{PROG\_\-CO2}}
+\index{PROG_CO2@{PROG\_\-CO2}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define PROG\_\-CO2}\label{sub__proj_8c_0489cb1ee9e55db467ebb91e20fe94fe}
+
+
+
+
+\subsection{Function Documentation}
+\index{sub_proj.c@{sub\_\-proj.c}!govl@{govl}}
+\index{govl@{govl}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static double govl (int {\em il}, int {\em ih}, int {\em jl}, int {\em jh}, double $\ast$$\ast$ {\em rov})\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_cf9f8464acde794217e315c875ebc9d6}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!init_subproj@{init\_\-subproj}}
+\index{init_subproj@{init\_\-subproj}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void init\_\-subproj ({\bf SIMPARMS} $\ast$ {\em simparms})}\label{sub__proj_8c_aea0a0a1bc5a2ca808b9c5e2391f66c3}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!sub_proj@{sub\_\-proj}}
+\index{sub_proj@{sub\_\-proj}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void sub\_\-proj ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, {\bf NMODES} $\ast$ {\em nmodes})}\label{sub__proj_8c_1f0912d2f4037173d2297421bcc73d97}
+
+
+
+
+\subsection{Variable Documentation}
+\index{sub_proj.c@{sub\_\-proj.c}!comp@{comp}}
+\index{comp@{comp}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf comp}[NCOMP]\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_1feabc794bef9be19359a0dd84db34c8}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!compa@{compa}}
+\index{compa@{compa}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ {\bf compa}[NCOMP]\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_fa9a13d1927705790a35d0ad75ea9b4c}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!compb@{compb}}
+\index{compb@{compb}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ {\bf compb}[NCOMP]\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_41aa5b8984c7517577508b0eca95b948}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!compr@{compr}}
+\index{compr@{compr}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ {\bf compr}[NCOMP]\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_5de7c153447df41598a98e62ba388b8e}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!comps@{comps}}
+\index{comps@{comps}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf comps}[NCOMP]\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_c022ab149bdbb4c7f5832454ef9ee515}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!compt@{compt}}
+\index{compt@{compt}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ {\bf compt}[NCOMP]\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_ee7a2d95fe287806d64fec5d7cc0c6ed}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!cormat@{cormat}}
+\index{cormat@{cormat}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$$\ast$$\ast$ {\bf cormat}\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_0868c58ad357bdf78e49bd32ea3ab911}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!ilife@{ilife}}
+\index{ilife@{ilife}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int $\ast$ {\bf ilife}\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_41e00791f05312df13c5584a639753c4}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!nsave@{nsave}}
+\index{nsave@{nsave}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf nsave}\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_e1cecf591d10b57df60ec9d3f34ed87e}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!numm_h@{numm\_\-h}}
+\index{numm_h@{numm\_\-h}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf numm\_\-h}[NCOMP] = \{200\}\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_26c8fd79615474cbe6db92afa5cc4d37}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!numm_l@{numm\_\-l}}
+\index{numm_l@{numm\_\-l}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf numm\_\-l}[NCOMP] = \{100\}\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_060cb4d5f3ca780dbf5bd2ee09dc9a7c}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!numn_h@{numn\_\-h}}
+\index{numn_h@{numn\_\-h}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf numn\_\-h}[NCOMP] = \{200\}\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_70d452cdb0d327b3bda0bf268a10685a}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!numn_l@{numn\_\-l}}
+\index{numn_l@{numn\_\-l}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf numn\_\-l}[NCOMP] = \{100\}\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_0e003ed3dd8bcb4c34fd01354431efc3}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!rov@{rov}}
+\index{rov@{rov}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ {\bf rov}\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_5da36ab507a10bee82137b97568dc51b}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!rov_dcomp@{rov\_\-dcomp}}
+\index{rov_dcomp@{rov\_\-dcomp}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$$\ast$ {\bf rov\_\-dcomp}\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_c42345727cc4fb9a3ffa596f350a1be3}
+
+
+\index{sub_proj.c@{sub\_\-proj.c}!time_store@{time\_\-store}}
+\index{time_store@{time\_\-store}!sub_proj.c@{sub\_\-proj.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ {\bf time\_\-store}\hspace{0.3cm}{\tt  [static]}}\label{sub__proj_8c_ae7bfaf36837c66fbc0780f2d1018d79}
+
+

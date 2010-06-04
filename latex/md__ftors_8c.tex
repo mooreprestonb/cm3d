@@ -1,0 +1,147 @@
+\section{energy/intra/md\_\-ftors.c File Reference}
+\label{md__ftors_8c}\index{energy/intra/md_ftors.c@{energy/intra/md\_\-ftors.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf PRESSURE}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf tors\_\-pair} (int {\bf iatom}, int {\bf jatom}, {\bf TORS} $\ast${\bf tors})
+\item 
+void {\bf exclude\_\-tors} (int $\ast$nexclude, int $\ast$$\ast$exclude, {\bf TORS} $\ast${\bf tors})
+\item 
+void {\bf ftors} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf getvtors} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$UI, double $\ast$WI, double WItensor[9])
+\item 
+void {\bf fctors} ({\bf COORDS} $\ast$coords, double $\ast$$\ast$fcmat)
+\item 
+void {\bf fctorsn} ({\bf COORDS} $\ast$coords, double $\ast$$\ast$fcmat)
+\item 
+double {\bf pottors} (double $\ast$px, double $\ast$py, double $\ast$pz)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static int {\bf itor}
+\item 
+static int {\bf jtor}
+\item 
+static int {\bf ktor}
+\item 
+static int {\bf ltor}
+\item 
+static int {\bf idxtor}
+\item 
+static int $\ast$ {\bf ind\_\-pots}
+\item 
+static int $\ast$ {\bf ind\_\-pot\_\-nums}
+\item 
+static double $\ast$ {\bf eqts}
+\item 
+static double $\ast$ {\bf fkts}
+\item 
+static {\bf VPHI} $\ast$ {\bf vphis}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{md_ftors.c@{md\_\-ftors.c}!PRESSURE@{PRESSURE}}
+\index{PRESSURE@{PRESSURE}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define PRESSURE}\label{md__ftors_8c_67bafb91da1f123097b90c52747bcf36}
+
+
+
+
+\subsection{Function Documentation}
+\index{md_ftors.c@{md\_\-ftors.c}!exclude_tors@{exclude\_\-tors}}
+\index{exclude_tors@{exclude\_\-tors}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void exclude\_\-tors (int $\ast$ {\em nexclude}, int $\ast$$\ast$ {\em exclude}, {\bf TORS} $\ast$ {\em tors})}\label{md__ftors_8c_fac53af0e3c27b25b893f807ccb1d401}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!fctors@{fctors}}
+\index{fctors@{fctors}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fctors ({\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em fcmat})}\label{md__ftors_8c_532a48f0444069eaefef914237df2fa7}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!fctorsn@{fctorsn}}
+\index{fctorsn@{fctorsn}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fctorsn ({\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em fcmat})}\label{md__ftors_8c_cd3c819eb34331ce1e391407d4ec34c9}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!ftors@{ftors}}
+\index{ftors@{ftors}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ftors ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__ftors_8c_b3755049af1a1086018335b57c24c1c1}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!getvtors@{getvtors}}
+\index{getvtors@{getvtors}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvtors ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em UI}, double $\ast$ {\em WI}, double {\em WItensor}[9])}\label{md__ftors_8c_5d53446534788ac92ba5c425d2a2f98c}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!pottors@{pottors}}
+\index{pottors@{pottors}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double pottors (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz})}\label{md__ftors_8c_03694fcdc1970009bc3557d77378bbeb}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!tors_pair@{tors\_\-pair}}
+\index{tors_pair@{tors\_\-pair}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int tors\_\-pair (int {\em iatom}, int {\em jatom}, {\bf TORS} $\ast$ {\em tors})}\label{md__ftors_8c_c9fbc48b3c1fcdcf3e8b6a6d02e3915d}
+
+
+
+
+\subsection{Variable Documentation}
+\index{md_ftors.c@{md\_\-ftors.c}!eqts@{eqts}}
+\index{eqts@{eqts}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf eqts}\hspace{0.3cm}{\tt  [static]}}\label{md__ftors_8c_96dbf4ab8e7bf6ff9b511e29d7b804ed}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!fkts@{fkts}}
+\index{fkts@{fkts}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ {\bf fkts}\hspace{0.3cm}{\tt  [static]}}\label{md__ftors_8c_bb3e76151e694218e6c6bad28a3ed53b}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!idxtor@{idxtor}}
+\index{idxtor@{idxtor}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf idxtor}\hspace{0.3cm}{\tt  [static]}}\label{md__ftors_8c_702b3b6723351887b77aef9d87bfb8fc}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!ind_pot_nums@{ind\_\-pot\_\-nums}}
+\index{ind_pot_nums@{ind\_\-pot\_\-nums}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int $\ast$ {\bf ind\_\-pot\_\-nums}\hspace{0.3cm}{\tt  [static]}}\label{md__ftors_8c_7dcb78f9b4752629d523d0c00289ccec}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!ind_pots@{ind\_\-pots}}
+\index{ind_pots@{ind\_\-pots}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ {\bf ind\_\-pots}\hspace{0.3cm}{\tt  [static]}}\label{md__ftors_8c_a11675dc2f55e29535d6ad380debc9d7}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!itor@{itor}}
+\index{itor@{itor}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf itor}\hspace{0.3cm}{\tt  [static]}}\label{md__ftors_8c_970491931136c63403010fcef89cb1c0}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!jtor@{jtor}}
+\index{jtor@{jtor}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf jtor}\hspace{0.3cm}{\tt  [static]}}\label{md__ftors_8c_ed88e8e9cf884f5a617cb5c0b3b213ab}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!ktor@{ktor}}
+\index{ktor@{ktor}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf ktor}\hspace{0.3cm}{\tt  [static]}}\label{md__ftors_8c_fca689e026343309ad492400302fc532}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!ltor@{ltor}}
+\index{ltor@{ltor}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf ltor}\hspace{0.3cm}{\tt  [static]}}\label{md__ftors_8c_828bcd1f64b242f0ac4f018af88c546b}
+
+
+\index{md_ftors.c@{md\_\-ftors.c}!vphis@{vphis}}
+\index{vphis@{vphis}!md_ftors.c@{md\_\-ftors.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf VPHI}$\ast$ {\bf vphis}\hspace{0.3cm}{\tt  [static]}}\label{md__ftors_8c_5f9a9edad920c6c5e1cc07133287e295}
+
+

@@ -1,0 +1,27 @@
+Charmm 19 params for octane
+
+Van Der Waals (all Dzug.)
+
+~inter_parm[\atom1{ch2} \atom2{ch2} \pot_type{dzugutov} \eps{47.033}
+            \sig{3.931} \min_dist{2.75} \max_dist{10.5} \res_dist{11.5}]
+~inter_parm[\atom1{ch3} \atom2{ch3} \pot_type{dzugutov} \eps{114.056}
+            \sig{3.931} \min_dist{2.734} \max_dist{10.5} \res_dist{11.5}]
+~inter_parm[\atom1{ch2} \atom2{ch3} \pot_type{dzugutov} \eps{73.242}
+            \sig{3.931} \min_dist{2.75} \max_dist{10.5} \res_dist{11.5}]
+
+Bonds
+
+~bond_parm[\atom1{ch2} \atom2{ch2} \pot_type{harm} \fk{118588.4} \eq{1.54}]
+~bond_parm[\atom1{ch2} \atom2{ch3} \pot_type{harm} \fk{118588.4} \eq{1.54}]
+
+Bends
+
+~bend_parm[\atom1{ch3}\atom2{ch2}\atom3{ch2}\pot_type{harm}\fk{31271}\eq{114}]
+~bend_parm[\atom1{ch2}\atom2{ch2}\atom3{ch2}\pot_type{harm}\fk{31271}\eq{114}]
+
+
+~torsion_parm[\atom1{ch2} \atom2{ch2} \atom3{ch2} \atom4{ch3} \pot_type{power}
+              \p0{874.19}\p1{-2020.29}\p2{136.46}\p3{3167.4}\p4{0}\p5{0}\p6{0}]
+
+~torsion_parm[\atom1{ch2} \atom2{ch2} \atom3{ch2} \atom4{ch2} \pot_type{power}
+              \p0{874.19}\p1{-2020.29}\p2{136.46}\p3{3167.4}\p4{0}\p5{0}\p6{0}]

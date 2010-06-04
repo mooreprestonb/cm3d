@@ -1,0 +1,81 @@
+INPUT = $(BASE)/input
+DINPUT = $(TEST)/input
+
+INPUT_FILES = md_readsim.o md_readset.o md_readpos.o md_readparm.o \
+	md_getmols.o md_searchbase.o md_getparm.o md_nmain.o md_setsimdef.o \
+	md_setsimkey.o md_reigvec.o read_freq.o read_extern.o read_table.o \
+	parse_mike.o colvar.o
+
+input.a : input.a(md_readsim.o) input.a(md_readset.o) input.a(md_readpos.o) \
+	input.a(md_readparm.o) input.a(md_getmols.o) input.a(md_searchbase.o) \
+	input.a(md_getparm.o) input.a(md_nmain.o) input.a(md_setsimdef.o) \
+	input.a(md_setsimkey.o) input.a(md_reigvec.o) input.a(read_freq.o) \
+	input.a(read_extern.o) input.a(read_table.o) input.a(parse_mike.o) \
+	input.a(colvar.o) 
+	$(AR) $(ARFLAGS) $@ $(INPUT_FILES)
+	$(RANLIB) $@
+
+input.a(md_readsim.o) : md_readsim.o
+md_readsim.o : $(INPUT)/md_readsim.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/md_readsim.c
+
+input.a(md_readset.o) : md_readset.o
+md_readset.o : $(INPUT)/md_readset.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/md_readset.c
+
+input.a(md_searchbase.o) : md_searchbase.o
+md_searchbase.o : $(INPUT)/md_searchbase.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/md_searchbase.c
+
+input.a(md_readparm.o) : md_readparm.o
+md_readparm.o : $(INPUT)/md_readparm.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/md_readparm.c
+
+input.a(md_readpos.o) : md_readpos.o
+md_readpos.o : $(INPUT)/md_readpos.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/md_readpos.c
+
+input.a(md_getmols.o) : md_getmols.o
+md_getmols.o : $(INPUT)/md_getmols.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/md_getmols.c
+
+input.a(md_getparm.o) : md_getparm.o
+md_getparm.o : $(INPUT)/md_getparm.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/md_getparm.c
+
+input.a(md_nmain.o) : md_nmain.o
+md_nmain.o : $(INPUT)/md_nmain.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/md_nmain.c
+
+input.a(md_setsimdef.o) : md_setsimdef.o
+md_setsimdef.o : $(INPUT)/md_setsimdef.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/md_setsimdef.c
+
+input.a(md_setsimkey.o) : md_setsimkey.o
+md_setsimkey.o : $(INPUT)/md_setsimkey.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/md_setsimkey.c
+
+input.a(md_reigvec.o) : md_reigvec.o
+md_reigvec.o : $(INPUT)/md_reigvec.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/md_reigvec.c
+
+input.a(read_freq.o) : read_freq.o
+read_freq.o : $(INPUT)/read_freq.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/read_freq.c
+
+input.a(read_extern.o) : read_extern.o
+read_extern.o : $(INPUT)/read_extern.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/read_extern.c
+
+input.a(read_table.o) : read_table.o
+read_table.o : $(INPUT)/read_table.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/read_table.c
+
+input.a(parse_mike.o) : parse_mike.o
+parse_mike.o : $(INPUT)/parse_mike.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/parse_mike.c 
+
+input.a(colvar.o) : colvar.o
+colvar.o : $(INPUT)/colvar.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(INPUT)/colvar.c 
+

@@ -1,0 +1,35 @@
+
+# HOME = /home/moore
+NAME    = mike_insure
+BASE    = $(HOME)/md/mike3.0
+
+# common definitions...
+RM = /bin/rm -f
+CC = insure -n32 -g
+#CC = insure -n32 -g
+
+#CC = gcc
+CPP = /usr/lib/cpp
+CP = /bin/cp
+AR = /bin/ar
+MV = /bin/mv
+
+# Compiler flages, paths for include files and libraries
+
+#DEFINES = -DFRIC -DBLAS -DFORTRANUNDERSCORE -DPRESSURE
+DEFINES = -DSGI
+
+CFLAGS = $(DEFINES) 
+FFLAGS =  
+
+OPT =
+#OPT = -O2 -OPT:round=2:IEEE_arith=1:cray_ivdep=TRUE
+
+#LIBS = -lcomplib.sgimath -lm
+LIBS = -lm
+LDFLAGS = -g -Zvm -n32 
+#LD   = ins_ld
+LD   = insure
+
+ARFLAGS = ruv
+

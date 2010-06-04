@@ -1,0 +1,38 @@
+
+# you might need to do a
+# module load mpt
+#
+#HOME = /home/moore
+HOME = $(TMP)
+BASE    = $(HOME)/test
+
+# common definitions...
+ARCH        = CRAY
+COMM        = ch_p4
+CC          = cc -DPARA
+F77         = cf77 -DPARA
+CLINKER     = cc
+FLINKER     = cf77
+
+CPP = cpp
+CP = cp
+AR = ar
+MV = mv
+RM = /bin/rm -f
+
+# Compiler flages, paths for include files and libraries
+
+#INSTALL_DIR = /afs/psc/packages/mpich/releases/mpi/c90_uni80
+INCLUDE_DIR =  -I$(INSTALL_DIR)/include
+
+DEFINES = $(INCLUDE_DIR) -I/usr/local/mpp/include 
+CFLAGS = $(DEFINES)
+FFLAGS = 
+#LIB_PATH  = -L/afs/psc/packages/mpich/releases/mpi/c90_uni80/lib/CRAY/ch_p4 
+
+LIBS = $(LIB_PATH) -lmpi -lm
+
+LD   = $(FLINKER)
+ARFLAGS = ruv
+
+NAME    = mike_mpi

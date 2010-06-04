@@ -1,0 +1,9 @@
+
+external[\atom{c.3}\pot_type{hautman}\z0{-10}\c12{2.8e7}\c3{17100}]
+external[\atom{c.3}\pot_type{table}\tab_file{ch3_suf.pot}]
+external[\atom{h}\pot_type{hautman}\z0{-10}\c12{2.8e7}\c3{17100}]
+
+~external[\atom{c.3}\pot_type{null}]
+~external[\atom{h}\pot_type{null}]
+elec_external[\pot_type{table}\tab_file{e_surft.pot}]
+~elec_external[\pot_type{null}\tab_file{elec_suf.pot}]

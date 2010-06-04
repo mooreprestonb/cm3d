@@ -1,0 +1,176 @@
+\section{thomas/proto\_\-input.h File Reference}
+\label{thomas_2proto__input_8h}\index{thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf readpos} (char $\ast$command, char $\ast$initfile, {\bf SIMPARMS} $\ast${\bf simparms}, int $\ast$estep, {\bf ENERGIES} $\ast${\bf energies}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf read\_\-sim\_\-inputs} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf SUBSPACE} $\ast${\bf subspace}, {\bf WRITE\_\-STEP} $\ast$write\_\-step, {\bf FILENAMES} $\ast$filenames, {\bf INTER} $\ast$inter, {\bf NGBR} $\ast$ngbr, {\bf COORDS} $\ast$coords, {\bf STARTUP} $\ast$startup)
+\item 
+void {\bf set\_\-sim\_\-default} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf WRITE\_\-STEP} $\ast$write\_\-step, {\bf SUBSPACE} $\ast${\bf subspace}, {\bf FILENAMES} $\ast$filenames, {\bf INTER} $\ast$inter, {\bf NGBR} $\ast$ngbr, {\bf COORDS} $\ast$coords, {\bf STARTUP} $\ast$startup)
+\item 
+void {\bf read\_\-setfile} ({\bf SIMPARMS} $\ast$, {\bf WORD}, int $\ast$, {\bf SPECIES} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf read\_\-parmfile} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf STARTUP} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)
+\item 
+void {\bf read\_\-top\_\-file} ({\bf SIMPARMS} $\ast$, {\bf STARTUP} $\ast$, {\bf ATOM\_\-TOPOL} $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$)
+\item 
+void {\bf open\_\-nma\_\-in} (char $\ast$)
+\item 
+void {\bf read\_\-header\_\-conf} (int, int $\ast$, double $\ast$)
+\item 
+int {\bf read\_\-config} (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf read\_\-cont} (char[$\,$], int, double $\ast$, double $\ast$, int, {\bf NMODES} $\ast$)
+\item 
+void {\bf search\_\-ter\_\-base} ({\bf SIMPARMS} $\ast$, int, {\bf WORD}[$\,$], {\bf STARTUP} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)
+\item 
+void {\bf search\_\-bond\_\-base} ({\bf SIMPARMS} $\ast$, char $\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, {\bf ATOM\_\-TOPOL} $\ast$$\ast$, {\bf SPECIES}, int, {\bf BONDS} $\ast$)
+\item 
+void {\bf search\_\-bend\_\-base} ({\bf SIMPARMS} $\ast$, char $\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, {\bf ATOM\_\-TOPOL} $\ast$$\ast$, {\bf SPECIES}, int, {\bf BENDS} $\ast$)
+\item 
+void {\bf search\_\-tors\_\-base} ({\bf SIMPARMS} $\ast$, char $\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, {\bf ATOM\_\-TOPOL} $\ast$$\ast$, {\bf SPECIES}, int, {\bf TORS} $\ast$)
+\item 
+void {\bf search\_\-onfo\_\-base} ({\bf SIMPARMS} $\ast$, char $\ast$, int, int $\ast$$\ast$, int $\ast$$\ast$, {\bf ATOM\_\-TOPOL} $\ast$$\ast$, {\bf SPECIES}, int, double, double, int, {\bf ONFO} $\ast$)
+\item 
+void {\bf search\_\-bocross\_\-base} ({\bf SIMPARMS} $\ast$, char $\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, {\bf ATOM\_\-TOPOL} $\ast$$\ast$, {\bf SPECIES}, int, {\bf BONDXS} $\ast$)
+\item 
+void {\bf get\_\-ter\_\-parm} (FILE $\ast$, char $\ast$, {\bf WORD}, {\bf WORD}, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, {\bf INTER} $\ast$, int, int $\ast$, {\bf SIMPARMS} $\ast$)
+\item 
+void {\bf get\_\-bondparm} (FILE $\ast$, char $\ast$, {\bf WORD}, {\bf WORD}, {\bf WORD}, double $\ast$, double $\ast$, int $\ast$)
+\item 
+void {\bf get\_\-bondxparm} (FILE $\ast$, char $\ast$, {\bf WORD}, {\bf WORD}, {\bf WORD}, {\bf WORD}, double $\ast$, double $\ast$, double $\ast$, int $\ast$)
+\item 
+void {\bf get\_\-bendparm} (FILE $\ast$, char $\ast$, {\bf WORD}, {\bf WORD}, {\bf WORD}, {\bf WORD}, double $\ast$, double $\ast$, int $\ast$, int, int, int)
+\item 
+void {\bf get\_\-torsparm} (FILE $\ast$, char $\ast$, {\bf WORD}, {\bf WORD}, {\bf WORD}, {\bf WORD}, {\bf WORD}, int $\ast$, double $\ast$, double $\ast$, {\bf VPHI}, int $\ast$)
+\item 
+void {\bf get\_\-onfo\_\-parm} (FILE $\ast$, char $\ast$, {\bf WORD}, {\bf WORD}, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, int)
+\item 
+void {\bf read\_\-freqfile} (char $\ast$, int, double $\ast$)
+\item 
+void {\bf read\_\-extern\_\-pot} (char $\ast$filename, {\bf COORDS} $\ast$coords, int ntable)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!get_bendparm@{get\_\-bendparm}}
+\index{get_bendparm@{get\_\-bendparm}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-bendparm (FILE $\ast$, char $\ast$, {\bf WORD}, {\bf WORD}, {\bf WORD}, {\bf WORD}, double $\ast$, double $\ast$, int $\ast$, int, int, int)}\label{thomas_2proto__input_8h_d1a60cb4dcaf05428bf12fd400393c24}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!get_bondparm@{get\_\-bondparm}}
+\index{get_bondparm@{get\_\-bondparm}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-bondparm (FILE $\ast$, char $\ast$, {\bf WORD}, {\bf WORD}, {\bf WORD}, double $\ast$, double $\ast$, int $\ast$)}\label{thomas_2proto__input_8h_e2f3fe34d49d48f8fea625df9d06766a}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!get_bondxparm@{get\_\-bondxparm}}
+\index{get_bondxparm@{get\_\-bondxparm}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-bondxparm (FILE $\ast$, char $\ast$, {\bf WORD}, {\bf WORD}, {\bf WORD}, {\bf WORD}, double $\ast$, double $\ast$, double $\ast$, int $\ast$)}\label{thomas_2proto__input_8h_4c20c39b2381ac59d1bb4acf0a4d9475}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!get_onfo_parm@{get\_\-onfo\_\-parm}}
+\index{get_onfo_parm@{get\_\-onfo\_\-parm}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-onfo\_\-parm (FILE $\ast$, char $\ast$, {\bf WORD}, {\bf WORD}, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, int)}\label{thomas_2proto__input_8h_8deea0cbdd1b1a2514de12514d534e30}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!get_ter_parm@{get\_\-ter\_\-parm}}
+\index{get_ter_parm@{get\_\-ter\_\-parm}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-ter\_\-parm (FILE $\ast$, char $\ast$, {\bf WORD}, {\bf WORD}, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, {\bf INTER} $\ast$, int, int $\ast$, {\bf SIMPARMS} $\ast$)}\label{thomas_2proto__input_8h_15aa66ee3380f83d8e5f790ab9b0bab8}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!get_torsparm@{get\_\-torsparm}}
+\index{get_torsparm@{get\_\-torsparm}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-torsparm (FILE $\ast$, char $\ast$, {\bf WORD}, {\bf WORD}, {\bf WORD}, {\bf WORD}, {\bf WORD}, int $\ast$, double $\ast$, double $\ast$, {\bf VPHI}, int $\ast$)}\label{thomas_2proto__input_8h_a8155b31648d924f5c17662a3ac62f2f}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!open_nma_in@{open\_\-nma\_\-in}}
+\index{open_nma_in@{open\_\-nma\_\-in}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void open\_\-nma\_\-in (char $\ast$)}\label{thomas_2proto__input_8h_d1c9e562e8a215f0fb24bbd211b22903}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!read_config@{read\_\-config}}
+\index{read_config@{read\_\-config}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int read\_\-config (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$)}\label{thomas_2proto__input_8h_459c0f7de74690aa3b56315086690241}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!read_cont@{read\_\-cont}}
+\index{read_cont@{read\_\-cont}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void read\_\-cont (char[$\,$], int, double $\ast$, double $\ast$, int, {\bf NMODES} $\ast$)}\label{thomas_2proto__input_8h_b83eefe12859e2a799621a1bb9a31dc9}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!read_extern_pot@{read\_\-extern\_\-pot}}
+\index{read_extern_pot@{read\_\-extern\_\-pot}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void read\_\-extern\_\-pot (char $\ast$ {\em filename}, {\bf COORDS} $\ast$ {\em coords}, int {\em ntable})}\label{thomas_2proto__input_8h_e7280cb664110cfbc1a5f9976213e5fc}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!read_freqfile@{read\_\-freqfile}}
+\index{read_freqfile@{read\_\-freqfile}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void read\_\-freqfile (char $\ast$, int, double $\ast$)}\label{thomas_2proto__input_8h_08c87b4b24b6566a2d7ea1876766eafa}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!read_header_conf@{read\_\-header\_\-conf}}
+\index{read_header_conf@{read\_\-header\_\-conf}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void read\_\-header\_\-conf (int, int $\ast$, double $\ast$)}\label{thomas_2proto__input_8h_6160671023805e578c4beede34b19eb6}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!read_parmfile@{read\_\-parmfile}}
+\index{read_parmfile@{read\_\-parmfile}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void read\_\-parmfile ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf STARTUP} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)}\label{thomas_2proto__input_8h_7e451acf998d58c8641669b647df5476}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!read_setfile@{read\_\-setfile}}
+\index{read_setfile@{read\_\-setfile}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void read\_\-setfile ({\bf SIMPARMS} $\ast$, {\bf WORD}, int $\ast$, {\bf SPECIES} $\ast$, {\bf COORDS} $\ast$)}\label{thomas_2proto__input_8h_e933f1e046a12a502dce5163b9d58120}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!read_sim_inputs@{read\_\-sim\_\-inputs}}
+\index{read_sim_inputs@{read\_\-sim\_\-inputs}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void read\_\-sim\_\-inputs ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf SUBSPACE} $\ast$ {\em subspace}, {\bf WRITE\_\-STEP} $\ast$ {\em write\_\-step}, {\bf FILENAMES} $\ast$ {\em filenames}, {\bf INTER} $\ast$ {\em inter}, {\bf NGBR} $\ast$ {\em ngbr}, {\bf COORDS} $\ast$ {\em coords}, {\bf STARTUP} $\ast$ {\em startup})}\label{thomas_2proto__input_8h_edbd265231f32e7e018beacafed09f18}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!read_top_file@{read\_\-top\_\-file}}
+\index{read_top_file@{read\_\-top\_\-file}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void read\_\-top\_\-file ({\bf SIMPARMS} $\ast$, {\bf STARTUP} $\ast$, {\bf ATOM\_\-TOPOL} $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$)}\label{thomas_2proto__input_8h_a8f8c0b46e83768a0d3a63bf8d68c4d2}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!readpos@{readpos}}
+\index{readpos@{readpos}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void readpos (char $\ast$ {\em command}, char $\ast$ {\em initfile}, {\bf SIMPARMS} $\ast$ {\em simparms}, int $\ast$ {\em estep}, {\bf ENERGIES} $\ast$ {\em energies}, {\bf COORDS} $\ast$ {\em coords})}\label{thomas_2proto__input_8h_afcc7b2f64187d1467219aafd655b801}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!search_bend_base@{search\_\-bend\_\-base}}
+\index{search_bend_base@{search\_\-bend\_\-base}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void search\_\-bend\_\-base ({\bf SIMPARMS} $\ast$, char $\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, {\bf ATOM\_\-TOPOL} $\ast$$\ast$, {\bf SPECIES}, int, {\bf BENDS} $\ast$)}\label{thomas_2proto__input_8h_02e62a54d099b89571aa675c91599b21}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!search_bocross_base@{search\_\-bocross\_\-base}}
+\index{search_bocross_base@{search\_\-bocross\_\-base}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void search\_\-bocross\_\-base ({\bf SIMPARMS} $\ast$, char $\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, {\bf ATOM\_\-TOPOL} $\ast$$\ast$, {\bf SPECIES}, int, {\bf BONDXS} $\ast$)}\label{thomas_2proto__input_8h_4a5fcc5c8067083da156a7e6fcdcb465}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!search_bond_base@{search\_\-bond\_\-base}}
+\index{search_bond_base@{search\_\-bond\_\-base}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void search\_\-bond\_\-base ({\bf SIMPARMS} $\ast$, char $\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, {\bf ATOM\_\-TOPOL} $\ast$$\ast$, {\bf SPECIES}, int, {\bf BONDS} $\ast$)}\label{thomas_2proto__input_8h_575f97b14b6c99e2d1bde05df238d769}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!search_onfo_base@{search\_\-onfo\_\-base}}
+\index{search_onfo_base@{search\_\-onfo\_\-base}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void search\_\-onfo\_\-base ({\bf SIMPARMS} $\ast$, char $\ast$, int, int $\ast$$\ast$, int $\ast$$\ast$, {\bf ATOM\_\-TOPOL} $\ast$$\ast$, {\bf SPECIES}, int, double, double, int, {\bf ONFO} $\ast$)}\label{thomas_2proto__input_8h_7da2a5569c99a07c03271d2caad6740b}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!search_ter_base@{search\_\-ter\_\-base}}
+\index{search_ter_base@{search\_\-ter\_\-base}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void search\_\-ter\_\-base ({\bf SIMPARMS} $\ast$, int, {\bf WORD}[$\,$], {\bf STARTUP} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)}\label{thomas_2proto__input_8h_f847a1490feeb84ae5142f9cc784f074}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!search_tors_base@{search\_\-tors\_\-base}}
+\index{search_tors_base@{search\_\-tors\_\-base}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void search\_\-tors\_\-base ({\bf SIMPARMS} $\ast$, char $\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, {\bf WORD} $\ast$$\ast$, {\bf ATOM\_\-TOPOL} $\ast$$\ast$, {\bf SPECIES}, int, {\bf TORS} $\ast$)}\label{thomas_2proto__input_8h_fe74b6c6f05f1970facefff17a412f48}
+
+
+\index{thomas/proto_input.h@{thomas/proto\_\-input.h}!set_sim_default@{set\_\-sim\_\-default}}
+\index{set_sim_default@{set\_\-sim\_\-default}!thomas/proto_input.h@{thomas/proto\_\-input.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void set\_\-sim\_\-default ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf WRITE\_\-STEP} $\ast$ {\em write\_\-step}, {\bf SUBSPACE} $\ast$ {\em subspace}, {\bf FILENAMES} $\ast$ {\em filenames}, {\bf INTER} $\ast$ {\em inter}, {\bf NGBR} $\ast$ {\em ngbr}, {\bf COORDS} $\ast$ {\em coords}, {\bf STARTUP} $\ast$ {\em startup})}\label{thomas_2proto__input_8h_d777c0223db2b66ed56581a0dccb8723}
+
+

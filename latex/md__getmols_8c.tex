@@ -1,0 +1,91 @@
+\section{input/md\_\-getmols.c File Reference}
+\label{md__getmols_8c}\index{input/md_getmols.c@{input/md\_\-getmols.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf NUM\_\-METAKEYS}~8
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf get\_\-species} (FILE $\ast$fp, {\bf SPECIES} $\ast$spec\_\-now)
+\item 
+void {\bf get\_\-atom} (FILE $\ast$fp, char $\ast$filename, int napm, {\bf ATOM\_\-TOPOL} $\ast$atom\_\-topol)
+\item 
+void {\bf get\_\-bond} (FILE $\ast$fp, char $\ast$filename, int nbond, int $\ast$ibo, int $\ast$jbo, {\bf WORD} $\ast$tbo)
+\item 
+void {\bf get\_\-bend} (FILE $\ast$fp, char $\ast$filename, int nbend, int $\ast$ibe, int $\ast$jbe, int $\ast$kbe, int $\ast$tybe, {\bf WORD} $\ast$tbe)
+\item 
+void {\bf get\_\-tors} (FILE $\ast$fp, char $\ast$filename, int ntors, int $\ast$ito, int $\ast$jto, int $\ast$kto, int $\ast$lto, {\bf WORD} $\ast$tto)
+\item 
+void {\bf get\_\-onefour} (FILE $\ast$fp, char $\ast$filename, int nof, int $\ast$iof, int $\ast$jof)
+\item 
+void {\bf get\_\-bondx} (FILE $\ast$fp, char $\ast$filename, int nbondx, int $\ast$ibondx, int $\ast$jbondx, int $\ast$kbondx, {\bf WORD} $\ast$tbondx)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+{\bf WORD} {\bf dictmetakey} [NUM\_\-METAKEYS]
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{md_getmols.c@{md\_\-getmols.c}!NUM_METAKEYS@{NUM\_\-METAKEYS}}
+\index{NUM_METAKEYS@{NUM\_\-METAKEYS}!md_getmols.c@{md\_\-getmols.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NUM\_\-METAKEYS~8}\label{md__getmols_8c_725ce353532cbed7581971e1be6eb2da}
+
+
+
+
+\subsection{Function Documentation}
+\index{md_getmols.c@{md\_\-getmols.c}!get_atom@{get\_\-atom}}
+\index{get_atom@{get\_\-atom}!md_getmols.c@{md\_\-getmols.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-atom (FILE $\ast$ {\em fp}, char $\ast$ {\em filename}, int {\em napm}, {\bf ATOM\_\-TOPOL} $\ast$ {\em atom\_\-topol})}\label{md__getmols_8c_7411f824e955c50a21ca6213af8c64ba}
+
+
+\index{md_getmols.c@{md\_\-getmols.c}!get_bend@{get\_\-bend}}
+\index{get_bend@{get\_\-bend}!md_getmols.c@{md\_\-getmols.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-bend (FILE $\ast$ {\em fp}, char $\ast$ {\em filename}, int {\em nbend}, int $\ast$ {\em ibe}, int $\ast$ {\em jbe}, int $\ast$ {\em kbe}, int $\ast$ {\em tybe}, {\bf WORD} $\ast$ {\em tbe})}\label{md__getmols_8c_ddef324788d34574bc157b9f42e92d14}
+
+
+\index{md_getmols.c@{md\_\-getmols.c}!get_bond@{get\_\-bond}}
+\index{get_bond@{get\_\-bond}!md_getmols.c@{md\_\-getmols.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-bond (FILE $\ast$ {\em fp}, char $\ast$ {\em filename}, int {\em nbond}, int $\ast$ {\em ibo}, int $\ast$ {\em jbo}, {\bf WORD} $\ast$ {\em tbo})}\label{md__getmols_8c_4db9ff3371cf5cfe84da06a5ae94aa16}
+
+
+\index{md_getmols.c@{md\_\-getmols.c}!get_bondx@{get\_\-bondx}}
+\index{get_bondx@{get\_\-bondx}!md_getmols.c@{md\_\-getmols.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-bondx (FILE $\ast$ {\em fp}, char $\ast$ {\em filename}, int {\em nbondx}, int $\ast$ {\em ibondx}, int $\ast$ {\em jbondx}, int $\ast$ {\em kbondx}, {\bf WORD} $\ast$ {\em tbondx})}\label{md__getmols_8c_c7022b5da2df3cb8c7dbc7cfd2cca1db}
+
+
+\index{md_getmols.c@{md\_\-getmols.c}!get_onefour@{get\_\-onefour}}
+\index{get_onefour@{get\_\-onefour}!md_getmols.c@{md\_\-getmols.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-onefour (FILE $\ast$ {\em fp}, char $\ast$ {\em filename}, int {\em nof}, int $\ast$ {\em iof}, int $\ast$ {\em jof})}\label{md__getmols_8c_aa5b13537d1600fb33ebed9ec61adb52}
+
+
+\index{md_getmols.c@{md\_\-getmols.c}!get_species@{get\_\-species}}
+\index{get_species@{get\_\-species}!md_getmols.c@{md\_\-getmols.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-species (FILE $\ast$ {\em fp}, {\bf SPECIES} $\ast$ {\em spec\_\-now})}\label{md__getmols_8c_58ffeae044dc7a10714093ca3f71b8a8}
+
+
+\index{md_getmols.c@{md\_\-getmols.c}!get_tors@{get\_\-tors}}
+\index{get_tors@{get\_\-tors}!md_getmols.c@{md\_\-getmols.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-tors (FILE $\ast$ {\em fp}, char $\ast$ {\em filename}, int {\em ntors}, int $\ast$ {\em ito}, int $\ast$ {\em jto}, int $\ast$ {\em kto}, int $\ast$ {\em lto}, {\bf WORD} $\ast$ {\em tto})}\label{md__getmols_8c_bc94442cdbaa8ae36bfb74ce6ba34857}
+
+
+
+
+\subsection{Variable Documentation}
+\index{md_getmols.c@{md\_\-getmols.c}!dictmetakey@{dictmetakey}}
+\index{dictmetakey@{dictmetakey}!md_getmols.c@{md\_\-getmols.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf WORD} {\bf dictmetakey}[NUM\_\-METAKEYS]}\label{md__getmols_8c_9755b748bc1e53c1ee610828341d9c57}
+
+
+{\bf Initial value:}
+
+\footnotesize\begin{verbatim} {
+  "mol_name_def","atom_def","bond_def","bend_def",
+  "torsion_def","onefour_def","bondx_def","path_def"
+}
+\end{verbatim}\normalsize 

@@ -1,0 +1,639 @@
+/* 
+   Copyright (C) 1997 1998 1999 2000 Dr. Preston B. Moore
+
+Dr. Preston B. Moore
+Associate Director, Center for Molecular Modeling (CMM)
+University of Pennsylvania, Department of Chemistry, Box 188 
+231 S. 34th St. Philadelphia, PA 19104-6323 USA
+EMAIL: moore@cmm.chem.upenn.edu  
+WWW: http://www.cmm.upenn.edu/~moore
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+*/
+
+/* subroutine to do up the verlist */
+
+/*----------------------------------------------------------------*/
+
+#include "md.h"
+
+/* #define DEBUG */
+
+/*----------------------------ngbr_list.c proto's-----------------------*/
+
+void ngbr_list(int,int *,int *,int,COORDS *,INTER *,NGBR *,int *,int *,int);
+void cnt_ngbr_list(int,int *,int *,int,COORDS *,INTER *,int *,int *,int);
+void count_vdw(SIMPARMS *,COORDS *,INTER *,NGBR *,int *,int *);
+
+/*-----------------------------------------------------------------------*/
+
+void get_ngbr(SIMPARMS *simparms,COORDS *coords,INTER *inter,NGBR *ngbr)
+{
+  static int npso,npto,noffs,nofft;
+  int i,j,k,ii,jj,icell,jcell,mem_change,mem_add;
+  int *inp,*jnp,*excl,nexcl,*itype,*map;
+  int ioffs,iofft,icell_old;
+  int *ibreak,nbreak;
+  long ibegin,iend;
+  double rdis2,*dp,*x;
+  LINE line;
+
+  (ngbr->update)++;
+  mem_change = simparms->mem_bytes;
+  mem_add = MAX(simparms->nlen,simparms->natoms);
+
+#ifdef DEBUG
+  printf("finding neighbors! \n");
+#endif
+
+  if(ngbr->update == 0){
+    allocate_lists(simparms->natoms,simparms->nlen,ngbr,coords,&i);
+    simparms->mem_bytes += i;
+
+    rdis2 = 0;
+    for(i=0;i<inter->ntype;i++){
+      if(inter->rmaxl_skin2[i]>rdis2) rdis2 = inter->rmaxl_skin2[i];
+    }
+    rdis2 = sqrt(rdis2)+inter->skin_ter;
+    if(simparms->nocell_all==1){
+      set_link(simparms,ngbr,coords->hmat,rdis2,
+	       sqrt(inter->rmaxl_skin2_e)+inter->skin_ter);
+    }
+    coords->cell_old = cbrt(get_deth(coords->hmat));
+
+    switch(ngbr->ilist){
+       case 1: /* ngbr list */
+         count_vdw(simparms,coords,inter,ngbr,&npso,&npto);
+         npso = 1.2*npso + 1;
+         npto = 1.2*npto + 1;   /* add safety margin */
+         ngbr->inps = (int *)cmalloc(npso*sizeof(int));
+         ngbr->jnps = (int *)cmalloc(npso*sizeof(int));
+         ngbr->inpt = (int *)cmalloc(npto*sizeof(int));
+         ngbr->jnpt = (int *)cmalloc(npto*sizeof(int));
+         
+         simparms->mem_bytes += 2*npso*sizeof(int);
+         simparms->mem_bytes += 2*npto*sizeof(int);
+         
+         noffs = nofft = simparms->natoms+1;
+         ngbr->offs= (int *)cmalloc(noffs*sizeof(int));
+         ngbr->offt= (int *)cmalloc(nofft*sizeof(int));
+         simparms->mem_bytes += noffs*sizeof(int);
+         simparms->mem_bytes += nofft*sizeof(int);
+         break;
+       case 2: /* link list only */
+         noffs = nofft = simparms->natoms+mem_add;
+         ngbr->offs= (int *)cmalloc(noffs*sizeof(int));
+         ngbr->offt= (int *)cmalloc(nofft*sizeof(int));
+         simparms->mem_bytes += noffs*sizeof(int);
+         simparms->mem_bytes += nofft*sizeof(int);
+         break;
+       case 0:  /* nolist */
+         noffs = nofft = 2;
+         ngbr->offs= (int *)cmalloc(noffs*sizeof(int));
+         ngbr->offt= (int *)cmalloc(nofft*sizeof(int));
+         simparms->mem_bytes += noffs*sizeof(int);
+         simparms->mem_bytes += nofft*sizeof(int);
+         break;
+    }
+#ifdef DEBUG
+    printf("allocated lists %d for first time noffs = %d, nofft = %d\n",
+       ngbr->ilist,noffs,nofft);
+#endif
+  }
+  
+  ngbr->nprs = ngbr->nprt = 0;
+  ngbr->offs[0] = ngbr->offt[0] = 0;
+  ioffs = iofft = 0;
+  itype = inter->itype;
+
+  /* no lists */
+  switch(ngbr->ilist){
+     case 0:                 /* nolist */
+       break;
+     case 2:                /* link list */
+       if(fabs(coords->cell_old-cbrt(get_deth(coords->hmat))) >
+          (inter->skin_ter/2.)){
+         rdis2 = 0;
+         for(i=0;i<inter->ntype;i++){
+           if(inter->rmaxl_skin2[i]>rdis2) rdis2 = inter->rmaxl_skin2[i];
+         }
+         rdis2 = sqrt(rdis2)+inter->skin_ter;
+         if(simparms->nocell_all==1){
+           set_link(simparms,ngbr,coords->hmat,rdis2,
+              sqrt(inter->rmaxl_skin2_e)+inter->skin_ter);
+         }
+         coords->cell_old = cbrt(get_deth(coords->hmat));
+       }
+       break;
+     case 1: /* verlist */
+       ibreak = coords->ibreak;
+       
+       simparms->mem_bytes -= 2*npso*sizeof(int);
+       simparms->mem_bytes -= 2*npto*sizeof(int);
+       
+       simparms->mem_bytes -= noffs*sizeof(int);
+       simparms->mem_bytes -= nofft*sizeof(int);
+       
+       inp = cmalloc(2*simparms->nlen*sizeof(int));
+       jnp = inp + simparms->nlen;
+       
+       if(simparms->nocell_all==0){
+         /* decompose i so that they is roughly the same number of
+            i-j pairs on each processors */
+         
+         decomp_trig((long)simparms->natoms,simparms->size,simparms->rank,
+            &ibegin,&iend);
+         
+         nbreak = k = 0;
+         ibreak[0] = 0;
+         for(i=ibegin;i<iend;i++){
+           excl = &(inter->exclude[i][0]);
+           nexcl = *(excl);
+           if(npso < ngbr->nprs + mem_add){
+             npso += mem_add;
+             ngbr->inps = (int *)realloc(ngbr->inps,npso*sizeof(int));
+             ngbr->jnps = (int *)realloc(ngbr->jnps,npso*sizeof(int));
+           }
+           if(npto < ngbr->nprt + mem_add){
+             npto += mem_add;
+             ngbr->inpt = (int *)realloc(ngbr->inpt,npto*sizeof(int));
+             ngbr->jnpt = (int *)realloc(ngbr->jnpt,npto*sizeof(int));
+           }
+           
+           map = inter->map[itype[i]];
+           for(j=i+1;j<simparms->natoms;j++){
+             if(nexcl == j){ 
+               nexcl = *(++excl);
+             } else if(map[itype[j]] == -1){
+               /* skip null interactions */
+             } else {
+               inp[k] = i;
+               jnp[k] = j;
+               k++;
+               if(k==simparms->nlen){
+                 ibreak[1] = k+1; /* don't set any breakpoints */
+                 ngbr_list(k,inp,jnp,simparms->iperd,coords,inter,ngbr,
+                    &ioffs,&iofft,simparms->ivol);
+                 nbreak = k=0;
+               }
+             }
+           }
+           if(ibreak[nbreak] != k) ibreak[++nbreak] = k;
+           ngbr_list(k,inp,jnp,simparms->iperd,coords,inter,ngbr,
+              &ioffs,&iofft,simparms->ivol);
+           if(ngbr->offs[ioffs]!=ngbr->nprs) ngbr->offs[++ioffs] = ngbr->nprs; 
+           if(ngbr->offt[iofft]!=ngbr->nprt) ngbr->offt[++iofft] = ngbr->nprt;
+           nbreak = k = 0;
+         }
+       } else {
+         if(fabs(coords->cell_old-cbrt(get_deth(coords->hmat))) >
+            (inter->skin_ter/2.)){
+           rdis2 = 0;
+           for(i=0;i<inter->ntype;i++){
+             if(inter->rmaxl_skin2[i]>rdis2) rdis2 = inter->rmaxl_skin2[i];
+           }
+           rdis2 = sqrt(rdis2)+inter->skin_ter;
+           set_link(simparms,ngbr,coords->hmat,rdis2,
+              sqrt(inter->rmaxl_skin2_e)+inter->skin_ter);
+           coords->cell_old = cbrt(get_deth(coords->hmat));
+         }
+         
+         get_lnklist(simparms->natoms,ngbr->ncells,ngbr->hlist,ngbr->lnklist,
+            simparms->iperd,coords->hmat,
+            coords->px,coords->py,coords->pz);
+         
+         ngbr->offs[0] = ngbr->offt[0] = 0;
+         icell_old = -1;
+         ibreak[0] = 0;
+         nbreak = 0;
+         k = 0;
+         for(i=0;i<ngbr->npaircell;i++){
+           icell = ngbr->icell[i];
+           jcell = ngbr->jcell[i];
+           
+           ii = ngbr->hlist[icell];
+           
+           while(ii!=-1){
+             if(icell==jcell){
+               jj = ngbr->lnklist[ii];
+             } else {
+               jj = ngbr->hlist[jcell];
+             }
+             /* check offset memory */
+             if(noffs < ioffs + mem_add){
+               noffs += mem_add;
+               ngbr->offs = (int *)realloc(ngbr->offs,noffs*sizeof(int));
+             }
+             if(nofft < iofft + mem_add){
+               nofft += mem_add;
+               ngbr->offt = (int *)realloc(ngbr->offt,nofft*sizeof(int));
+             }
+             /* check neighbor list  memory */
+             if(npso < ngbr->nprs + mem_add){
+               npso += mem_add;
+               ngbr->inps = (int *)realloc(ngbr->inps,npso*sizeof(int));
+               ngbr->jnps = (int *)realloc(ngbr->jnps,npso*sizeof(int));
+             }
+             if(npto < ngbr->nprt + mem_add){
+               npto += mem_add;
+               ngbr->inpt = (int *)realloc(ngbr->inpt,npto*sizeof(int));
+               ngbr->jnpt = (int *)realloc(ngbr->jnpt,npto*sizeof(int));
+             }
+             map = inter->map[itype[ii]];
+             while(jj!=-1){
+               if(map[itype[jj]] == -1){
+                 /* skip null interaction */
+               } else if(!exclij(ii,jj,inter->nexclude,inter->exclude)){ 
+                 inp[k] = ii;
+                 jnp[k] = jj;
+                 k++;
+                 if(k==simparms->nlen){
+                   ibreak[++nbreak] = k;
+                   ngbr_list(k,inp,jnp,simparms->iperd,coords,inter,ngbr,
+                      &ioffs,&iofft,simparms->ivol);
+                   nbreak = k = 0;
+                 }
+               }
+               jj = ngbr->lnklist[jj];
+             } /* end while(jj!=-1) */
+             
+             ii = ngbr->lnklist[ii];
+             if((icell==jcell) && (ibreak[nbreak]!=k)) ibreak[++nbreak] = k;
+           } /* end while ii != -1 */
+           if(ibreak[nbreak]!=k && icell_old!=icell) ibreak[++nbreak] = k;
+           icell_old = icell;
+         } /* for(ncell_pair) */
+         if(ibreak[nbreak] != k) ibreak[++nbreak] = k;
+         ngbr_list(k,inp,jnp,simparms->iperd,coords,inter,ngbr,
+            &ioffs,&iofft,simparms->ivol);
+       } /* if(simparms->nolist==1) */
+       ngbr->offs[++(ioffs)] = ngbr->nprs; 
+       ngbr->offt[++(iofft)] = ngbr->nprt;
+
+#ifdef VERBOSE
+       for(i=0;i<simparms->natoms;i++){
+         printf("offset %d %d %d\n",i,ngbr->offs[i],ngbr->offt[i]);
+       }
+       printf("Short - interactions\n");
+       for(i=0;i<noffs;i++){
+         printf("%d %d - %d\n",i,ngbr->inps[i],ngbr->jnps[i]);
+       }
+       printf("Total - interactions\n");
+       for(i=0;i<nofft;i++){
+         printf("%d %d - %d\n",i,ngbr->inpt[i],ngbr->jnpt[i]);
+       }
+#endif
+       
+       simparms->mem_bytes += 2*npso*sizeof(int);
+       simparms->mem_bytes += 2*npto*sizeof(int);       
+       simparms->mem_bytes += noffs*sizeof(int);
+       simparms->mem_bytes += nofft*sizeof(int);
+       
+       free(inp);
+       break;
+  }
+
+  if(simparms->rank==0 && (mem_change-simparms->mem_bytes)!= 0 ){
+    md_stdout("Van der Waals Neighbor list memory changed!");
+    sprintf(line,"Bytes of memory allocated so far = %d",
+	    simparms->mem_bytes);
+    md_stdout(line);
+  }
+
+  get_ngbr_e(simparms,coords,inter,ngbr);
+
+  /* save old positions so that we know when to update */
+#ifdef DEBUG
+  printf("allocated lists noffs = %d, nofft = %d\n",ngbr->nprs,ngbr->nprt);
+  if(simparms->rank==0) md_stdout("Storing old positions for lists");
+#endif
+  dp = inter->dxn;  x  = coords->px;
+  k = 3*simparms->natoms;
+#include "vectorize.h"
+  for(i=0;i<k;i++) dp[i] = x[i];
+}
+/*----------------------------------------------------------------*/
+void ngbr_list(int nlen,int *inp,int *jnp,int iperd,
+	       COORDS *coords,INTER *inter,NGBR *ngbr,
+	       int *ioffs,int *iofft,int ivol)
+{
+  int j,intr,in,jn,k,*itype,**map;
+  int nprs,nprt,*ips,*jps,*ipt,*jpt;
+  double *xdis,*ydis,*zdis,*rdis2,*rs2,*rl2;
+  double *x,*y,*z;
+
+  xdis = coords->xdis;  ydis = coords->ydis;  zdis = coords->zdis;  
+  x = coords->px;  y = coords->py;  z = coords->pz;
+  itype = inter->itype;
+  map = inter->map;
+  ips = ngbr->inps;  jps = ngbr->jnps;
+  ipt = ngbr->inpt;  jpt = ngbr->jnpt;
+
+  rdis2 = (double *)malloc(3*nlen*sizeof(double));
+  rs2 = rdis2 + nlen;
+  rl2 = rdis2 + 2*nlen;
+#include "vectorize.h"
+  for(j=0;j<nlen;j++){
+    in = inp[j];    jn = jnp[j];
+    xdis[j] = x[in] - x[jn];
+    ydis[j] = y[in] - y[jn];
+    zdis[j] = z[in] - z[jn];
+  }
+
+  period(nlen,xdis,ydis,zdis,coords->hmat,coords->hmati,iperd,ivol);
+
+  k = 1;
+
+#include "vectorize.h"
+  for(j=0;j<nlen;j++){    
+    rdis2[j] = xdis[j]*xdis[j]+ydis[j]*ydis[j]+zdis[j]*zdis[j];	    
+    intr = map[itype[inp[j]]][itype[jnp[j]]];
+    rs2[j] = inter->rmaxs_skin2[intr];
+    rl2[j] = inter->rmaxl_skin2[intr];
+  }
+  nprs = ngbr->nprs;
+  nprt = ngbr->nprt;
+  for(j=0;j<nlen;j++){    
+    /* use the fact that the long range force is ALWAYS longer */
+    if( rdis2[j] < rl2[j]){
+      ipt[nprt] = inp[j]; 
+      jpt[nprt] = jnp[j]; 
+      nprt++;
+      if( rdis2[j] < rs2[j]) {
+        ips[nprs] = inp[j];
+        jps[nprs] = jnp[j]; 
+        nprs++;
+      }
+    }
+    if((j+1)==coords->ibreak[k]){
+      if(ngbr->offs[*ioffs]!=nprs) ngbr->offs[++(*ioffs)] = nprs; 
+      if(ngbr->offt[*iofft]!=nprt) ngbr->offt[++(*iofft)] = nprt;
+      k++;
+    }
+  }
+  ngbr->nprs = nprs;
+  ngbr->nprt = nprt;
+  free(rdis2);
+}
+/*----------------------------------------------------------------*/
+void ngbr_liste(int nlen,int *inp,int *jnp,int iperd,
+		COORDS *coords,INTER *inter,NGBR *ngbr,int ivol)
+{
+  int j,in,jn,nprte,nprse;
+  double *xdis,*ydis,*zdis,rdis2;
+  double *x,*y,*z;
+
+  xdis = coords->xdis;  ydis = coords->ydis;  zdis = coords->zdis;  
+  x = coords->px;  y = coords->py;  z = coords->pz;
+
+#include "vectorize.h"
+  for(j=0;j<nlen;j++){
+    in = inp[j];    jn = jnp[j];
+    xdis[j] = x[in] - x[jn];
+    ydis[j] = y[in] - y[jn];
+    zdis[j] = z[in] - z[jn];
+  }
+
+  period(nlen,xdis,ydis,zdis,coords->hmat,coords->hmati,iperd,ivol);
+
+  nprse = ngbr->nprse;
+  nprte = ngbr->nprte;
+  
+  for(j=0;j<nlen;j++){
+    rdis2 = xdis[j]*xdis[j]+ydis[j]*ydis[j]+zdis[j]*zdis[j];
+    
+    /* use the fact that the long range force is ALWAYS longer */
+    if( rdis2 < inter->rmaxl_skin2_e){
+      ngbr->inpte[nprte] = inp[j]; 
+      ngbr->jnpte[nprte] = jnp[j]; 
+      nprte++;
+      if(rdis2 < inter->rmaxs_skin2_e){
+        ngbr->inpse[nprse] = inp[j]; 
+        ngbr->jnpse[nprse] = jnp[j]; 
+        nprse++;
+      }
+    }
+  }
+  ngbr->nprte = nprte;
+  ngbr->nprse = nprse;
+}
+/*----------------------------------------------------------------*/
+void cnt_ngbr_list(int nlen,int *inp,int *jnp,int iperd,
+		   COORDS *coords,INTER *inter,int *ns,int *nt,int ivol)
+{
+  int j,intr,in,jn,nst,ntt;
+  double *xdis,*ydis,*zdis,rdis2;
+  double *x,*y,*z;
+
+  xdis = coords->xdis;  ydis = coords->ydis;  zdis = coords->zdis;  
+  x = coords->px;  y = coords->py;  z = coords->pz;
+
+#include "vectorize.h"
+  for(j=0;j<nlen;j++){
+    in = inp[j];    jn = jnp[j];
+    xdis[j] = x[in] - x[jn];
+    ydis[j] = y[in] - y[jn];
+    zdis[j] = z[in] - z[jn];
+  }
+
+  period(nlen,xdis,ydis,zdis,coords->hmat,coords->hmati,iperd,ivol);
+
+  nst = ntt = 0.;
+  for(j=0;j<nlen;j++){    
+    rdis2 = xdis[j]*xdis[j]+ydis[j]*ydis[j]+zdis[j]*zdis[j];
+    intr = inter->map[inter->itype[inp[j]]][inter->itype[jnp[j]]];
+    if( rdis2 < inter->rmaxs_skin2[intr]) nst++;
+    if( rdis2 < inter->rmaxl_skin2[intr]) ntt++;
+  }	
+  (*ns) += nst;
+  (*nt) += ntt; 
+}
+/*----------------------------------------------------------------*/
+void cnt_ngbr_liste(int nlen,int *inp,int *jnp,int iperd,
+		    COORDS *coords,INTER *inter,int *ns,int *nt,int ivol)
+{
+  int j;
+  double *xdis,*ydis,*zdis,rdis2;
+  double *x,*y,*z;
+
+  xdis = coords->xdis;  ydis = coords->ydis;  zdis = coords->zdis;  
+  x = coords->px;  y = coords->py;  z = coords->pz;
+
+#include "vectorize.h"
+  for(j=0;j<nlen;j++){
+    xdis[j] = x[inp[j]] - x[jnp[j]];
+    ydis[j] = y[inp[j]] - y[jnp[j]];
+    zdis[j] = z[inp[j]] - z[jnp[j]];
+  }
+
+  period(nlen,xdis,ydis,zdis,coords->hmat,coords->hmati,iperd,ivol);
+      
+  for(j=0;j<nlen;j++){
+    rdis2 = xdis[j]*xdis[j]+ydis[j]*ydis[j]+zdis[j]*zdis[j];
+    
+    /* use the fact that the long range force is ALWAYS longer */
+    if(rdis2 < inter->rmaxl_skin2_e){
+      (*nt)++;
+      if(rdis2 < inter->rmaxs_skin2_e) (*ns)++;
+    }
+  }
+}
+/*----------------------------------------------------------------*/
+void count_vdw(SIMPARMS *simparms,COORDS *coords,INTER *inter,NGBR *ngbr,
+	       int *npso,int *npto)
+{
+  int i,j,k,ii,jj,icell,jcell;
+  int *inp,*jnp,*excl,nexcl,*map,*itype;
+  long ibegin,iend;
+
+  itype = inter->itype;
+  if(simparms->rank==0) md_stdout("Counting vdw pairs");
+
+  if(simparms->nocell_all==0){
+    *npso = *npto = 0;
+    inp = coords->indx;
+    jnp = coords->jndx;
+    
+    /* decompose i so that they is roughly the same number of
+       i-j pairs on each processors */
+    
+    decomp_trig((long)simparms->natoms,simparms->size,simparms->rank,
+		&ibegin,&iend);
+
+    k = 0;
+    for(i=ibegin;i<iend;i++){
+      excl = &(inter->exclude[i][0]);
+      nexcl = *(excl);
+      map = inter->map[itype[i]];
+      for(j=i+1;j<simparms->natoms;j++){
+        if(nexcl == j){ 
+          nexcl = *(++excl);
+        } else if(map[itype[j]] == -1){
+          /* exclude null interactions */
+        } else {
+          inp[k] = i;
+          jnp[k] = j;
+          k++;
+          if(k==simparms->nlen){
+            cnt_ngbr_list(k,inp,jnp,simparms->iperd,
+               coords,inter,npso,npto,simparms->ivol);
+            k=0;
+          }
+        }
+      }
+      cnt_ngbr_list(k,inp,jnp,simparms->iperd,coords,inter,npso,npto,
+         simparms->ivol);
+      k=0;
+    }
+  } else {
+    get_lnklist(simparms->natoms,ngbr->ncells,ngbr->hlist,ngbr->lnklist,
+       simparms->iperd,coords->hmat,coords->px,coords->py,coords->pz);
+    inp = coords->indx;
+    jnp = coords->jndx;
+    k = 0;
+    for(i=0;i<ngbr->npaircell;i++){
+      icell = ngbr->icell[i];
+      jcell = ngbr->jcell[i];
+      ii = ngbr->hlist[icell];
+      while(ii!=-1){
+        if(icell==jcell){
+          jj = ngbr->lnklist[ii];
+        } else {
+          jj = ngbr->hlist[jcell];
+        }
+        map = inter->map[itype[ii]];
+        while(jj!=-1){
+          if(map[itype[jj]] == -1){
+          } else if(!exclij(ii,jj,inter->nexclude,inter->exclude)){ 
+            inp[k] = ii;
+            jnp[k] = jj;
+            k++;            
+            if(k==simparms->nlen){
+              cnt_ngbr_list(k,inp,jnp,simparms->iperd,coords,inter,
+                 npso,npto,simparms->ivol);
+              k = 0;
+            }
+          }
+          jj = ngbr->lnklist[jj];
+        } /* end while(jj!=-1) */
+        ii = ngbr->lnklist[ii];
+      } 
+    }
+    cnt_ngbr_list(k,inp,jnp,simparms->iperd,coords,inter,npso,npto,
+       simparms->ivol);
+  }
+}
+/*-----------------------------------------------------------------------*/
+void allocate_lists(int natoms,int nlen,NGBR *ngbr,COORDS *coords,int *mem)
+{
+  int ncell3;
+
+  *mem=0;
+  if(ngbr->ilist!=0){
+    ncell3 = ngbr->ncells*ngbr->ncells*ngbr->ncells;
+    ngbr->hlist = (int *)cmalloc(ncell3*sizeof(int));
+    ngbr->lnklist = (int *)cmalloc(natoms*sizeof(int));
+    *mem += ncell3*sizeof(int);
+    *mem += natoms*sizeof(int);
+  }
+  
+  coords->scr_buf=(double *)cmalloc(6*natoms*sizeof(double));
+  coords->scr_rec=coords->scr_buf + 3*natoms;
+  *mem += 6*natoms*sizeof(double);
+  
+  coords->xdis = (double *)cmalloc(3*nlen*sizeof(double));
+  coords->ydis = coords->xdis +   nlen;
+  coords->zdis = coords->xdis + 2*nlen;
+  *mem += 3*nlen*sizeof(double);
+
+  /* the two is so that we don't need and if statement to see if 
+     we are going over the end of the array (it could be as much as 2) */
+  coords->ibreak = (int *)cmalloc((nlen+2)*sizeof(int));
+  *mem += (nlen+2)*sizeof(int);
+  
+  coords->indx = (int *)cmalloc(5*nlen*sizeof(int));
+  coords->jndx = coords->indx +   nlen;
+  coords->ityp = coords->indx + 2*nlen;
+  coords->jtyp = coords->indx + 3*nlen;
+  coords->intr = coords->indx + 4*nlen;
+  *mem += 5*nlen*sizeof(int);
+}
+/*-----------------------------------------------------------------------*/
+void free_lists(NGBR *ngbr,COORDS *coords)
+{
+  if(ngbr->ilist!=0){
+    free(ngbr->hlist);
+    free(ngbr->lnklist);
+    free(ngbr->icell); free(ngbr->jcell);
+    free(ngbr->icelle); free(ngbr->jcelle);
+  }
+
+  free(coords->scr_buf);
+  free(coords->xdis);
+  free(coords->ibreak);
+  free(coords->indx);
+
+  if(ngbr->ilist==1){
+    free(ngbr->inps); free(ngbr->jnps);
+    free(ngbr->inpt); free(ngbr->jnpt);
+    free(ngbr->inpse); free(ngbr->jnpse);
+    free(ngbr->inpte); free(ngbr->jnpte);
+  }  
+
+  free(ngbr->offs);
+  free(ngbr->offt);
+  free(ngbr->offse);
+}

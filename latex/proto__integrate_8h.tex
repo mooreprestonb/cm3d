@@ -1,0 +1,239 @@
+\section{integrate/proto\_\-integrate.h File Reference}
+\label{proto__integrate_8h}\index{integrate/proto_integrate.h@{integrate/proto\_\-integrate.h}}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf set\_\-econi} ({\bf ENERGIES} $\ast${\bf energies})
+\item 
+void {\bf accumulate} (double $\ast$, {\bf ENERGIES} $\ast$)
+\item 
+void {\bf zero\_\-averages} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf ENERGIES} $\ast${\bf energies})
+\item 
+void {\bf substep\_\-init} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf ENERGIES} $\ast$, {\bf SUBSPACE} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)
+\item 
+void {\bf update\_\-subspace} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf SUBSPACE} $\ast$, {\bf NGBR} $\ast$)
+\item 
+void {\bf sub\_\-step} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf ENERGIES} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, {\bf SUBSPACE} $\ast$)
+\item 
+void {\bf step\_\-init} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf ENERGIES} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)
+\item 
+void {\bf step} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf ENERGIES} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)
+\item 
+void {\bf set\_\-baro} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double tauv)
+\item 
+void {\bf force\-V} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf ENERGIES} $\ast${\bf energies})
+\item 
+void {\bf samvbar} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf getengv} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$zkev, double $\ast$potv)
+\item 
+void {\bf getengv\_\-cheese} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$zkev, double $\ast$potv, double $\ast$zken)
+\item 
+void {\bf intbar} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double dta2, int iflag)
+\item 
+void {\bf set\_\-therm} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, int nspec, {\bf SPECIES} spec\_\-root, double tau\_\-nhc)
+\item 
+void {\bf samveta} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf forcen} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)
+\item 
+void {\bf getengn} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf getengn\_\-cheese} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf intnhc} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double)
+\item 
+void {\bf period} (int natoms, double dxs[$\,$], double dys[$\,$], double dzs[$\,$], double hmat[$\,$], double hmati[$\,$], int iperd, int iensemble)
+\item 
+void {\bf samvel} ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, int)
+\item 
+void {\bf zerotm} (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf rotate} (int natoms, double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$amass)
+\item 
+void {\bf scale} (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double, int)
+\item 
+void {\bf radial} (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf zerocm} (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$)
+\item 
+void {\bf zero\_\-angm} (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$)
+\item 
+double {\bf get\_\-temp} (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, int)
+\item 
+void {\bf freqbin} ({\bf SIMPARMS} $\ast${\bf simparms}, int npoints, double freq\_\-min, {\bf NMODES} $\ast${\bf nmodes})
+\item 
+void {\bf app\_\-ux2} (int natoms, double dta2, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf app\_\-up2} (int natoms, double dta2, double dnf, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf app\_\-uh} (double dta2, {\bf COORDS} $\ast$coords)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{proto_integrate.h@{proto\_\-integrate.h}!accumulate@{accumulate}}
+\index{accumulate@{accumulate}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void accumulate (double $\ast$, {\bf ENERGIES} $\ast$)}\label{proto__integrate_8h_3a2a58b5a7a980a807acbad7f6f1d879}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!app_uh@{app\_\-uh}}
+\index{app_uh@{app\_\-uh}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void app\_\-uh (double {\em dta2}, {\bf COORDS} $\ast$ {\em coords})}\label{proto__integrate_8h_db5bb2d6c57d2e3aa807d1c0e6114759}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!app_up2@{app\_\-up2}}
+\index{app_up2@{app\_\-up2}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void app\_\-up2 (int {\em natoms}, double {\em dta2}, double {\em dnf}, {\bf COORDS} $\ast$ {\em coords})}\label{proto__integrate_8h_e572784a592d8e297ffde89f7d61b579}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!app_ux2@{app\_\-ux2}}
+\index{app_ux2@{app\_\-ux2}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void app\_\-ux2 (int {\em natoms}, double {\em dta2}, {\bf COORDS} $\ast$ {\em coords})}\label{proto__integrate_8h_0e7fc8608a044c8629b0d4498ff55ac8}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!forcen@{forcen}}
+\index{forcen@{forcen}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void forcen ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)}\label{proto__integrate_8h_e9b2d404e10b7089787b22f6de6b95e1}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!forceV@{forceV}}
+\index{forceV@{forceV}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void force\-V ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf ENERGIES} $\ast$ {\em energies})}\label{proto__integrate_8h_f41913430c6c7a45b9342969f7d3299b}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!freqbin@{freqbin}}
+\index{freqbin@{freqbin}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void freqbin ({\bf SIMPARMS} $\ast$ {\em simparms}, int {\em npoints}, double {\em freq\_\-min}, {\bf NMODES} $\ast$ {\em nmodes})}\label{proto__integrate_8h_79d1d3c730027b3d5e86a7d7b6c8c0b4}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!get_temp@{get\_\-temp}}
+\index{get_temp@{get\_\-temp}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double get\_\-temp (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, int)}\label{proto__integrate_8h_e9090496ebb9f83fa16212e588d5a954}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!getengn@{getengn}}
+\index{getengn@{getengn}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getengn ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$)}\label{proto__integrate_8h_7342aa6b43f6571322b45f26cb476b27}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!getengn_cheese@{getengn\_\-cheese}}
+\index{getengn_cheese@{getengn\_\-cheese}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getengn\_\-cheese ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double $\ast$, double $\ast$)}\label{proto__integrate_8h_4a4dcb927bcc74e125155bf07c884571}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!getengv@{getengv}}
+\index{getengv@{getengv}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getengv ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em zkev}, double $\ast$ {\em potv})}\label{proto__integrate_8h_8f6b220b5497a9d83e02b4949112aa6b}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!getengv_cheese@{getengv\_\-cheese}}
+\index{getengv_cheese@{getengv\_\-cheese}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getengv\_\-cheese ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em zkev}, double $\ast$ {\em potv}, double $\ast$ {\em zken})}\label{proto__integrate_8h_254a20535f90eca030f210db5ed233fc}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!intbar@{intbar}}
+\index{intbar@{intbar}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void intbar ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double {\em dta2}, int {\em iflag})}\label{proto__integrate_8h_dc8a3b70853b7fac5ee77bb389205afb}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!intnhc@{intnhc}}
+\index{intnhc@{intnhc}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void intnhc ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, double)}\label{proto__integrate_8h_fe8a392b98ffc10699904b2367e983bb}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!period@{period}}
+\index{period@{period}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void period (int {\em natoms}, double {\em dxs}[$\,$], double {\em dys}[$\,$], double {\em dzs}[$\,$], double {\em hmat}[$\,$], double {\em hmati}[$\,$], int {\em iperd}, int {\em iensemble})}\label{proto__integrate_8h_17adce6e743f0dfd43a8d1e6c5435de8}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!radial@{radial}}
+\index{radial@{radial}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void radial (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$)}\label{proto__integrate_8h_441e084227a9b874469d8169e5be5c73}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!rotate@{rotate}}
+\index{rotate@{rotate}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void rotate (int {\em natoms}, double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$ {\em amass})}\label{proto__integrate_8h_40422a104464277eb970aafd61ff78e5}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!samvbar@{samvbar}}
+\index{samvbar@{samvbar}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void samvbar ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{proto__integrate_8h_fabc38b1f16b28ba02a6112e4c2cb433}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!samvel@{samvel}}
+\index{samvel@{samvel}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void samvel ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, int)}\label{proto__integrate_8h_1346d3c108c74722561509e1ae84b40a}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!samveta@{samveta}}
+\index{samveta@{samveta}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void samveta ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$)}\label{proto__integrate_8h_fa23e3f7e91024d894338f954a2815cf}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!scale@{scale}}
+\index{scale@{scale}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void scale (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double, int)}\label{proto__integrate_8h_6859b1cf6263be72d135e741d94a5582}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!set_baro@{set\_\-baro}}
+\index{set_baro@{set\_\-baro}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void set\_\-baro ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double {\em tauv})}\label{proto__integrate_8h_d72b222d3469248fbdede94c4961c53d}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!set_econi@{set\_\-econi}}
+\index{set_econi@{set\_\-econi}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void set\_\-econi ({\bf ENERGIES} $\ast$ {\em energies})}\label{proto__integrate_8h_e24f65d8d6ad70fc67ab4f9ae3d9faf9}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!set_therm@{set\_\-therm}}
+\index{set_therm@{set\_\-therm}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void set\_\-therm ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, int {\em nspec}, {\bf SPECIES} {\em spec\_\-root}, double {\em tau\_\-nhc})}\label{proto__integrate_8h_f4c4bc56999c6628aa2bb363b490d32e}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!step@{step}}
+\index{step@{step}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void step ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf ENERGIES} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)}\label{proto__integrate_8h_edfad7cb9430981cda59c5fa1600afa3}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!step_init@{step\_\-init}}
+\index{step_init@{step\_\-init}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void step\_\-init ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf ENERGIES} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)}\label{proto__integrate_8h_ac90d65a524ff244cc3f3211543bb603}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!sub_step@{sub\_\-step}}
+\index{sub_step@{sub\_\-step}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void sub\_\-step ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf ENERGIES} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$, {\bf SUBSPACE} $\ast$)}\label{proto__integrate_8h_f83e2f78066fb3360675e7339fd1bba6}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!substep_init@{substep\_\-init}}
+\index{substep_init@{substep\_\-init}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void substep\_\-init ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf ENERGIES} $\ast$, {\bf SUBSPACE} $\ast$, {\bf INTER} $\ast$, {\bf NGBR} $\ast$)}\label{proto__integrate_8h_9e7e82c4cb7cb139149a21b20dbdf769}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!update_subspace@{update\_\-subspace}}
+\index{update_subspace@{update\_\-subspace}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void update\_\-subspace ({\bf SIMPARMS} $\ast$, {\bf COORDS} $\ast$, {\bf INTER} $\ast$, {\bf SUBSPACE} $\ast$, {\bf NGBR} $\ast$)}\label{proto__integrate_8h_4be79ab489108e7020bfd347cf1cbf1c}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!zero_angm@{zero\_\-angm}}
+\index{zero_angm@{zero\_\-angm}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void zero\_\-angm (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$, double $\ast$)}\label{proto__integrate_8h_bc2d231b3c0790123233364210d41a18}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!zero_averages@{zero\_\-averages}}
+\index{zero_averages@{zero\_\-averages}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void zero\_\-averages ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf ENERGIES} $\ast$ {\em energies})}\label{proto__integrate_8h_804990f7e30f1fe9df0712b64c9cf1b7}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!zerocm@{zerocm}}
+\index{zerocm@{zerocm}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void zerocm (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$)}\label{proto__integrate_8h_7893fdbfc42c3231789e5b8cc386e5da}
+
+
+\index{proto_integrate.h@{proto\_\-integrate.h}!zerotm@{zerotm}}
+\index{zerotm@{zerotm}!proto_integrate.h@{proto\_\-integrate.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void zerotm (int, double $\ast$, double $\ast$, double $\ast$, double $\ast$)}\label{proto__integrate_8h_c94089bffcee25d9f6684878d822ce42}
+
+

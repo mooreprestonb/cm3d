@@ -1,0 +1,7 @@
+
+~mol_name_def[\mol_name{harm}\natom{2}\nbond{0}]
+
+-----------------------------------------------------------
+~atom_def[\atom_typ{harm}\atom_ind{1}\mass{1} \charge{0}]
+~atom_def[\atom_typ{harm}\atom_ind{2}\mass{1} \charge{0}]
+bond_def[\atom1{1} \atom2{2}]

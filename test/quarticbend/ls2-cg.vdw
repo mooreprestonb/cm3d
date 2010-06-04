@@ -1,0 +1,31 @@
+~inter_parm[\atom1{LEU}\atom2{LEU}\pot_type{lennard-jones96}
+            \eps{270}\sig{5.06}
+          \min_dist{1.0}\max_dist{15}\res_dist{10.0}]
+~inter_parm[\atom1{LEU}\atom2{SER}\pot_type{lennard-jones96}
+            \eps{280.784614963142}\sig{4.37}
+          \min_dist{1.0}\max_dist{15}\res_dist{10.0}]
+~inter_parm[\atom1{LEU}\atom2{GBB}\pot_type{lennard-jones96}
+            \eps{367.423461417477}\sig{4.6385}
+          \min_dist{1.0}\max_dist{15}\res_dist{10.0}]
+~inter_parm[\atom1{SER}\atom2{SER}\pot_type{lennard-jones96}
+            \eps{292}\sig{3.68}
+          \min_dist{1.0}\max_dist{15}\res_dist{10.0}]
+~inter_parm[\atom1{SER}\atom2{GBB}\pot_type{lennard-jones96}
+            \eps{382.099463490856}\sig{3.9485}
+          \min_dist{1.0}\max_dist{15}\res_dist{10.0}]
+~inter_parm[\atom1{GBB}\atom2{GBB}\pot_type{lennard-jones96}
+            \eps{500}\sig{4.217}
+          \min_dist{1.0}\max_dist{15}\res_dist{10.0}]
+
+~inter_parm[\atom1{LEU}\atom2{GBH}\pot_type{lennard-jones96}
+            \eps{367.423461417477}\sig{4.6385}
+          \min_dist{1.0}\max_dist{15}\res_dist{10.0}]
+
+~inter_parm[\atom1{GBH}\atom2{GBH}\pot_type{lennard-jones96}
+            \eps{500}\sig{4.217}
+          \min_dist{1.0}\max_dist{15}\res_dist{10.0}]
+
+~inter_parm[\atom1{SER}\atom2{GBH}\pot_type{lennard-jones96}
+            \eps{382.099463490856}\sig{3.9485}
+          \min_dist{1.0}\max_dist{15}\res_dist{10.0}]
+

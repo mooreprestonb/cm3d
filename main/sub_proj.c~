@@ -1,0 +1,92 @@
+/* 
+   Copyright (C) 1997 1998 1999 2000 Dr. Preston B. Moore
+
+Dr. Preston B. Moore
+Associate Director, Center for Molecular Modeling (CMM)
+University of Pennsylvania, Department of Chemistry, Box 188 
+231 S. 34th St. Philadelphia, PA 19104-6323 USA
+EMAIL: moore@cmm.chem.upenn.edu  
+WWW: http://www.cmm.upenn.edu/~moore
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+*/
+
+
+/* Calculate the summed projection of the instantaeous modes
+   onto the fixed subspace basis 
+   */
+
+#include "md.h"
+
+static double govl(int il,int ih,int jl,int jh,double **rov);
+
+#define PROG_CO2
+/* #define LIFE */
+
+#define FCUTOFF (1.1)    /* 1.1 shuts it off cutoff for writing to over.dat */
+#define NTIME 50        /* number of configurations held in memory */
+#define NCONF 500        /* number of configurations to corrilate */
+
+#ifdef JUNK
+#define NCOMP 10
+
+static int numm_l[NCOMP] = { 0, 0, 50,100,100,200,250,350,400, 0};
+static int numm_h[NCOMP] = {50,100,100,200,250,250,350,400,450,250};
+static int numn_l[NCOMP] = { 0, 0, 50,100,100,200,250,350,400, 0};
+static int numn_h[NCOMP] = {50,100,100,200,250,250,350,400,450,250};
+#endif
+
+#define NCOMP 1
+
+static int numm_l[NCOMP] = {100};
+static int numm_h[NCOMP] = {200};
+static int numn_l[NCOMP] = {100};
+static int numn_h[NCOMP] = {200};
+
+
+/* static variables that can be seen only functions in this file */
+static int nsave;
+static int *time_store,*ilife;
+static double **rov,***cormat,**rov_dcomp;
+static double *comp[NCOMP],*compt[NCOMP],*compr[NCOMP],*compb[NCOMP];
+static double *comps[NCOMP],*compa[NCOMP];
+
+#ifdef LIFE
+static double **clife2,**afreq;
+#endif
+
+void init_subproj(SIMPARMS *simparms)
+{
+	init_subproj_new(simparms);
+
+}
+
+/*************************************************************************/
+
+void sub_proj(SIMPARMS *simparms,COORDS *coords,INTER *inter,NMODES *nmodes)
+{
+
+	sub_proj_new(simparms, coords, inter, nmodes);
+
+}
+/*-------------------------------------------------------------*/
+static double govl(int il,int ih,int jl,int jh,double **rov)
+{
+
+	return(govl_new(il, ih, jl, jh, rov));
+
+}
+/*-------------------------------------------------------------*/

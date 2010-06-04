@@ -1,0 +1,267 @@
+\section{energy/intra/md\_\-fmorse.c File Reference}
+\label{md__fmorse_8c}\index{energy/intra/md_fmorse.c@{energy/intra/md\_\-fmorse.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf bond\_\-pair} (int {\bf iatom}, int {\bf jatom})
+\item 
+void {\bf exclude\_\-bonds} (int $\ast$nexclude, int $\ast$$\ast$exclude)
+\item 
+void {\bf fbond} (double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$fx, double $\ast$fy, double $\ast$fz)
+\item 
+void {\bf morsefbond} (double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$fx, double $\ast$fy, double $\ast$fz)
+\item 
+void {\bf morsegetvbond} (double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$UI, double $\ast$WI)
+\item 
+void {\bf getvbond} (double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$UI, double $\ast$WI)
+\item 
+void {\bf fcbond} (double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$$\ast$fcmat)
+\item 
+void {\bf morsefcbond} (double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$$\ast$fcmat)
+\item 
+void {\bf fcbondn} (double $\ast$px, double $\ast$py, double $\ast$pz, double $\ast$$\ast$fcmat)
+\item 
+double {\bf potbond} (double $\ast$px, double $\ast$py, double $\ast$pz)
+\item 
+double {\bf morsepotbond} (double $\ast$px, double $\ast$py, double $\ast$pz)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+From space space1 chemistry duq edu {\bf Tue} {\bf Oct}
+\item 
+From space space1 chemistry duq edu {\bf Tue} {\bf Oct}
+\item 
+From space space1 chemistry duq edu {\bf Tue} {\bf Oct}
+\item 
+{\bf Tue}
+\item 
+{\bf Oct} {\bf \_\-\_\-pad0\_\-\_\-}
+\item 
+{\bf Oct} {\bf Oct}
+\item 
+{\bf Oct} {\bf boundary}
+\item 
+{\bf charset}
+\item 
+I comment all the relecvant stuff where i made changes {\bf with} bspace6 flags and I put important info at the top It complies except for not knowing the new aprameters for the morse potential GO MORSE Brian Brian Space Professor Brian Space Department of Chemistry and Biochemistry Duquesne University {\bf Pittsburgh}
+\item 
+I comment all the relecvant stuff where i made changes {\bf with} bspace6 flags and I put important info at the top It complies except for not knowing the new aprameters for the morse potential GO MORSE Brian Brian Space Professor Brian Space Department of Chemistry and Biochemistry Duquesne University PA space space1 chemistry duq edu {\bf phone}
+\item 
+{\bf name} = \char`\"{}md\_\-fbond.c\char`\"{}
+\item 
+{\bf charset}
+\item 
+$\ast$ {\bf idxbond}
+\item 
+$\ast$ {\bf ibond}
+\item 
+$\ast$ {\bf jbond}
+\item 
+double $\ast$ {\bf eqbond}
+\item 
+double $\ast$ {\bf fkbond}
+\item 
+int {\bf ibon}
+\item 
+int {\bf jbon}
+\item 
+double {\bf eqbon}
+\item 
+double {\bf fkbon}
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{md_fmorse.c@{md\_\-fmorse.c}!bond_pair@{bond\_\-pair}}
+\index{bond_pair@{bond\_\-pair}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int bond\_\-pair (int {\em iatom}, int {\em jatom})}\label{md__fmorse_8c_2168907e69abb2e97f7545d9711705b9}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!exclude_bonds@{exclude\_\-bonds}}
+\index{exclude_bonds@{exclude\_\-bonds}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void exclude\_\-bonds (int $\ast$ {\em nexclude}, int $\ast$$\ast$ {\em exclude})}\label{md__fmorse_8c_46169ae44ea65dc813207ee4b4cd80b6}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!fbond@{fbond}}
+\index{fbond@{fbond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fbond (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$ {\em fx}, double $\ast$ {\em fy}, double $\ast$ {\em fz})}\label{md__fmorse_8c_a2f60a731a1874138678bec645ec2c88}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!fcbond@{fcbond}}
+\index{fcbond@{fcbond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbond (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$$\ast$ {\em fcmat})}\label{md__fmorse_8c_dfff8c410a36b00415ed39eb81e9f844}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!fcbondn@{fcbondn}}
+\index{fcbondn@{fcbondn}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbondn (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$$\ast$ {\em fcmat})}\label{md__fmorse_8c_4b8600806c78fa8d27460b3a81ed87f6}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!getvbond@{getvbond}}
+\index{getvbond@{getvbond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvbond (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$ {\em UI}, double $\ast$ {\em WI})}\label{md__fmorse_8c_3e5addbe68c6589a438d833b111b220d}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!morsefbond@{morsefbond}}
+\index{morsefbond@{morsefbond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void morsefbond (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$ {\em fx}, double $\ast$ {\em fy}, double $\ast$ {\em fz})}\label{md__fmorse_8c_b208a7cf9dc7a60e4c2ff4c0fdf5c6fd}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!morsefcbond@{morsefcbond}}
+\index{morsefcbond@{morsefcbond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void morsefcbond (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$$\ast$ {\em fcmat})}\label{md__fmorse_8c_f0dd4a26f4996a0d4b1bfb3a0ffa3154}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!morsegetvbond@{morsegetvbond}}
+\index{morsegetvbond@{morsegetvbond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void morsegetvbond (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz}, double $\ast$ {\em UI}, double $\ast$ {\em WI})}\label{md__fmorse_8c_bec87897f185dd4c78d056cadad134e9}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!morsepotbond@{morsepotbond}}
+\index{morsepotbond@{morsepotbond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double morsepotbond (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz})}\label{md__fmorse_8c_d90e004175cf4edb2f68906330307399}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!potbond@{potbond}}
+\index{potbond@{potbond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double potbond (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz})}\label{md__fmorse_8c_69fa49ba666e9da77eff6f750877b742}
+
+
+
+
+\subsection{Variable Documentation}
+\index{md_fmorse.c@{md\_\-fmorse.c}!__pad0__@{\_\-\_\-pad0\_\-\_\-}}
+\index{__pad0__@{\_\-\_\-pad0\_\-\_\-}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Oct} {\bf \_\-\_\-pad0\_\-\_\-}}\label{md__fmorse_8c_0d721bcd462f793b460e09a5117ad0e0}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!boundary@{boundary}}
+\index{boundary@{boundary}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Oct} {\bf boundary}}\label{md__fmorse_8c_05bf9062e7680ad5939999d0a17936c1}
+
+
+{\bf Initial value:}
+
+\footnotesize\begin{verbatim}"PART-BOUNDARY=.19510171708.ZM2579.chemistry.duq.edu"
+Status: ORr
+
+--
+--PART-BOUNDARY=.19510171708.ZM2579.chemistry.duq.edu
+Content-Type: text/plain
+\end{verbatim}\normalsize 
+\index{md_fmorse.c@{md\_\-fmorse.c}!charset@{charset}}
+\index{charset@{charset}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf charset}}\label{md__fmorse_8c_8bd4accafd4e712317ed9a471738a971}
+
+
+{\bf Initial value:}
+
+\footnotesize\begin{verbatim}us-ascii
+
+
+
+
+ 
+
+int nbonds
+\end{verbatim}\normalsize 
+\index{md_fmorse.c@{md\_\-fmorse.c}!charset@{charset}}
+\index{charset@{charset}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf charset}}\label{md__fmorse_8c_8bd4accafd4e712317ed9a471738a971}
+
+
+{\bf Initial value:}
+
+\footnotesize\begin{verbatim}us-ascii
+
+Hi P i am sending you the new md_fbond
+
+ I recreated all the routines for morse expcept the numerical routine
+\end{verbatim}\normalsize 
+\index{md_fmorse.c@{md\_\-fmorse.c}!eqbon@{eqbon}}
+\index{eqbon@{eqbon}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf eqbon}}\label{md__fmorse_8c_d5f2b7cab4f47359d6dd1e5c95646bbe}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!eqbond@{eqbond}}
+\index{eqbond@{eqbond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf eqbond}}\label{md__fmorse_8c_21f64656342a42d1a4f2e4cd9ee3a6b8}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!fkbon@{fkbon}}
+\index{fkbon@{fkbon}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf fkbon}}\label{md__fmorse_8c_330b11f839cbd7eac7aa585f3ba124d2}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!fkbond@{fkbond}}
+\index{fkbond@{fkbond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ {\bf fkbond}}\label{md__fmorse_8c_dc841d3ec25a22f536851952f173744b}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!ibon@{ibon}}
+\index{ibon@{ibon}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf ibon}}\label{md__fmorse_8c_7772ba96c7f56ca873cb228c2b1760e3}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!ibond@{ibond}}
+\index{ibond@{ibond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}$\ast$ {\bf ibond}}\label{md__fmorse_8c_7b1c6f3eac8942f735706aa3b3c48147}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!idxbond@{idxbond}}
+\index{idxbond@{idxbond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}$\ast$ {\bf idxbond}}\label{md__fmorse_8c_5b73f89e636bf035c30bf1fe35e04f51}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!jbon@{jbon}}
+\index{jbon@{jbon}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf jbon}}\label{md__fmorse_8c_37e7510e91fdafb27e8bbb1785aef3d7}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!jbond@{jbond}}
+\index{jbond@{jbond}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}$\ast$ {\bf jbond}}\label{md__fmorse_8c_064c8ab3149bb41a2846e7c1e3aa949f}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!name@{name}}
+\index{name@{name}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf name} = \char`\"{}md\_\-fbond.c\char`\"{}}\label{md__fmorse_8c_b74e6bf80237ddc4109968cedc58c151}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!Oct@{Oct}}
+\index{Oct@{Oct}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Oct} {\bf Oct}}\label{md__fmorse_8c_64fa517f9787c7c78cd50491bcea963e}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!Oct@{Oct}}
+\index{Oct@{Oct}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}From space space1 chemistry duq edu {\bf Tue} {\bf Oct}}\label{md__fmorse_8c_6087a155496d792cae644480cd8e79d8}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!Oct@{Oct}}
+\index{Oct@{Oct}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}From space space1 chemistry duq edu {\bf Tue} {\bf Oct}}\label{md__fmorse_8c_6087a155496d792cae644480cd8e79d8}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!Oct@{Oct}}
+\index{Oct@{Oct}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}From space space1 chemistry duq edu {\bf Tue} {\bf Oct}}\label{md__fmorse_8c_6087a155496d792cae644480cd8e79d8}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!phone@{phone}}
+\index{phone@{phone}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}I comment all the relecvant stuff where i made changes {\bf with} bspace6 flags and I put important info at the top It complies except for not knowing the new aprameters for the morse potential GO MORSE Brian Brian Space Professor Brian Space Department of Chemistry and Biochemistry Duquesne University PA space space1 chemistry duq edu {\bf phone}}\label{md__fmorse_8c_8876df97e894a6c803851635bcb56626}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!Pittsburgh@{Pittsburgh}}
+\index{Pittsburgh@{Pittsburgh}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}I comment all the relecvant stuff where i made changes {\bf with} bspace6 flags and I put important info at the top It complies except for not knowing the new aprameters for the morse potential GO MORSE Brian Brian Space Professor Brian Space Department of Chemistry and Biochemistry Duquesne University {\bf Pittsburgh}}\label{md__fmorse_8c_9e5e813ca04c17b3e0ea27e4734e954a}
+
+
+\index{md_fmorse.c@{md\_\-fmorse.c}!Tue@{Tue}}
+\index{Tue@{Tue}!md_fmorse.c@{md\_\-fmorse.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Tue}}\label{md__fmorse_8c_ef451b6aba35c987dfbaede2aeec57df}
+
+

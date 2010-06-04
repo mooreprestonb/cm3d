@@ -1,0 +1,92 @@
+\section{polar/getdid.c File Reference}
+\label{polar_2getdid_8c}\index{polar/getdid.c@{polar/getdid.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf GETDIPDER}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf ludcmp} (double $\ast$$\ast$amat, int n3, int $\ast$indx, double $\ast$)
+\item 
+void {\bf lubksb} (double $\ast$$\ast$amat, int n3, int $\ast$indx, double $\ast$mu)
+\item 
+void {\bf getefield} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$bfield)
+\item 
+void {\bf getmu} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$bfield)
+\item 
+void {\bf getdefield} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$, double $\ast$$\ast$amat)
+\item 
+void {\bf test\_\-diatic} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf getdid} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, {\bf INTER} $\ast$inter, double $\ast$$\ast$dmumat)
+\item 
+void {\bf getddid} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$$\ast$amat)
+\item 
+void {\bf getdiatic} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, int i\_\-now, int j\_\-now, double $\ast$$\ast$diatic)
+\item 
+void {\bf getdadq} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$$\ast$amat)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{polar/getdid.c@{polar/getdid.c}!GETDIPDER@{GETDIPDER}}
+\index{GETDIPDER@{GETDIPDER}!polar/getdid.c@{polar/getdid.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define GETDIPDER}\label{polar_2getdid_8c_e8acea768e4d2fdc6e985d261f4ce131}
+
+
+
+
+\subsection{Function Documentation}
+\index{polar/getdid.c@{polar/getdid.c}!getdadq@{getdadq}}
+\index{getdadq@{getdadq}!polar/getdid.c@{polar/getdid.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getdadq ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em amat})}\label{polar_2getdid_8c_d0a5f3e895fa7d2cfa46b0e49114728d}
+
+
+\index{polar/getdid.c@{polar/getdid.c}!getddid@{getddid}}
+\index{getddid@{getddid}!polar/getdid.c@{polar/getdid.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getddid ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em amat})}\label{polar_2getdid_8c_3bec01b2ac3a2c818399ae1fd8ce6118}
+
+
+\index{polar/getdid.c@{polar/getdid.c}!getdefield@{getdefield}}
+\index{getdefield@{getdefield}!polar/getdid.c@{polar/getdid.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getdefield ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$, double $\ast$$\ast$ {\em amat})}\label{polar_2getdid_8c_b339dafbaf8802aa01c977291ca836bf}
+
+
+\index{polar/getdid.c@{polar/getdid.c}!getdiatic@{getdiatic}}
+\index{getdiatic@{getdiatic}!polar/getdid.c@{polar/getdid.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getdiatic ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, int {\em i\_\-now}, int {\em j\_\-now}, double $\ast$$\ast$ {\em diatic})}\label{polar_2getdid_8c_1c6fec36594dae1f1269588c537f854a}
+
+
+\index{polar/getdid.c@{polar/getdid.c}!getdid@{getdid}}
+\index{getdid@{getdid}!polar/getdid.c@{polar/getdid.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getdid ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, {\bf INTER} $\ast$ {\em inter}, double $\ast$$\ast$ {\em dmumat})}\label{polar_2getdid_8c_435b47f9a2e2d0b696f34fd100b1fd50}
+
+
+\index{polar/getdid.c@{polar/getdid.c}!getefield@{getefield}}
+\index{getefield@{getefield}!polar/getdid.c@{polar/getdid.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getefield ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em bfield})}\label{polar_2getdid_8c_fb04992ab9d7a7e23cb137d4f8812ffd}
+
+
+\index{polar/getdid.c@{polar/getdid.c}!getmu@{getmu}}
+\index{getmu@{getmu}!polar/getdid.c@{polar/getdid.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getmu ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em bfield})}\label{polar_2getdid_8c_bf233a7825d1df90cc98eab93c6e7e86}
+
+
+\index{polar/getdid.c@{polar/getdid.c}!lubksb@{lubksb}}
+\index{lubksb@{lubksb}!polar/getdid.c@{polar/getdid.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lubksb (double $\ast$$\ast$ {\em amat}, int {\em n3}, int $\ast$ {\em indx}, double $\ast$ {\em mu})}\label{polar_2getdid_8c_54bcae607151fcf53a488d7ce4fd111e}
+
+
+\index{polar/getdid.c@{polar/getdid.c}!ludcmp@{ludcmp}}
+\index{ludcmp@{ludcmp}!polar/getdid.c@{polar/getdid.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ludcmp (double $\ast$$\ast$ {\em amat}, int {\em n3}, int $\ast$ {\em indx}, double $\ast$)}\label{polar_2getdid_8c_084ce096195b56f6b3aa29c952bd6b9f}
+
+
+\index{polar/getdid.c@{polar/getdid.c}!test_diatic@{test\_\-diatic}}
+\index{test_diatic@{test\_\-diatic}!polar/getdid.c@{polar/getdid.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void test\_\-diatic ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{polar_2getdid_8c_e52744a38114581049cda91945d38c78}
+
+

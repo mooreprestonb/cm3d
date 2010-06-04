@@ -1,0 +1,106 @@
+UTIL    = $(BASE)/utils
+MINIMIZE= $(BASE)/minimize
+
+UTIL_FILES = randme.o timing.o utils.o dmatrix.o clucode.o ceigsys.o \
+	md_util.o md_char.o md_checkval.o md_para.o md_spaceutil.o \
+	md_mathlib.o matopt.o nrmin.o nrminmd.o \
+	md_spaceutil.new.o nrmin.new.o nrminmd.new.o \
+#       lawrap.o
+
+util.a : util.a(randme.o) util.a(timing.o) util.a(utils.o) util.a(dmatrix.o) \
+	util.a(clucode.o) util.a(ceigsys.o) util.a(md_util.o) \
+	util.a(md_char.o) util.a(md_checkval.o) util.a(md_para.o) \
+	util.a(md_spaceutil.o) util.a(md_mathlib.o) \
+	util.a(matopt.o) util.a(nrmin.o) util.a(nrminmd.o) \
+	util.a(md_spaceutil.new.o) util.a(md_util.new.o) util.a(nrmin.new.o) \
+	util.a(nrminmd.new.o) \
+#       util.a(lawrap.o)
+	$(AR) $(ARFLAGS) $@ $(UTIL_FILES)
+	$(RANLIB) $@
+
+util.a(randme.o) : randme.o
+randme.o : $(UTIL)/randme.c
+	$(CC) -c $(CFLAGS) $(OPT) $(UTIL)/randme.c
+
+util.a(timing.o) : timing.o
+timing.o : $(UTIL)/timing.c
+	$(CC) -c $(CFLAGS) $(OPT) $(UTIL)/timing.c
+
+util.a(utils.o) : utils.o
+utils.o :  $(UTIL)/utils.c
+	$(CC) -c $(CFLAGS) $(OPT) $(UTIL)/utils.c
+
+util.a(dmatrix.o) : dmatrix.o
+dmatrix.o :  $(UTIL)/dmatrix.c
+	$(CC) -c $(CFLAGS) $(OPT) $(UTIL)/dmatrix.c
+
+util.a(clucode.o) : clucode.o
+clucode.o :  $(UTIL)/clucode.c
+	$(CC) -c $(CFLAGS) $(OPT) $(UTIL)/clucode.c
+
+util.a(ceigsys.o) : ceigsys.o
+ceigsys.o : $(UTIL)/ceigsys.c
+	$(CC) -c $(CFLAGS) $(OPT) $(UTIL)/ceigsys.c
+
+util.a(matopt.o) : matopt.o
+matopt.o : $(UTIL)/matopt.c
+	$(CC) -c $(CFLAGS) $(OPT) $(UTIL)/matopt.c
+
+util.a(lawrap.o) : lawrap.o
+lawrap.o : $(UTIL)/lawrap.f
+	$(CPP) -P $(DEFINES) $(UTIL)/lawrap.f > lawrap_cpp.f
+	$(F77) -c $(FFLAGS) $(FOPT) lawrap_cpp.f
+	$(MV) lawrap_cpp.o lawrap.o
+	$(RM) lawrap_cpp.f
+
+util.a(md_para.o) : md_para.o
+md_para.o : $(UTIL)/md_para.c
+	$(CC) -c $(CFLAGS) $(OPT) $(UTIL)/md_para.c
+
+util.a(md_util.o) : md_util.o
+md_util.o : $(UTIL)/md_util.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(UTIL)/md_util.c
+
+util.a(md_char.o) : md_char.o
+md_char.o : $(UTIL)/md_char.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(UTIL)/md_char.c 
+
+util.a(md_checkval.o) : md_checkval.o
+md_checkval.o : $(UTIL)/md_checkval.c
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(UTIL)/md_checkval.c
+
+util.a(md_spaceutil.o) : md_spaceutil.o
+md_spaceutil.o : $(UTIL)/md_spaceutil.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(UTIL)/md_spaceutil.c
+
+util.a(md_mathlib.o) : md_mathlib.o
+md_mathlib.o : $(UTIL)/md_mathlib.c
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(UTIL)/md_mathlib.c
+
+util.a(nrmin.o) : nrmin.o
+nrmin.o : $(MINIMIZE)/nrmin.c
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(MINIMIZE)/nrmin.c
+
+util.a(nrminmd.o) : nrminmd.o
+nrminmd.o : $(MINIMIZE)/nrminmd.c
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(MINIMIZE)/nrminmd.c
+
+
+
+util.a(md_util.new.o) : md_util.new.o
+md_util.new.o : $(UTIL)/md_util.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(UTIL)/md_util.new.c
+
+
+util.a(md_spaceutil.new.o) : md_spaceutil.new.o
+md_spaceutil.new.o : $(UTIL)/md_spaceutil.new.c $(INCLUDE)/md.h
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(UTIL)/md_spaceutil.new.c
+
+util.a(nrmin.new.o) : nrmin.new.o
+nrmin.new.o : $(MINIMIZE)/nrmin.new.c
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(MINIMIZE)/nrmin.new.c
+
+util.a(nrminmd.new.o) : nrminmd.new.o
+nrminmd.new.o : $(MINIMIZE)/nrminmd.new.c
+	$(CC) -c $(CFLAGS) $(OPT) -I$(INCLUDE) $(MINIMIZE)/nrminmd.new.c
+

@@ -1,0 +1,92 @@
+\section{energy/intra/md\_\-fbocross.c File Reference}
+\label{md__fbocross_8c}\index{energy/intra/md_fbocross.c@{energy/intra/md\_\-fbocross.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf fbondx} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf getvbondx} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$potbox, double $\ast$prsbox, double ptensor[9])
+\item 
+void {\bf fcbondx} ({\bf COORDS} $\ast$coords, double $\ast$$\ast$fcmat)
+\item 
+void {\bf fcbondxn} ({\bf COORDS} $\ast$coords, double $\ast$$\ast$fcmat)
+\item 
+double {\bf potbondx} (double $\ast$px, double $\ast$py, double $\ast$pz)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static int {\bf ibonx}
+\item 
+static int {\bf jbonx}
+\item 
+static int {\bf kbonx}
+\item 
+static double {\bf eq1bonx}
+\item 
+static double {\bf eq2bonx}
+\item 
+static double {\bf fkbonx}
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{md_fbocross.c@{md\_\-fbocross.c}!fbondx@{fbondx}}
+\index{fbondx@{fbondx}!md_fbocross.c@{md\_\-fbocross.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fbondx ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__fbocross_8c_ffe75499444eb1de2a21416e1196a610}
+
+
+\index{md_fbocross.c@{md\_\-fbocross.c}!fcbondx@{fcbondx}}
+\index{fcbondx@{fcbondx}!md_fbocross.c@{md\_\-fbocross.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbondx ({\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em fcmat})}\label{md__fbocross_8c_65d0f29aa925bc05aac4c18fa39853e2}
+
+
+\index{md_fbocross.c@{md\_\-fbocross.c}!fcbondxn@{fcbondxn}}
+\index{fcbondxn@{fcbondxn}!md_fbocross.c@{md\_\-fbocross.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbondxn ({\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em fcmat})}\label{md__fbocross_8c_fd1b89539b10c836f96afd0c9bcd53fa}
+
+
+\index{md_fbocross.c@{md\_\-fbocross.c}!getvbondx@{getvbondx}}
+\index{getvbondx@{getvbondx}!md_fbocross.c@{md\_\-fbocross.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvbondx ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em potbox}, double $\ast$ {\em prsbox}, double {\em ptensor}[9])}\label{md__fbocross_8c_91b2face303932602ec06116d168d17b}
+
+
+\index{md_fbocross.c@{md\_\-fbocross.c}!potbondx@{potbondx}}
+\index{potbondx@{potbondx}!md_fbocross.c@{md\_\-fbocross.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double potbondx (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz})}\label{md__fbocross_8c_525425e0c5cc1d564e60444adffee247}
+
+
+
+
+\subsection{Variable Documentation}
+\index{md_fbocross.c@{md\_\-fbocross.c}!eq1bonx@{eq1bonx}}
+\index{eq1bonx@{eq1bonx}!md_fbocross.c@{md\_\-fbocross.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf eq1bonx}\hspace{0.3cm}{\tt  [static]}}\label{md__fbocross_8c_280fd3d8ae1c63e02a4f143709a4dd00}
+
+
+\index{md_fbocross.c@{md\_\-fbocross.c}!eq2bonx@{eq2bonx}}
+\index{eq2bonx@{eq2bonx}!md_fbocross.c@{md\_\-fbocross.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf eq2bonx}\hspace{0.3cm}{\tt  [static]}}\label{md__fbocross_8c_58b28abeea1e344d3bbbe8e4defefb54}
+
+
+\index{md_fbocross.c@{md\_\-fbocross.c}!fkbonx@{fkbonx}}
+\index{fkbonx@{fkbonx}!md_fbocross.c@{md\_\-fbocross.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf fkbonx}\hspace{0.3cm}{\tt  [static]}}\label{md__fbocross_8c_fca3d43f0da9484acffd960601fc8662}
+
+
+\index{md_fbocross.c@{md\_\-fbocross.c}!ibonx@{ibonx}}
+\index{ibonx@{ibonx}!md_fbocross.c@{md\_\-fbocross.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf ibonx}\hspace{0.3cm}{\tt  [static]}}\label{md__fbocross_8c_f7b3cd75b84c6844c4cff469ff884bcd}
+
+
+\index{md_fbocross.c@{md\_\-fbocross.c}!jbonx@{jbonx}}
+\index{jbonx@{jbonx}!md_fbocross.c@{md\_\-fbocross.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf jbonx}\hspace{0.3cm}{\tt  [static]}}\label{md__fbocross_8c_5d89bb8cf86c18403da414d48f137d9e}
+
+
+\index{md_fbocross.c@{md\_\-fbocross.c}!kbonx@{kbonx}}
+\index{kbonx@{kbonx}!md_fbocross.c@{md\_\-fbocross.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf kbonx}\hspace{0.3cm}{\tt  [static]}}\label{md__fbocross_8c_14c5b26fe8b6f874fbf302a0a3b9df45}
+
+

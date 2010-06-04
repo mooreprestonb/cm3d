@@ -1,0 +1,40 @@
+#  Makefile
+
+INCLUDE = $(BASE)/include
+
+#rule to create .o files from .c files (suffix rules)
+.c.o:
+	$(CC) -c $(CFLAGS) $(OPT) $*.c
+.f.o:
+	$(F77) -c $(FFLAGS) $*.f
+
+#targets
+
+all :: $(NAME)
+
+MDFILES= main.a integrate.a energy.a input.a output.a util.a
+
+$(NAME) : $(MDFILES) md_user.o
+	$(LD) -o $@ $(LDFLAGS)  md_user.o $(MDFILES) $(MDFILES) $(LIBS)  
+#	$(CP) $@ $(HOME)/bin
+
+include make.main
+include make.input
+include make.output
+include make.energy
+include make.integrate
+include make.util
+
+md_user.o : $(BASE)/user/md_user.c
+	$(CC) -c $(CFLAGS) $(OPT) $(BASE)/user/md_user.c
+
+$(INCLUDE)/md.h : $(INCLUDE)/md_proto.h $(INCLUDE)/md_defines.h \
+	$(INCLUDE)/md_numbers.h $(INCLUDE)/md_macros.h \
+	$(INCLUDE)/md_typedef.h	$(BASE)/energy/proto_energy.h \
+	$(BASE)/integrate/proto_integrate.h $(BASE)/utils/proto_utils.h \
+	$(BASE)/input/proto_input.h $(BASE)/output/proto_output.h \
+	$(BASE)/main/proto_main.h $(BASE)/minimize/minimize.h
+	touch $(INCLUDE)/md.h
+
+clean :
+	/bin/rm -rf $(MDFILES) *.o mike_* cm3d.* 

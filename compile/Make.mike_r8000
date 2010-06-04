@@ -1,0 +1,28 @@
+
+#HOME = /home/moore
+BASE    = $(HOME)/md/test
+
+# common definitions...
+RM = /bin/rm -f
+CC = cc
+F77 = f77
+CPP = /usr/lib/cpp
+CP = /bin/cp
+AR = /bin/ar
+MV = /bin/mv
+
+# Compiler flages, paths for include files and libraries
+
+DEFINES = -DBLAS -DFORTRANUNDERSCORE
+CFLAGS = -n32 $(DEFINES) 
+FFLAGS = -n32 
+
+OPT = -O2
+LIBS = -lcomplib.sgimath -lm
+
+LD   = $(F77) 
+LDFLAGS = -n32
+ARFLAGS = ruv
+
+NAME    = mike_klein
+

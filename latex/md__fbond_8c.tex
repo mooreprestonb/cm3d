@@ -1,0 +1,106 @@
+\section{energy/intra/md\_\-fbond.c File Reference}
+\label{md__fbond_8c}\index{energy/intra/md_fbond.c@{energy/intra/md\_\-fbond.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf bond\_\-pair} (int {\bf iatom}, int {\bf jatom}, {\bf BONDS} $\ast${\bf bonds})
+\item 
+void {\bf exclude\_\-bonds} (int $\ast$nexclude, int $\ast$$\ast$exclude, {\bf BONDS} $\ast${\bf bonds})
+\item 
+void {\bf fbond} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf getvbond} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$UI, double $\ast$WI, double WItensor[9])
+\item 
+void {\bf fcbond} ({\bf COORDS} $\ast$coords, double $\ast$$\ast$fcmat)
+\item 
+void {\bf fcbondn} ({\bf COORDS} $\ast$coords, double $\ast$$\ast$fcmat)
+\item 
+double {\bf potbond} (double $\ast$px, double $\ast$py, double $\ast$pz)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static int {\bf ibon}
+\item 
+static int {\bf jbon}
+\item 
+static int {\bf itbon}
+\item 
+static double {\bf eqbon}
+\item 
+static double {\bf fkbon}
+\item 
+static double {\bf bmbon}
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{md_fbond.c@{md\_\-fbond.c}!bond_pair@{bond\_\-pair}}
+\index{bond_pair@{bond\_\-pair}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int bond\_\-pair (int {\em iatom}, int {\em jatom}, {\bf BONDS} $\ast$ {\em bonds})}\label{md__fbond_8c_f239d85f3caf16dfb42bcdd2789aef0a}
+
+
+\index{md_fbond.c@{md\_\-fbond.c}!exclude_bonds@{exclude\_\-bonds}}
+\index{exclude_bonds@{exclude\_\-bonds}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void exclude\_\-bonds (int $\ast$ {\em nexclude}, int $\ast$$\ast$ {\em exclude}, {\bf BONDS} $\ast$ {\em bonds})}\label{md__fbond_8c_bee04cc7df43aab96f8247885bee1491}
+
+
+\index{md_fbond.c@{md\_\-fbond.c}!fbond@{fbond}}
+\index{fbond@{fbond}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fbond ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__fbond_8c_053864c7d431609524ae5fc8a3d519fb}
+
+
+\index{md_fbond.c@{md\_\-fbond.c}!fcbond@{fcbond}}
+\index{fcbond@{fcbond}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbond ({\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em fcmat})}\label{md__fbond_8c_c9571900cc68d3003407eedbedf637aa}
+
+
+\index{md_fbond.c@{md\_\-fbond.c}!fcbondn@{fcbondn}}
+\index{fcbondn@{fcbondn}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fcbondn ({\bf COORDS} $\ast$ {\em coords}, double $\ast$$\ast$ {\em fcmat})}\label{md__fbond_8c_da9142c3636a22727016ddc34fc3803f}
+
+
+\index{md_fbond.c@{md\_\-fbond.c}!getvbond@{getvbond}}
+\index{getvbond@{getvbond}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvbond ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em UI}, double $\ast$ {\em WI}, double {\em WItensor}[9])}\label{md__fbond_8c_08b1adfb2e1851b99aeb065aa85629d3}
+
+
+\index{md_fbond.c@{md\_\-fbond.c}!potbond@{potbond}}
+\index{potbond@{potbond}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double potbond (double $\ast$ {\em px}, double $\ast$ {\em py}, double $\ast$ {\em pz})}\label{md__fbond_8c_69fa49ba666e9da77eff6f750877b742}
+
+
+
+
+\subsection{Variable Documentation}
+\index{md_fbond.c@{md\_\-fbond.c}!bmbon@{bmbon}}
+\index{bmbon@{bmbon}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf bmbon}\hspace{0.3cm}{\tt  [static]}}\label{md__fbond_8c_79d1f73b73f0072a86d13f11dc664a3f}
+
+
+\index{md_fbond.c@{md\_\-fbond.c}!eqbon@{eqbon}}
+\index{eqbon@{eqbon}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf eqbon}\hspace{0.3cm}{\tt  [static]}}\label{md__fbond_8c_d5f2b7cab4f47359d6dd1e5c95646bbe}
+
+
+\index{md_fbond.c@{md\_\-fbond.c}!fkbon@{fkbon}}
+\index{fkbon@{fkbon}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf fkbon}\hspace{0.3cm}{\tt  [static]}}\label{md__fbond_8c_330b11f839cbd7eac7aa585f3ba124d2}
+
+
+\index{md_fbond.c@{md\_\-fbond.c}!ibon@{ibon}}
+\index{ibon@{ibon}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf ibon}\hspace{0.3cm}{\tt  [static]}}\label{md__fbond_8c_7772ba96c7f56ca873cb228c2b1760e3}
+
+
+\index{md_fbond.c@{md\_\-fbond.c}!itbon@{itbon}}
+\index{itbon@{itbon}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf itbon}\hspace{0.3cm}{\tt  [static]}}\label{md__fbond_8c_2bfe5f5948b071a49f0c992e93a71d96}
+
+
+\index{md_fbond.c@{md\_\-fbond.c}!jbon@{jbon}}
+\index{jbon@{jbon}!md_fbond.c@{md\_\-fbond.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf jbon}\hspace{0.3cm}{\tt  [static]}}\label{md__fbond_8c_37e7510e91fdafb27e8bbb1785aef3d7}
+
+

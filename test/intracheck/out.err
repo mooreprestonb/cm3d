@@ -1,0 +1,24 @@
+WARNING: # of atoms specified 3 != 2 # of atoms found
+	setting # of atoms to 2
+WARNING: # of bonds specified 0 != 1 # of bonds found
+	setting # of bond to 1
+WARNING: File di.conf exists! overwriting!
+WARNING: File di.vel exists! overwriting!
+WARNING: File di.ham exists! overwriting!
+WARNING: File di.eng exists! overwriting!
+WARNING: File di.eval exists! overwriting!
+WARNING: Resampling velocities from a gaussian distribution
+WARNING: Scaled temperature from 3.82293 K to 0.003 K
+WARNING: Zeroing total angular momentum
+WARNING: Scaled temperature from 0.003 K to 0.003 K
+WARNING: File di.save exists! overwriting!
+WARNING: File di.save exists! overwriting!
+WARNING: File di.save exists! overwriting!
+WARNING: File di.save exists! overwriting!
+WARNING: File di.save exists! overwriting!
+WARNING: File di.save exists! overwriting!
+WARNING: File di.save exists! overwriting!
+WARNING: File di.save exists! overwriting!
+WARNING: File di.save exists! overwriting!
+WARNING: File di.save exists! overwriting!
+WARNING: File di.save exists! overwriting!

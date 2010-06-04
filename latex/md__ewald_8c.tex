@@ -1,0 +1,79 @@
+\section{energy/inter/md\_\-ewald.c File Reference}
+\label{md__ewald_8c}\index{energy/inter/md_ewald.c@{energy/inter/md\_\-ewald.c}}
+{\tt \#include \char`\"{}md.h\char`\"{}}\par
+{\tt \#include \char`\"{}vectorize.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf TPI}~(2.$\ast$M\_\-PI)
+\item 
+\#define {\bf HELPFULL}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf ewald\_\-setup} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COUL} $\ast${\bf coul}, double $\ast$qch, int kmax, double alpha)
+\item 
+void {\bf k\_\-ewald} ({\bf COORDS} $\ast$coords, double $\ast$vkspace)
+\item 
+void {\bf fk\_\-ewald} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf getvewald} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$pot\_\-ewald, double $\ast$prs\_\-ewald, double prs\_\-ewald\_\-tensor[9])
+\item 
+void {\bf ecorr} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\item 
+void {\bf r\_\-ewald} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords, double $\ast$vrspace)
+\item 
+void {\bf fr\_\-ewald} ({\bf SIMPARMS} $\ast${\bf simparms}, {\bf COORDS} $\ast$coords)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{md_ewald.c@{md\_\-ewald.c}!HELPFULL@{HELPFULL}}
+\index{HELPFULL@{HELPFULL}!md_ewald.c@{md\_\-ewald.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define HELPFULL}\label{md__ewald_8c_81afe6ee1b2fd97ae32c3577281c36d5}
+
+
+\index{md_ewald.c@{md\_\-ewald.c}!TPI@{TPI}}
+\index{TPI@{TPI}!md_ewald.c@{md\_\-ewald.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TPI~(2.$\ast$M\_\-PI)}\label{md__ewald_8c_8b4dd00016aed25a0ea54e9a9acd1239}
+
+
+
+
+\subsection{Function Documentation}
+\index{md_ewald.c@{md\_\-ewald.c}!ecorr@{ecorr}}
+\index{ecorr@{ecorr}!md_ewald.c@{md\_\-ewald.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ecorr ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__ewald_8c_ec5c160d4415b8139b9994c48d69e763}
+
+
+\index{md_ewald.c@{md\_\-ewald.c}!ewald_setup@{ewald\_\-setup}}
+\index{ewald_setup@{ewald\_\-setup}!md_ewald.c@{md\_\-ewald.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ewald\_\-setup ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COUL} $\ast$ {\em coul}, double $\ast$ {\em qch}, int {\em kmax}, double {\em alpha})}\label{md__ewald_8c_db29d7182ce26e819ca8bb578c9dea1e}
+
+
+\index{md_ewald.c@{md\_\-ewald.c}!fk_ewald@{fk\_\-ewald}}
+\index{fk_ewald@{fk\_\-ewald}!md_ewald.c@{md\_\-ewald.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fk\_\-ewald ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__ewald_8c_87c62619017d824430b8e0080d3791aa}
+
+
+\index{md_ewald.c@{md\_\-ewald.c}!fr_ewald@{fr\_\-ewald}}
+\index{fr_ewald@{fr\_\-ewald}!md_ewald.c@{md\_\-ewald.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void fr\_\-ewald ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords})}\label{md__ewald_8c_3d9d66102236af5f5828f6926ee3cfc2}
+
+
+\index{md_ewald.c@{md\_\-ewald.c}!getvewald@{getvewald}}
+\index{getvewald@{getvewald}!md_ewald.c@{md\_\-ewald.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void getvewald ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em pot\_\-ewald}, double $\ast$ {\em prs\_\-ewald}, double {\em prs\_\-ewald\_\-tensor}[9])}\label{md__ewald_8c_b354e8feea8f66cb0d1dc44c6feca732}
+
+
+\index{md_ewald.c@{md\_\-ewald.c}!k_ewald@{k\_\-ewald}}
+\index{k_ewald@{k\_\-ewald}!md_ewald.c@{md\_\-ewald.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void k\_\-ewald ({\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em vkspace})}\label{md__ewald_8c_c35c2fd59a5f16e85be95d6ee393e3b1}
+
+
+\index{md_ewald.c@{md\_\-ewald.c}!r_ewald@{r\_\-ewald}}
+\index{r_ewald@{r\_\-ewald}!md_ewald.c@{md\_\-ewald.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void r\_\-ewald ({\bf SIMPARMS} $\ast$ {\em simparms}, {\bf COORDS} $\ast$ {\em coords}, double $\ast$ {\em vrspace})}\label{md__ewald_8c_8d4848117c2a668a8f548acd8e2fd30b}
+
+

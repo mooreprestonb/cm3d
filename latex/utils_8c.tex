@@ -1,0 +1,115 @@
+\section{utils/utils.c File Reference}
+\label{utils_8c}\index{utils/utils.c@{utils/utils.c}}
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf M\_\-PI}~3.14159265358979323846
+\item 
+\#define {\bf M\_\-SQRT2}~1.41421356237309504880
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+double {\bf randme} (void)
+\item 
+double {\bf gauss1} (void)
+\item 
+void {\bf ranv} (int, double $\ast$)
+\item 
+double {\bf dsum} (int, double $\ast$, int)
+\item 
+void {\bf ggauss} (int, double $\ast$)
+\item 
+int {\bf locate} (int $\ast$, int, int)
+\item 
+int {\bf located} (double $\ast$, int, double)
+\item 
+int {\bf insert} (int $\ast$ia, int $\ast$n, int jpoint)
+\item 
+int {\bf exclij} (int i, int j, int $\ast$nexcl, int $\ast$$\ast$excl)
+\item 
+void {\bf splint} (double[$\,$], double[$\,$], double[$\,$], int, double, double $\ast$)
+\item 
+void {\bf spline} (double[$\,$], double[$\,$], int, double, double, double[$\,$])
+\item 
+void {\bf polint} (double xa[$\,$], double ya[$\,$], int n, double x, double $\ast$y, double $\ast$dy)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{utils.c@{utils.c}!M_PI@{M\_\-PI}}
+\index{M_PI@{M\_\-PI}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define M\_\-PI~3.14159265358979323846}\label{utils_8c_e71449b1cc6e6250b91f539153a7a0d3}
+
+
+\index{utils.c@{utils.c}!M_SQRT2@{M\_\-SQRT2}}
+\index{M_SQRT2@{M\_\-SQRT2}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define M\_\-SQRT2~1.41421356237309504880}\label{utils_8c_66b3ab30f1332874326ed93969e496e0}
+
+
+
+
+\subsection{Function Documentation}
+\index{utils.c@{utils.c}!dsum@{dsum}}
+\index{dsum@{dsum}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double dsum (int, double $\ast$, int)}\label{utils_8c_58215ea5487474689b40ded6270509c9}
+
+
+\index{utils.c@{utils.c}!exclij@{exclij}}
+\index{exclij@{exclij}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int exclij (int {\em i}, int {\em j}, int $\ast$ {\em nexcl}, int $\ast$$\ast$ {\em excl})}\label{utils_8c_ce91782432810b76fa5e579bdf4d23f0}
+
+
+\index{utils.c@{utils.c}!gauss1@{gauss1}}
+\index{gauss1@{gauss1}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double gauss1 (void)}\label{utils_8c_32c3422f56e103d76b89b767d2c5b9c8}
+
+
+\index{utils.c@{utils.c}!ggauss@{ggauss}}
+\index{ggauss@{ggauss}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ggauss (int, double $\ast$)}\label{utils_8c_416b6ade7409ddaf94d1e0a3885dccc1}
+
+
+\index{utils.c@{utils.c}!insert@{insert}}
+\index{insert@{insert}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int insert (int $\ast$ {\em ia}, int $\ast$ {\em n}, int {\em jpoint})}\label{utils_8c_0c2855d2933bc1e9b13db385a6cb1b89}
+
+
+\index{utils.c@{utils.c}!locate@{locate}}
+\index{locate@{locate}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int locate (int $\ast$, int, int)}\label{utils_8c_ef48aed7ae14f44ca251a9e5c706143a}
+
+
+\index{utils.c@{utils.c}!located@{located}}
+\index{located@{located}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int located (double $\ast$, int, double)}\label{utils_8c_a9076cfcf56516f75455bfd637f64dcb}
+
+
+\index{utils.c@{utils.c}!polint@{polint}}
+\index{polint@{polint}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void polint (double {\em xa}[$\,$], double {\em ya}[$\,$], int {\em n}, double {\em x}, double $\ast$ {\em y}, double $\ast$ {\em dy})}\label{utils_8c_9e781dcc9df20e8b93139c48b5627be1}
+
+
+\index{utils.c@{utils.c}!randme@{randme}}
+\index{randme@{randme}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double randme (void)}\label{utils_8c_ad91818df0230e0271f9d12657e86c05}
+
+
+\index{utils.c@{utils.c}!ranv@{ranv}}
+\index{ranv@{ranv}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ranv (int, double $\ast$)}\label{utils_8c_e00f994f73b2547be1a808732cd56d86}
+
+
+\index{utils.c@{utils.c}!spline@{spline}}
+\index{spline@{spline}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void spline (double[$\,$], double[$\,$], int, double, double, double[$\,$])}\label{utils_8c_18ab99a10fb62b5d9e6385bf253d4849}
+
+
+\index{utils.c@{utils.c}!splint@{splint}}
+\index{splint@{splint}!utils.c@{utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void splint (double[$\,$], double[$\,$], double[$\,$], int, double, double $\ast$)}\label{utils_8c_3d61c824d4b5c07a21d5c85b16ab6ccc}
+
+

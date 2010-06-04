@@ -1,0 +1,504 @@
+~torsion_parm[\atom1{*}\atom2{C.1}\atom3{C.1}\atom4{*}\pot_type{power}
+\p0{0}\p1{0}\p2{0}\p3{0}\p4{0}\p5{0}\p6{0} \label{3}]
+~torsion_parm[\atom1{*}\atom2{C.1}\atom3{C.1}\atom4{*}\pot_type{power}
+\p0{0}\p1{0}\p2{0}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.1}\atom3{C.2}\atom4{*}\pot_type{power}
+\p0{0}\p1{0}\p2{0}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.1}\atom3{C.2}\atom4{*}\pot_type{power}
+\p0{0}\p1{0}\p2{0}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{C.2}\atom4{*}\pot_type{power}
+\p0{6288.37}\p1{0}\p2{-6288.37}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{C.2}\atom4{*}\pot_type{power}
+\p0{716.372}\p1{0}\p2{-716.372}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{C.cat}\atom4{*}\pot_type{power}
+\p0{716.372}\p1{0}\p2{-716.372}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.1}\atom3{C.3}\atom4{*}\pot_type{power}
+\p0{0}\p1{0}\p2{0}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{C.3}\atom4{*}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{C.3}\atom4{C.2}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{O.2}\atom2{C.2}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{176.075}\p1{528.223}\p2{0}\p3{-704.298}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{O.co2}\atom2{C.2}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{176.075}\p1{528.223}\p2{0}\p3{-704.298}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.3}\atom3{C.3}\atom4{*}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{C.2}\atom2{C.3}\atom3{C.3}\atom4{C.2}\pot_type{power}
+\p0{10.0614}\p1{-30.1842}\p2{0}\p3{40.2456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{C.2}\atom2{C.3}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{C.3}\atom2{C.3}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{125.767}\p1{-377.303}\p2{0}\p3{503.07}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.3}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{80.4912}\p1{-241.474}\p2{0}\p3{321.965}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.1}\atom3{C.ar}\atom4{*}\pot_type{power}
+\p0{0}\p1{0}\p2{0}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{C.ar}\atom4{*}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.3}\atom3{C.ar}\atom4{*}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.ar}\atom3{C.ar}\atom4{C.ar}\pot_type{power}
+\p0{1182.21}\p1{0}\p2{-1182.21}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{*}\atom2{C.ar}\atom3{C.ar}\atom4{*}\pot_type{power}
+\p0{1006.14}\p1{0}\p2{-1006.14}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{*}\atom2{C.ar}\atom3{C.ar}\atom4{*}\pot_type{power}
+\p0{301.842}\p1{0}\p2{-301.842}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.1}\atom3{N.2}\atom4{*}\pot_type{power}
+\p0{0}\p1{0}\p2{0}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.1}\atom3{N.2}\atom4{*}\pot_type{power}
+\p0{0}\p1{0}\p2{0}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{N.2}\atom4{*}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{N.2}\atom4{*}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.3}\atom3{N.2}\atom4{*}\pot_type{power}
+\p0{100.614}\p1{301.842}\p2{0}\p3{-402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.ar}\atom3{N.2}\atom4{*}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{N.2}\atom3{N.2}\atom4{*}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{*}\atom2{N.2}\atom3{N.2}\atom4{*}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{N.3}\atom4{*}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.3}\atom3{N.3}\atom4{*}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.ar}\atom3{N.3}\atom4{*}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{N.3}\atom3{N.3}\atom4{*}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{N.am}\atom4{*}\pot_type{power}
+\p0{3249.83}\p1{0}\p2{-3249.83}\p3{0}\p4{0}\p5{0}\p6{0} \label{am}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{N.am}\atom4{*}\pot_type{power}
+\p0{3249.83}\p1{0}\p2{-3249.83}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.3}\atom3{N.am}\atom4{*}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.ar}\atom3{N.am}\atom4{*}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{N.2}\atom3{N.am}\atom4{*}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{N.3}\atom3{N.am}\atom4{*}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{N.am}\atom3{N.am}\atom4{*}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.ar}\atom3{N.ar}\atom4{*}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{N.pl3}\atom4{*}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.cat}\atom3{N.pl3}\atom4{*}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{*}\atom2{C.3}\atom3{N.pl3}\atom4{*}\pot_type{power}
+\p0{100.614}\p1{301.842}\p2{0}\p3{-402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.ar}\atom3{N.pl3}\atom4{*}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{N.2}\atom3{N.pl3}\atom4{*}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{N.pl3}\atom3{N.pl3}\atom4{*}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{O.3}\atom4{*}\pot_type{power}
+\p0{2917.81}\p1{0}\p2{-2917.81}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.3}\atom3{O.3}\atom4{*}\pot_type{power}
+\p0{301.842}\p1{-905.526}\p2{0}\p3{1207.37}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.ar}\atom3{O.3}\atom4{*}\pot_type{power}
+\p0{603.684}\p1{0}\p2{-603.684}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{N.2}\atom3{O.3}\atom4{*}\pot_type{power}
+\p0{0}\p1{0}\p2{503.07}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{N.3}\atom3{O.3}\atom4{*}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{P.3}\atom4{*}\pot_type{power}
+\p0{503.07}\p1{0}\p2{-503.07}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.3}\atom3{P.3}\atom4{*}\pot_type{power}
+\p0{100.614}\p1{-301.842}\p2{0}\p3{402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.ar}\atom3{P.3}\atom4{*}\pot_type{power}
+\p0{251.535}\p1{-754.605}\p2{0}\p3{1006.14}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{O.3}\atom3{P.3}\atom4{*}\pot_type{power}
+\p0{100.614}\p1{-301.842}\p2{0}\p3{402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{S.2}\atom4{*}\pot_type{power}
+\p0{503.07}\p1{0}\p2{-503.07}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{*}\atom2{C.3}\atom3{S.2}\atom4{*}\pot_type{power}
+\p0{100.614}\p1{-301.842}\p2{0}\p3{402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.ar}\atom3{S.2}\atom4{*}\pot_type{power}
+\p0{251.535}\p1{-754.605}\p2{0}\p3{1006.14}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{N.3}\atom3{S.2}\atom4{*}\pot_type{power}
+\p0{100.614}\p1{-301.842}\p2{0}\p3{402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.2}\atom3{S.3}\atom4{*}\pot_type{power}
+\p0{503.07}\p1{0}\p2{-503.07}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.3}\atom3{S.3}\atom4{*}\pot_type{power}
+\p0{100.614}\p1{-301.842}\p2{0}\p3{402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{C.ar}\atom3{S.3}\atom4{*}\pot_type{power}
+\p0{251.535}\p1{-754.605}\p2{0}\p3{1006.14}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{*}\atom2{S.3}\atom3{S.3}\atom4{*}\pot_type{power}
+\p0{0}\p1{0}\p2{3395.72}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{C.2}\atom2{C.2}\atom3{C.3}\atom4{C.2}\pot_type{power}
+\p0{31.6934}\p1{95.0802}\p2{0}\p3{-126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{C.2}\atom2{C.2}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{68.6691}\p1{206.007}\p2{0}\p3{-274.676}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{C.3}\atom2{C.2}\atom3{C.3}\atom4{C.2}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{C.3}\atom2{C.2}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{C.3}\atom2{C.2}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{H}\atom2{C.2}\atom3{C.3}\atom4{C.2}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{H}\atom2{C.2}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{H}\atom2{C.2}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{C.2}\atom2{C.2}\atom3{C.3}\atom4{*}\pot_type{power}
+\p0{31.6934}\p1{95.0802}\p2{0}\p3{-126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{C.3}\atom2{C.2}\atom3{C.3}\atom4{*}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{H}\atom2{C.2}\atom3{C.3}\atom4{*}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{C.2}\atom2{C.2}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{31.6934}\p1{95.0802}\p2{0}\p3{-126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+
+-----------------------------------------------------------------------------
+Parameters we have chosen from the wildcard types above to express explicitly
+
+~torsion_parm[\atom1{o.2}\atom2{C.2}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.am}\atom2{C.2}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{H  }\atom2{C.2}\atom3{C.3}\atom4{n.am}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{H  }\atom2{C.2}\atom3{C.3}\atom4{n.3}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{o.3}\atom2{C.2}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.2}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.3}\atom2{C.2}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.pl3}\atom2{C.2}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.ar}\atom2{C.2}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{o.co2}\atom2{C.2}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{68.9206}\p1{-206.762}\p2{0}\p3{275.682}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{o.3}\atom2{C.2}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.3}\atom2{C.2}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.pl3}\atom2{C.2}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.am}\atom2{C.2}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.ar}\atom2{C.2}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.2}\atom2{C.2}\atom3{C.3}\atom4{C.3}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{C.3}\atom2{C.2}\atom3{C.3}\atom4{n.3}\pot_type{power}
+\p0{31.6934}\p1{-95.0802}\p2{0}\p3{126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{C.2}\atom2{C.2}\atom3{C.3}\atom4{n.3}\pot_type{power}
+\p0{31.6934}\p1{95.0802}\p2{0}\p3{-126.774}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{c.3}\atom2{C.2}\atom3{C.2}\atom4{h}\pot_type{power}
+\p0{6288.37}\p1{0}\p2{-6288.37}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{h  }\atom2{C.2}\atom3{C.2}\atom4{h}\pot_type{power}
+\p0{6288.37}\p1{0}\p2{-6288.37}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{c.3}\atom2{C.2}\atom3{C.2}\atom4{n.2}\pot_type{power}
+\p0{6288.37}\p1{0}\p2{-6288.37}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{n.2}\atom2{C.2}\atom3{C.2}\atom4{n.pl3}\pot_type{power}
+\p0{6288.37}\p1{0}\p2{-6288.37}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{h  }\atom2{C.2}\atom3{C.2}\atom4{n.pl3}\pot_type{power}
+\p0{6288.37}\p1{0}\p2{-6288.37}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{c.3}\atom2{C.2}\atom3{C.2}\atom4{n.pl3}\pot_type{power}
+\p0{6288.37}\p1{0}\p2{-6288.37}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{c.ar}\atom2{C.2}\atom3{C.2}\atom4{n.pl3}\pot_type{power}
+\p0{6288.37}\p1{0}\p2{-6288.37}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{c.ar}\atom2{C.2}\atom3{C.2}\atom4{h}\pot_type{power}
+\p0{6288.37}\p1{0}\p2{-6288.37}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+
+~torsion_parm[\atom1{h  }\atom2{C.3}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{80.4912}\p1{-241.474}\p2{0}\p3{321.965}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{80.4912}\p1{-241.474}\p2{0}\p3{321.965}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.3}\atom2{C.3}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{80.4912}\p1{-241.474}\p2{0}\p3{321.965}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.3}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{80.4912}\p1{-241.474}\p2{0}\p3{321.965}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{o.3}\atom2{C.3}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{80.4912}\p1{-241.474}\p2{0}\p3{321.965}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.am}\atom2{C.3}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{80.4912}\p1{-241.474}\p2{0}\p3{321.965}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{s.3}\atom2{C.3}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{80.4912}\p1{-241.474}\p2{0}\p3{321.965}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.ar}\atom2{C.3}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{80.4912}\p1{-241.474}\p2{0}\p3{321.965}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.pl3}\atom2{C.3}\atom3{C.3}\atom4{H}\pot_type{power}
+\p0{80.4912}\p1{-241.474}\p2{0}\p3{321.965}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{o.2}\atom2{C.2}\atom3{C.3}\atom4{n.3}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.am}\atom2{C.2}\atom3{C.3}\atom4{n.3}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{o.2}\atom2{C.2}\atom3{C.3}\atom4{n.am}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{o.3}\atom2{C.2}\atom3{C.3}\atom4{n.3}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.3}\atom2{C.2}\atom3{C.3}\atom4{n.3}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.am}\atom2{C.2}\atom3{C.3}\atom4{n.am}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{o.3}\atom2{C.2}\atom3{C.3}\atom4{n.am}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{C.3}\atom4{n.3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{o.3}\atom2{C.3}\atom3{C.3}\atom4{n.3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{C.3}\atom4{o.3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.3}\atom2{C.3}\atom3{C.3}\atom4{n.3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.3}\atom3{C.3}\atom4{n.am}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{C.3}\atom4{n.pl3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.am}\atom2{C.3}\atom3{C.3}\atom4{s.3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.3}\atom3{C.3}\atom4{s.3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{C.3}\atom4{n.am}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{C.3}\atom4{s.3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.ar}\atom2{C.3}\atom3{C.3}\atom4{n.am}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.am}\atom2{C.3}\atom3{C.3}\atom4{o.3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.3}\atom3{C.3}\atom4{o.3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.3}\atom3{C.3}\atom4{c.ar}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.am}\atom2{C.3}\atom3{C.3}\atom4{n.pl3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.3}\atom3{C.3}\atom4{n.pl3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{C.ar}\atom4{c.ar}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.3}\atom3{C.ar}\atom4{c.ar}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{c.3 }\atom2{C.ar}\atom3{C.ar}\atom4{C.ar}\pot_type{power}
+\p0{1182.21}\p1{0}\p2{-1182.21}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{c.2 }\atom2{C.ar}\atom3{C.ar}\atom4{C.ar}\pot_type{power}
+\p0{1182.21}\p1{0}\p2{-1182.21}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{c.ar}\atom2{C.ar}\atom3{C.ar}\atom4{C.ar}\pot_type{power}
+\p0{1182.21}\p1{0}\p2{-1182.21}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{h   }\atom2{C.ar}\atom3{C.ar}\atom4{C.ar}\pot_type{power}
+\p0{1182.21}\p1{0}\p2{-1182.21}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{n.pl3}\atom2{C.ar}\atom3{C.ar}\atom4{C.ar}\pot_type{power}
+\p0{1182.21}\p1{0}\p2{-1182.21}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{o.3}\atom2{C.ar}\atom3{C.ar}\atom4{C.ar}\pot_type{power}
+\p0{1182.21}\p1{0}\p2{-1182.21}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+
+~torsion_parm[\atom1{c.3}\atom2{C.ar}\atom3{C.ar}\atom4{h  }\pot_type{power}
+\p0{1006.14}\p1{0}\p2{-1006.14}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{h  }\atom2{C.ar}\atom3{C.ar}\atom4{h  }\pot_type{power}
+\p0{1006.14}\p1{0}\p2{-1006.14}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{c.2}\atom2{C.ar}\atom3{C.ar}\atom4{h  }\pot_type{power}
+\p0{1006.14}\p1{0}\p2{-1006.14}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{c.2}\atom2{C.ar}\atom3{C.ar}\atom4{n.pl3}\pot_type{power}
+\p0{1006.14}\p1{0}\p2{-1006.14}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{n.pl3}\atom2{C.ar}\atom3{C.ar}\atom4{h   }\pot_type{power}
+\p0{1006.14}\p1{0}\p2{-1006.14}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{n.pl3}\atom2{C.ar}\atom3{C.ar}\atom4{h   }\pot_type{power}
+\p0{1006.14}\p1{0}\p2{-1006.14}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{o.3}\atom2{C.ar}\atom3{C.ar}\atom4{h   }\pot_type{power}
+\p0{1006.14}\p1{0}\p2{-1006.14}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+
+~torsion_parm[\atom1{c.3}\atom2{C.2}\atom3{C.ar}\atom4{c.ar}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.2}\atom3{C.ar}\atom4{c.ar}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.2}\atom3{C.ar}\atom4{c.ar}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{h}\atom2{C.3}\atom3{N.3}\atom4{h.bond}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.3}\atom3{N.3}\atom4{h.bond}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{N.3}\atom4{h.bond}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{c.3}\atom2{C.2}\atom3{N.am}\atom4{c.3}\pot_type{power}
+\p0{3249.83}\p1{0}\p2{-3249.83}\p3{0}\p4{0}\p5{0}\p6{0} \label{am}]
+~torsion_parm[\atom1{c.3}\atom2{C.2}\atom3{N.am}\atom4{h.bond}\pot_type{power}
+\p0{3249.83}\p1{0}\p2{-3249.83}\p3{0}\p4{0}\p5{0}\p6{0} \label{am}]
+~torsion_parm[\atom1{o.2}\atom2{C.2}\atom3{N.am}\atom4{c.3}\pot_type{power}
+\p0{3249.83}\p1{0}\p2{-3249.83}\p3{0}\p4{0}\p5{0}\p6{0} \label{am}]
+~torsion_parm[\atom1{o.2}\atom2{C.2}\atom3{N.am}\atom4{h.bond}\pot_type{power}
+\p0{3249.83}\p1{0}\p2{-3249.83}\p3{0}\p4{0}\p5{0}\p6{0} \label{am}]
+
+~torsion_parm[\atom1{h  }\atom2{C.3}\atom3{N.am}\atom4{c.2}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.3}\atom3{N.am}\atom4{c.2}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.3}\atom3{N.am}\atom4{h.bond}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.3}\atom3{N.am}\atom4{h.bond}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{N.am}\atom4{h.bond}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{N.am}\atom4{c.3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.3}\atom3{N.am}\atom4{c.3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.3}\atom3{N.am}\atom4{c.3}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{N.am}\atom4{c.2}\pot_type{power}
+\p0{50.307}\p1{-150.921}\p2{0}\p3{201.228}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{c.3}\atom2{C.2}\atom3{N.3}\atom4{h.bond}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{o.2}\atom2{C.2}\atom3{N.3}\atom4{h.bond}\pot_type{power}
+\p0{30.1842}\p1{90.5526}\p2{0}\p3{-120.737}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{c.3}\atom2{C.2}\atom3{N.pl3}\atom4{c.2}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.2}\atom3{N.pl3}\atom4{h.bond}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.2}\atom3{N.pl3}\atom4{c.2}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.2}\atom3{N.pl3}\atom4{h.bond}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.2}\atom2{C.2}\atom3{N.pl3}\atom4{c.2}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.2}\atom3{N.pl3}\atom4{c.2}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.2}\atom2{C.2}\atom3{N.pl3}\atom4{h.bond}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.2}\atom3{N.pl3}\atom4{h.bond}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.2}\atom2{C.2}\atom3{N.pl3}\atom4{c.ar}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.2}\atom3{N.pl3}\atom4{c.ar}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.pl3}\atom2{C.2}\atom3{N.pl3}\atom4{c.3}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.pl3}\atom2{C.2}\atom3{N.pl3}\atom4{h.bond}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{n.2}\atom2{C.2}\atom3{N.pl3}\atom4{c.3}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{N.pl3}\atom4{h.bond}\pot_type{power}
+\p0{100.614}\p1{301.842}\p2{0}\p3{-402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{N.pl3}\atom4{c.2}\pot_type{power}
+\p0{100.614}\p1{301.842}\p2{0}\p3{-402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.3}\atom3{N.pl3}\atom4{c.2}\pot_type{power}
+\p0{100.614}\p1{301.842}\p2{0}\p3{-402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.3}\atom3{N.pl3}\atom4{h.bond}\pot_type{power}
+\p0{100.614}\p1{301.842}\p2{0}\p3{-402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{N.pl3}\atom4{c.cat}\pot_type{power}
+\p0{100.614}\p1{301.842}\p2{0}\p3{-402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.3}\atom3{N.pl3}\atom4{c.cat}\pot_type{power}
+\p0{100.614}\p1{301.842}\p2{0}\p3{-402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{c.2}\atom2{C.2}\atom3{N.2}\atom4{c.2}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.2}\atom3{N.2}\atom4{c.2}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{n.pl3}\atom2{C.2}\atom3{N.2}\atom4{c.2}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{h    }\atom2{C.2}\atom3{N.2}\atom4{c.2}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{n.pl3}\atom2{C.2}\atom3{N.2}\atom4{h.bond}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+~torsion_parm[\atom1{c.3}\atom2{C.2}\atom3{N.2}\atom4{h.bond}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{2}]
+
+~torsion_parm[\atom1{c.ar}\atom2{C.ar}\atom3{N.pl3}\atom4{c.2}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.ar}\atom2{C.ar}\atom3{N.pl3}\atom4{h.bond}\pot_type{power}
+\p0{804.912}\p1{0}\p2{-804.912}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{n.pl3}\atom2{C.cat}\atom3{N.pl3}\atom4{c.3}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+~torsion_parm[\atom1{n.pl3}\atom2{C.cat}\atom3{N.pl3}\atom4{h.bond}\pot_type{power}
+\p0{6036.84}\p1{0}\p2{-6036.84}\p3{0}\p4{0}\p5{0}\p6{0} \label{ar}]
+
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{O.3}\atom4{h.bond}\pot_type{power}
+\p0{301.842}\p1{-905.526}\p2{0}\p3{1207.37}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h}\atom2{C.3}\atom3{O.3}\atom4{h.bond}\pot_type{power}
+\p0{301.842}\p1{-905.526}\p2{0}\p3{1207.37}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{c.ar}\atom2{C.ar}\atom3{O.3}\atom4{h.bond}\pot_type{power}
+\p0{603.684}\p1{0}\p2{-603.684}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{c.3}\atom2{C.2}\atom3{O.3}\atom4{h.bond}\pot_type{power}
+\p0{2917.81}\p1{0}\p2{-2917.81}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{o.2}\atom2{C.2}\atom3{O.3}\atom4{h.bond}\pot_type{power}
+\p0{2917.81}\p1{0}\p2{-2917.81}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{S.3}\atom4{h  }\pot_type{power}
+\p0{100.614}\p1{-301.842}\p2{0}\p3{402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.3}\atom3{S.3}\atom4{h  }\pot_type{power}
+\p0{100.614}\p1{-301.842}\p2{0}\p3{402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{S.3}\atom4{c.3}\pot_type{power}
+\p0{100.614}\p1{-301.842}\p2{0}\p3{402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.3}\atom3{S.3}\atom4{c.3}\pot_type{power}
+\p0{100.614}\p1{-301.842}\p2{0}\p3{402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{c.3}\atom2{C.3}\atom3{S.3}\atom4{s.3}\pot_type{power}
+\p0{100.614}\p1{-301.842}\p2{0}\p3{402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+~torsion_parm[\atom1{h  }\atom2{C.3}\atom3{S.3}\atom4{s.3}\pot_type{power}
+\p0{100.614}\p1{-301.842}\p2{0}\p3{402.456}\p4{0}\p5{0}\p6{0} \label{1}]
+
+
+~torsion_parm[\atom1{c.3}\atom2{S.3}\atom3{S.3}\atom4{c.3}\pot_type{power}
+\p0{0}\p1{0}\p2{3395.72}\p3{0}\p4{0}\p5{0}\p6{0} \label{1}]
+
+*******************************************************************************
+Improper torsions we put in explicitly they have been converted from 
+V = k d where d is the distance from the plane.
+
+zero to compare non-plainer improper torsions (do not for amber of charmm)
+
+eq = 0 with
+fk=62884 for c.2 and c.ar improp only (not c.3 etc..)
+fk=11470 for n.2,n.am,n.ar, and n.pl3 only (not n.3 etc..)
+
+~torsion_parm[\atom1{c.2}\atom2{h}\atom3{h}\atom4{c.2}\label{1.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{o.2}\atom3{n.am}\atom4{c.3}\label{2.improp}\pot_type{harm}\eq{0.}\fk{62884}] 
+~torsion_parm[\atom1{c.2}\atom2{o.2}\atom3{h}\atom4{c.3}\label{2.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{o.co2}\atom3{o.co2}\atom4{c.3}\label{ar.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{o.co2}\atom3{o.co2}\atom4{c.3}\label{ar.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{c.3}\atom3{n.am}\atom4{c.3}\label{1.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{h}\atom3{n.pl3}\atom4{c.2}\label{1.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.ar}\atom2{c.ar}\atom3{h}\atom4{c.ar}\label{1.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{n.pl3}\atom3{n.2}\atom4{h}\label{1.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{h}\atom3{n.2}\atom4{c.2}\label{1.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{o.2}\atom3{n.3}\atom4{c.3}\label{2.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{h}\atom3{n.3}\atom4{c.3}\label{1.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{c.3}\atom3{n.3}\atom4{c.2}\label{1.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{c.3}\atom3{n.3}\atom4{c.3}\label{1.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{o.3}\atom3{o.2}\atom4{c.3}\label{1.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{o.2}\atom3{c.3}\atom4{c.3}\label{2.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+~torsion_parm[\atom1{c.2}\atom2{c.ar}\atom3{h}\atom4{c.2}\label{1.improp}\pot_type{harm}\eq{0.}\fk{62884}]
+
+~torsion_parm[\atom1{c.2}\atom2{c.3}\atom3{h.bond}\atom4{n.am}\label{1.improp}\pot_type{harm}\eq{0.}\fk{11470}] 
+~torsion_parm[\atom1{c.3}\atom2{h.bond}\atom3{h.bond}\atom4{n.am}\label{1.improp}\pot_type{harm}\eq{0.}\fk{11470}]
+~torsion_parm[\atom1{c.2}\atom2{h.bond}\atom3{h.bond}\atom4{n.am}\label{1.improp}\pot_type{harm}\eq{0.}\fk{11470}]
+~torsion_parm[\atom1{c.3}\atom2{c.cat}\atom3{h.bond}\atom4{n.pl3}\label{1.improp}\pot_type{harm}\eq{0.}\fk{11470}]
+~torsion_parm[\atom1{c.cat}\atom2{h.bond}\atom3{h.bond}\atom4{n.pl3}\label{1.improp}\pot_type{harm}\eq{0.}\fk{11470}]
+~torsion_parm[\atom1{c.2}\atom2{h.bond}\atom3{h.bond}\atom4{n.pl3}\label{1.improp}\pot_type{harm}\eq{0.}\fk{11470}]
+~torsion_parm[\atom1{c.2}\atom2{c.3}\atom3{h.bond}\atom4{n.pl3}\label{1.improp}\pot_type{harm}\eq{0.}\fk{11470}]
+~torsion_parm[\atom1{c.2}\atom2{c.ar}\atom3{h.bond}\atom4{n.pl3}\label{1.improp}\pot_type{harm}\eq{0.}\fk{11470}]
+~torsion_parm[\atom1{c.3}\atom2{c.3}\atom3{h.bond}\atom4{n.am}\label{1.improp}\pot_type{harm}\eq{0.}\fk{11470}]
+~torsion_parm[\atom1{c.2}\atom2{c.2}\atom3{h.bond}\atom4{n.pl3}\label{1.improp}\pot_type{harm}\eq{0.}\fk{11470}]
+
+~torsion_parm[\atom1{c.3}\atom2{h.bond}\atom3{h.bond}\atom4{n.3}\label{1.improp}\pot_type{harm}\eq{0.}\fk{0}]
+~torsion_parm[\atom1{c.2}\atom2{h.bond}\atom3{h.bond}\atom4{n.3}\label{1.improp}\pot_type{harm}\eq{0.}\fk{0}]

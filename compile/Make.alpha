@@ -1,0 +1,31 @@
+
+NAME = cm3d.alpha
+BASE = ../
+
+# common definitions...
+
+RM = rm -f
+CC = ccc #compaq compiler
+F77 = fort #compaq compiler 
+CPP = /lib/cpp
+CP = cp
+AR = ar
+MV = mv
+
+# Compiler flages, paths for include files and libraries
+
+DEFINES = -DLINUX -DBLAS -DFORTRANUNDERSCORE -DITER
+#DEFINES = -DPRESSURE 
+CFLAGS = -g3  $(DEFINES) #-Wall 
+FFLAGS = -O4 -fastlib
+
+OPT = -O2
+LIBS = -lcxml -lcpml -lm #$(LIBS2) #-lblas 
+LIBS2 = -L/usr/local/ElectricFence-2.1/libefence.a
+LD   = $(CC)  
+ARFLAGS = ruv
+RANLIB = ranlib
+
+include Makefile.cm3d
+
+

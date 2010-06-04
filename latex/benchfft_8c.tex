@@ -1,0 +1,68 @@
+\section{utils/fft/benchfft.c File Reference}
+\label{benchfft_8c}\index{utils/fft/benchfft.c@{utils/fft/benchfft.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$mpi.h$>$}\par
+{\tt \#include $<$assert.h$>$}\par
+{\tt \#include \char`\"{}parautil.h\char`\"{}}\par
+{\tt \#include \char`\"{}mpi3dfft.h\char`\"{}}\par
+{\tt \#include \char`\"{}prf.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct {\bf dcomplex}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+static void {\bf load\-ZMRandom} ({\bf dcomplex} $\ast$u, int n1, int n2, int n3)
+\item 
+static void {\bf moments} ({\bf dcomplex} $\ast$u, int n1, int n2, int n3, {\bf dcomplex} $\ast$um, double $\ast$u2)
+\item 
+static void {\bf usage} (void)
+\item 
+int {\bf main} (int argc, char $\ast$argv[$\,$])
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+int {\bf n\-Proc}
+\item 
+int {\bf my\-Rank}
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{benchfft.c@{benchfft.c}!loadZMRandom@{loadZMRandom}}
+\index{loadZMRandom@{loadZMRandom}!benchfft.c@{benchfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void load\-ZMRandom ({\bf dcomplex} $\ast$ {\em u}, int {\em n1}, int {\em n2}, int {\em n3})\hspace{0.3cm}{\tt  [static]}}\label{benchfft_8c_0dceeb3a6fe5ee2b076c4b2244f19fde}
+
+
+\index{benchfft.c@{benchfft.c}!main@{main}}
+\index{main@{main}!benchfft.c@{benchfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, char $\ast$ {\em argv}[$\,$])}\label{benchfft_8c_0ddf1224851353fc92bfbff6f499fa97}
+
+
+\index{benchfft.c@{benchfft.c}!moments@{moments}}
+\index{moments@{moments}!benchfft.c@{benchfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void moments ({\bf dcomplex} $\ast$ {\em u}, int {\em n1}, int {\em n2}, int {\em n3}, {\bf dcomplex} $\ast$ {\em um}, double $\ast$ {\em u2})\hspace{0.3cm}{\tt  [static]}}\label{benchfft_8c_94f81e81aa1d30fc701e6233a1b0e556}
+
+
+\index{benchfft.c@{benchfft.c}!usage@{usage}}
+\index{usage@{usage}!benchfft.c@{benchfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void usage (void)\hspace{0.3cm}{\tt  [static]}}\label{benchfft_8c_d96d407a911fbb914fa8e4cfbf2faf0f}
+
+
+
+
+\subsection{Variable Documentation}
+\index{benchfft.c@{benchfft.c}!myRank@{myRank}}
+\index{myRank@{myRank}!benchfft.c@{benchfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf my\-Rank}}\label{benchfft_8c_59583c2c54e34ab626dfbd1f075c4d1f}
+
+
+\index{benchfft.c@{benchfft.c}!nProc@{nProc}}
+\index{nProc@{nProc}!benchfft.c@{benchfft.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf n\-Proc}}\label{benchfft_8c_19e98b29873d39c5b4a1ce74eac4bba6}
+
+

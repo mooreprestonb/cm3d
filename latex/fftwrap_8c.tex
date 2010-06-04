@@ -1,0 +1,186 @@
+\section{utils/fft/fftwrap.c File Reference}
+\label{fftwrap_8c}\index{utils/fft/fftwrap.c@{utils/fft/fftwrap.c}}
+{\tt \#include \char`\"{}fftwrap.h\char`\"{}}\par
+{\tt \#include $<$assert.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf PI}~3.14159265359
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+$\ast$It provides a common interface via the {\bf m1d\-FFT} ()
+\item 
+static void {\bf NRm1d\-FFT} ({\bf dcomplex} $\ast$u, int nseq, int iseq, int nelem, int ielem, int isign)
+\item 
+static void {\bf allocate\_\-workspace} (void)
+\item 
+static void {\bf multiple\_\-zdscal} (int n\_\-seq, int inc\_\-seq, int n\_\-elem, int inc\_\-elem, double s, {\bf dcomplex} $\ast$z)
+\item 
+int {\bf select\-FFTGrid} (int n)
+\item 
+void {\bf m1d\-FFT} (int isign, void $\ast$vz, int n\_\-seq, int inc\_\-seq, int n\_\-elem, int inc\_\-elem, double scale)
+\item 
+void {\bf Three\_\-d\_\-FFT} (int isign, {\bf dcomplex} $\ast$z, int n1, int n2, int n3, int td2, int td3, double scale)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+{\bf dcomplex}
+\item 
+static int {\bf \_\-\_\-fwi1}
+\item 
+static int {\bf \_\-\_\-fwi2}
+\item 
+static int {\bf \_\-\_\-fwi3}
+\item 
+static int {\bf \_\-\_\-fwi4}
+\item 
+static int {\bf \_\-\_\-fwi5}
+\item 
+static int {\bf \_\-\_\-fwi6}
+\item 
+static int {\bf \_\-\_\-fwi7}
+\item 
+static int {\bf \_\-\_\-fwi8}
+\item 
+static int {\bf \_\-\_\-fwi9}
+\item 
+static int {\bf \_\-\_\-fwi10}
+\item 
+static double {\bf \_\-\_\-fwd1}
+\item 
+static int {\bf nwork} = 20000
+\item 
+static double $\ast$ {\bf work} [2]
+\item 
+static int {\bf work\_\-space\_\-allocated} = 0
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{fftwrap.c@{fftwrap.c}!PI@{PI}}
+\index{PI@{PI}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define PI~3.14159265359}\label{fftwrap_8c_598a3330b3c21701223ee0ca14316eca}
+
+
+
+
+\subsection{Function Documentation}
+\index{fftwrap.c@{fftwrap.c}!allocate_workspace@{allocate\_\-workspace}}
+\index{allocate_workspace@{allocate\_\-workspace}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void allocate\_\-workspace (void)\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_cf893a7a788dae71fa90c3b5eda18a3f}
+
+
+\index{fftwrap.c@{fftwrap.c}!m1dFFT@{m1dFFT}}
+\index{m1dFFT@{m1dFFT}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void m1d\-FFT (int {\em isign}, void $\ast$ {\em vz}, int {\em n\_\-seq}, int {\em inc\_\-seq}, int {\em n\_\-elem}, int {\em inc\_\-elem}, double {\em scale})}\label{fftwrap_8c_86ed7d309a06f95717a0afd0fa5a0d94}
+
+
+\index{fftwrap.c@{fftwrap.c}!m1dFFT@{m1dFFT}}
+\index{m1dFFT@{m1dFFT}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}$\ast$ It provides a common interface via the m1d\-FFT ()}\label{fftwrap_8c_a73a15d628e4cd563f0910acba9babb1}
+
+
+\index{fftwrap.c@{fftwrap.c}!multiple_zdscal@{multiple\_\-zdscal}}
+\index{multiple_zdscal@{multiple\_\-zdscal}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void multiple\_\-zdscal (int {\em n\_\-seq}, int {\em inc\_\-seq}, int {\em n\_\-elem}, int {\em inc\_\-elem}, double {\em s}, {\bf dcomplex} $\ast$ {\em z})\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_df5074eb43f4db739f47f2c6438f7e85}
+
+
+\index{fftwrap.c@{fftwrap.c}!NRm1dFFT@{NRm1dFFT}}
+\index{NRm1dFFT@{NRm1dFFT}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void NRm1d\-FFT ({\bf dcomplex} $\ast$ {\em u}, int {\em nseq}, int {\em iseq}, int {\em nelem}, int {\em ielem}, int {\em isign})\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_e305e673328e6df8745eca0ae0d65d38}
+
+
+\index{fftwrap.c@{fftwrap.c}!selectFFTGrid@{selectFFTGrid}}
+\index{selectFFTGrid@{selectFFTGrid}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int select\-FFTGrid (int {\em n})}\label{fftwrap_8c_6cf3832e181ea8cd27f85932fdcb9682}
+
+
+\index{fftwrap.c@{fftwrap.c}!Three_d_FFT@{Three\_\-d\_\-FFT}}
+\index{Three_d_FFT@{Three\_\-d\_\-FFT}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Three\_\-d\_\-FFT (int {\em isign}, {\bf dcomplex} $\ast$ {\em z}, int {\em n1}, int {\em n2}, int {\em n3}, int {\em td2}, int {\em td3}, double {\em scale})}\label{fftwrap_8c_ce5dcd57a4fa8413e4a3b2b0bded03b7}
+
+
+
+
+\subsection{Variable Documentation}
+\index{fftwrap.c@{fftwrap.c}!__fwd1@{\_\-\_\-fwd1}}
+\index{__fwd1@{\_\-\_\-fwd1}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf \_\-\_\-fwd1}\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_3b4d51bd9c6254d198ead421094ed496}
+
+
+\index{fftwrap.c@{fftwrap.c}!__fwi1@{\_\-\_\-fwi1}}
+\index{__fwi1@{\_\-\_\-fwi1}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf \_\-\_\-fwi1}\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_637378dc247f05fb8b48ba7b48b38d5c}
+
+
+\index{fftwrap.c@{fftwrap.c}!__fwi10@{\_\-\_\-fwi10}}
+\index{__fwi10@{\_\-\_\-fwi10}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf \_\-\_\-fwi10}\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_be7653b1783af66d71ccb1e2c002854e}
+
+
+\index{fftwrap.c@{fftwrap.c}!__fwi2@{\_\-\_\-fwi2}}
+\index{__fwi2@{\_\-\_\-fwi2}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf \_\-\_\-fwi2}\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_61dd905f205193761012c781bdf95376}
+
+
+\index{fftwrap.c@{fftwrap.c}!__fwi3@{\_\-\_\-fwi3}}
+\index{__fwi3@{\_\-\_\-fwi3}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf \_\-\_\-fwi3}\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_3934704e20e5db906e6db06e758f48d7}
+
+
+\index{fftwrap.c@{fftwrap.c}!__fwi4@{\_\-\_\-fwi4}}
+\index{__fwi4@{\_\-\_\-fwi4}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf \_\-\_\-fwi4}\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_f4e8c93e23396b1dc91253405419ea20}
+
+
+\index{fftwrap.c@{fftwrap.c}!__fwi5@{\_\-\_\-fwi5}}
+\index{__fwi5@{\_\-\_\-fwi5}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf \_\-\_\-fwi5}\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_694c1c008616203c67833e1bd4284847}
+
+
+\index{fftwrap.c@{fftwrap.c}!__fwi6@{\_\-\_\-fwi6}}
+\index{__fwi6@{\_\-\_\-fwi6}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf \_\-\_\-fwi6}\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_fc3eee9e19be5fb990b84dc876960421}
+
+
+\index{fftwrap.c@{fftwrap.c}!__fwi7@{\_\-\_\-fwi7}}
+\index{__fwi7@{\_\-\_\-fwi7}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf \_\-\_\-fwi7}\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_1187de68895d561138b89c9cc77a96ca}
+
+
+\index{fftwrap.c@{fftwrap.c}!__fwi8@{\_\-\_\-fwi8}}
+\index{__fwi8@{\_\-\_\-fwi8}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf \_\-\_\-fwi8}\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_363cb9f44ccea50b127f887c9b3c2d2a}
+
+
+\index{fftwrap.c@{fftwrap.c}!__fwi9@{\_\-\_\-fwi9}}
+\index{__fwi9@{\_\-\_\-fwi9}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf \_\-\_\-fwi9}\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_3ef37e6d393e7b1f946093230f39117e}
+
+
+\index{fftwrap.c@{fftwrap.c}!dcomplex@{dcomplex}}
+\index{dcomplex@{dcomplex}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf dcomplex}}\label{fftwrap_8c_a3067cd061f0cf29b191c1f83993d420}
+
+
+\index{fftwrap.c@{fftwrap.c}!nwork@{nwork}}
+\index{nwork@{nwork}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf nwork} = 20000\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_6ae096df311b1793d4017db4706416f5}
+
+
+\index{fftwrap.c@{fftwrap.c}!work@{work}}
+\index{work@{work}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf work}[2]\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_5c19848aaeca2db41eab88611f632964}
+
+
+\index{fftwrap.c@{fftwrap.c}!work_space_allocated@{work\_\-space\_\-allocated}}
+\index{work_space_allocated@{work\_\-space\_\-allocated}!fftwrap.c@{fftwrap.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf work\_\-space\_\-allocated} = 0\hspace{0.3cm}{\tt  [static]}}\label{fftwrap_8c_a48b3d0e030e8a0c499d0d53a5c5e6c7}
+
+

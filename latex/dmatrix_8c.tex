@@ -1,0 +1,79 @@
+\section{utils/dmatrix.c File Reference}
+\label{dmatrix_8c}\index{utils/dmatrix.c@{utils/dmatrix.c}}
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf MAX}(A, B)~((A$>$B)?(A):(B))
+\item 
+\#define {\bf MIN}(A, B)~((A$<$B)?(A):(B))
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+double $\ast$ {\bf dvector} (int nl, int nh)
+\item 
+void {\bf free\_\-dvector} (double $\ast${\bf v}, int nl, int nh)
+\item 
+double $\ast$$\ast$ {\bf dmatrix} (int nrl, int nrh, int ncl, int nch)
+\item 
+double $\ast$$\ast$ {\bf drematrix} (double $\ast$$\ast$, int, int, int, int, int, int, int, int)
+\item 
+void {\bf free\_\-dmatrix} (double $\ast$$\ast$m, int nrl, int nrh, int ncl, int nch)
+\item 
+double $\ast$$\ast$$\ast$ {\bf d3tensor} (int nrl, int nrh, int ncl, int nch, int ndl, int ndh)
+\item 
+void {\bf free\_\-d3tensor} (double $\ast$$\ast$$\ast$, int, int, int, int, int, int)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{dmatrix.c@{dmatrix.c}!MAX@{MAX}}
+\index{MAX@{MAX}!dmatrix.c@{dmatrix.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX(A, B)~((A$>$B)?(A):(B))}\label{dmatrix_8c_d935f1ff1a50822e317bdb321ce991ad}
+
+
+\index{dmatrix.c@{dmatrix.c}!MIN@{MIN}}
+\index{MIN@{MIN}!dmatrix.c@{dmatrix.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MIN(A, B)~((A$<$B)?(A):(B))}\label{dmatrix_8c_dcd021ac91d43a62b2cdecf9a5b971a7}
+
+
+
+
+\subsection{Function Documentation}
+\index{dmatrix.c@{dmatrix.c}!d3tensor@{d3tensor}}
+\index{d3tensor@{d3tensor}!dmatrix.c@{dmatrix.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$$\ast$$\ast$ d3tensor (int {\em nrl}, int {\em nrh}, int {\em ncl}, int {\em nch}, int {\em ndl}, int {\em ndh})}\label{dmatrix_8c_2d979fb34273362e83bdd8c9a0644bd1}
+
+
+\index{dmatrix.c@{dmatrix.c}!dmatrix@{dmatrix}}
+\index{dmatrix@{dmatrix}!dmatrix.c@{dmatrix.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ dmatrix (int {\em nrl}, int {\em nrh}, int {\em ncl}, int {\em nch})}\label{dmatrix_8c_3298d346d951a0f093a90b251ff83981}
+
+
+\index{dmatrix.c@{dmatrix.c}!drematrix@{drematrix}}
+\index{drematrix@{drematrix}!dmatrix.c@{dmatrix.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$$\ast$ drematrix (double $\ast$$\ast$, int, int, int, int, int, int, int, int)}\label{dmatrix_8c_fa37803c91af823a4b2a41cb07be2573}
+
+
+\index{dmatrix.c@{dmatrix.c}!dvector@{dvector}}
+\index{dvector@{dvector}!dmatrix.c@{dmatrix.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ dvector (int {\em nl}, int {\em nh})}\label{dmatrix_8c_50a6274883081fced51203fbfd455acc}
+
+
+\index{dmatrix.c@{dmatrix.c}!free_d3tensor@{free\_\-d3tensor}}
+\index{free_d3tensor@{free\_\-d3tensor}!dmatrix.c@{dmatrix.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-d3tensor (double $\ast$$\ast$$\ast$, int, int, int, int, int, int)}\label{dmatrix_8c_49d919d6e7283ddb5a3243191653f446}
+
+
+\index{dmatrix.c@{dmatrix.c}!free_dmatrix@{free\_\-dmatrix}}
+\index{free_dmatrix@{free\_\-dmatrix}!dmatrix.c@{dmatrix.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-dmatrix (double $\ast$$\ast$ {\em m}, int {\em nrl}, int {\em nrh}, int {\em ncl}, int {\em nch})}\label{dmatrix_8c_daec44c9a213f1abf0024b8dd18a1dc2}
+
+
+\index{dmatrix.c@{dmatrix.c}!free_dvector@{free\_\-dvector}}
+\index{free_dvector@{free\_\-dvector}!dmatrix.c@{dmatrix.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-dvector (double $\ast$ {\em v}, int {\em nl}, int {\em nh})}\label{dmatrix_8c_de97c412868dfcf63ffa3db5ce03ec70}
+
+
