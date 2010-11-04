@@ -86,7 +86,7 @@ void printcolvar(COLVAR *colvar)
 }
 
 /*--------------------------------------------------------------*/
-void colvar_init(int ncolvar,int istep,COLVAR *colvar)
+void colvar_init(int ncolvar,COLVAR *colvar)
 {
   int i;
   colvar->lasthill = 999999999;
@@ -126,7 +126,6 @@ void colvar_init(int ncolvar,int istep,COLVAR *colvar)
   for(i=0;i<ncolvar;++i){
     colvar->f_spring_cum[i] = 0.0;
   }
-
 }
 
 /*--------------------------------------------------------------*/

@@ -49,7 +49,7 @@ void colvarcntr_new(char *command,FILENAMES *filenames,SIMPARMS *simparms,
     readpos(command,filenames->initfile,simparms,
 	    &energies.estep,&energies,coords);
 
-    colvar_init(coords->colvar.ncolvar,simparms->istep,&(coords->colvar));
+    colvar_init(coords->colvar.ncolvar,&(coords->colvar));
     
     read_colvarfile(simparms,filenames->colvarcntrfile,coords);
     

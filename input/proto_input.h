@@ -107,5 +107,5 @@ void free_meta_keys(int nmeta,META_KEY **meta_key);
 
 /* ------------------------- read colvar file ----------------------------*/
 
-void colvar_init(int ncolvar,int step,COLVAR *);
+void colvar_init(int ncolvar,COLVAR *);
 void read_colvarfile(SIMPARMS *simparms,char *colvarfile,COORDS *coords);

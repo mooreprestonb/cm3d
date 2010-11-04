@@ -41,8 +41,5 @@ void colvarcntr(char *command,FILENAMES *filenames,SIMPARMS *simparms,
 		WRITE_STEP *write_step,COORDS *coords,INTER *inter,
 		NGBR *ngbr)
 {
-
-	colvarcntr_new(command, filenames, simparms, write_step, coords, inter, ngbr);
-
+  colvarcntr_new(command,filenames,simparms, write_step, coords, inter, ngbr);
 }
-

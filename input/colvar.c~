@@ -86,7 +86,7 @@ void printcolvar(COLVAR *colvar)
 }
 
 /*--------------------------------------------------------------*/
-void colvar_init(int ncolvar,COLVAR *colvar)
+void colvar_init(int ncolvar,int istep,COLVAR *colvar)
 {
   int i;
   colvar->lasthill = 999999999;
